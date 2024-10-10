@@ -72,7 +72,6 @@ public class App {
         Directivo Juan = new Directivo("Juan Lopez", "67890123V", 612345604, "Responsable de Marketing");
 
         // </editor-fold>
-        
         while (true) {
 
             try {
@@ -110,9 +109,8 @@ public class App {
                                 System.err.println("Parece que la opcion que ha seleccionado no esta disponible, porfavor intentelo de nuevo.");
                                 break;
                         }
-
                         // </editor-fold>
-                        
+                        break;
                     case 2:
                         // <editor-fold defaultstate="collapsed" desc="Opcion 2 - Eliminar a una persona">
 
@@ -123,7 +121,7 @@ public class App {
                         inputReader.nextLine();  // Consumir el salto de línea
                         Gestor.getInstancia().eliminarPersona(subIndice);
                         // </editor-fold>
-                         break;
+                        break;
                     case 3:
                         // <editor-fold defaultstate="collapsed" desc="Opcion 3 - Modificar una persona">
 
@@ -135,7 +133,7 @@ public class App {
                         Persona personaModificada = Gestor.getInstancia().recuperarPersona(subIndice);
                         System.out.println("Que atributos desea modificar?.");
                         modificarPersona(personaModificada);
-                    // </editor-fold>
+                        // </editor-fold>
                         break;
                     case 4:
                         crearPartido();
@@ -145,10 +143,7 @@ public class App {
 
                         Gestor.getInstancia().mostrarListaPersonas();
                         System.out.println("Escriba el DNI de la persona a la que le quiere generar una nomina");
-
-                        String dni = inputReader.next();
-                        inputReader.nextLine();  // Consumir el salto de línea
-                        Persona personaNomina = Gestor.getInstancia().recuperarPersonaDNI(dni);
+                        Persona personaNomina = Gestor.getInstancia().recuperarPersonaDNI();
                         generarNomina(personaNomina);
                         // </editor-fold>
                         break;
@@ -171,8 +166,8 @@ public class App {
     }
 
 
-    /*<T extends Enum<T>> Esto indica que el método acepta cualquier tipo que sea una enumeración.
-    Class<T> enumType: Pasamos la clase del enum como argumento*/
+    /*<T extends Enum<T>> Esto indica que el método permite devolver cualquier valor de cualquier enum.
+    Class<T> enumType: Nos permite pasar cualquier tipo de Enum como argumento*/
     public static <T extends Enum<T>> T elegirEnum(Class<T> enumType) {
         int eleccion;
         int i = 0;
@@ -295,128 +290,140 @@ public class App {
     public static void modificarPersona(Persona persona) {
 
         if (persona instanceof Jugador) {
-            Jugador jugador = (Jugador) persona; // Cast a Jugador
-            System.out.println("Que atributo de " + jugador.getNombre() + " desea cambiar?\n"
-                    + "1 - Nombre\n"
-                    + "2 - Apellidos\n"
-                    + "3 - Telefono\n"
-                    + "4 - Demarcacion\n"
-                    + "5 - Estado fisico\n"
-                    + "6 - Edad\n"
-                    + "7 - Valor de mercado"
-            );
-            int indice = inputReader.nextInt();
-            inputReader.nextLine();  // Consumir el salto de línea
-
-            switch (indice) {
-                case 1:
-                    System.out.println("Indique el nuevo nombre del jugador");
-                    jugador.setNombre(inputReader.next());
-                    inputReader.nextLine();  // Consumir el salto de línea
-                    break;
-                case 2:
-                    System.out.println("Indique los nuevos apellidos del jugador");
-                    jugador.setApellidos(inputReader.next());
-                    inputReader.nextLine();  // Consumir el salto de línea
-                    break;
-                case 3:
-                    System.out.println("Indique el nuevo telefono del jugador");
-                    persona.setTelefono(inputReader.nextInt());
-                    inputReader.nextLine();  // Consumir el salto de línea
-                    break;
-                case 4:
-                    System.out.println("Indique la nueva demarcacion del jugador");
-                    jugador.setDemarcacion(elegirEnum(Demarcacion.class));
-                    break;
-                case 5:
-                    System.out.println("Indique si el jugador esta lesionado");
-                    jugador.setEstadoFisico(elegirEstadoFisico());
-                    break;
-                case 6:
-                    System.out.println("Indique la nueva edad del jugador");
-                    jugador.setEdad(inputReader.nextInt());
-                    inputReader.nextLine();  // Consumir el salto de línea
-                    break;
-                case 7:
-                    System.out.println("Indique el nuevo valor del mercado del jugador");
-                    jugador.setValorMercado(inputReader.nextInt());
-                    inputReader.nextLine();  // Consumir el salto de línea
-                    break;
-                default:
-                    System.err.println("Error, parece que no escribio una opcion valida");
-                    return;
-            }
+            modificarJugador(persona);
         }
-        
+
         if (persona instanceof Directivo) {
-            Directivo directivo = (Directivo) persona; // Cast a Directivo
-            System.out.println("Que atributo de " + directivo.getNombre() + " desea cambiar?\n"
-                    + "1 - Nombre\n"
-                    + "2 - Telefono\n"
-                    + "3 - Cargo"
-            );
-            int indice = inputReader.nextInt();
-            inputReader.nextLine();  // Consumir el salto de línea
-
-            switch (indice) {
-                case 1:
-                    System.out.println("Indique el nuevo nombre del directivo");
-                    directivo.setNombre(inputReader.next());
-                    inputReader.nextLine();  // Consumir el salto de línea
-                    break;
-                case 2:
-                    System.out.println("Indique el nuevo telefono del directivo");
-                    directivo.setTelefono(inputReader.nextInt());
-                    inputReader.nextLine();  // Consumir el salto de línea
-                    break;
-                case 3:
-                    System.out.println("Indique el nuevo cargo del directivo");
-                    directivo.setCargo(inputReader.next());
-                    inputReader.nextLine();  // Consumir el salto de línea
-                    break;
-                default:
-                    System.err.println("Error, parece que no escribio una opcion valida");
-                    return;
-            }
+            modificarDirectivo(persona);
         }
-        
+
         if (persona instanceof Tecnico) {
-
-            Tecnico tecnico = (Tecnico) persona; // Cast a Tecnico
-            System.out.println("Que atributo de " + tecnico.getNombre() + " desea cambiar?\n"
-                    + "1 - Nombre\n"
-                    + "2 - Telefono\n"
-                    + "3 - Puesto\n"
-                    + "4 - Especialidad"
-            );
-            int indice = inputReader.nextInt();
-            inputReader.nextLine();  // Consumir el salto de línea
-
-            switch (indice) {
-                case 1:
-                    System.out.println("Indique el nuevo nombre del tecnico");
-                    tecnico.setNombre(inputReader.next());
-                    inputReader.nextLine();  // Consumir el salto de línea
-                    break;
-                case 2:
-                    System.out.println("Indique el nuevo telefono del tecnico");
-                    tecnico.setTelefono(inputReader.nextInt());
-                    inputReader.nextLine();  // Consumir el salto de línea
-                    break;
-                case 3:
-                    System.out.println("Indique el nuevo puesto del tecnico");
-                    tecnico.setPuesto(elegirEnum(Puesto.class));
-                    break;
-                case 4:
-                    System.out.println("Indique la nueva especialidad del tecnico");
-                    tecnico.setEspecialidad(elegirEnum(Especialidad.class));
-                    break;
-                default:
-                    System.err.println("Error, parece que no escribio una opcion valida");
-                    return;
-            }
+            modificarTecnico(persona);
         }
 
+    }
+
+    public static void modificarJugador(Persona persona) {
+        Jugador jugador = (Jugador) persona; // Cast a Jugador
+        System.out.println("Que atributo de " + jugador.getNombre() + " desea cambiar?\n"
+                + "1 - Nombre\n"
+                + "2 - Apellidos\n"
+                + "3 - Telefono\n"
+                + "4 - Demarcacion\n"
+                + "5 - Estado fisico\n"
+                + "6 - Edad\n"
+                + "7 - Valor de mercado"
+        );
+        int indice = inputReader.nextInt();
+        inputReader.nextLine();  // Consumir el salto de línea
+
+        switch (indice) {
+            case 1:
+                System.out.println("Indique el nuevo nombre del jugador");
+                jugador.setNombre(inputReader.next());
+                inputReader.nextLine();  // Consumir el salto de línea
+                break;
+            case 2:
+                System.out.println("Indique los nuevos apellidos del jugador");
+                jugador.setApellidos(inputReader.next());
+                inputReader.nextLine();  // Consumir el salto de línea
+                break;
+            case 3:
+                System.out.println("Indique el nuevo telefono del jugador");
+                persona.setTelefono(inputReader.nextInt());
+                inputReader.nextLine();  // Consumir el salto de línea
+                break;
+            case 4:
+                System.out.println("Indique la nueva demarcacion del jugador");
+                jugador.setDemarcacion(elegirEnum(Demarcacion.class));
+                break;
+            case 5:
+                System.out.println("Indique si el jugador esta lesionado");
+                jugador.setEstadoFisico(elegirEstadoFisico());
+                break;
+            case 6:
+                System.out.println("Indique la nueva edad del jugador");
+                jugador.setEdad(inputReader.nextInt());
+                inputReader.nextLine();  // Consumir el salto de línea
+                break;
+            case 7:
+                System.out.println("Indique el nuevo valor del mercado del jugador");
+                jugador.setValorMercado(inputReader.nextInt());
+                inputReader.nextLine();  // Consumir el salto de línea
+                break;
+            default:
+                System.err.println("Error, parece que no escribio una opcion valida");
+                return;
+        }
+    }
+
+    public static void modificarDirectivo(Persona persona) {
+
+        Directivo directivo = (Directivo) persona; // Cast a Directivo
+        System.out.println("Que atributo de " + directivo.getNombre() + " desea cambiar?\n"
+                + "1 - Nombre\n"
+                + "2 - Telefono\n"
+                + "3 - Cargo"
+        );
+        int indice = inputReader.nextInt();
+        inputReader.nextLine();  // Consumir el salto de línea
+
+        switch (indice) {
+            case 1:
+                System.out.println("Indique el nuevo nombre del directivo");
+                directivo.setNombre(inputReader.next());
+                inputReader.nextLine();  // Consumir el salto de línea
+                break;
+            case 2:
+                System.out.println("Indique el nuevo telefono del directivo");
+                directivo.setTelefono(inputReader.nextInt());
+                inputReader.nextLine();  // Consumir el salto de línea
+                break;
+            case 3:
+                System.out.println("Indique el nuevo cargo del directivo");
+                directivo.setCargo(inputReader.next());
+                inputReader.nextLine();  // Consumir el salto de línea
+                break;
+            default:
+                System.err.println("Error, parece que no escribio una opcion valida");
+                return;
+        }
+    }
+
+    public static void modificarTecnico(Persona persona) {
+        Tecnico tecnico = (Tecnico) persona; // Cast a Tecnico
+        System.out.println("Que atributo de " + tecnico.getNombre() + " desea cambiar?\n"
+                + "1 - Nombre\n"
+                + "2 - Telefono\n"
+                + "3 - Puesto\n"
+                + "4 - Especialidad"
+        );
+        int indice = inputReader.nextInt();
+        inputReader.nextLine();  // Consumir el salto de línea
+
+        switch (indice) {
+            case 1:
+                System.out.println("Indique el nuevo nombre del tecnico");
+                tecnico.setNombre(inputReader.next());
+                inputReader.nextLine();  // Consumir el salto de línea
+                break;
+            case 2:
+                System.out.println("Indique el nuevo telefono del tecnico");
+                tecnico.setTelefono(inputReader.nextInt());
+                inputReader.nextLine();  // Consumir el salto de línea
+                break;
+            case 3:
+                System.out.println("Indique el nuevo puesto del tecnico");
+                tecnico.setPuesto(elegirEnum(Puesto.class));
+                break;
+            case 4:
+                System.out.println("Indique la nueva especialidad del tecnico");
+                tecnico.setEspecialidad(elegirEnum(Especialidad.class));
+                break;
+            default:
+                System.err.println("Error, parece que no escribio una opcion valida");
+                return;
+        }
     }
 
     public static void crearPartido() {
@@ -481,4 +488,5 @@ public class App {
         persona.setNomina(nomina);
         System.out.println("-----------------------------------------\nNomina con el codigo " + codigoUnico + " generada con exito. \n-----------------------------------------\n\n");
     }
+
 }

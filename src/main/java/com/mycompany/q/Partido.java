@@ -15,7 +15,7 @@ import java.util.List;
 public class Partido {
 
     private Resultado resultado;
-    private String equipoRival;
+    private final String equipoRival;
     private Date fechaPartido;
     private boolean isLocal;    //isLocal = true es que el usuario es local
     private List<Jugador> jugadores = new ArrayList<Jugador>();
@@ -52,12 +52,6 @@ public class Partido {
         return equipoRival;
     }
 
-    /**
-     * @param equipoRival the equipoRival to set
-     */
-    public void setEquipoRival(String equipoRival) {
-        this.equipoRival = equipoRival;
-    }
 
     /**
      * @return the fechaPartido

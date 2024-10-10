@@ -7,6 +7,7 @@ package com.mycompany.q;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Scanner;
 
 /**
  *
@@ -34,21 +35,21 @@ public class Gestor {
     }
 
     /**
-     * @param listaPersonas the listaPersonas to set
+     * @param persona add person to listaPersonas
      */
     public void agregarPersona(Persona persona) {
         listaPersonas.add(persona);
     }
 
     /**
-     * @param eliminarPersona the listaPersonas to delete
+     * @param persona the Persona in listaPersonas to delete
      */
     public void eliminarPersona(Persona persona) {
         listaPersonas.remove(persona);
     }
 
     /**
-     * @param eliminarPersona the listaPersonas to delete by index
+     * @param indice the listaPersonas to delete by index
      */
     public void eliminarPersona(int indice) {
         Date diaDespido = new Date();
@@ -63,9 +64,7 @@ public class Gestor {
 
     }
 
-    /**
-     * @param mostrarListaPersonas print listaPersonas
-     */
+    
     public void mostrarListaPersonas() {
         int indice = 0;
         System.out.println("Las personas dadas de alta ahora mismo son: ");
@@ -80,7 +79,8 @@ public class Gestor {
     }
 
     /**
-     * @param recuperarPersona returns Persona in listaPersona by index
+     * @param indice returns Persona in listaPersona by index
+     * @return Persona
      */
     public Persona recuperarPersona(int indice) {
         if (indice < 1 || indice > listaPersonas.size()) {
@@ -108,14 +108,21 @@ public class Gestor {
         listaPartidos.add(partido);
     }
 
-    public Persona recuperarPersonaDNI(String dni) {
-        for (Persona persona : listaPersonas) {
-            if (persona.getDni().equals(dni)) {
-                return persona;
+    /**
+     * @return Persona deploying menu to search by DNI
+     */
+    public Persona recuperarPersonaDNI() {
+        while (true) {
+            Scanner inputReader = new Scanner(System.in); // Reading from System.in
+            String dni = inputReader.next();
+            inputReader.nextLine();  // Consumir el salto de línea
+            for (Persona persona : listaPersonas) {
+                if (persona.getDni().equals(dni)) {
+                    return persona;
+                }
             }
+            System.out.println("No se encontro a ninguna persona con el DNI: " + dni + " \nIntroduzca el DNI de nuevo.");
         }
-        System.out.println("No se encontro a ninguna persona con el DNI: " + dni);
-        return null;
     }
 
 }
