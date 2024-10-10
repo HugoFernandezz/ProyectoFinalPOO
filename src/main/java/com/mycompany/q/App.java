@@ -109,7 +109,7 @@ public class App {
                                 System.err.println("Parece que la opcion que ha seleccionado no esta disponible, porfavor intentelo de nuevo.");
                                 break;
                         }
-                    // </editor-fold>
+                        // </editor-fold>
                         break;
                     case 2:
                         // <editor-fold defaultstate="collapsed" desc="Opcion 2 - Eliminar a una persona">
@@ -143,10 +143,7 @@ public class App {
 
                         Gestor.getInstancia().mostrarListaPersonas();
                         System.out.println("Escriba el DNI de la persona a la que le quiere generar una nomina");
-
-                        String dni = inputReader.next();
-                        inputReader.nextLine();  // Consumir el salto de línea
-                        Persona personaNomina = Gestor.getInstancia().recuperarPersonaDNI(dni);
+                        Persona personaNomina = Gestor.getInstancia().recuperarPersonaDNI();
                         generarNomina(personaNomina);
                         // </editor-fold>
                         break;
