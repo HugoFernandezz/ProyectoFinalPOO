@@ -34,7 +34,7 @@ public class Gestor {
     }
 
     /**
-     * @param listaPersonas the listaPersonas to set
+     * @param agregarPersona add person to listaPersonas
      */
     public void agregarPersona(Persona persona) {
         listaPersonas.add(persona);
