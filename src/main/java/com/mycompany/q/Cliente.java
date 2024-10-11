@@ -13,6 +13,16 @@ public class Cliente {
     private String cif;
     private String nombre;
 
+    /***
+     * @param cif
+     * @param nombre 
+     */
+    public Cliente(String cif, String nombre) {
+        this.cif = cif;
+        this.nombre = nombre;
+    }
+    
+   
     /**
      * @return the cif
      */

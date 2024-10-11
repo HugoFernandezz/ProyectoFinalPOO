@@ -11,9 +11,25 @@ package com.mycompany.q;
 public class Factura {
 
     private String codigoUnico;
-    private int cantidad;
-    private int fechaPago;
+    private float cantidad;
+    private String fechaPago;
     private Cliente cliente;
+
+    
+    /**
+     * 
+     * @param codigoUnico
+     * @param cantidad
+     * @param fechaPago
+     * @param cliente 
+     */
+    public Factura(String codigoUnico, float cantidad, String fechaPago, Cliente cliente) {
+        this.codigoUnico = codigoUnico;
+        this.cantidad = cantidad;
+        this.fechaPago = fechaPago;
+        this.cliente = cliente;
+    }
+    
 
     /**
      * @return the codigoUnico
@@ -32,28 +48,28 @@ public class Factura {
     /**
      * @return the cantidad
      */
-    public int getCantidad() {
+    public float getCantidad() {
         return cantidad;
     }
 
     /**
      * @param cantidad the cantidad to set
      */
-    public void setCantidad(int cantidad) {
+    public void setCantidad(float cantidad) {
         this.cantidad = cantidad;
     }
 
     /**
      * @return the fechaPago
      */
-    public int getFechaPago() {
+    public String getFechaPago() {
         return fechaPago;
     }
 
     /**
      * @param fechaPago the fechaPago to set
      */
-    public void setFechaPago(int fechaPago) {
+    public void setFechaPago(String fechaPago) {
         this.fechaPago = fechaPago;
     }
 

@@ -136,7 +136,9 @@ public class App {
                         // </editor-fold>
                         break;
                     case 4:
+                         // <editor-fold defaultstate="collapsed" desc="Opcion 4 - Crear partido">
                         crearPartido();
+                        // </editor-fold>
                         break;
                     case 5:
                         // <editor-fold defaultstate="collapsed" desc="Opcion 5 - Crear una nomina">
@@ -148,6 +150,11 @@ public class App {
                         // </editor-fold>
                         break;
                     case 6:
+                        // <editor-fold defaultstate="collapsed" desc="Opcion 6 - Crear una factura">
+                        crearFactura();
+                        // </editor-fold>
+                        break;
+                    case 7:
                         System.out.println("Saliendo...");
                         return;
                     default:
@@ -276,6 +283,41 @@ public class App {
         Directivo directivo = new Directivo(nombre, dni, telefono, cargo);
         System.out.println("-----------------------------------------\nDirectivo " + nombre + " dado de alta correctamente. \n-----------------------------------------\n\n");
     }
+    
+    public static void crearFactura(){
+        String nombre;
+        String cif;
+        float cantidad;
+        String fechaPago;
+        String codigoUnico;
+        
+        System.out.println("Indique el nombre de su cliente: ");
+        nombre = inputReader.next();
+        inputReader.nextLine();  // Consumir el salto de línea
+        
+        System.out.println("Indique el CIF de su cliente");
+        cif = inputReader.next();
+        inputReader.nextLine();  // Consumir el salto de línea
+        
+        Cliente cliente = new Cliente(cif, nombre);
+        
+        System.out.println("Indique la cantidad en euros de la factura: ");
+        cantidad = inputReader.nextInt();
+        inputReader.nextLine();  // Consumir el salto de línea
+        
+        //TODO sanear este input
+        System.out.println("Indique la fecha de pago con el formato 'DD/MM/YYYY': ");
+        fechaPago = inputReader.next();
+        inputReader.nextLine();  // Consumir el salto de línea
+        
+        System.out.println("Indique el codigo unico de su factura");
+        codigoUnico = inputReader.next();
+        inputReader.nextLine();  // Consumir el salto de línea
+        
+        Factura factura = new Factura(codigoUnico, cantidad, fechaPago, cliente);
+        
+        System.out.println("-----------------------------------------\nFactura con el codigo " + codigoUnico + " creada con exito. \n-----------------------------------------\n\n");
+    }
 
     public static void mostrarMenuPrincipal() {
         System.out.println("Seleccione una de las opciones:\n"
@@ -284,7 +326,8 @@ public class App {
                 + "3 - Modificar los datos de una persona. \n"
                 + "4 - Jugar un partido. \n"
                 + "5 - Crear nomina. \n"
-                + "6 - Salir");
+                + "6 - Crear factura. \n"
+                + "7 - Salir");
     }
 
     public static void modificarPersona(Persona persona) {

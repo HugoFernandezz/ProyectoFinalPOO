@@ -5,6 +5,7 @@
 package com.mycompany.q;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
@@ -64,7 +65,6 @@ public class Gestor {
 
     }
 
-    
     public void mostrarListaPersonas() {
         int indice = 0;
         System.out.println("Las personas dadas de alta ahora mismo son: ");
@@ -123,6 +123,32 @@ public class Gestor {
             }
             System.out.println("No se encontro a ninguna persona con el DNI: " + dni + " \nIntroduzca el DNI de nuevo.");
         }
+    }
+
+    public List<Persona> listaPersonasSortedDNI(List<Persona> lista) {
+
+        List<Persona> myNewListPersona = new ArrayList(lista);
+        //La expresion "p->p.dni" ira cogiendo las personas de mi lista personas y comparar los 
+        //valores de sus dni, por defecto ya los ordenada de MAYOR a MENOR
+        myNewListPersona.sort(Comparator.comparing(p -> p.getDni()));
+
+        return myNewListPersona;
+    }
+
+    public List<Persona> listaPersonasFueraClub(List<Persona> lista) {
+
+        List<Persona> myNewListPersona = new ArrayList(lista);
+        for (Persona persona : listaPersonas) {
+            if (!persona.isIsOnClub()) {
+                myNewListPersona.add(persona);
+            }
+        }
+        
+        //La expresion "p->p.dni" ira cogiendo las personas de mi lista personas y comparar los 
+        //valores de sus dni, por defecto ya los ordenada de MAYOR a MENOR
+        myNewListPersona.sort(Comparator.comparing(p -> p.getNombre()));
+
+        return myNewListPersona;
     }
 
 }
