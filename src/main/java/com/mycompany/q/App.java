@@ -3,7 +3,9 @@
  */
 package com.mycompany.q;
 
+import java.util.ArrayList;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -57,19 +59,19 @@ public class App {
         Jugador carlosRojas = new Jugador("Carlos", "Rojas", 612345708, Demarcacion.extremo, 24, 400000, true, "12345678E");
         Jugador alexRubio = new Jugador("Alex", "Rubio", 612345709, Demarcacion.extremo, 26, 500000, true, "23456789F");
 
-// Técnicos
-        Tecnico Carlos = new Tecnico("Carlos Martinez", 612345600, Puesto.entrenador, Especialidad.principal, "34567890Z");
-        Tecnico Miguel = new Tecnico("Miguel Sanchez", 612345601, Puesto.preparador, Especialidad.ayudante, "45678901Y");
-        Tecnico Javier = new Tecnico("Javier Fernandez", 612345602, Puesto.analista, Especialidad.principal, "56789012X");
-        Tecnico Roberto = new Tecnico("Roberto Garcia", 612345603, Puesto.scout, Especialidad.ayudante, "67890123W");
-        Tecnico Alberto = new Tecnico("Alberto Gomez", 612345604, Puesto.preparador, Especialidad.porteros, "78901234V");
+        // Técnicos
+        Tecnico Carlos = new Tecnico("Carlos", "Martinez", 612345600, Puesto.entrenador, Especialidad.principal, "34567890Z");
+        Tecnico Miguel = new Tecnico("Miguel", "Sanchez", 612345601, Puesto.preparador, Especialidad.ayudante, "45678901Y");
+        Tecnico Javier = new Tecnico("Javier", "Fernandez", 612345602, Puesto.analista, Especialidad.principal, "56789012X");
+        Tecnico Roberto = new Tecnico("Roberto", "Garcia", 612345603, Puesto.scout, Especialidad.ayudante, "67890123W");
+        Tecnico Alberto = new Tecnico("Alberto", "Gomez", 612345604, Puesto.preparador, Especialidad.porteros, "78901234V");
 
 // Directivos
-        Directivo Luis = new Directivo("Luis Perez", "23456789Z", 612345600, "Presidente");
-        Directivo Ana = new Directivo("Ana Rodriguez", "34567890Y", 612345601, "Director Deportivo");
-        Directivo Jorge = new Directivo("Jorge Martinez", "45678901X", 612345602, "Gerente General");
-        Directivo Marta = new Directivo("Marta Fernandez", "56789012W", 612345603, "Jefe de Finanzas");
-        Directivo Juan = new Directivo("Juan Lopez", "67890123V", 612345604, "Responsable de Marketing");
+        Directivo Luis = new Directivo("Luis", "Perez", "23456789Z", 612345600, "Presidente");
+        Directivo Ana = new Directivo("Ana", "Rodriguez", "34567890Y", 612345601, "Director Deportivo");
+        Directivo Jorge = new Directivo("Jorge", "Martinez", "45678901X", 612345602, "Gerente General");
+        Directivo Marta = new Directivo("Marta", "Fernandez", "56789012W", 612345603, "Jefe de Finanzas");
+        Directivo Juan = new Directivo("Juan", "Lopez", "67890123V", 612345604, "Responsable de Marketing");
 
         // </editor-fold>
         while (true) {
@@ -136,7 +138,7 @@ public class App {
                         // </editor-fold>
                         break;
                     case 4:
-                         // <editor-fold defaultstate="collapsed" desc="Opcion 4 - Crear partido">
+                        // <editor-fold defaultstate="collapsed" desc="Opcion 4 - Crear partido">
                         crearPartido();
                         // </editor-fold>
                         break;
@@ -146,19 +148,57 @@ public class App {
                         Gestor.getInstancia().mostrarListaPersonas();
                         System.out.println("Escriba el DNI de la persona a la que le quiere generar una nomina");
                         Persona personaNomina = Gestor.getInstancia().recuperarPersonaDNI();
-                        generarNomina(personaNomina);
+                        generarNominaUnipersonal(personaNomina);
                         // </editor-fold>
                         break;
                     case 6:
-                        // <editor-fold defaultstate="collapsed" desc="Opcion 6 - Crear una factura">
-                        crearFactura();
+                        // <editor-fold defaultstate="collapsed" desc="Opcion 6 - Crear una nomina masiva">
+                        generarNominasMasivas();
                         // </editor-fold>
                         break;
                     case 7:
+                        // <editor-fold defaultstate="collapsed" desc="Opcion 7 - Crear una factura">
+                        crearFactura();
+                        // </editor-fold>
+                        break;
+                    case 8:
+                        // <editor-fold defaultstate="collapsed" desc="Opcion 7 - Generar listados">
+                        System.out.println("Que tipo de lista quiere generar?"
+                                + "\n 1 - Listado de empleados activos ordenador por DNI (Fichero.txt)."
+                                + "\n 2 - Listado de empleados eliminados ordenados por apellido y nombre (Fichero.txt)."
+                                + "\n 3 - Listado de resultados del equipo de una temporada (Fichero.txt)."
+                                + "\n 4 - Listado de nominas generadas (Fichero.txt)."
+                                + "\n 5 - Salir.");
+
+                        subIndice = inputReader.nextInt();
+                        inputReader.nextLine();  // Consumir el salto de línea
+
+                        switch (subIndice) {
+                            case 1:
+                                Gestor.getInstancia().generadoresDeEmpleados();
+                                break;
+                            case 2:
+                                Gestor.getInstancia().generarEmpleadosEliminados();
+                                break;
+                            case 3:
+                                Gestor.getInstancia().generarListaPartidos();
+                                break;
+                            case 4:
+                                Gestor.getInstancia().generarListaNominas();
+                                break;
+                            default:
+                                System.err.println("Parece que la opcion que ha seleccionado no esta disponible, porfavor intentelo de nuevo.");
+
+                                break;
+                        }
+                        // </editor-fold>
+                        break;
+                    case 9:
                         System.out.println("Saliendo...");
                         return;
                     default:
                         System.err.println("Parece que la opcion que ha seleccionado no esta disponible, porfavor intentelo de nuevo.");
+
                         break;
 
                 }
@@ -250,18 +290,26 @@ public class App {
         System.out.println("Indique el nombre del tecnico");
         String nombre = inputReader.next();
         inputReader.nextLine();  // Consumir el salto de línea
+
+        System.out.println("Indique el apellido del tecnico");
+        String apellido = inputReader.next();
+        inputReader.nextLine();  // Consumir el salto de línea
+
         System.out.println("Indique el telefono del tecnico");
         int telefono = inputReader.nextInt();
         inputReader.nextLine();  // Consumir el salto de línea
+
         System.out.println("Indique el puesto del tecnico");
         Puesto puesto = elegirEnum(Puesto.class);
+
         System.out.println("Indique la especialidad del tecnico");
         Especialidad especialidad = elegirEnum(Especialidad.class);
+
         System.out.println("Indique el DNI del tecnico");
         String dni = inputReader.next();
         inputReader.nextLine();  // Consumir el salto de línea
 
-        Tecnico tecnico = new Tecnico(nombre, telefono, puesto, especialidad, dni);
+        Tecnico tecnico = new Tecnico(nombre, apellido, telefono, puesto, especialidad, dni);
         System.out.println("-----------------------------------------\nTecnico " + nombre + " dado de alta correctamente. \n-----------------------------------------\n\n");
     }
 
@@ -270,52 +318,59 @@ public class App {
         System.out.println("Indique el nombre del directivo");
         String nombre = inputReader.next();
         inputReader.nextLine();  // Consumir el salto de línea
+
+        System.out.println("Indique el apellido del directivo");
+        String apellido = inputReader.next();
+        inputReader.nextLine();  // Consumir el salto de línea
+
         System.out.println("Indique el telefono del directivo");
         int telefono = inputReader.nextInt();
         inputReader.nextLine();  // Consumir el salto de línea
+
         System.out.println("Indique el cargo del directivo");
         String cargo = inputReader.next();
         inputReader.nextLine();  // Consumir el salto de línea
+
         System.out.println("Indique el DNI del directivo");
         String dni = inputReader.next();
         inputReader.nextLine();  // Consumir el salto de línea
 
-        Directivo directivo = new Directivo(nombre, dni, telefono, cargo);
+        Directivo directivo = new Directivo(nombre, apellido, dni, telefono, cargo);
         System.out.println("-----------------------------------------\nDirectivo " + nombre + " dado de alta correctamente. \n-----------------------------------------\n\n");
     }
-    
-    public static void crearFactura(){
+
+    public static void crearFactura() {
         String nombre;
         String cif;
         float cantidad;
         String fechaPago;
         String codigoUnico;
-        
+
         System.out.println("Indique el nombre de su cliente: ");
         nombre = inputReader.next();
         inputReader.nextLine();  // Consumir el salto de línea
-        
+
         System.out.println("Indique el CIF de su cliente");
         cif = inputReader.next();
         inputReader.nextLine();  // Consumir el salto de línea
-        
+
         Cliente cliente = new Cliente(cif, nombre);
-        
+
         System.out.println("Indique la cantidad en euros de la factura: ");
         cantidad = inputReader.nextInt();
         inputReader.nextLine();  // Consumir el salto de línea
-        
+
         //TODO sanear este input
         System.out.println("Indique la fecha de pago con el formato 'DD/MM/YYYY': ");
         fechaPago = inputReader.next();
         inputReader.nextLine();  // Consumir el salto de línea
-        
+
         System.out.println("Indique el codigo unico de su factura");
         codigoUnico = inputReader.next();
         inputReader.nextLine();  // Consumir el salto de línea
-        
+
         Factura factura = new Factura(codigoUnico, cantidad, fechaPago, cliente);
-        
+
         System.out.println("-----------------------------------------\nFactura con el codigo " + codigoUnico + " creada con exito. \n-----------------------------------------\n\n");
     }
 
@@ -326,8 +381,10 @@ public class App {
                 + "3 - Modificar los datos de una persona. \n"
                 + "4 - Jugar un partido. \n"
                 + "5 - Crear nomina. \n"
-                + "6 - Crear factura. \n"
-                + "7 - Salir");
+                + "6 - Crear nomina masiva. \n"
+                + "7 - Crear factura. \n"
+                + "8 - Imprimir listados. \n"
+                + "9 - Salir");
     }
 
     public static void modificarPersona(Persona persona) {
@@ -368,7 +425,7 @@ public class App {
                 break;
             case 2:
                 System.out.println("Indique los nuevos apellidos del jugador");
-                jugador.setApellidos(inputReader.next());
+                jugador.setApellido(inputReader.next());
                 inputReader.nextLine();  // Consumir el salto de línea
                 break;
             case 3:
@@ -418,11 +475,16 @@ public class App {
                 inputReader.nextLine();  // Consumir el salto de línea
                 break;
             case 2:
+                System.out.println("Indique el nuevo apellido del directivo");
+                directivo.setApellido(inputReader.next());
+                inputReader.nextLine();  // Consumir el salto de línea
+                break;
+            case 3:
                 System.out.println("Indique el nuevo telefono del directivo");
                 directivo.setTelefono(inputReader.nextInt());
                 inputReader.nextLine();  // Consumir el salto de línea
                 break;
-            case 3:
+            case 4:
                 System.out.println("Indique el nuevo cargo del directivo");
                 directivo.setCargo(inputReader.next());
                 inputReader.nextLine();  // Consumir el salto de línea
@@ -450,16 +512,21 @@ public class App {
                 tecnico.setNombre(inputReader.next());
                 inputReader.nextLine();  // Consumir el salto de línea
                 break;
-            case 2:
+            case 3:
+                System.out.println("Indique el nuevo apellido del tecnico");
+                tecnico.setApellido(inputReader.next());
+                inputReader.nextLine();  // Consumir el salto de línea
+                break;
+            case 4:
                 System.out.println("Indique el nuevo telefono del tecnico");
                 tecnico.setTelefono(inputReader.nextInt());
                 inputReader.nextLine();  // Consumir el salto de línea
                 break;
-            case 3:
+            case 5:
                 System.out.println("Indique el nuevo puesto del tecnico");
                 tecnico.setPuesto(elegirEnum(Puesto.class));
                 break;
-            case 4:
+            case 6:
                 System.out.println("Indique la nueva especialidad del tecnico");
                 tecnico.setEspecialidad(elegirEnum(Especialidad.class));
                 break;
@@ -490,7 +557,7 @@ public class App {
     public static boolean elegirLocal() {
         while (true) {
             System.out.println("Usted juega de local?\n S/N");
-            String miEleccion = inputReader.next();
+            String miEleccion = inputReader.next().toUpperCase();
             inputReader.nextLine();  // Consumir el salto de línea
             switch (miEleccion) {
                 case "S":
@@ -504,8 +571,15 @@ public class App {
         }
     }
 
-    public static void generarNomina(Persona persona) {
+    public static void generarNominaUnipersonal(Persona persona) {
         System.err.println("Vas a crearle una nomina a " + persona.getNombre());
+        Nomina nomina = generarNomina();
+        nomina.setPersona(persona);
+        persona.setNomina(nomina);
+        System.out.println("-----------------------------------------\nNomina con el codigo " + nomina.getConcepto().getCodigo() + " generada con exito. \n-----------------------------------------\n\n");
+    }
+
+    public static Nomina generarNomina() {
         System.out.println("Cuanto es el importe de su nomina?");
         int importe = inputReader.nextInt();
         inputReader.nextLine();  // Consumir el salto de línea
@@ -528,8 +602,41 @@ public class App {
         inputReader.nextLine();  // Consumir el salto de línea
 
         Nomina nomina = new Nomina(mes, ano, concepto);
-        persona.setNomina(nomina);
-        System.out.println("-----------------------------------------\nNomina con el codigo " + codigoUnico + " generada con exito. \n-----------------------------------------\n\n");
+        return nomina;
+    }
+
+    public static void generarNominasMasivas() {
+        Gestor.getInstancia().mostrarListaPersonas();
+
+        System.out.println("Elija el numero de la persona a la que quiera anadir a la lista.");
+        System.out.println("Las personas que anada a la lista seran quienes reciban la nomina que generaremos.");
+
+        List<Persona> listaPersonas = new ArrayList();
+        int subIndice;
+
+        while (true) {
+            subIndice = inputReader.nextInt();
+            inputReader.nextLine();  // Consumir el salto de línea
+            if (subIndice == 0) {
+                break;
+            }
+            Persona persona = Gestor.getInstancia().recuperarPersona(subIndice);
+            listaPersonas.add(persona);
+            System.out.println(persona.getNombre() + " se anadio a la lista.");
+            System.out.println("Elija otra persona para anadirla a la lista.");
+            System.out.println("Cuando quiera dejar de anadir gente a la lista escriba '0'.");
+        }
+
+        Nomina nomina = generarNomina();
+
+        for (Persona persona : listaPersonas) {
+            nomina.setPersona(persona);
+            persona.setNomina(nomina);
+            Gestor.getInstancia().agregarNomina(new Nomina(nomina));
+        }
+
+        System.out.println("Nomina masiva generada con exito");
+
     }
 
 }

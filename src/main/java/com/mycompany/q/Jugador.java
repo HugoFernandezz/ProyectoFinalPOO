@@ -11,24 +11,18 @@ package com.mycompany.q;
 public class Jugador extends Persona {
 
     //Mis variables
-    private String apellidos;
     private Demarcacion demarcacion;
     private int edad;
     private int valorMercado;
     private boolean estadoFisico;
 
-    /**
-     * @return the apellidos
-     */
-    public String getApellidos() {
-        return apellidos;
-    }
-
-    /**
-     * @param apellidos the apellidos to set
-     */
-    public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
+    public Jugador(String nombre, String apellido, int telefono, Demarcacion demarcacion, int edad, int valorMercado, boolean estadoFisico, String dni) {
+        
+        super(dni, apellido, nombre, telefono);
+        this.demarcacion = demarcacion;
+        this.edad = edad;
+        this.valorMercado = valorMercado;
+        this.estadoFisico = estadoFisico;
     }
 
     /**
@@ -85,17 +79,6 @@ public class Jugador extends Persona {
      */
     public void setEstadoFisico(boolean estadoFisico) {
         this.estadoFisico = estadoFisico;
-    }
-
-    public Jugador(String nombre, String apellidos, int telefono, Demarcacion demarcacion, int edad, int valorMercado, boolean estadoFisico, String dni) {
-        super(dni, nombre, telefono);
-        this.apellidos = apellidos;
-        this.demarcacion = demarcacion;
-        this.edad = edad;
-        this.valorMercado = valorMercado;
-        this.estadoFisico = estadoFisico;
-        
-        
     }
 
 }

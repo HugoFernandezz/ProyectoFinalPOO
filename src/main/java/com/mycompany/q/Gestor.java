@@ -4,6 +4,10 @@
  */
 package com.mycompany.q;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Date;
@@ -21,6 +25,7 @@ public class Gestor {
 
     private List<Persona> listaPersonas = new ArrayList();
     private List<Partido> listaPartidos = new ArrayList();
+    private List<Nomina> listaNominas = new ArrayList();
 
     // Constructor privado para evitar la creación de instancias externas
     private Gestor() {
@@ -109,6 +114,17 @@ public class Gestor {
     }
 
     /**
+     * @return the listaNominas
+     */
+    public List<Nomina> getListaNominas() {
+        return listaNominas;
+    }
+
+    public void agregarNomina(Nomina nomina) {
+        listaNominas.add(nomina);
+    }
+
+    /**
      * @return Persona deploying menu to search by DNI
      */
     public Persona recuperarPersonaDNI() {
@@ -127,28 +143,146 @@ public class Gestor {
 
     public List<Persona> listaPersonasSortedDNI(List<Persona> lista) {
 
-        List<Persona> myNewListPersona = new ArrayList(lista);
-        //La expresion "p->p.dni" ira cogiendo las personas de mi lista personas y comparar los 
-        //valores de sus dni, por defecto ya los ordenada de MAYOR a MENOR
-        myNewListPersona.sort(Comparator.comparing(p -> p.getDni()));
+        List<Persona> myNewListPersona = new ArrayList(listaPersonas);
+        //Chequeo que las personas estan activas en el club y las guardo en mi lista pivote
+        for (Persona persona : lista) {
+            if (persona.isIsOnClub()) {
+                myNewListPersona.add(persona);
+            }
+        }
+        //La expresion "Persona::getDni" es una referencia a metodos, esta llama al metodo getDni de la clase Persona
+        myNewListPersona.sort(Comparator.comparing(Persona::getDni));
 
         return myNewListPersona;
     }
 
     public List<Persona> listaPersonasFueraClub(List<Persona> lista) {
 
-        List<Persona> myNewListPersona = new ArrayList(lista);
-        for (Persona persona : listaPersonas) {
+        List<Persona> myNewListPersona = new ArrayList();
+        for (Persona persona : lista) {
             if (!persona.isIsOnClub()) {
                 myNewListPersona.add(persona);
             }
         }
-        
-        //La expresion "p->p.dni" ira cogiendo las personas de mi lista personas y comparar los 
-        //valores de sus dni, por defecto ya los ordenada de MAYOR a MENOR
-        myNewListPersona.sort(Comparator.comparing(p -> p.getNombre()));
+
+        myNewListPersona.sort(
+                Comparator.comparing(Persona::getNombre)
+                        .thenComparing(Persona::getApellido)
+        );
 
         return myNewListPersona;
     }
 
+    // <editor-fold defaultstate="collapsed" desc="Metodos generadores de archivos texto">
+    public void validarFichero(File file) {
+        // Si el archivo no existe, lo creamos
+        if (!file.exists()) {
+            try {
+                file.createNewFile();
+                System.out.println("El archivo " + file.toString() + ".txt ha sido creado.");
+            } catch (IOException e) {
+                System.out.println("Error al crear el archivo: " + e.getMessage());
+            }
+        } else {
+            System.out.println("El archivo de texto con la informacion sobre todos los empleados ya se genero anteriormente.");
+        }
+    }
+
+    public void generadoresDeEmpleados() {
+
+        File empleadosFichero = new File("empleadosFichero.txt");
+        validarFichero(empleadosFichero);
+
+        /*BufferedWriter es un buffer que optimiza la escritura en archivos, acumulando
+        texto en un buffer antes de escribirlo al disco, lo que mejora el rendimiento.*/
+ /*El parametro false en el constructor del FileWriter indica que quiero que se sobreescriba la informacion y no se añada.*/
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(empleadosFichero, false))) {
+            int indice = 0;
+
+            for (Persona persona : listaPersonasSortedDNI(listaPersonas)) {
+                indice++;
+                writer.write(indice + "- " + persona.getNombre() + " " + persona.getApellido() + " con el DNI: " + persona.getDni());
+                writer.newLine(); // Para hacer un salto de línea
+            }
+
+            System.out.println("Informacion del empleado escrita en el archivo.");
+        } catch (IOException e) {
+            System.out.println("Error al escribir en el archivo: " + e.getMessage());
+        }
+
+    }
+
+    public void generarEmpleadosEliminados() {
+        File empleadosEliminadosFichero = new File("empleadosEliminados.txt");
+        validarFichero(empleadosEliminadosFichero);
+
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(empleadosEliminadosFichero, false))) {
+            int indice = 0;
+
+            for (Persona persona : listaPersonasFueraClub(listaPersonas)) {
+                indice++;
+                writer.write(indice + "- " + persona.getNombre() + " " + persona.getApellido() + " con el DNI: " + persona.getDni());
+                writer.newLine(); // Para hacer un salto de línea
+            }
+
+            if (listaPersonasFueraClub(listaPersonas).size() == 0) {
+                writer.write("No hay ninguna persona fuera del club");
+            }
+
+            System.out.println("Informacion de los empleados eliminados escrita en el archivo.");
+        } catch (IOException e) {
+            System.out.println("Error al escribir en el archivo: " + e.getMessage());
+        }
+    }
+
+    public void generarListaPartidos() {
+        File listadoPartidosFichero = new File("listadoPartidosFichero.txt");
+        validarFichero(listadoPartidosFichero);
+
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(listadoPartidosFichero, false))) {
+            int indice = 0;
+
+            for (Partido partido : getListaPartidos()) {
+                indice++;
+                writer.write(indice + " - " + "Partido jugado contra " + partido.getEquipoRival() + " finalizo con un resultado de: " + partido.getResultado());
+                writer.newLine(); // Para hacer un salto de línea
+            }
+
+            System.out.println("Informacion de los partidos escrita en el archivo.");
+        } catch (IOException e) {
+            System.out.println("Error al escribir en el archivo: " + e.getMessage());
+        }
+
+    }
+
+    public void generarListaNominas() {
+        File listadoNominas = new File("listadoNominas.txt");
+        validarFichero(listadoNominas);
+
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(listadoNominas, false))) {
+            int indice = 0;
+
+            for (Nomina nomina : getListaNominas()) {
+                indice++;
+                writer.write("----------------------------------------------------------------------------");
+                writer.newLine(); // Para hacer un salto de línea
+                writer.write("Nomina numero: " + indice);
+                writer.newLine(); // Para hacer un salto de línea
+                writer.write("Nombre y apellidos: " + nomina.getPersona().getNombre() + " " + nomina.getPersona().getApellido());
+                writer.newLine(); // Para hacer un salto de línea
+                writer.write("DNI: " + nomina.getPersona().getDni());
+                writer.newLine(); // Para hacer un salto de línea
+                writer.write("Importe: " + nomina.getConcepto().getImporte() + " euros");
+                writer.newLine(); // Para hacer un salto de línea
+                writer.write("Identificador: " + nomina.getConcepto().getCodigo());
+                writer.newLine(); // Para hacer un salto de línea
+            }
+
+            System.out.println("Informacion de las nominas escrita en el archivo.");
+        } catch (IOException e) {
+            System.out.println("Error al escribir en el archivo: " + e.getMessage());
+        }
+
+    }
+    // </editor-fold>
 }

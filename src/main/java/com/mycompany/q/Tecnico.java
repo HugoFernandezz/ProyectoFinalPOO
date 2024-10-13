@@ -13,6 +13,12 @@ public class Tecnico extends Persona {
     private Puesto puesto;
     private Especialidad especialidad;
 
+    public Tecnico(String nombre, String apellido, int telefono, Puesto puesto, Especialidad especialidad, String dni) {
+        super(dni, apellido, nombre, telefono);
+        this.puesto = puesto;
+        this.especialidad = especialidad;
+    }
+
     /**
      * @return the puesto
      */
@@ -38,12 +44,6 @@ public class Tecnico extends Persona {
      * @param especialidad the especialidad to set
      */
     public void setEspecialidad(Especialidad especialidad) {
-        this.especialidad = especialidad;
-    }
-
-    public Tecnico(String nombre, int telefono, Puesto puesto, Especialidad especialidad, String dni) {
-        super(dni, nombre, telefono);
-        this.puesto = puesto;
         this.especialidad = especialidad;
     }
 

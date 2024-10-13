@@ -26,8 +26,8 @@ public class Directivo extends Persona {
         this.cargo = cargo;
     }
 
-    public Directivo(String nombre, String dni, int telefono, String cargo) {
-        super(dni, nombre, telefono);
+    public Directivo(String nombre, String apellido, String dni, int telefono, String cargo) {
+        super(dni, apellido, nombre,telefono);
         this.cargo = cargo;
     }
 

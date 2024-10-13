@@ -34,8 +34,9 @@ public class Partido {
     /**
      * @return the resultado
      */
-    public Resultado getResultado() {
-        return resultado;
+    public String getResultado() {
+       String resultado = Integer.toString(this.resultado.getGolesLocal()) + " - " + Integer.toString(this.resultado.getGolesVisitante());
+       return resultado;
     }
 
     /**

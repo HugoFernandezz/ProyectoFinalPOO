@@ -17,6 +17,7 @@ public class Resultado {
         this.golesLocal = golesLocal;
         this.golesVisitante = golesVisitante;
     }
+    
 
     /**
      * @return the golesLocal

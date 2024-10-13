@@ -15,14 +15,16 @@ public abstract class Persona {
     //Mis variables
     protected final String dni;
     protected String nombre;
+    private String apellido;
     protected int telefono;
     private boolean isOnClub = true;
     private Date diaDespido;
     private Nomina nomina;
 
-    public Persona(String dni, String nombre, int telefono) {
+    public Persona(String dni, String apellido, String nombre, int telefono) {
         this.dni = dni;
         this.nombre = nombre;
+        this.apellido = apellido;
         this.telefono = telefono;
         Gestor.getInstancia().agregarPersona(this);
     }
@@ -105,6 +107,20 @@ public abstract class Persona {
      */
     public void setNomina(Nomina nomina) {
         this.nomina = nomina;
+    }
+
+    /**
+     * @return the apellido
+     */
+    public String getApellido() {
+        return apellido;
+    }
+
+    /**
+     * @param apellido the apellido to set
+     */
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
     }
     
     
