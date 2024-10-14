@@ -14,6 +14,12 @@ public class Concepto {
     private String descripcion;
     private int importe;
 
+    public Concepto(String codigo, String descripcion, int importe) {
+        this.codigo = codigo;
+        this.descripcion = descripcion;
+        this.importe = importe;
+    }
+
     /**
      * @return the codigo
      */
@@ -55,12 +61,5 @@ public class Concepto {
     public void setImporte(int importe) {
         this.importe = importe;
     }
-
-    public Concepto(String codigo, String descripcion, int importe) {
-        this.codigo = codigo;
-        this.descripcion = descripcion;
-        this.importe = importe;
-    }
-    
 
 }

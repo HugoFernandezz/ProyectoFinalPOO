@@ -119,9 +119,16 @@ public class Gestor {
     public List<Nomina> getListaNominas() {
         return listaNominas;
     }
+    
+     /**
+     * @return the listaNominas by index
+     */
+    public Nomina getNominaByIndex(int indice) {
+        return listaNominas.get(indice -1);
+    }
 
     public void agregarNomina(Nomina nomina) {
-        listaNominas.add(nomina);
+        getListaNominas().add(nomina);
     }
 
     /**
@@ -172,6 +179,14 @@ public class Gestor {
 
         return myNewListPersona;
     }
+    
+    /**
+     * @param listaNominas the listaNominas to set
+     */
+    public void setListaNominas(List<Nomina> listaNominas) {
+        this.listaNominas = listaNominas;
+    }
+    
 
     // <editor-fold defaultstate="collapsed" desc="Metodos generadores de archivos texto">
     public void validarFichero(File file) {
@@ -272,10 +287,18 @@ public class Gestor {
                 writer.newLine(); // Para hacer un salto de línea
                 writer.write("DNI: " + nomina.getPersona().getDni());
                 writer.newLine(); // Para hacer un salto de línea
-                writer.write("Importe: " + nomina.getConcepto().getImporte() + " euros");
-                writer.newLine(); // Para hacer un salto de línea
-                writer.write("Identificador: " + nomina.getConcepto().getCodigo());
-                writer.newLine(); // Para hacer un salto de línea
+
+                for (Concepto concepto : nomina.getConceptos()) {
+                    writer.write("+++++++++++++++++++++++++++++++++++++++++++++++++++++");
+                    writer.newLine(); // Para hacer un salto de línea
+                    writer.write("Descripcion del concepto: " + concepto.getDescripcion());
+                    writer.newLine(); // Para hacer un salto de línea
+                    writer.write("Importe: " + concepto.getImporte() + " euros");
+                    writer.newLine(); // Para hacer un salto de línea
+                    writer.write("Codigo unico del concepto: " + concepto.getCodigo());
+                    writer.newLine(); // Para hacer un salto de línea
+                }
+
             }
 
             System.out.println("Informacion de las nominas escrita en el archivo.");
@@ -285,4 +308,6 @@ public class Gestor {
 
     }
     // </editor-fold>
+
+    
 }

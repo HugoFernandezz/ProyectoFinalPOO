@@ -162,7 +162,19 @@ public class App {
                         // </editor-fold>
                         break;
                     case 8:
-                        // <editor-fold defaultstate="collapsed" desc="Opcion 7 - Generar listados">
+                        // <editor-fold defaultstate="collapsed" desc="Opcion 8 - Modificar concepto de nomina">
+                        int indiceSeleccionNomina = 0;
+                        mostrarNominasInformacion();
+                        System.out.println("Seleccione el indice de la nomina que quiera modificar:");
+                        indiceSeleccionNomina = inputReader.nextInt();
+                        inputReader.nextLine();  // Consumir el salto de línea
+                        Nomina nominaAModificar = Gestor.getInstancia().getNominaByIndex(indiceSeleccionNomina);
+                        manipularConceptoNomina(nominaAModificar);
+                        
+                        // </editor-fold>
+                        break;
+                    case 9:
+                        // <editor-fold defaultstate="collapsed" desc="Opcion 9 - Generar listados">
                         System.out.println("Que tipo de lista quiere generar?"
                                 + "\n 1 - Listado de empleados activos ordenador por DNI (Fichero.txt)."
                                 + "\n 2 - Listado de empleados eliminados ordenados por apellido y nombre (Fichero.txt)."
@@ -193,7 +205,7 @@ public class App {
                         }
                         // </editor-fold>
                         break;
-                    case 9:
+                    case 10:
                         System.out.println("Saliendo...");
                         return;
                     default:
@@ -212,6 +224,19 @@ public class App {
 
     }
 
+    public static void mostrarMenuPrincipal() {
+        System.out.println("Seleccione una de las opciones:\n"
+                + "1 - Dar de alta una persona.\n"
+                + "2 - Eliminar a una persona. \n"
+                + "3 - Modificar los datos de una persona. \n"
+                + "4 - Jugar un partido. \n"
+                + "5 - Crear nomina. \n"
+                + "6 - Crear nomina masiva. \n"
+                + "7 - Crear factura. \n"
+                + "8 - Modificar concepto de nomina. \n"
+                + "9 - Imprimir listados. \n"
+                + "10 - Salir");
+    }
 
     /*<T extends Enum<T>> Esto indica que el método permite devolver cualquier valor de cualquier enum.
     Class<T> enumType: Nos permite pasar cualquier tipo de Enum como argumento*/
@@ -260,7 +285,7 @@ public class App {
         inputReader.nextLine();  // Consumir el salto de línea
 
         System.out.println("Indique el apellido del jugador");
-        String apellido = inputReader.next();
+        String apellido = inputReader.nextLine();
         inputReader.nextLine();  // Consumir el salto de línea
 
         System.out.println("Indique el telefono del jugador");
@@ -292,7 +317,7 @@ public class App {
         inputReader.nextLine();  // Consumir el salto de línea
 
         System.out.println("Indique el apellido del tecnico");
-        String apellido = inputReader.next();
+        String apellido = inputReader.nextLine();
         inputReader.nextLine();  // Consumir el salto de línea
 
         System.out.println("Indique el telefono del tecnico");
@@ -320,7 +345,7 @@ public class App {
         inputReader.nextLine();  // Consumir el salto de línea
 
         System.out.println("Indique el apellido del directivo");
-        String apellido = inputReader.next();
+        String apellido = inputReader.nextLine();
         inputReader.nextLine();  // Consumir el salto de línea
 
         System.out.println("Indique el telefono del directivo");
@@ -328,7 +353,7 @@ public class App {
         inputReader.nextLine();  // Consumir el salto de línea
 
         System.out.println("Indique el cargo del directivo");
-        String cargo = inputReader.next();
+        String cargo = inputReader.nextLine();
         inputReader.nextLine();  // Consumir el salto de línea
 
         System.out.println("Indique el DNI del directivo");
@@ -374,19 +399,6 @@ public class App {
         System.out.println("-----------------------------------------\nFactura con el codigo " + codigoUnico + " creada con exito. \n-----------------------------------------\n\n");
     }
 
-    public static void mostrarMenuPrincipal() {
-        System.out.println("Seleccione una de las opciones:\n"
-                + "1 - Dar de alta una persona.\n"
-                + "2 - Eliminar a una persona. \n"
-                + "3 - Modificar los datos de una persona. \n"
-                + "4 - Jugar un partido. \n"
-                + "5 - Crear nomina. \n"
-                + "6 - Crear nomina masiva. \n"
-                + "7 - Crear factura. \n"
-                + "8 - Imprimir listados. \n"
-                + "9 - Salir");
-    }
-
     public static void modificarPersona(Persona persona) {
 
         if (persona instanceof Jugador) {
@@ -425,7 +437,7 @@ public class App {
                 break;
             case 2:
                 System.out.println("Indique los nuevos apellidos del jugador");
-                jugador.setApellido(inputReader.next());
+                jugador.setApellido(inputReader.nextLine());
                 inputReader.nextLine();  // Consumir el salto de línea
                 break;
             case 3:
@@ -476,7 +488,7 @@ public class App {
                 break;
             case 2:
                 System.out.println("Indique el nuevo apellido del directivo");
-                directivo.setApellido(inputReader.next());
+                directivo.setApellido(inputReader.nextLine());
                 inputReader.nextLine();  // Consumir el salto de línea
                 break;
             case 3:
@@ -514,7 +526,7 @@ public class App {
                 break;
             case 3:
                 System.out.println("Indique el nuevo apellido del tecnico");
-                tecnico.setApellido(inputReader.next());
+                tecnico.setApellido(inputReader.nextLine());
                 inputReader.nextLine();  // Consumir el salto de línea
                 break;
             case 4:
@@ -576,7 +588,7 @@ public class App {
         Nomina nomina = generarNomina();
         nomina.setPersona(persona);
         persona.setNomina(nomina);
-        System.out.println("-----------------------------------------\nNomina con el codigo " + nomina.getConcepto().getCodigo() + " generada con exito. \n-----------------------------------------\n\n");
+        System.out.println("-----------------------------------------\nNomina de " + nomina.getPersona().getNombre() + " generada con exito. \n-----------------------------------------\n\n");
     }
 
     public static Nomina generarNomina() {
@@ -585,7 +597,7 @@ public class App {
         inputReader.nextLine();  // Consumir el salto de línea
 
         System.out.println("Cual es la descripcion de su nomina?");
-        String descripcion = inputReader.next();
+        String descripcion = inputReader.nextLine();
         inputReader.nextLine();  // Consumir el salto de línea
 
         System.out.println("Cual es el codigo unico de su nomina?");
@@ -639,4 +651,92 @@ public class App {
 
     }
 
+    public static void manipularConceptoNomina(Nomina nomina) {
+        System.out.println("Que desea hacer con el concepto de la nomina de " + nomina.getPersona().getNombre() + "\n"
+                + "1 - Crearla\n"
+                + "2 - Modificarla\n"
+                + "3 - Eliminarla\n"
+        );
+        int indice = inputReader.nextInt();
+        inputReader.nextLine();  // Consumir el salto de línea
+
+        switch (indice) {
+            case 1:
+                Concepto concepto = crearNuevoConcepto();
+                nomina.setConcepto(concepto);
+
+                break;
+            case 2:
+                mostrarConceptoInformacion(nomina);
+                System.out.println("Elija el indice del concepto que quiera modificar");
+                int subIndice = inputReader.nextInt();
+                inputReader.nextLine();  // Consumir el salto de línea
+
+                Concepto conceptoModificar = nomina.getConceptos(subIndice);
+
+                conceptoModificar = crearNuevoConcepto();
+                nomina.modificarConceptoIndex(conceptoModificar, subIndice);
+                System.out.println("Concepto modificado con exito!");
+
+                break;
+            case 3:
+                mostrarConceptoInformacion(nomina);
+                System.out.println("Elija el indice del concepto que quiera eliminar");
+                int subIndiceEliminar = inputReader.nextInt();
+                inputReader.nextLine();  // Consumir el salto de línea
+
+                nomina.deleteConcepto(subIndiceEliminar);
+                break;
+            default:
+                System.err.println("Numero introducido no valido.");
+                throw new AssertionError();
+        }
+    }
+
+    public static void mostrarConceptoInformacion(Nomina nomina) {
+        int indice = 0;
+        for (Concepto concepto : nomina.getConceptos()) {
+            indice++;
+            System.out.println("");
+            System.out.println("Concepto numero " + indice);
+            System.out.println("----------------------------------------");
+            System.out.println("concepto con el codigo: " + concepto.getCodigo());
+            System.out.println("concepto con la descripcion: " + concepto.getDescripcion());
+            System.out.println("concepto con el importe: " + concepto.getImporte());
+            System.out.println("----------------------------------------");
+        }
+    }
+
+    public static Concepto crearNuevoConcepto() {
+        System.out.println("Cuanto es la descripcion de su concepto?");
+        String descripcion = inputReader.nextLine();
+        inputReader.nextLine();  // Consumir el salto de línea
+
+        System.out.println("Cuanto es el importe de su concepto?");
+        int importe = inputReader.nextInt();
+        inputReader.nextLine();  // Consumir el salto de línea
+
+        System.out.println("Cuanto es codigo unico de su concepto?");
+        String codigo = inputReader.next();
+        inputReader.nextLine();  // Consumir el salto de línea
+
+        Concepto concepto = new Concepto(codigo, descripcion, importe);
+        return concepto;
+    }
+
+    public static void mostrarNominasInformacion() {
+        int indice = 0;
+        if (Gestor.getInstancia().getListaNominas().size() == 0) {
+            System.out.println("Actualmente no hay ningun nomina creada.");
+        }
+        for (Nomina nomina : Gestor.getInstancia().getListaNominas()) {
+            indice++;
+            System.out.println("");
+            System.out.println("Nomina numero " + indice);
+            System.out.println("----------------------------------------");
+            System.out.println("Nomina de: " + nomina.getPersona().getNombre());
+            System.out.println("Nomina con : " + nomina.getConceptos().size() + " conceptos.");
+            System.out.println("----------------------------------------");
+        }
+    }
 }
