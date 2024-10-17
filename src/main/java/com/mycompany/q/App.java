@@ -170,7 +170,7 @@ public class App {
                         inputReader.nextLine();  // Consumir el salto de línea
                         Nomina nominaAModificar = Gestor.getInstancia().getNominaByIndex(indiceSeleccionNomina);
                         manipularConceptoNomina(nominaAModificar);
-                        
+
                         // </editor-fold>
                         break;
                     case 9:
@@ -180,7 +180,11 @@ public class App {
                                 + "\n 2 - Listado de empleados eliminados ordenados por apellido y nombre (Fichero.txt)."
                                 + "\n 3 - Listado de resultados del equipo de una temporada (Fichero.txt)."
                                 + "\n 4 - Listado de nominas generadas (Fichero.txt)."
-                                + "\n 5 - Salir.");
+                                + "\n 5 - Listado de empleados activos ordenador por DNI (Fichero PDF)."
+                                + "\n 6 - Listado de empleados eliminados ordenados por apellido y nombre (Fichero PDF)."
+                                + "\n 7 - Listado de resultados del equipo de una temporada (Fichero PDF)."
+                                + "\n 8 - Listado de nominas generadas (Fichero PDF)."
+                                + "\n 9 - Salir.");
 
                         subIndice = inputReader.nextInt();
                         inputReader.nextLine();  // Consumir el salto de línea
@@ -198,6 +202,28 @@ public class App {
                             case 4:
                                 Gestor.getInstancia().generarListaNominas();
                                 break;
+                            case 5:
+                                //Recojo los datos de la lista que quiero crear en el pdf
+                                List<Persona> listaPersonasSortedDNI = Gestor.getInstancia().listaPersonasSortedDNI(Gestor.getInstancia().getListaPersonas());
+                                String nombrePDFEmpleados = ExporterPDF.getInstancia().getNameFileEmpleados();
+                                //Creo el PDF con mi clase ExportedPDF
+                                ExporterPDF.getInstancia().crearPDFPersonas(nombrePDFEmpleados, listaPersonasSortedDNI);
+                                break;
+                            case 6:
+                                //Recojo los datos de la lista que quiero crear en el pdf
+                                List<Persona> listaPersonasEliminadas = Gestor.getInstancia().listaPersonasFueraClub(Gestor.getInstancia().getListaPersonas());
+                                String nombrePDFEliminados = ExporterPDF.getInstancia().getNameFileEmpleadosEliminados();
+                                //Creo el PDF con mi clase ExportedPDF
+                                ExporterPDF.getInstancia().crearPDFPersonas(nombrePDFEliminados, listaPersonasEliminadas);
+                                break;
+                            case 7:
+                                ExporterPDF.getInstancia().crearPDFPartidos();
+                                break;
+                            case 8:
+                                 ExporterPDF.getInstancia().crearPDFNominas();
+                                break;
+                            case 9:
+                                return;
                             default:
                                 System.err.println("Parece que la opcion que ha seleccionado no esta disponible, porfavor intentelo de nuevo.");
 
@@ -267,7 +293,7 @@ public class App {
             System.out.println("Su jugador esta lesionado?\n S/N");
             String miEleccion = inputReader.next();
             inputReader.nextLine();  // Consumir el salto de línea
-            switch (miEleccion) {
+            switch (miEleccion.toUpperCase()) {
                 case "S":
                     return true;
                 case "N":
@@ -286,7 +312,6 @@ public class App {
 
         System.out.println("Indique el apellido del jugador");
         String apellido = inputReader.nextLine();
-        inputReader.nextLine();  // Consumir el salto de línea
 
         System.out.println("Indique el telefono del jugador");
         int telefono = inputReader.nextInt();
@@ -318,7 +343,6 @@ public class App {
 
         System.out.println("Indique el apellido del tecnico");
         String apellido = inputReader.nextLine();
-        inputReader.nextLine();  // Consumir el salto de línea
 
         System.out.println("Indique el telefono del tecnico");
         int telefono = inputReader.nextInt();
@@ -346,7 +370,6 @@ public class App {
 
         System.out.println("Indique el apellido del directivo");
         String apellido = inputReader.nextLine();
-        inputReader.nextLine();  // Consumir el salto de línea
 
         System.out.println("Indique el telefono del directivo");
         int telefono = inputReader.nextInt();
@@ -438,7 +461,6 @@ public class App {
             case 2:
                 System.out.println("Indique los nuevos apellidos del jugador");
                 jugador.setApellido(inputReader.nextLine());
-                inputReader.nextLine();  // Consumir el salto de línea
                 break;
             case 3:
                 System.out.println("Indique el nuevo telefono del jugador");
@@ -489,7 +511,6 @@ public class App {
             case 2:
                 System.out.println("Indique el nuevo apellido del directivo");
                 directivo.setApellido(inputReader.nextLine());
-                inputReader.nextLine();  // Consumir el salto de línea
                 break;
             case 3:
                 System.out.println("Indique el nuevo telefono del directivo");
@@ -527,7 +548,6 @@ public class App {
             case 3:
                 System.out.println("Indique el nuevo apellido del tecnico");
                 tecnico.setApellido(inputReader.nextLine());
-                inputReader.nextLine();  // Consumir el salto de línea
                 break;
             case 4:
                 System.out.println("Indique el nuevo telefono del tecnico");
@@ -598,7 +618,6 @@ public class App {
 
         System.out.println("Cual es la descripcion de su nomina?");
         String descripcion = inputReader.nextLine();
-        inputReader.nextLine();  // Consumir el salto de línea
 
         System.out.println("Cual es el codigo unico de su nomina?");
         String codigoUnico = inputReader.next();
@@ -710,7 +729,6 @@ public class App {
     public static Concepto crearNuevoConcepto() {
         System.out.println("Cuanto es la descripcion de su concepto?");
         String descripcion = inputReader.nextLine();
-        inputReader.nextLine();  // Consumir el salto de línea
 
         System.out.println("Cuanto es el importe de su concepto?");
         int importe = inputReader.nextInt();

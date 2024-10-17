@@ -9,6 +9,7 @@ com\mycompany\q\Especialidad.class
 com\mycompany\q\Gestor.class
 com\mycompany\q\Nomina.class
 com\mycompany\q\Tecnico.class
+com\mycompany\q\ExporterPDF.class
 com\mycompany\q\Puesto.class
 com\mycompany\q\Concepto.class
 com\mycompany\q\Partido.class
