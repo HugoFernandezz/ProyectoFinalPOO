@@ -94,7 +94,7 @@ public class App {
                                 + "\n 2 - Tecnico"
                                 + "\n 3 - Directivo");
 
-                        subIndice = InputInt(1,42);
+                        subIndice = InputInt(1, 3);
                         inputReader.nextLine();  // Consumir el salto de línea
 
                         switch (subIndice) {
@@ -119,7 +119,7 @@ public class App {
                         Gestor.getInstancia().mostrarListaPersonas();
                         System.out.println("Elija el numero de la persona que quiera eliminar.");
 
-                        subIndice = inputReader.nextInt();
+                        subIndice = InputInt(1, Gestor.getInstancia().ListaPersonasDentroDelClub().size());
                         inputReader.nextLine();  // Consumir el salto de línea
                         Gestor.getInstancia().eliminarPersona(subIndice);
                         // </editor-fold>
@@ -130,7 +130,7 @@ public class App {
                         Gestor.getInstancia().mostrarListaPersonas();
                         System.out.println("Elija el numero de la persona que quiera modificar.");
 
-                        subIndice = inputReader.nextInt();
+                        subIndice = InputInt(1, Gestor.getInstancia().ListaPersonasDentroDelClub().size());
                         inputReader.nextLine();  // Consumir el salto de línea
                         Persona personaModificada = Gestor.getInstancia().recuperarPersona(subIndice);
                         System.out.println("Que atributos desea modificar?.");
@@ -166,8 +166,13 @@ public class App {
                         int indiceSeleccionNomina = 0;
                         mostrarNominasInformacion();
                         System.out.println("Seleccione el indice de la nomina que quiera modificar:");
-                        indiceSeleccionNomina = inputReader.nextInt();
-                        inputReader.nextLine();  // Consumir el salto de línea
+                        try {
+                            indiceSeleccionNomina = InputInt(1, Gestor.getInstancia().getListaNominas().size());
+                            inputReader.nextLine();  // Consumir el salto de línea
+                        } catch (Exception e) {
+                            break;
+                        }
+
                         Nomina nominaAModificar = Gestor.getInstancia().getNominaByIndex(indiceSeleccionNomina);
                         manipularConceptoNomina(nominaAModificar);
 
@@ -220,12 +225,12 @@ public class App {
                                 ExporterPDF.getInstancia().crearPDFPartidos();
                                 break;
                             case 8:
-                                 ExporterPDF.getInstancia().crearPDFNominas();
+                                ExporterPDF.getInstancia().crearPDFNominas();
                                 break;
                             case 9:
                                 return;
                             default:
-                                System.err.println("Parece que la opcion que ha seleccionado no esta disponible, porfavor intentelo de nuevo.");
+                                System.err.println("[*]Parece que la opcion que ha seleccionado no esta disponible, porfavor intentelo de nuevo.");
 
                                 break;
                         }
@@ -235,14 +240,14 @@ public class App {
                         System.out.println("Saliendo...");
                         return;
                     default:
-                        System.err.println("Parece que la opcion que ha seleccionado no esta disponible, porfavor intentelo de nuevo.");
+                        System.err.println("[*]Parece que la opcion que ha seleccionado no esta disponible, porfavor intentelo de nuevo.");
 
                         break;
 
                 }
 
             } catch (InputMismatchException e) {
-                System.err.println("Entrada no valida, por favor ingrese un numero.");
+                System.err.println("[*]Entrada no valida, por favor ingrese un numero.");
                 inputReader.nextLine(); // Limpiar el buffer
             }
 
@@ -280,9 +285,7 @@ public class App {
             i++;
             System.out.println(i + " - " + enumValue.name());
         }
-
-        eleccion = inputReader.nextInt();
-        inputReader.nextLine();  // Consumir el salto de línea
+        eleccion = InputInt(1, enumValues.length);
 
         // Devolvemos el valor del enum elegido
         return enumValues[eleccion - 1];
@@ -300,7 +303,6 @@ public class App {
                     return false;
                 default:
                     System.out.println("Solo debe responder S o N");
-                    throw new AssertionError();
             }
         }
     }
@@ -314,20 +316,21 @@ public class App {
         String apellido = inputReader.nextLine();
 
         System.out.println("Indique el telefono del jugador");
-        int telefono = inputReader.nextInt();
+        int telefono = InputInt();
         inputReader.nextLine();  // Consumir el salto de línea
 
         Demarcacion demarcacion = elegirEnum(Demarcacion.class);
         System.out.println("Indique la edad del jugador");
-        int edad = inputReader.nextInt();
+        int edad = InputInt();
         inputReader.nextLine();  // Consumir el salto de línea
 
         System.out.println("Indique el valor de mercado del jugador");
-        int valorMercado = inputReader.nextInt();
+        int valorMercado = InputInt();
         inputReader.nextLine();  // Consumir el salto de línea
 
         boolean estadoFisico = elegirEstadoFisico();
         System.out.println("Indique el DNI del jugador");
+
         String dni = inputReader.next();
         inputReader.nextLine();  // Consumir el salto de línea
 
@@ -345,7 +348,7 @@ public class App {
         String apellido = inputReader.nextLine();
 
         System.out.println("Indique el telefono del tecnico");
-        int telefono = inputReader.nextInt();
+        int telefono = InputInt();
         inputReader.nextLine();  // Consumir el salto de línea
 
         System.out.println("Indique el puesto del tecnico");
@@ -372,7 +375,7 @@ public class App {
         String apellido = inputReader.nextLine();
 
         System.out.println("Indique el telefono del directivo");
-        int telefono = inputReader.nextInt();
+        int telefono = InputInt();
         inputReader.nextLine();  // Consumir el salto de línea
 
         System.out.println("Indique el cargo del directivo");
@@ -449,7 +452,7 @@ public class App {
                 + "6 - Edad\n"
                 + "7 - Valor de mercado"
         );
-        int indice = inputReader.nextInt();
+        int indice = InputInt(1, 7);
         inputReader.nextLine();  // Consumir el salto de línea
 
         switch (indice) {
@@ -496,10 +499,11 @@ public class App {
         Directivo directivo = (Directivo) persona; // Cast a Directivo
         System.out.println("Que atributo de " + directivo.getNombre() + " desea cambiar?\n"
                 + "1 - Nombre\n"
-                + "2 - Telefono\n"
-                + "3 - Cargo"
+                + "2 - Apellido\n"
+                + "3 - Telefono\n"
+                + "4 - Cargo"
         );
-        int indice = inputReader.nextInt();
+        int indice = InputInt(1, 4);
         inputReader.nextLine();  // Consumir el salto de línea
 
         switch (indice) {
@@ -532,11 +536,12 @@ public class App {
         Tecnico tecnico = (Tecnico) persona; // Cast a Tecnico
         System.out.println("Que atributo de " + tecnico.getNombre() + " desea cambiar?\n"
                 + "1 - Nombre\n"
-                + "2 - Telefono\n"
-                + "3 - Puesto\n"
-                + "4 - Especialidad"
+                + "2 - Apellido\n"
+                + "3 - Telefono\n"
+                + "4 - Puesto\n"
+                + "5 - Especialidad"
         );
-        int indice = inputReader.nextInt();
+        int indice = InputInt(1, 5);
         inputReader.nextLine();  // Consumir el salto de línea
 
         switch (indice) {
@@ -545,20 +550,20 @@ public class App {
                 tecnico.setNombre(inputReader.next());
                 inputReader.nextLine();  // Consumir el salto de línea
                 break;
-            case 3:
+            case 2:
                 System.out.println("Indique el nuevo apellido del tecnico");
                 tecnico.setApellido(inputReader.nextLine());
                 break;
-            case 4:
+            case 3:
                 System.out.println("Indique el nuevo telefono del tecnico");
                 tecnico.setTelefono(inputReader.nextInt());
                 inputReader.nextLine();  // Consumir el salto de línea
                 break;
-            case 5:
+            case 4:
                 System.out.println("Indique el nuevo puesto del tecnico");
                 tecnico.setPuesto(elegirEnum(Puesto.class));
                 break;
-            case 6:
+            case 5:
                 System.out.println("Indique la nueva especialidad del tecnico");
                 tecnico.setEspecialidad(elegirEnum(Especialidad.class));
                 break;
@@ -576,10 +581,10 @@ public class App {
         System.out.println("Indique si usted juega de local");
         boolean isLocal = elegirLocal();
         System.out.println("Indique el numero de goles locales");
-        int golesLocal = inputReader.nextInt();
+        int golesLocal = InputInt();
         inputReader.nextLine();  // Consumir el salto de línea
         System.out.println("Indique el numero de goles visitante");
-        int golesVisitante = inputReader.nextInt();
+        int golesVisitante = InputInt();
         inputReader.nextLine();  // Consumir el salto de línea
 
         Partido partido = new Partido(nombreRival, isLocal, golesLocal, golesVisitante);
@@ -598,7 +603,6 @@ public class App {
                     return false;
                 default:
                     System.out.println("Solo debe responder S o N");
-                    throw new AssertionError();
             }
         }
     }
@@ -613,7 +617,7 @@ public class App {
 
     public static Nomina generarNomina() {
         System.out.println("Cuanto es el importe de su nomina?");
-        int importe = inputReader.nextInt();
+        int importe = InputInt();
         inputReader.nextLine();  // Consumir el salto de línea
 
         System.out.println("Cual es la descripcion de su nomina?");
@@ -629,7 +633,7 @@ public class App {
         Meses mes = elegirEnum(Meses.class);
 
         System.out.println("Indique el ano de su nomina?");
-        int ano = inputReader.nextInt();
+        int ano = InputInt();
         inputReader.nextLine();  // Consumir el salto de línea
 
         Nomina nomina = new Nomina(mes, ano, concepto);
@@ -646,7 +650,7 @@ public class App {
         int subIndice;
 
         while (true) {
-            subIndice = inputReader.nextInt();
+            subIndice = InputInt(0, Gestor.getInstancia().ListaPersonasDentroDelClub().size());
             inputReader.nextLine();  // Consumir el salto de línea
             if (subIndice == 0) {
                 break;
@@ -676,7 +680,7 @@ public class App {
                 + "2 - Modificarla\n"
                 + "3 - Eliminarla\n"
         );
-        int indice = inputReader.nextInt();
+        int indice = InputInt(1, 3);
         inputReader.nextLine();  // Consumir el salto de línea
 
         switch (indice) {
@@ -688,20 +692,20 @@ public class App {
             case 2:
                 mostrarConceptoInformacion(nomina);
                 System.out.println("Elija el indice del concepto que quiera modificar");
-                int subIndice = inputReader.nextInt();
+                int subIndice = InputInt(1, nomina.getConceptos().size());
                 inputReader.nextLine();  // Consumir el salto de línea
 
                 Concepto conceptoModificar = nomina.getConceptos(subIndice);
 
                 conceptoModificar = crearNuevoConcepto();
                 nomina.modificarConceptoIndex(conceptoModificar, subIndice);
-                System.out.println("Concepto modificado con exito!");
+                
 
                 break;
             case 3:
                 mostrarConceptoInformacion(nomina);
                 System.out.println("Elija el indice del concepto que quiera eliminar");
-                int subIndiceEliminar = inputReader.nextInt();
+                int subIndiceEliminar = InputInt(1, nomina.getConceptos().size());
                 inputReader.nextLine();  // Consumir el salto de línea
 
                 nomina.deleteConcepto(subIndiceEliminar);
@@ -731,7 +735,7 @@ public class App {
         String descripcion = inputReader.nextLine();
 
         System.out.println("Cuanto es el importe de su concepto?");
-        int importe = inputReader.nextInt();
+        int importe = InputInt();
         inputReader.nextLine();  // Consumir el salto de línea
 
         System.out.println("Cuanto es codigo unico de su concepto?");
@@ -739,6 +743,7 @@ public class App {
         inputReader.nextLine();  // Consumir el salto de línea
 
         Concepto concepto = new Concepto(codigo, descripcion, importe);
+        System.out.println("Concepto con el codigo: " + codigo + " creada con exito!");
         return concepto;
     }
 
@@ -766,29 +771,35 @@ public class App {
                 return value;
 
             } catch (Exception e) {
-                System.out.println("Debe introducir un numero valido");
-                inputReader.nextLine();   // Consumir el salto de línea
-                InputInt();
+                System.out.println("Debe introducir un numero valido.");
+
+                inputReader.nextLine(); // Esto limpia el buffer de entrada
             }
         }
     }
 
     public static int InputInt(int rangoMin, int rangoMax) {
-    
+
+        if (rangoMax == 0) {
+            throw new IllegalArgumentException("[*]La lista esta vacia");
+        }
+
         while (true) {
             try {
+
                 int value = inputReader.nextInt();
 
+                // Comprobar si está dentro del rango permitido
                 if (value >= rangoMin && value <= rangoMax) {
                     return value;
                 } else {
-                    System.out.println("El rango del valor tiene que estar comprendido entre " + rangoMin + " y " + rangoMax);
+                    System.err.println("[*]El valor debe estar entre " + rangoMin + " y " + rangoMax);
                 }
 
             } catch (Exception e) {
-                System.out.println("Debe introducir un numero valido");
-                inputReader.nextLine(); // Consumir el salto de línea
-                InputInt(rangoMin, rangoMax);
+                System.err.println("[*]Debe introducir un numero valido.");
+
+                inputReader.nextLine(); // Esto limpia el buffer de entrada
             }
         }
     }

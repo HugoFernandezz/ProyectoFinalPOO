@@ -59,7 +59,7 @@ public class ExporterPDF {
             documento.open();
 
             if (listaPersonas.isEmpty()) {
-                System.out.println("La lista que esta intentando utilizar esta vacia.");
+                System.out.println("[*]La lista que esta intentando utilizar esta vacia.");
             } else {
 
                 // Imprimir texto en el PDF
@@ -94,7 +94,7 @@ public class ExporterPDF {
             documento.open();
 
             if (Gestor.getInstancia().getListaPartidos().isEmpty()) {
-                System.out.println("La lista que esta intentando utilizar esta vacia.");
+                System.out.println("[*]La lista que esta intentando utilizar esta vacia.");
             } else {
                 // Imprimir texto en el PDF
                 int indice = 0;
@@ -127,8 +127,8 @@ public class ExporterPDF {
             // Abrir el documento
             documento.open();
 
-            if (Gestor.getInstancia().getListaPartidos().isEmpty()) {
-                System.out.println("La lista que esta intentando utilizar esta vacia.");
+            if (Gestor.getInstancia().getListaNominas().isEmpty()) {
+                System.out.println("[*]La lista que esta intentando utilizar esta vacia.");
             } else {
                 // Imprimir texto en el PDF
                 int indice = 0;

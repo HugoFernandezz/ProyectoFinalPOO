@@ -61,7 +61,8 @@ public class Gestor {
      */
     public void eliminarPersona(int indice) {
         Date diaDespido = new Date();
-        if (indice >= listaPersonas.size() || indice <= 0) {
+        
+        if (indice > listaPersonas.size() || indice <= 0) {
             System.err.print("Error, el indice seleccionado no existe\n");
         } else {
             String nombrePersonaBorrada = listaPersonas.get(indice - 1).getNombre();
@@ -87,6 +88,17 @@ public class Gestor {
 
         }
         System.out.println("");
+    }
+    
+    public List<Persona> ListaPersonasDentroDelClub() {
+        List<Persona> listaPersonasDentroClub = new ArrayList<>(); ;
+        for (Persona persona : getListaPersonas()) {
+            if (persona.isIsOnClub()) {
+                listaPersonasDentroClub.add(persona);
+            }
+
+        }
+        return listaPersonasDentroClub;
     }
 
     /**

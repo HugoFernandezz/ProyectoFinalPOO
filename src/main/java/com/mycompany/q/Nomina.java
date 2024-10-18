@@ -19,15 +19,16 @@ public class Nomina {
     private Persona persona;
 
     public Nomina(Meses mes, int ano, Concepto concepto, Persona persona) {
-        this(mes, ano, concepto);
+        this(mes, ano, concepto); // Delegación al constructor más básico
         this.persona = persona;
-        Gestor.getInstancia().agregarNomina(this);
     }
 
+    // Constructor básico
     public Nomina(Meses mes, int ano, Concepto concepto) {
         this.mes = mes;
         this.ano = ano;
         conceptos.add(concepto);
+        Gestor.getInstancia().agregarNomina(this); 
     }
 
     public Nomina(Nomina otra) {
@@ -97,17 +98,18 @@ public class Nomina {
         conceptos.add(concepto);
     }
 
-   
     public Concepto getConceptos(int indice) {
         return conceptos.get(indice - 1);
     }
-    
+
     public void modificarConceptoIndex(Concepto concepto, int indice) {
         conceptos.remove(indice - 1);
         conceptos.add(indice - 1, concepto);
+        System.out.println("Concepto modificado con exito!");
     }
-    
+
     public Concepto deleteConcepto(int indice) {
+        System.out.println("Concepto eliminado con exito");
         return conceptos.remove(indice - 1);
     }
 
