@@ -80,7 +80,7 @@ public class App {
 
                 mostrarMenuPrincipal();
 
-                int indice = inputReader.nextInt();
+                int indice = InputInt(1, 10);
                 inputReader.nextLine();  // Consumir el salto de línea
                 int subIndice;
 
@@ -94,7 +94,7 @@ public class App {
                                 + "\n 2 - Tecnico"
                                 + "\n 3 - Directivo");
 
-                        subIndice = inputReader.nextInt();
+                        subIndice = InputInt(1,42);
                         inputReader.nextLine();  // Consumir el salto de línea
 
                         switch (subIndice) {
@@ -170,7 +170,7 @@ public class App {
                         inputReader.nextLine();  // Consumir el salto de línea
                         Nomina nominaAModificar = Gestor.getInstancia().getNominaByIndex(indiceSeleccionNomina);
                         manipularConceptoNomina(nominaAModificar);
-                        
+
                         // </editor-fold>
                         break;
                     case 9:
@@ -739,4 +739,40 @@ public class App {
             System.out.println("----------------------------------------");
         }
     }
+
+    public static int InputInt() {
+
+        while (true) {
+            try {
+                int value = inputReader.nextInt();
+                return value;
+
+            } catch (Exception e) {
+                System.out.println("Debe introducir un numero valido");
+                inputReader.nextLine();   // Consumir el salto de línea
+                InputInt();
+            }
+        }
+    }
+
+    public static int InputInt(int rangoMin, int rangoMax) {
+    
+        while (true) {
+            try {
+                int value = inputReader.nextInt();
+
+                if (value >= rangoMin && value <= rangoMax) {
+                    return value;
+                } else {
+                    System.out.println("El rango del valor tiene que estar comprendido entre " + rangoMin + " y " + rangoMax);
+                }
+
+            } catch (Exception e) {
+                System.out.println("Debe introducir un numero valido");
+                inputReader.nextLine(); // Consumir el salto de línea
+                InputInt(rangoMin, rangoMax);
+            }
+        }
+    }
+
 }
