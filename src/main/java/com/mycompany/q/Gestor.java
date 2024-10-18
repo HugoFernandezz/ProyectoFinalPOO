@@ -23,13 +23,15 @@ public class Gestor {
     // Atributo privado estático para la única instancia de la clase
     private static Gestor gestor;
 
-    private List<Persona> listaPersonas = new ArrayList();
-    private List<Partido> listaPartidos = new ArrayList();
-    private List<Nomina> listaNominas = new ArrayList();
+    private List<Persona> listaPersonas;
+    private List<Partido> listaPartidos;
+    private List<Nomina> listaNominas;
 
     // Constructor privado para evitar la creación de instancias externas
     private Gestor() {
         this.listaPersonas = new ArrayList<>();
+        this.listaPartidos = new ArrayList<>();
+        this.listaNominas = new ArrayList<>();
     }
 
     // Método público estático para obtener la instancia única (Singleton pattern)
@@ -68,6 +70,10 @@ public class Gestor {
             System.out.println("-----------------------------------------\n" + nombrePersonaBorrada + " ha sido borrado con exito!. \n-----------------------------------------\n\n");
         }
 
+    }
+
+    public List<Persona> getListaPersonas() {
+        return listaPersonas;
     }
 
     public void mostrarListaPersonas() {
@@ -119,12 +125,14 @@ public class Gestor {
     public List<Nomina> getListaNominas() {
         return listaNominas;
     }
-    
-     /**
-     * @return the listaNominas by index
+
+    /**
+     *
+     * @param indice
+     * @return
      */
     public Nomina getNominaByIndex(int indice) {
-        return listaNominas.get(indice -1);
+        return listaNominas.get(indice - 1);
     }
 
     public void agregarNomina(Nomina nomina) {
@@ -150,7 +158,7 @@ public class Gestor {
 
     public List<Persona> listaPersonasSortedDNI(List<Persona> lista) {
 
-        List<Persona> myNewListPersona = new ArrayList(listaPersonas);
+        List<Persona> myNewListPersona = new ArrayList();
         //Chequeo que las personas estan activas en el club y las guardo en mi lista pivote
         for (Persona persona : lista) {
             if (persona.isIsOnClub()) {
@@ -179,28 +187,23 @@ public class Gestor {
 
         return myNewListPersona;
     }
-    
+
     /**
      * @param listaNominas the listaNominas to set
      */
     public void setListaNominas(List<Nomina> listaNominas) {
         this.listaNominas = listaNominas;
     }
-    
 
     // <editor-fold defaultstate="collapsed" desc="Metodos generadores de archivos texto">
     public void validarFichero(File file) {
-        // Si el archivo no existe, lo creamos
-        if (!file.exists()) {
-            try {
-                file.createNewFile();
-                System.out.println("El archivo " + file.toString() + ".txt ha sido creado.");
-            } catch (IOException e) {
-                System.out.println("Error al crear el archivo: " + e.getMessage());
-            }
-        } else {
-            System.out.println("El archivo de texto con la informacion sobre todos los empleados ya se genero anteriormente.");
+        try {
+            file.createNewFile();
+            System.out.println("El archivo " + file.toString() + ".txt ha sido creado.");
+        } catch (IOException e) {
+            System.out.println("Error al crear el archivo: " + e.getMessage());
         }
+
     }
 
     public void generadoresDeEmpleados() {
@@ -209,8 +212,8 @@ public class Gestor {
         validarFichero(empleadosFichero);
 
         /*BufferedWriter es un buffer que optimiza la escritura en archivos, acumulando
-        texto en un buffer antes de escribirlo al disco, lo que mejora el rendimiento.*/
- /*El parametro false en el constructor del FileWriter indica que quiero que se sobreescriba la informacion y no se añada.*/
+        texto en un buffer antes de escribirlo al disco, lo que mejora el rendimiento.
+        El parametro false en el constructor del FileWriter indica que quiero que se sobreescriba la informacion y no se añada.*/
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(empleadosFichero, false))) {
             int indice = 0;
 
@@ -220,7 +223,11 @@ public class Gestor {
                 writer.newLine(); // Para hacer un salto de línea
             }
 
-            System.out.println("Informacion del empleado escrita en el archivo.");
+            if (getListaPersonas().isEmpty()) {
+                writer.write("No hay personas en el club");
+            } else {
+                System.out.println("Informacion del empleado escrita en el archivo.");
+            }
         } catch (IOException e) {
             System.out.println("Error al escribir en el archivo: " + e.getMessage());
         }
@@ -240,7 +247,7 @@ public class Gestor {
                 writer.newLine(); // Para hacer un salto de línea
             }
 
-            if (listaPersonasFueraClub(listaPersonas).size() == 0) {
+            if (listaPersonasFueraClub(listaPersonas).isEmpty()) {
                 writer.write("No hay ninguna persona fuera del club");
             }
 
@@ -263,7 +270,12 @@ public class Gestor {
                 writer.newLine(); // Para hacer un salto de línea
             }
 
+            if (getListaPartidos().isEmpty()) {
+                writer.write("El club todavia no ha jugado ningun partido");
+            }
+
             System.out.println("Informacion de los partidos escrita en el archivo.");
+
         } catch (IOException e) {
             System.out.println("Error al escribir en el archivo: " + e.getMessage());
         }
@@ -301,7 +313,12 @@ public class Gestor {
 
             }
 
-            System.out.println("Informacion de las nominas escrita en el archivo.");
+            if (getListaNominas().isEmpty()) {
+                writer.write("El club todavia no generado ninguna nomina");
+            } else {
+
+                System.out.println("Informacion de las nominas escrita en el archivo.");
+            }
         } catch (IOException e) {
             System.out.println("Error al escribir en el archivo: " + e.getMessage());
         }
@@ -309,5 +326,4 @@ public class Gestor {
     }
     // </editor-fold>
 
-    
 }
