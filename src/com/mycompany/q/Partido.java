@@ -71,7 +71,7 @@ public class Partido {
     /**
      * @return the isLocal
      */
-    public boolean isIsLocal() {
+    public boolean GetIsLocal() {
         return isLocal;
     }
 
