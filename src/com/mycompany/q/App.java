@@ -164,17 +164,18 @@ public class App {
                     case 8:
                         // <editor-fold defaultstate="collapsed" desc="Opcion 8 - Modificar concepto de nomina">
                         int indiceSeleccionNomina = 0;
-                        mostrarNominasInformacion();
-                        System.out.println("Seleccione el indice de la nomina que quiera modificar:");
+
                         try {
+                            mostrarNominasInformacion();
+                            System.out.println("Seleccione el indice de la nomina que quiera modificar:");
                             indiceSeleccionNomina = InputInt(1, Gestor.getInstancia().getListaNominas().size());
                             inputReader.nextLine();  // Consumir el salto de línea
+                            Nomina nominaAModificar = Gestor.getInstancia().getNominaByIndex(indiceSeleccionNomina);
+                            manipularConceptoNomina(nominaAModificar);
                         } catch (Exception e) {
+                            System.err.println("[*]Todavia no existe ninguna nomina.");
                             break;
                         }
-
-                        Nomina nominaAModificar = Gestor.getInstancia().getNominaByIndex(indiceSeleccionNomina);
-                        manipularConceptoNomina(nominaAModificar);
 
                         // </editor-fold>
                         break;
@@ -699,7 +700,6 @@ public class App {
 
                 conceptoModificar = crearNuevoConcepto();
                 nomina.modificarConceptoIndex(conceptoModificar, subIndice);
-                
 
                 break;
             case 3:
@@ -750,7 +750,8 @@ public class App {
     public static void mostrarNominasInformacion() {
         int indice = 0;
         if (Gestor.getInstancia().getListaNominas().size() == 0) {
-            System.out.println("Actualmente no hay ningun nomina creada.");
+            throw new IllegalArgumentException("[*]La lista esta vacia");
+
         }
         for (Nomina nomina : Gestor.getInstancia().getListaNominas()) {
             indice++;
@@ -771,7 +772,7 @@ public class App {
                 return value;
 
             } catch (Exception e) {
-                System.out.println("Debe introducir un numero valido.");
+                System.err.println("[*]Debe introducir un numero valido.");
 
                 inputReader.nextLine(); // Esto limpia el buffer de entrada
             }

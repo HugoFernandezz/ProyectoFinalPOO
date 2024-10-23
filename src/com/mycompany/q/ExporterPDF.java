@@ -74,7 +74,7 @@ public class ExporterPDF {
 
                 }
                 documento.close();
-                System.out.println("PDF creado");
+                System.out.println("[+]PDF creado");
             }
         } catch (DocumentException | IOException e) {
             e.printStackTrace();
@@ -108,7 +108,7 @@ public class ExporterPDF {
 
                 }
                 documento.close();
-                System.out.println("PDF creado");
+                System.out.println("[+]PDF creado");
             }
         } catch (DocumentException | IOException e) {
             e.printStackTrace();
@@ -159,7 +159,7 @@ public class ExporterPDF {
 
                 }
                 documento.close();
-                System.out.println("PDF creado");
+                System.out.println("[+]PDF creado");
             }
         } catch (DocumentException | IOException e) {
             e.printStackTrace();
