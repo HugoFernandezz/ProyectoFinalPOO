@@ -192,7 +192,7 @@ public class App {
                                 + "\n 8 - Listado de nominas generadas (Fichero PDF)."
                                 + "\n 9 - Salir.");
 
-                        subIndice = inputReader.nextInt();
+                        subIndice = InputInt(1, 9);
                         inputReader.nextLine();  // Consumir el salto de línea
 
                         switch (subIndice) {
