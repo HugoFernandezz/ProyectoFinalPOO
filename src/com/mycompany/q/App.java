@@ -408,13 +408,10 @@ public class App {
         Cliente cliente = new Cliente(cif, nombre);
 
         System.out.println("Indique la cantidad en euros de la factura: ");
-        cantidad = inputReader.nextInt();
+        cantidad = InputInt();
         inputReader.nextLine();  // Consumir el salto de línea
 
-        //TODO sanear este input
-        System.out.println("Indique la fecha de pago con el formato 'DD/MM/YYYY': ");
-        fechaPago = inputReader.next();
-        inputReader.nextLine();  // Consumir el salto de línea
+        fechaPago = InputDate();
 
         System.out.println("Indique el codigo unico de su factura");
         codigoUnico = inputReader.next();
@@ -699,7 +696,6 @@ public class App {
 
                 conceptoModificar = crearNuevoConcepto();
                 nomina.modificarConceptoIndex(conceptoModificar, subIndice);
-                
 
                 break;
             case 3:
@@ -763,6 +759,20 @@ public class App {
         }
     }
 
+    public static String InputDate() {
+        while (true) {
+            System.out.println("Indique la fecha de pago con el formato 'DD/MM/YYYY': ");
+            String value = inputReader.next();
+
+            /*
+             * \\d{2} para valdiar que hay dos digitos, / para validar que está el separador
+             */
+            if (value.matches("\\d{2}/\\d{2}/\\d{4}")) {
+                return value;
+            } 
+        }
+    }
+
     public static int InputInt() {
 
         while (true) {
@@ -771,7 +781,7 @@ public class App {
                 return value;
 
             } catch (Exception e) {
-                System.out.println("Debe introducir un numero valido.");
+                System.err.println("[*]Debe introducir un numero valido.");
 
                 inputReader.nextLine(); // Esto limpia el buffer de entrada
             }

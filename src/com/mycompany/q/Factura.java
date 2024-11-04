@@ -4,6 +4,9 @@
  */
 package com.mycompany.q;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author HugoFDZ
@@ -14,6 +17,7 @@ public class Factura {
     private float cantidad;
     private String fechaPago;
     private Cliente cliente;
+    private List<Factura> facturas = new ArrayList<Factura>();
 
     
     /**
@@ -28,6 +32,7 @@ public class Factura {
         this.cantidad = cantidad;
         this.fechaPago = fechaPago;
         this.cliente = cliente;
+        facturas.add(this);
     }
     
 
@@ -86,6 +91,28 @@ public class Factura {
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
+
+    /**
+     * @return the facturas
+     */
+    public List<Factura> getFacturas() {
+        return facturas;
+    }
+
+    /**
+     * @param facturas the facturas to set
+     */
+    public void setFacturas(List<Factura> facturas) {
+        this.facturas = facturas;
+    }
+    
+    /**
+     * @param facturas the factura to set
+     */
+    public void setFacturas(Factura factura) {
+        facturas.add(factura);
+    }
+    
 
     
 }
