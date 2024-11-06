@@ -15,26 +15,48 @@ import java.util.List;
 import java.util.Scanner;
 
 /**
- *
- * @author HugoFDZ
+ * Clase Gestor que implementa el patrón Singleton para manejar listas de personas,
+ * partidos y nóminas en un club deportivo.
+ * Proporciona métodos para gestionar el registro y salida de personas, generación
+ * de archivos de texto con información del club, y gestión de nóminas.
+ * 
  */
 public class Gestor {
 
-    // Atributo privado estático para la única instancia de la clase
+    /**
+     * Atributo privado estático para la única instancia de la clase.
+     */
     private static Gestor gestor;
 
+    /**
+     * Lista de personas registradas en el club.
+     */
     private List<Persona> listaPersonas;
+    /**
+     * Lista de partidos jugados por el club.
+     */
     private List<Partido> listaPartidos;
+    /**
+     * Lista de nóminas generadas para las personas del club.
+     */
     private List<Nomina> listaNominas;
 
-    // Constructor privado para evitar la creación de instancias externas
+    /**
+     * Constructor privado que inicializa las listas, evitando la creación
+     * de instancias externas de la clase.
+     */
     private Gestor() {
         this.listaPersonas = new ArrayList<>();
         this.listaPartidos = new ArrayList<>();
         this.listaNominas = new ArrayList<>();
     }
 
-    // Método público estático para obtener la instancia única (Singleton pattern)
+    /**
+     * Método público estático que devuelve la instancia única de Gestor.
+     * Implementa el patrón Singleton.
+     * 
+     * @return la instancia única de Gestor
+     */
     public static Gestor getInstancia() {
         if (gestor == null) {
             gestor = new Gestor();
@@ -43,21 +65,27 @@ public class Gestor {
     }
 
     /**
-     * @param persona add person to listaPersonas
+     * Agrega una persona a la lista de personas.
+     * 
+     * @param persona la persona a agregar a listaPersonas
      */
     public void agregarPersona(Persona persona) {
         listaPersonas.add(persona);
     }
 
     /**
-     * @param persona the Persona in listaPersonas to delete
+     * Elimina una persona de la lista de personas.
+     * 
+     * @param persona la persona a eliminar de listaPersonas
      */
     public void eliminarPersona(Persona persona) {
         listaPersonas.remove(persona);
     }
 
     /**
-     * @param indice the listaPersonas to delete by index
+     * Elimina una persona de la lista de personas por su índice.
+     * 
+     * @param indice el índice de la persona en listaPersonas a eliminar
      */
     public void eliminarPersona(int indice) {
         Date diaDespido = new Date();
@@ -73,10 +101,18 @@ public class Gestor {
 
     }
 
+    /**
+     * Devuelve la lista completa de personas en el club.
+     * 
+     * @return lista de personas en el club
+     */
     public List<Persona> getListaPersonas() {
         return listaPersonas;
     }
 
+    /**
+     * Muestra en consola la lista de personas activas en el club.
+     */
     public void mostrarListaPersonas() {
         int indice = 0;
         System.out.println("Las personas dadas de alta ahora mismo son: ");
@@ -90,6 +126,11 @@ public class Gestor {
         System.out.println("");
     }
     
+    /**
+     * Devuelve una lista de personas que están activas en el club.
+     * 
+     * @return lista de personas activas en el club
+     */
     public List<Persona> ListaPersonasDentroDelClub() {
         List<Persona> listaPersonasDentroClub = new ArrayList<>(); ;
         for (Persona persona : getListaPersonas()) {
@@ -102,8 +143,10 @@ public class Gestor {
     }
 
     /**
-     * @param indice returns Persona in listaPersona by index
-     * @return Persona
+     * Recupera una persona de la lista por índice.
+     * 
+     * @param indice el índice de la persona en listaPersonas a recuperar
+     * @return la persona en la posición indicada o null si no existe
      */
     public Persona recuperarPersona(int indice) {
         if (indice < 1 || indice > listaPersonas.size()) {
@@ -114,45 +157,63 @@ public class Gestor {
     }
 
     /**
-     * @return the listaPartidos
+     * Devuelve la lista de partidos del club.
+     * 
+     * @return lista de partidos jugados por el club
      */
     public List<Partido> getListaPartidos() {
         return listaPartidos;
     }
 
     /**
-     * @param listaPartidos the listaPartidos to set
+     * Establece la lista de partidos del club.
+     * 
+     * @param listaPartidos la lista de partidos a asignar
      */
     public void setListaPartidos(List<Partido> listaPartidos) {
         this.listaPartidos = listaPartidos;
     }
 
+    /**
+     * Agrega un partido a la lista de partidos del club.
+     * 
+     * @param partido el partido a agregar a listaPartidos
+     */
     public void agregarPartido(Partido partido) {
         listaPartidos.add(partido);
     }
 
     /**
-     * @return the listaNominas
+     * Devuelve la lista de nóminas del club.
+     * 
+     * @return lista de nóminas generadas para el club
      */
     public List<Nomina> getListaNominas() {
         return listaNominas;
     }
 
     /**
-     *
-     * @param indice
-     * @return
+     * Recupera una nómina de la lista de nóminas por índice.
+     * 
+     * @param indice el índice de la nómina en listaNominas
+     * @return la nómina en la posición indicada
      */
     public Nomina getNominaByIndex(int indice) {
         return listaNominas.get(indice - 1);
     }
-
+    /**
+     * Agrega una nómina a la lista de nóminas del club.
+     * 
+     * @param nomina la nómina a agregar a listaNominas
+     */
     public void agregarNomina(Nomina nomina) {
         getListaNominas().add(nomina);
     }
 
     /**
-     * @return Persona deploying menu to search by DNI
+     * Recupera una persona de la lista según su DNI.
+     * 
+     * @return la persona con el DNI introducido o null si no se encuentra
      */
     public Persona recuperarPersonaDNI() {
         while (true) {
@@ -168,6 +229,12 @@ public class Gestor {
         }
     }
 
+    /**
+     * Devuelve una lista de personas activas ordenadas por DNI.
+     * 
+     * @param lista lista de personas a ordenar
+     * @return lista de personas activas ordenadas por DNI
+     */
     public List<Persona> listaPersonasSortedDNI(List<Persona> lista) {
 
         List<Persona> myNewListPersona = new ArrayList();
@@ -183,6 +250,12 @@ public class Gestor {
         return myNewListPersona;
     }
 
+    /**
+     * Devuelve una lista de personas fuera del club ordenadas por nombre y apellido.
+     * 
+     * @param lista lista de personas a filtrar
+     * @return lista de personas fuera del club ordenadas
+     */
     public List<Persona> listaPersonasFueraClub(List<Persona> lista) {
 
         List<Persona> myNewListPersona = new ArrayList();
@@ -201,13 +274,20 @@ public class Gestor {
     }
 
     /**
-     * @param listaNominas the listaNominas to set
+     * Establece la lista de nóminas del club.
+     * 
+     * @param listaNominas la lista de nóminas a asignar
      */
     public void setListaNominas(List<Nomina> listaNominas) {
         this.listaNominas = listaNominas;
     }
 
     // <editor-fold defaultstate="collapsed" desc="Metodos generadores de archivos texto">
+    /**
+     * Crea un archivo si no existe.
+     * 
+     * @param file el archivo a validar o crear
+     */
     public void validarFichero(File file) {
         try {
             file.createNewFile();
@@ -218,6 +298,9 @@ public class Gestor {
 
     }
 
+    /**
+     * Genera un archivo de texto con la lista de empleados activos en el club.
+     */
     public void generadoresDeEmpleados() {
 
         File empleadosFichero = new File("empleadosFichero.txt");
@@ -246,6 +329,9 @@ public class Gestor {
 
     }
 
+    /**
+     * Genera un archivo de texto con la lista de empleados que han sido eliminados del club.
+     */
     public void generarEmpleadosEliminados() {
         File empleadosEliminadosFichero = new File("empleadosEliminados.txt");
         validarFichero(empleadosEliminadosFichero);
@@ -268,7 +354,10 @@ public class Gestor {
             System.out.println("Error al escribir en el archivo: " + e.getMessage());
         }
     }
-
+    
+    /**
+     * Genera un archivo de texto con la lista de partidos jugados por el club.
+     */
     public void generarListaPartidos() {
         File listadoPartidosFichero = new File("listadoPartidosFichero.txt");
         validarFichero(listadoPartidosFichero);
@@ -293,7 +382,10 @@ public class Gestor {
         }
 
     }
-
+    
+    /**
+     * Genera un archivo de texto con la lista de nóminas generadas para las personas del club.
+     */
     public void generarListaNominas() {
         File listadoNominas = new File("listadoNominas.txt");
         validarFichero(listadoNominas);

@@ -1,26 +1,59 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.q;
 
 import java.util.Date;
 
 /**
+ * Clase abstracta que representa una persona, base para otros tipos de personas
+ * como jugadores o empleados. La clase incluye información personal como el
+ * nombre, apellido, DNI, teléfono, y estado dentro del club, así como detalles
+ * sobre la nómina y el día de despido si corresponde.
  *
  * @author HugoFDZ
  */
 public abstract class Persona {
 
-    //Mis variables
+    // Mis variables
     protected final String dni;
+    /**
+     * El DNI de la persona, único e inmutable
+     */
     protected String nombre;
+    /**
+     * El nombre de la persona
+     */
     private String apellido;
+    /**
+     * El apellido de la persona
+     */
     protected int telefono;
+    /**
+     * El número de teléfono de la persona
+     */
     private boolean isOnClub = true;
+    /**
+     * Indica si la persona sigue perteneciendo al club (true = sí)
+     */
     private Date diaDespido;
+    /**
+     * La fecha en la que la persona fue despedida, si aplica
+     */
     private Nomina nomina;
 
+    /**
+     * La nómina asociada a la persona
+     */
+
+
+    /**
+     * Constructor de la clase Persona. Inicializa los datos básicos de la
+     * persona, como el DNI, nombre, apellido, teléfono, y la agrega al gestor
+     * de personas.
+     *
+     * @param dni El DNI de la persona
+     * @param apellido El apellido de la persona
+     * @param nombre El nombre de la persona
+     * @param telefono El número de teléfono de la persona
+     */
     public Persona(String dni, String apellido, String nombre, int telefono) {
         this.dni = dni;
         this.nombre = nombre;
@@ -29,23 +62,29 @@ public abstract class Persona {
         Gestor.getInstancia().agregarPersona(this);
     }
 
-    //Mis metodos
-    
+    // Mis métodos
     /**
-     * @return the dni
+     * Obtiene el DNI de la persona.
+     *
+     * @return El DNI de la persona
      */
     public String getDni() {
         return dni;
     }
+
     /**
-     * @return the nombre
+     * Obtiene el nombre de la persona.
+     *
+     * @return El nombre de la persona
      */
     public String getNombre() {
         return nombre;
     }
 
     /**
-     * @param nombre the nombre to set
+     * Establece el nombre de la persona.
+     *
+     * @param nombre El nombre a asignar
      */
     public void setNombre(String nombre) {
         this.nombre = nombre;
@@ -53,75 +92,94 @@ public abstract class Persona {
     }
 
     /**
-     * @return the telefono
+     * Obtiene el número de teléfono de la persona.
+     *
+     * @return El número de teléfono
      */
     public int getTelefono() {
         return telefono;
     }
 
     /**
-     * @param telefono the telefono to set
+     * Establece el número de teléfono de la persona.
+     *
+     * @param telefono El número de teléfono a asignar
      */
     public void setTelefono(int telefono) {
         this.telefono = telefono;
-        System.out.println("Telefono actualizado a " + this.telefono);
+        System.out.println("Teléfono actualizado a " + this.telefono);
     }
 
     /**
-     * @return the isOnClub
+     * Obtiene el estado de la persona en el club.
+     *
+     * @return true si la persona sigue en el club, false si ha sido despedida
      */
     public boolean isIsOnClub() {
         return isOnClub;
     }
 
     /**
-     * @param isOnClub the isOnClub to set
+     * Establece si la persona sigue perteneciendo al club o ha sido despedida.
+     *
+     * @param isOnClub true si la persona está en el club, false si ha sido
+     * despedida
      */
     public void setIsOnClub(boolean isOnClub) {
         this.isOnClub = isOnClub;
     }
 
     /**
-     * @return the diaDespido
+     * Obtiene la fecha en la que la persona fue despedida, si aplica.
+     *
+     * @return La fecha de despido de la persona
      */
     public Date getDiaDespido() {
         return diaDespido;
     }
 
     /**
-     * @param diaDespido the diaDespido to set
+     * Establece la fecha de despido de la persona.
+     *
+     * @param diaDespido La fecha en la que la persona fue despedida
      */
     public void setDiaDespido(Date diaDespido) {
         this.diaDespido = diaDespido;
     }
 
     /**
-     * @return the nomina
+     * Obtiene la nómina asociada a la persona.
+     *
+     * @return La nómina de la persona
      */
     public Nomina getNomina() {
         return nomina;
     }
 
     /**
-     * @param nomina the nomina to set
+     * Establece la nómina asociada a la persona.
+     *
+     * @param nomina La nómina a asignar
      */
     public void setNomina(Nomina nomina) {
         this.nomina = nomina;
     }
 
     /**
-     * @return the apellido
+     * Obtiene el apellido de la persona.
+     *
+     * @return El apellido de la persona
      */
     public String getApellido() {
         return apellido;
     }
 
     /**
-     * @param apellido the apellido to set
+     * Establece el apellido de la persona.
+     *
+     * @param apellido El apellido a asignar
      */
     public void setApellido(String apellido) {
         this.apellido = apellido;
     }
-    
-    
 }

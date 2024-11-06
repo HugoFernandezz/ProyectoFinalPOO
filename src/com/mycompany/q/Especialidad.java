@@ -5,8 +5,8 @@
 package com.mycompany.q;
 
 /**
- *
- * @author HugoFDZ
+ * Enumeración que representa las especialidades de un miembro del cuerpo técnico en un equipo de fútbol.
+ * 
  */
 enum Especialidad {
     principal,

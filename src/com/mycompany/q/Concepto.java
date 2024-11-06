@@ -1,12 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.q;
 
 /**
- *
- * @author HugoFDZ
+ * Clase que representa un concepto con un código, una descripción y un importe.
+ * 
  */
 public class Concepto {
 
@@ -14,6 +10,13 @@ public class Concepto {
     private String descripcion;
     private int importe;
 
+    /**
+     * Constructor de la clase Concepto.
+     * 
+     * @param codigo Código del concepto
+     * @param descripcion Descripción del concepto
+     * @param importe Importe asociado al concepto
+     */
     public Concepto(String codigo, String descripcion, int importe) {
         this.codigo = codigo;
         this.descripcion = descripcion;
@@ -21,42 +24,54 @@ public class Concepto {
     }
 
     /**
-     * @return the codigo
+     * Obtiene el código del concepto.
+     * 
+     * @return el código del concepto
      */
     public String getCodigo() {
         return codigo;
     }
 
     /**
-     * @param codigo the codigo to set
+     * Establece el código del concepto.
+     * 
+     * @param codigo el código a establecer
      */
     public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
 
     /**
-     * @return the descripcion
+     * Obtiene la descripción del concepto.
+     * 
+     * @return la descripción del concepto
      */
     public String getDescripcion() {
         return descripcion;
     }
 
     /**
-     * @param descripcion the descripcion to set
+     * Establece la descripción del concepto.
+     * 
+     * @param descripcion la descripción a establecer
      */
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
 
     /**
-     * @return the importe
+     * Obtiene el importe del concepto.
+     * 
+     * @return el importe del concepto
      */
     public int getImporte() {
         return importe;
     }
 
     /**
-     * @param importe the importe to set
+     * Establece el importe del concepto.
+     * 
+     * @param importe el importe a establecer
      */
     public void setImporte(int importe) {
         this.importe = importe;
