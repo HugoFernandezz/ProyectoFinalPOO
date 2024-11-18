@@ -1,4 +1,4 @@
-package com.mycompany.q;
+package Modelo;
 
 /**
  * Enumeración que representa los diferentes puestos dentro de un equipo deportivo.

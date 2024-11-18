@@ -1,4 +1,4 @@
-package com.mycompany.q;
+package Modelo;
 
 /**
  * Enum que representa los meses del año.

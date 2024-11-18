@@ -1,4 +1,4 @@
-package com.mycompany.q;
+package Modelo;
 
 /**
  * Clase que representa un concepto con un código, una descripción y un importe.

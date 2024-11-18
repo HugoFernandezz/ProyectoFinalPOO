@@ -1,4 +1,4 @@
-package com.mycompany.q;
+package Modelo;
 
 /**
  * @author HugoFDZ

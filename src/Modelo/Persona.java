@@ -1,4 +1,4 @@
-package com.mycompany.q;
+package Modelo;
 
 import java.util.Date;
 
@@ -182,4 +182,11 @@ public abstract class Persona {
     public void setApellido(String apellido) {
         this.apellido = apellido;
     }
+
+    @Override
+    public String toString() {
+        return nombre + " " + apellido + ". Rol: " + this.getClass().getSimpleName();
+    }
+    
+    
 }

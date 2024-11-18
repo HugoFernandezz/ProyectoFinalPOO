@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.q;
+package Modelo;
 
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
@@ -22,10 +22,10 @@ public class ExporterPDF {
 
     private static ExporterPDF exporter;
 
-    private final String nameFileEmpleados = "ListaEmpleados.pdf";
-    private final String nameFileEmpleadosEliminados = "ListaEmpleadosEliminados.pdf";
-    private final String namePartidosJugados = "PartidosJugados.pdf";
-    private final String nameNominas = "NominasDelClub.pdf";
+    private final String NAMEFILEEMPLEADOS = "ListaEmpleados.pdf";
+    private final String NAMEFILEEMPLEADOSELIMINADOS = "ListaEmpleadosEliminados.pdf";
+    private final String NAMEPARTIDOSJUGADOS = "PartidosJugados.pdf";
+    private final String NAMENOMINAS = "NominasDelClub.pdf";
 
     /**
      * Obtiene el nombre del archivo de la lista de empleados.
@@ -33,7 +33,7 @@ public class ExporterPDF {
      * @return el nombre del archivo de empleados
      */
     public String getNameFileEmpleados() {
-        return nameFileEmpleados;
+        return NAMEFILEEMPLEADOS;
     }
 
     /**
@@ -42,7 +42,7 @@ public class ExporterPDF {
      * @return el nombre del archivo de empleados eliminados
      */
     public String getNameFileEmpleadosEliminados() {
-        return nameFileEmpleadosEliminados;
+        return NAMEFILEEMPLEADOSELIMINADOS;
     }
 
     // Constructor privado para evitar la creación de instancias externas
@@ -97,7 +97,7 @@ public class ExporterPDF {
     public void crearPDFPartidos() {
         try {
             Document documento = new Document();
-            PdfWriter.getInstance(documento, new FileOutputStream(namePartidosJugados));
+            PdfWriter.getInstance(documento, new FileOutputStream(NAMEPARTIDOSJUGADOS));
             documento.open();
 
             if (Gestor.getInstancia().getListaPartidos().isEmpty()) {
@@ -124,7 +124,7 @@ public class ExporterPDF {
     public void crearPDFNominas() {
         try {
             Document documento = new Document();
-            PdfWriter.getInstance(documento, new FileOutputStream(nameNominas));
+            PdfWriter.getInstance(documento, new FileOutputStream(NAMENOMINAS));
             documento.open();
 
             if (Gestor.getInstancia().getListaNominas().isEmpty()) {
