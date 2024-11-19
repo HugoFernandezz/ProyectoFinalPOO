@@ -8,7 +8,7 @@ package Modelo;
  * Enumeración que representa las especialidades de un miembro del cuerpo técnico en un equipo de fútbol.
  * 
  */
-enum Especialidad {
+public enum Especialidad {
     principal,
     porteros,
     ayudante;
