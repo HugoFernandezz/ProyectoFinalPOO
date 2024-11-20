@@ -1,4 +1,4 @@
-package com.mycompany.q;
+package Modelo;
 
 /**
  * Clase que representa a un jugador, extendiendo de la clase {@link Persona}.

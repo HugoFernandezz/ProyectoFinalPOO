@@ -1,12 +1,15 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
-package com.mycompany.q;
+package Modelo;
 
+import Controlador.ControladorMainWindow;
+import Vista.MainWindow;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -74,6 +77,13 @@ public class App {
         Directivo Juan = new Directivo("Juan", "Lopez", "67890123V", 612345604, "Responsable de Marketing");
 
         // </editor-fold>
+        
+        
+        MainWindow mainWindow = new MainWindow();
+        ControladorMainWindow controladorMainWindow = new ControladorMainWindow(mainWindow);
+        mainWindow.setLocationRelativeTo(null);
+        mainWindow.setVisible(true);
+
         while (true) {
 
             try {

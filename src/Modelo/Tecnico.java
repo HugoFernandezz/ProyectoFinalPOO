@@ -1,4 +1,4 @@
-package com.mycompany.q;
+package Modelo;
 
 /**
  * Clase que representa a un técnico en el ámbito deportivo, que es una extensión de la clase Persona.

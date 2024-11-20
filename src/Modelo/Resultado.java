@@ -1,4 +1,4 @@
-package com.mycompany.q;
+package Modelo;
 
 /**
  * Clase que representa el resultado de un partido de fútbol, con los goles anotados por el equipo local y el visitante.

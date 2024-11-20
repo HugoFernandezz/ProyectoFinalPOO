@@ -1,4 +1,4 @@
-package com.mycompany.q;
+package Modelo;
 
 /**
  * Clase que representa a un cliente con un CIF y un nombre.

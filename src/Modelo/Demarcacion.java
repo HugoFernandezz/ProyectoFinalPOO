@@ -1,11 +1,11 @@
-package com.mycompany.q;
+package Modelo;
 
 /**
  * @author HugoFDZ
  * Enumeración que representa las diferentes demarcaciones de un jugador en un equipo de fútbol.
  * 
  */
-enum Demarcacion {
+public enum Demarcacion {
     portero,
     defensa,
     defensaCentral,
