@@ -13,6 +13,12 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import Modelo.Especialidad;
 import Modelo.Puesto;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -34,7 +40,12 @@ public class MainWindow extends javax.swing.JFrame {
     Icon icon = new ImageIcon(getClass().getResource("/Media/IconBall.png"));
 
     public MainWindow() {
+
+        //Lista de componentes a los que voy a aplicar algunos cambios visuales como pequeñas animaciones
+        JTextField[] camposNumericos = {InputAltaJugadorTelefono, InputAltaJugadorEdad, InputAltaJugadorValor, InputAltaTecnicoTelefono, InputAltaDirectivoTelefono};
+
         initComponents();
+        InicializarEventos();
 
         //Tabla para ver la plantilla de futbol actual
         String[] columnas = {"Nombre", "Apellido", "Rol", "DNI"};
@@ -1183,6 +1194,70 @@ public class MainWindow extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void InicializarEventos() {
+        JTextField[] camposNumericos = {InputAltaJugadorTelefono, InputAltaJugadorEdad, InputAltaJugadorValor, InputAltaTecnicoTelefono, InputAltaDirectivoTelefono};
+
+        for (JTextField field : camposNumericos) {
+            field.addKeyListener(new java.awt.event.KeyAdapter() {
+                @Override
+                public void keyTyped(java.awt.event.KeyEvent evt) {
+                    forzarSoloNumero(evt);
+                }
+            });
+        }
+
+        JTextField[] camposInputs = {InputAltaDirectivoApellido, InputAltaDirectivoCargo, InputAltaDirectivoDNI, InputAltaDirectivoNombre, InputAltaDirectivoTelefono, InputAltaTecnicoApellido,
+            InputAltaTecnicoDNI, InputAltaTecnicoNombre, InputAltaTecnicoTelefono, InputAltaJugadorApellido, InputAltaJugadorDNI, InputAltaJugadorEdad, InputAltaJugadorNombre, InputAltaJugadorTelefono, InputAltaJugadorValor};
+
+        for (JTextField field : camposInputs) {
+            field.addFocusListener(new FocusAdapter() {
+                String textoPredefinido = field.getText();
+
+                @Override
+                public void focusGained(FocusEvent evt) {
+                    GainFocusStylishTextInput(field);
+                }
+
+                @Override
+                public void focusLost(FocusEvent evt) {
+                    LostFocusStylishTextInput(field, textoPredefinido);
+                }
+            });
+        }
+
+        JButton[] botonesHomeEstilizar = {BtnGestionarPlantilla, BtnGastos, BtnImprimir, BtnJugarPartido};
+
+        for (JButton boton : botonesHomeEstilizar) {
+            boton.addMouseListener(new MouseListener() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+
+                }
+
+                @Override
+                public void mousePressed(MouseEvent e) {
+
+                }
+
+                @Override
+                public void mouseReleased(MouseEvent e) {
+
+                }
+
+                @Override
+                public void mouseEntered(MouseEvent e) {
+                    stylishButtonEnter(boton, icon);
+                }
+
+                @Override
+                public void mouseExited(MouseEvent e) {
+                    stylishButtonExit(boton);
+                }
+
+            });
+        }
+    }
+
     private void BtnGestionarPlantillaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGestionarPlantillaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnGestionarPlantillaActionPerformed
@@ -1200,39 +1275,39 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnImprimirActionPerformed
 
     private void BtnGestionarPlantillaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnGestionarPlantillaMouseEntered
-        stylishButtonEnter(BtnGestionarPlantilla, icon);
+
     }//GEN-LAST:event_BtnGestionarPlantillaMouseEntered
 
     private void BtnJugarPartidoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnJugarPartidoMouseEntered
-        stylishButtonEnter(BtnJugarPartido, icon);
+
     }//GEN-LAST:event_BtnJugarPartidoMouseEntered
 
     private void BtnGastosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnGastosMouseEntered
-        stylishButtonEnter(BtnGastos, icon);
+
     }//GEN-LAST:event_BtnGastosMouseEntered
 
     private void BtnImprimirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnImprimirMouseEntered
-        stylishButtonEnter(BtnImprimir, icon);
+
     }//GEN-LAST:event_BtnImprimirMouseEntered
 
     private void BtnGestionarPlantillaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnGestionarPlantillaMouseExited
-        stylishButtonExit(BtnGestionarPlantilla);
+
     }//GEN-LAST:event_BtnGestionarPlantillaMouseExited
 
     private void BtnJugarPartidoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnJugarPartidoMouseExited
-        stylishButtonExit(BtnJugarPartido);
+
     }//GEN-LAST:event_BtnJugarPartidoMouseExited
 
     private void BtnGastosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnGastosMouseExited
-        stylishButtonExit(BtnGastos);
+
     }//GEN-LAST:event_BtnGastosMouseExited
 
     private void BtnImprimirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnImprimirMouseExited
-        stylishButtonExit(BtnImprimir);
+
     }//GEN-LAST:event_BtnImprimirMouseExited
 
     private void BtnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnHomeActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_BtnHomeActionPerformed
 
     private void BtnHomeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnHomeMouseEntered
@@ -1244,7 +1319,7 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnHomeMouseExited
 
     private void BtnEliminarPersonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminarPersonaActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_BtnEliminarPersonaActionPerformed
 
     private void ToggleEstadoFisicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ToggleEstadoFisicoActionPerformed
@@ -1267,143 +1342,143 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_ToggleEstadoFisicoMousePressed
 
     private void InputAltaJugadorTelefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_InputAltaJugadorTelefonoKeyTyped
-        forzarSoloNumero(evt);
+
     }//GEN-LAST:event_InputAltaJugadorTelefonoKeyTyped
 
     private void InputAltaJugadorEdadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_InputAltaJugadorEdadKeyTyped
-        forzarSoloNumero(evt);
+
     }//GEN-LAST:event_InputAltaJugadorEdadKeyTyped
 
     private void InputAltaJugadorValorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_InputAltaJugadorValorKeyTyped
-        forzarSoloNumero(evt);
+
     }//GEN-LAST:event_InputAltaJugadorValorKeyTyped
 
     private void InputAltaTecnicoTelefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_InputAltaTecnicoTelefonoKeyTyped
-        forzarSoloNumero(evt);
+
     }//GEN-LAST:event_InputAltaTecnicoTelefonoKeyTyped
 
     private void InputAltaDirectivoTelefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_InputAltaDirectivoTelefonoKeyTyped
-        forzarSoloNumero(evt);
+
     }//GEN-LAST:event_InputAltaDirectivoTelefonoKeyTyped
 
     private void InputAltaJugadorNombreFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaJugadorNombreFocusGained
-        GainFocusStylishTextInput(InputAltaJugadorNombre);
+
     }//GEN-LAST:event_InputAltaJugadorNombreFocusGained
 
     private void InputAltaJugadorNombreFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaJugadorNombreFocusLost
-        LostFocusStylishTextInput(InputAltaJugadorNombre, "Inserte el nombre...");
+
     }//GEN-LAST:event_InputAltaJugadorNombreFocusLost
 
     private void InputAltaJugadorApellidoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaJugadorApellidoFocusGained
-        GainFocusStylishTextInput(InputAltaJugadorApellido);
+
     }//GEN-LAST:event_InputAltaJugadorApellidoFocusGained
 
     private void InputAltaJugadorApellidoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaJugadorApellidoFocusLost
-        LostFocusStylishTextInput(InputAltaJugadorApellido, "Inserte el apellido...");
+
     }//GEN-LAST:event_InputAltaJugadorApellidoFocusLost
 
     private void InputAltaJugadorTelefonoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaJugadorTelefonoFocusGained
-        GainFocusStylishTextInput(InputAltaJugadorTelefono);
+
     }//GEN-LAST:event_InputAltaJugadorTelefonoFocusGained
 
     private void InputAltaJugadorTelefonoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaJugadorTelefonoFocusLost
-        LostFocusStylishTextInput(InputAltaJugadorTelefono, "Inserte el telefono...");
+
     }//GEN-LAST:event_InputAltaJugadorTelefonoFocusLost
 
     private void InputAltaTecnicoNombreFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaTecnicoNombreFocusGained
-        GainFocusStylishTextInput(InputAltaTecnicoNombre);
+
     }//GEN-LAST:event_InputAltaTecnicoNombreFocusGained
 
     private void InputAltaTecnicoNombreFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaTecnicoNombreFocusLost
-        LostFocusStylishTextInput(InputAltaTecnicoNombre, "Inserte el nombre...");
+
     }//GEN-LAST:event_InputAltaTecnicoNombreFocusLost
 
     private void InputAltaDirectivoNombreFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaDirectivoNombreFocusGained
-        GainFocusStylishTextInput(InputAltaDirectivoNombre);
+
     }//GEN-LAST:event_InputAltaDirectivoNombreFocusGained
 
     private void InputAltaDirectivoNombreFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaDirectivoNombreFocusLost
-        LostFocusStylishTextInput(InputAltaDirectivoNombre, "Inserte el nombre...");
+
     }//GEN-LAST:event_InputAltaDirectivoNombreFocusLost
 
     private void InputAltaJugadorEdadFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaJugadorEdadFocusGained
-        GainFocusStylishTextInput(InputAltaJugadorEdad);
+
     }//GEN-LAST:event_InputAltaJugadorEdadFocusGained
 
     private void InputAltaJugadorEdadFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaJugadorEdadFocusLost
-        LostFocusStylishTextInput(InputAltaJugadorEdad, "Inserte la edad...");
+
     }//GEN-LAST:event_InputAltaJugadorEdadFocusLost
 
     private void InputAltaJugadorValorFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaJugadorValorFocusGained
-        GainFocusStylishTextInput(InputAltaJugadorValor);
+
     }//GEN-LAST:event_InputAltaJugadorValorFocusGained
 
     private void InputAltaJugadorValorFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaJugadorValorFocusLost
-        LostFocusStylishTextInput(InputAltaJugadorValor, "Inserte el valor...");
+
     }//GEN-LAST:event_InputAltaJugadorValorFocusLost
 
     private void InputAltaTecnicoApellidoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaTecnicoApellidoFocusGained
-        GainFocusStylishTextInput(InputAltaTecnicoApellido);
+
     }//GEN-LAST:event_InputAltaTecnicoApellidoFocusGained
 
     private void InputAltaTecnicoApellidoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaTecnicoApellidoFocusLost
-        LostFocusStylishTextInput(InputAltaTecnicoApellido, "Inserte el apellido...");
+
     }//GEN-LAST:event_InputAltaTecnicoApellidoFocusLost
 
     private void InputAltaTecnicoTelefonoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaTecnicoTelefonoFocusGained
-        GainFocusStylishTextInput(InputAltaTecnicoTelefono);
+
     }//GEN-LAST:event_InputAltaTecnicoTelefonoFocusGained
 
     private void InputAltaTecnicoTelefonoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaTecnicoTelefonoFocusLost
-        LostFocusStylishTextInput(InputAltaTecnicoTelefono, "Inserte el telefono...");
+
     }//GEN-LAST:event_InputAltaTecnicoTelefonoFocusLost
 
     private void InputAltaTecnicoDNIFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaTecnicoDNIFocusGained
-        GainFocusStylishTextInput(InputAltaTecnicoDNI);
+
     }//GEN-LAST:event_InputAltaTecnicoDNIFocusGained
 
     private void InputAltaTecnicoDNIFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaTecnicoDNIFocusLost
-        LostFocusStylishTextInput(InputAltaTecnicoDNI, "Inserte el DNI...");
+
     }//GEN-LAST:event_InputAltaTecnicoDNIFocusLost
 
     private void InputAltaDirectivoApellidoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaDirectivoApellidoFocusGained
-        GainFocusStylishTextInput(InputAltaDirectivoApellido);
+
     }//GEN-LAST:event_InputAltaDirectivoApellidoFocusGained
 
     private void InputAltaDirectivoApellidoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaDirectivoApellidoFocusLost
-        LostFocusStylishTextInput(InputAltaDirectivoApellido, "Inserte el apellido...");
+
     }//GEN-LAST:event_InputAltaDirectivoApellidoFocusLost
 
     private void InputAltaDirectivoTelefonoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaDirectivoTelefonoFocusGained
-        GainFocusStylishTextInput(InputAltaDirectivoTelefono);
+
     }//GEN-LAST:event_InputAltaDirectivoTelefonoFocusGained
 
     private void InputAltaDirectivoTelefonoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaDirectivoTelefonoFocusLost
-        LostFocusStylishTextInput(InputAltaDirectivoTelefono, "Inserte el telefono...");
+
     }//GEN-LAST:event_InputAltaDirectivoTelefonoFocusLost
 
     private void InputAltaDirectivoDNIFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaDirectivoDNIFocusGained
-        GainFocusStylishTextInput(InputAltaDirectivoDNI);
+
     }//GEN-LAST:event_InputAltaDirectivoDNIFocusGained
 
     private void InputAltaDirectivoDNIFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaDirectivoDNIFocusLost
-        LostFocusStylishTextInput(InputAltaDirectivoDNI, "Inserte el DNI...");
+
     }//GEN-LAST:event_InputAltaDirectivoDNIFocusLost
 
     private void InputAltaDirectivoCargoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaDirectivoCargoFocusGained
-        GainFocusStylishTextInput(InputAltaDirectivoCargo);
+
     }//GEN-LAST:event_InputAltaDirectivoCargoFocusGained
 
     private void InputAltaDirectivoCargoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaDirectivoCargoFocusLost
-        LostFocusStylishTextInput(InputAltaDirectivoCargo, "Inserte el cargo...");
+
     }//GEN-LAST:event_InputAltaDirectivoCargoFocusLost
 
     private void InputAltaJugadorDNIFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaJugadorDNIFocusGained
-        GainFocusStylishTextInput(InputAltaJugadorDNI);
+
     }//GEN-LAST:event_InputAltaJugadorDNIFocusGained
 
     private void InputAltaJugadorDNIFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaJugadorDNIFocusLost
-        LostFocusStylishTextInput(InputAltaJugadorDNI, "Inserte el DNI...");
+
     }//GEN-LAST:event_InputAltaJugadorDNIFocusLost
 
     private void forzarSoloNumero(java.awt.event.KeyEvent evt) {
@@ -1417,10 +1492,6 @@ public class MainWindow extends javax.swing.JFrame {
     private void stylishButtonEnter(JButton boton, Icon icon) {
         boton.setForeground(Color.white);
         boton.setIcon(icon);
-    }
-
-    private void stylishButtonEnter(JButton boton) {
-        boton.setForeground(Color.white);
     }
 
     private void stylishButtonExit(JButton boton) {

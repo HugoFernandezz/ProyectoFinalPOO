@@ -13,7 +13,6 @@ import Modelo.Persona;
 import Modelo.Puesto;
 import Vista.MainWindow;
 import java.awt.CardLayout;
-import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
@@ -22,7 +21,6 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
-import javax.swing.JToggleButton;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.table.DefaultTableModel;
 
@@ -126,7 +124,6 @@ public class ControladorMainWindow implements MouseListener {
 
         if (!comprobarCamposVacios(listaCampos)) {
             crearJugador();
-            JOptionPane.showMessageDialog(null, "¡El jugador se ha creado con éxito!");
         } else {
             JOptionPane.showMessageDialog(null, "Error, parece que hubo algun problema al crear un jugador. \nAsegurese de que todos los campos estan rellenos.");
         }
@@ -153,6 +150,8 @@ public class ControladorMainWindow implements MouseListener {
         boolean estadoFisico = mainWindow.getToggleEstadoFisico().isSelected();
 
         Jugador jugador = new Jugador(nombre, apellido, telefono, demarcacion, edad, valorMercado, estadoFisico, dni);
+        
+        JOptionPane.showMessageDialog(null, "¡El jugador " + nombre + " se ha unido al club!");
 
         System.out.println("Se ha creado el jugador: " + nombre + " Apellido: " + apellido + " edad: " + edad + " tlf: " + telefono + " valorMercado: " + valorMercado + " dni: " + dni + " demarcacion: " + demarcacion.toString() + " ESta lesionado?: " + estadoFisico);
     }
