@@ -5,7 +5,7 @@ package Modelo;
  * Enumeración que representa las diferentes demarcaciones de un jugador en un equipo de fútbol.
  * 
  */
-enum Demarcacion {
+public enum Demarcacion {
     portero,
     defensa,
     defensaCentral,

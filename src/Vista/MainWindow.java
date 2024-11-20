@@ -6,6 +6,7 @@ package Vista;
 
 import Modelo.Gestor;
 import Modelo.Persona;
+import Modelo.Demarcacion;
 import java.awt.CardLayout;
 import java.awt.Color;
 import javax.swing.Icon;
@@ -18,6 +19,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.JToggleButton;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -27,6 +30,7 @@ import javax.swing.table.DefaultTableModel;
 public class MainWindow extends javax.swing.JFrame {
 
     Color colorTexto = new Color(241, 255, 231);
+    Color backgroundColor = new Color(59, 185, 122);
     Icon icon = new ImageIcon(getClass().getResource("/Media/IconBall.png"));
 
     public MainWindow() {
@@ -115,6 +119,12 @@ public class MainWindow extends javax.swing.JFrame {
         InputAltaJugadorDNI = new javax.swing.JTextField();
         jSeparator7 = new javax.swing.JSeparator();
         BtnCrearJugador = new javax.swing.JButton();
+        TextoAltaJugadorDemarcacion = new javax.swing.JLabel();
+        jSeparator19 = new javax.swing.JSeparator();
+        ComBoxDemarcacion = new javax.swing.JComboBox<>();
+        TextoAltaJugadorEstadoFisico = new javax.swing.JLabel();
+        jSeparator20 = new javax.swing.JSeparator();
+        ToggleEstadoFisico = new javax.swing.JToggleButton();
         PanelAltaTecnico = new javax.swing.JPanel();
         TextoAltaTecnicoNombre = new javax.swing.JLabel();
         InputAltaTecnicoNombre = new javax.swing.JTextField();
@@ -152,6 +162,7 @@ public class MainWindow extends javax.swing.JFrame {
         TextoAltaDirectivoCargo = new javax.swing.JLabel();
         jSeparator11 = new javax.swing.JSeparator();
         InputAltaDirectivoNombre = new javax.swing.JTextField();
+        BtnDarDeAltaAtras = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -427,6 +438,14 @@ public class MainWindow extends javax.swing.JFrame {
         InputAltaJugadorNombre.setForeground(new java.awt.Color(204, 204, 204));
         InputAltaJugadorNombre.setText("Inserte el nombre...");
         InputAltaJugadorNombre.setBorder(null);
+        InputAltaJugadorNombre.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                InputAltaJugadorNombreFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                InputAltaJugadorNombreFocusLost(evt);
+            }
+        });
 
         jSeparator2.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator2.setForeground(new java.awt.Color(255, 255, 255));
@@ -441,6 +460,14 @@ public class MainWindow extends javax.swing.JFrame {
         InputAltaJugadorApellido.setForeground(new java.awt.Color(204, 204, 204));
         InputAltaJugadorApellido.setText("Inserte el apellido...");
         InputAltaJugadorApellido.setBorder(null);
+        InputAltaJugadorApellido.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                InputAltaJugadorApellidoFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                InputAltaJugadorApellidoFocusLost(evt);
+            }
+        });
 
         jSeparator3.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator3.setForeground(new java.awt.Color(255, 255, 255));
@@ -455,6 +482,19 @@ public class MainWindow extends javax.swing.JFrame {
         InputAltaJugadorTelefono.setForeground(new java.awt.Color(204, 204, 204));
         InputAltaJugadorTelefono.setText("Inserte el teléfono...");
         InputAltaJugadorTelefono.setBorder(null);
+        InputAltaJugadorTelefono.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                InputAltaJugadorTelefonoFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                InputAltaJugadorTelefonoFocusLost(evt);
+            }
+        });
+        InputAltaJugadorTelefono.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                InputAltaJugadorTelefonoKeyTyped(evt);
+            }
+        });
 
         jSeparator4.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator4.setForeground(new java.awt.Color(255, 255, 255));
@@ -469,6 +509,19 @@ public class MainWindow extends javax.swing.JFrame {
         InputAltaJugadorEdad.setForeground(new java.awt.Color(204, 204, 204));
         InputAltaJugadorEdad.setText("Inserte la edad...");
         InputAltaJugadorEdad.setBorder(null);
+        InputAltaJugadorEdad.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                InputAltaJugadorEdadFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                InputAltaJugadorEdadFocusLost(evt);
+            }
+        });
+        InputAltaJugadorEdad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                InputAltaJugadorEdadKeyTyped(evt);
+            }
+        });
 
         jSeparator5.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator5.setForeground(new java.awt.Color(255, 255, 255));
@@ -483,6 +536,19 @@ public class MainWindow extends javax.swing.JFrame {
         InputAltaJugadorValor.setForeground(new java.awt.Color(204, 204, 204));
         InputAltaJugadorValor.setText("Inserte el valor de mercado...");
         InputAltaJugadorValor.setBorder(null);
+        InputAltaJugadorValor.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                InputAltaJugadorValorFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                InputAltaJugadorValorFocusLost(evt);
+            }
+        });
+        InputAltaJugadorValor.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                InputAltaJugadorValorKeyTyped(evt);
+            }
+        });
 
         jSeparator6.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator6.setForeground(new java.awt.Color(255, 255, 255));
@@ -497,6 +563,14 @@ public class MainWindow extends javax.swing.JFrame {
         InputAltaJugadorDNI.setForeground(new java.awt.Color(204, 204, 204));
         InputAltaJugadorDNI.setText("Inserte el DNI...");
         InputAltaJugadorDNI.setBorder(null);
+        InputAltaJugadorDNI.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                InputAltaJugadorDNIFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                InputAltaJugadorDNIFocusLost(evt);
+            }
+        });
 
         jSeparator7.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator7.setForeground(new java.awt.Color(255, 255, 255));
@@ -507,6 +581,38 @@ public class MainWindow extends javax.swing.JFrame {
         BtnCrearJugador.setText("Crear jugador");
         BtnCrearJugador.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        TextoAltaJugadorDemarcacion.setBackground(new java.awt.Color(255, 255, 255));
+        TextoAltaJugadorDemarcacion.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
+        TextoAltaJugadorDemarcacion.setForeground(new java.awt.Color(255, 255, 255));
+        TextoAltaJugadorDemarcacion.setText("Demarcacion");
+
+        jSeparator19.setBackground(new java.awt.Color(255, 255, 255));
+        jSeparator19.setForeground(new java.awt.Color(255, 255, 255));
+
+        TextoAltaJugadorEstadoFisico.setBackground(new java.awt.Color(255, 255, 255));
+        TextoAltaJugadorEstadoFisico.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
+        TextoAltaJugadorEstadoFisico.setForeground(new java.awt.Color(255, 255, 255));
+        TextoAltaJugadorEstadoFisico.setText("Estado fisico");
+
+        jSeparator20.setBackground(new java.awt.Color(255, 255, 255));
+        jSeparator20.setForeground(new java.awt.Color(255, 255, 255));
+
+        ToggleEstadoFisico.setBackground(new java.awt.Color(59, 185, 122));
+        ToggleEstadoFisico.setFont(new java.awt.Font("Poppins SemiBold", 1, 12)); // NOI18N
+        ToggleEstadoFisico.setForeground(new java.awt.Color(255, 255, 255));
+        ToggleEstadoFisico.setText("Saludable");
+        ToggleEstadoFisico.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        ToggleEstadoFisico.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                ToggleEstadoFisicoMousePressed(evt);
+            }
+        });
+        ToggleEstadoFisico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ToggleEstadoFisicoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout PanelAltaJugadorLayout = new javax.swing.GroupLayout(PanelAltaJugador);
         PanelAltaJugador.setLayout(PanelAltaJugadorLayout);
         PanelAltaJugadorLayout.setHorizontalGroup(
@@ -514,39 +620,46 @@ public class MainWindow extends javax.swing.JFrame {
             .addGroup(PanelAltaJugadorLayout.createSequentialGroup()
                 .addGap(81, 81, 81)
                 .addGroup(PanelAltaJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PanelAltaJugadorLayout.createSequentialGroup()
-                        .addGroup(PanelAltaJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(PanelAltaJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(TextoAltaJugadorTelefono)
-                                .addComponent(jSeparator4)
-                                .addComponent(InputAltaJugadorTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(PanelAltaJugadorLayout.createSequentialGroup()
-                                .addGroup(PanelAltaJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(PanelAltaJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(TextoAltaJugadorApellido)
-                                        .addComponent(jSeparator3)
-                                        .addComponent(InputAltaJugadorApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(PanelAltaJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(TextoAltaJugadorNombre)
-                                        .addComponent(jSeparator2)
-                                        .addComponent(InputAltaJugadorNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)))
-                                .addGap(107, 107, 107)
-                                .addGroup(PanelAltaJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(TextoAltaJugadorValor)
-                                    .addComponent(jSeparator6)
-                                    .addComponent(InputAltaJugadorValor, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(TextoAltaJugadorDNI)
-                                    .addComponent(jSeparator7)
-                                    .addComponent(InputAltaJugadorDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(PanelAltaJugadorLayout.createSequentialGroup()
+                    .addGroup(PanelAltaJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(PanelAltaJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(TextoAltaJugadorEdad)
-                            .addComponent(jSeparator5)
-                            .addComponent(InputAltaJugadorEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(TextoAltaJugadorApellido)
+                            .addComponent(jSeparator3)
+                            .addComponent(InputAltaJugadorApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(PanelAltaJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(TextoAltaJugadorNombre)
+                            .addComponent(jSeparator2)
+                            .addComponent(InputAltaJugadorNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)))
+                    .addGroup(PanelAltaJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(TextoAltaJugadorTelefono)
+                        .addComponent(jSeparator4)
+                        .addComponent(InputAltaJugadorTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PanelAltaJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(TextoAltaJugadorEdad)
+                        .addComponent(jSeparator5)
+                        .addComponent(InputAltaJugadorEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(PanelAltaJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelAltaJugadorLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 406, Short.MAX_VALUE)
                         .addComponent(BtnCrearJugador, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(65, 65, 65))))
+                        .addGap(65, 65, 65))
+                    .addGroup(PanelAltaJugadorLayout.createSequentialGroup()
+                        .addGap(107, 107, 107)
+                        .addGroup(PanelAltaJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(TextoAltaJugadorDemarcacion)
+                            .addComponent(TextoAltaJugadorValor)
+                            .addComponent(jSeparator6)
+                            .addComponent(InputAltaJugadorValor)
+                            .addComponent(TextoAltaJugadorDNI)
+                            .addComponent(jSeparator7)
+                            .addComponent(InputAltaJugadorDNI)
+                            .addComponent(ComBoxDemarcacion, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jSeparator19, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(PanelAltaJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(TextoAltaJugadorEstadoFisico)
+                            .addComponent(jSeparator20, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ToggleEstadoFisico, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(93, 93, 93))))
         );
         PanelAltaJugadorLayout.setVerticalGroup(
             PanelAltaJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -565,39 +678,55 @@ public class MainWindow extends javax.swing.JFrame {
                         .addComponent(InputAltaJugadorValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(PanelAltaJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PanelAltaJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(PanelAltaJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(PanelAltaJugadorLayout.createSequentialGroup()
+                            .addComponent(TextoAltaJugadorApellido)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(InputAltaJugadorApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(PanelAltaJugadorLayout.createSequentialGroup()
+                            .addComponent(TextoAltaJugadorDNI)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(InputAltaJugadorDNI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(PanelAltaJugadorLayout.createSequentialGroup()
-                        .addComponent(TextoAltaJugadorApellido)
+                        .addComponent(TextoAltaJugadorEstadoFisico)
+                        .addGap(5, 5, 5)
+                        .addComponent(ToggleEstadoFisico, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(InputAltaJugadorApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(PanelAltaJugadorLayout.createSequentialGroup()
-                        .addComponent(TextoAltaJugadorDNI)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(InputAltaJugadorDNI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jSeparator20, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
-                .addComponent(TextoAltaJugadorTelefono)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(InputAltaJugadorTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(PanelAltaJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelAltaJugadorLayout.createSequentialGroup()
+                        .addComponent(TextoAltaJugadorTelefono)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(TextoAltaJugadorEdad)
+                        .addComponent(InputAltaJugadorTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(InputAltaJugadorEdad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(PanelAltaJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(PanelAltaJugadorLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(TextoAltaJugadorEdad)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(InputAltaJugadorEdad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelAltaJugadorLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                                .addComponent(BtnCrearJugador, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(60, 60, 60))))
+                    .addGroup(PanelAltaJugadorLayout.createSequentialGroup()
+                        .addComponent(TextoAltaJugadorDemarcacion)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelAltaJugadorLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                        .addComponent(BtnCrearJugador, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(60, 60, 60))))
+                        .addComponent(ComBoxDemarcacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jSeparator19, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
 
         TabbedDarDeAlta.addTab("Jugador", PanelAltaJugador);
@@ -614,6 +743,14 @@ public class MainWindow extends javax.swing.JFrame {
         InputAltaTecnicoNombre.setForeground(new java.awt.Color(204, 204, 204));
         InputAltaTecnicoNombre.setText("Inserte el nombre...");
         InputAltaTecnicoNombre.setBorder(null);
+        InputAltaTecnicoNombre.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                InputAltaTecnicoNombreFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                InputAltaTecnicoNombreFocusLost(evt);
+            }
+        });
 
         jSeparator12.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator12.setForeground(new java.awt.Color(255, 255, 255));
@@ -628,6 +765,14 @@ public class MainWindow extends javax.swing.JFrame {
         InputAltaTecnicoApellido.setForeground(new java.awt.Color(204, 204, 204));
         InputAltaTecnicoApellido.setText("Inserte el apellido...");
         InputAltaTecnicoApellido.setBorder(null);
+        InputAltaTecnicoApellido.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                InputAltaTecnicoApellidoFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                InputAltaTecnicoApellidoFocusLost(evt);
+            }
+        });
 
         jSeparator14.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator14.setForeground(new java.awt.Color(255, 255, 255));
@@ -642,6 +787,19 @@ public class MainWindow extends javax.swing.JFrame {
         InputAltaTecnicoTelefono.setForeground(new java.awt.Color(204, 204, 204));
         InputAltaTecnicoTelefono.setText("Inserte el teléfono...");
         InputAltaTecnicoTelefono.setBorder(null);
+        InputAltaTecnicoTelefono.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                InputAltaTecnicoTelefonoFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                InputAltaTecnicoTelefonoFocusLost(evt);
+            }
+        });
+        InputAltaTecnicoTelefono.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                InputAltaTecnicoTelefonoKeyTyped(evt);
+            }
+        });
 
         jSeparator15.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator15.setForeground(new java.awt.Color(255, 255, 255));
@@ -656,6 +814,14 @@ public class MainWindow extends javax.swing.JFrame {
         InputAltaTecnicoDNI.setForeground(new java.awt.Color(204, 204, 204));
         InputAltaTecnicoDNI.setText("Inserte el DNI...");
         InputAltaTecnicoDNI.setBorder(null);
+        InputAltaTecnicoDNI.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                InputAltaTecnicoDNIFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                InputAltaTecnicoDNIFocusLost(evt);
+            }
+        });
 
         jSeparator16.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator16.setForeground(new java.awt.Color(255, 255, 255));
@@ -786,6 +952,14 @@ public class MainWindow extends javax.swing.JFrame {
         InputAltaDirectivoCargo.setForeground(new java.awt.Color(204, 204, 204));
         InputAltaDirectivoCargo.setText("Inserte el cargo...");
         InputAltaDirectivoCargo.setBorder(null);
+        InputAltaDirectivoCargo.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                InputAltaDirectivoCargoFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                InputAltaDirectivoCargoFocusLost(evt);
+            }
+        });
 
         jSeparator8.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator8.setForeground(new java.awt.Color(255, 255, 255));
@@ -800,6 +974,14 @@ public class MainWindow extends javax.swing.JFrame {
         InputAltaDirectivoApellido.setForeground(new java.awt.Color(204, 204, 204));
         InputAltaDirectivoApellido.setText("Inserte el apellido...");
         InputAltaDirectivoApellido.setBorder(null);
+        InputAltaDirectivoApellido.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                InputAltaDirectivoApellidoFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                InputAltaDirectivoApellidoFocusLost(evt);
+            }
+        });
 
         jSeparator9.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator9.setForeground(new java.awt.Color(255, 255, 255));
@@ -814,6 +996,19 @@ public class MainWindow extends javax.swing.JFrame {
         InputAltaDirectivoTelefono.setForeground(new java.awt.Color(204, 204, 204));
         InputAltaDirectivoTelefono.setText("Inserte el teléfono...");
         InputAltaDirectivoTelefono.setBorder(null);
+        InputAltaDirectivoTelefono.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                InputAltaDirectivoTelefonoFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                InputAltaDirectivoTelefonoFocusLost(evt);
+            }
+        });
+        InputAltaDirectivoTelefono.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                InputAltaDirectivoTelefonoKeyTyped(evt);
+            }
+        });
 
         jSeparator10.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator10.setForeground(new java.awt.Color(255, 255, 255));
@@ -828,6 +1023,14 @@ public class MainWindow extends javax.swing.JFrame {
         InputAltaDirectivoDNI.setForeground(new java.awt.Color(204, 204, 204));
         InputAltaDirectivoDNI.setText("Inserte el DNI...");
         InputAltaDirectivoDNI.setBorder(null);
+        InputAltaDirectivoDNI.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                InputAltaDirectivoDNIFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                InputAltaDirectivoDNIFocusLost(evt);
+            }
+        });
 
         jSeparator13.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator13.setForeground(new java.awt.Color(255, 255, 255));
@@ -851,6 +1054,14 @@ public class MainWindow extends javax.swing.JFrame {
         InputAltaDirectivoNombre.setForeground(new java.awt.Color(204, 204, 204));
         InputAltaDirectivoNombre.setText("Inserte el nombre...");
         InputAltaDirectivoNombre.setBorder(null);
+        InputAltaDirectivoNombre.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                InputAltaDirectivoNombreFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                InputAltaDirectivoNombreFocusLost(evt);
+            }
+        });
 
         javax.swing.GroupLayout PanelAltaDirectivoLayout = new javax.swing.GroupLayout(PanelAltaDirectivo);
         PanelAltaDirectivo.setLayout(PanelAltaDirectivoLayout);
@@ -945,6 +1156,11 @@ public class MainWindow extends javax.swing.JFrame {
 
         DarDeAltaWindow.add(TabbedDarDeAlta, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 1000, 480));
 
+        BtnDarDeAltaAtras.setBackground(new java.awt.Color(59, 185, 122));
+        BtnDarDeAltaAtras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Media/arrow.png"))); // NOI18N
+        BtnDarDeAltaAtras.setBorder(null);
+        DarDeAltaWindow.add(BtnDarDeAltaAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 60, 60));
+
         PanelRaiz.add(DarDeAltaWindow, "card4");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -1031,6 +1247,173 @@ public class MainWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnEliminarPersonaActionPerformed
 
+    private void ToggleEstadoFisicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ToggleEstadoFisicoActionPerformed
+        if (ToggleEstadoFisico.isSelected() == true) {
+            ToggleEstadoFisico.setContentAreaFilled(false);
+            ToggleEstadoFisico.setOpaque(true);
+            ToggleEstadoFisico.setBackground(Color.red);
+            ToggleEstadoFisico.setText("Lesionado");
+        } else {
+            ToggleEstadoFisico.setContentAreaFilled(false);
+            ToggleEstadoFisico.setOpaque(true);
+            ToggleEstadoFisico.setBackground(backgroundColor);
+            ToggleEstadoFisico.setText("Saludable");
+        }
+
+    }//GEN-LAST:event_ToggleEstadoFisicoActionPerformed
+
+    private void ToggleEstadoFisicoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ToggleEstadoFisicoMousePressed
+
+    }//GEN-LAST:event_ToggleEstadoFisicoMousePressed
+
+    private void InputAltaJugadorTelefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_InputAltaJugadorTelefonoKeyTyped
+        forzarSoloNumero(evt);
+    }//GEN-LAST:event_InputAltaJugadorTelefonoKeyTyped
+
+    private void InputAltaJugadorEdadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_InputAltaJugadorEdadKeyTyped
+        forzarSoloNumero(evt);
+    }//GEN-LAST:event_InputAltaJugadorEdadKeyTyped
+
+    private void InputAltaJugadorValorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_InputAltaJugadorValorKeyTyped
+        forzarSoloNumero(evt);
+    }//GEN-LAST:event_InputAltaJugadorValorKeyTyped
+
+    private void InputAltaTecnicoTelefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_InputAltaTecnicoTelefonoKeyTyped
+        forzarSoloNumero(evt);
+    }//GEN-LAST:event_InputAltaTecnicoTelefonoKeyTyped
+
+    private void InputAltaDirectivoTelefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_InputAltaDirectivoTelefonoKeyTyped
+        forzarSoloNumero(evt);
+    }//GEN-LAST:event_InputAltaDirectivoTelefonoKeyTyped
+
+    private void InputAltaJugadorNombreFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaJugadorNombreFocusGained
+        GainFocusStylishTextInput(InputAltaJugadorNombre);
+    }//GEN-LAST:event_InputAltaJugadorNombreFocusGained
+
+    private void InputAltaJugadorNombreFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaJugadorNombreFocusLost
+        LostFocusStylishTextInput(InputAltaJugadorNombre, "Inserte el nombre...");
+    }//GEN-LAST:event_InputAltaJugadorNombreFocusLost
+
+    private void InputAltaJugadorApellidoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaJugadorApellidoFocusGained
+        GainFocusStylishTextInput(InputAltaJugadorApellido);
+    }//GEN-LAST:event_InputAltaJugadorApellidoFocusGained
+
+    private void InputAltaJugadorApellidoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaJugadorApellidoFocusLost
+        LostFocusStylishTextInput(InputAltaJugadorApellido, "Inserte el apellido...");
+    }//GEN-LAST:event_InputAltaJugadorApellidoFocusLost
+
+    private void InputAltaJugadorTelefonoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaJugadorTelefonoFocusGained
+        GainFocusStylishTextInput(InputAltaJugadorTelefono);
+    }//GEN-LAST:event_InputAltaJugadorTelefonoFocusGained
+
+    private void InputAltaJugadorTelefonoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaJugadorTelefonoFocusLost
+        LostFocusStylishTextInput(InputAltaJugadorTelefono, "Inserte el telefono...");
+    }//GEN-LAST:event_InputAltaJugadorTelefonoFocusLost
+
+    private void InputAltaTecnicoNombreFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaTecnicoNombreFocusGained
+        GainFocusStylishTextInput(InputAltaTecnicoNombre);
+    }//GEN-LAST:event_InputAltaTecnicoNombreFocusGained
+
+    private void InputAltaTecnicoNombreFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaTecnicoNombreFocusLost
+        LostFocusStylishTextInput(InputAltaTecnicoNombre, "Inserte el nombre...");
+    }//GEN-LAST:event_InputAltaTecnicoNombreFocusLost
+
+    private void InputAltaDirectivoNombreFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaDirectivoNombreFocusGained
+        GainFocusStylishTextInput(InputAltaDirectivoNombre);
+    }//GEN-LAST:event_InputAltaDirectivoNombreFocusGained
+
+    private void InputAltaDirectivoNombreFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaDirectivoNombreFocusLost
+        LostFocusStylishTextInput(InputAltaDirectivoNombre, "Inserte el nombre...");
+    }//GEN-LAST:event_InputAltaDirectivoNombreFocusLost
+
+    private void InputAltaJugadorEdadFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaJugadorEdadFocusGained
+        GainFocusStylishTextInput(InputAltaJugadorEdad);
+    }//GEN-LAST:event_InputAltaJugadorEdadFocusGained
+
+    private void InputAltaJugadorEdadFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaJugadorEdadFocusLost
+        LostFocusStylishTextInput(InputAltaJugadorEdad, "Inserte la edad...");
+    }//GEN-LAST:event_InputAltaJugadorEdadFocusLost
+
+    private void InputAltaJugadorValorFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaJugadorValorFocusGained
+        GainFocusStylishTextInput(InputAltaJugadorValor);
+    }//GEN-LAST:event_InputAltaJugadorValorFocusGained
+
+    private void InputAltaJugadorValorFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaJugadorValorFocusLost
+        LostFocusStylishTextInput(InputAltaJugadorValor, "Inserte el valor...");
+    }//GEN-LAST:event_InputAltaJugadorValorFocusLost
+
+    private void InputAltaTecnicoApellidoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaTecnicoApellidoFocusGained
+        GainFocusStylishTextInput(InputAltaTecnicoApellido);
+    }//GEN-LAST:event_InputAltaTecnicoApellidoFocusGained
+
+    private void InputAltaTecnicoApellidoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaTecnicoApellidoFocusLost
+        LostFocusStylishTextInput(InputAltaTecnicoApellido, "Inserte el apellido...");
+    }//GEN-LAST:event_InputAltaTecnicoApellidoFocusLost
+
+    private void InputAltaTecnicoTelefonoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaTecnicoTelefonoFocusGained
+        GainFocusStylishTextInput(InputAltaTecnicoTelefono);
+    }//GEN-LAST:event_InputAltaTecnicoTelefonoFocusGained
+
+    private void InputAltaTecnicoTelefonoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaTecnicoTelefonoFocusLost
+        LostFocusStylishTextInput(InputAltaTecnicoTelefono, "Inserte el telefono...");
+    }//GEN-LAST:event_InputAltaTecnicoTelefonoFocusLost
+
+    private void InputAltaTecnicoDNIFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaTecnicoDNIFocusGained
+        GainFocusStylishTextInput(InputAltaTecnicoDNI);
+    }//GEN-LAST:event_InputAltaTecnicoDNIFocusGained
+
+    private void InputAltaTecnicoDNIFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaTecnicoDNIFocusLost
+        LostFocusStylishTextInput(InputAltaTecnicoDNI, "Inserte el DNI...");
+    }//GEN-LAST:event_InputAltaTecnicoDNIFocusLost
+
+    private void InputAltaDirectivoApellidoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaDirectivoApellidoFocusGained
+        GainFocusStylishTextInput(InputAltaDirectivoApellido);
+    }//GEN-LAST:event_InputAltaDirectivoApellidoFocusGained
+
+    private void InputAltaDirectivoApellidoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaDirectivoApellidoFocusLost
+        LostFocusStylishTextInput(InputAltaDirectivoApellido, "Inserte el apellido...");
+    }//GEN-LAST:event_InputAltaDirectivoApellidoFocusLost
+
+    private void InputAltaDirectivoTelefonoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaDirectivoTelefonoFocusGained
+        GainFocusStylishTextInput(InputAltaDirectivoTelefono);
+    }//GEN-LAST:event_InputAltaDirectivoTelefonoFocusGained
+
+    private void InputAltaDirectivoTelefonoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaDirectivoTelefonoFocusLost
+        LostFocusStylishTextInput(InputAltaDirectivoTelefono, "Inserte el telefono...");
+    }//GEN-LAST:event_InputAltaDirectivoTelefonoFocusLost
+
+    private void InputAltaDirectivoDNIFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaDirectivoDNIFocusGained
+        GainFocusStylishTextInput(InputAltaDirectivoDNI);
+    }//GEN-LAST:event_InputAltaDirectivoDNIFocusGained
+
+    private void InputAltaDirectivoDNIFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaDirectivoDNIFocusLost
+        LostFocusStylishTextInput(InputAltaDirectivoDNI, "Inserte el DNI...");
+    }//GEN-LAST:event_InputAltaDirectivoDNIFocusLost
+
+    private void InputAltaDirectivoCargoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaDirectivoCargoFocusGained
+        GainFocusStylishTextInput(InputAltaDirectivoCargo);
+    }//GEN-LAST:event_InputAltaDirectivoCargoFocusGained
+
+    private void InputAltaDirectivoCargoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaDirectivoCargoFocusLost
+        LostFocusStylishTextInput(InputAltaDirectivoCargo, "Inserte el cargo...");
+    }//GEN-LAST:event_InputAltaDirectivoCargoFocusLost
+
+    private void InputAltaJugadorDNIFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaJugadorDNIFocusGained
+        GainFocusStylishTextInput(InputAltaJugadorDNI);
+    }//GEN-LAST:event_InputAltaJugadorDNIFocusGained
+
+    private void InputAltaJugadorDNIFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaJugadorDNIFocusLost
+        LostFocusStylishTextInput(InputAltaJugadorDNI, "Inserte el DNI...");
+    }//GEN-LAST:event_InputAltaJugadorDNIFocusLost
+
+    private void forzarSoloNumero(java.awt.event.KeyEvent evt) {
+        char c = evt.getKeyChar();
+
+        if (!Character.isDigit(c)) {
+            evt.consume();
+        }
+    }
+
     private void stylishButtonEnter(JButton boton, Icon icon) {
         boton.setForeground(Color.white);
         boton.setIcon(icon);
@@ -1045,12 +1428,30 @@ public class MainWindow extends javax.swing.JFrame {
         boton.setIcon(null);
     }
 
+    private void GainFocusStylishTextInput(JTextField textInput) {
+        //Chequea que el campo estaba vacio(mensaja predefinido)...Espero que ningun jugador se llame 'Inserte'...
+        if (textInput.getText().contains("Inserte ")) {
+            textInput.setText("");
+            textInput.setForeground(Color.white);
+        }
+
+    }
+
+    private void LostFocusStylishTextInput(JTextField textInput, String input) {
+        if (textInput.getText().isEmpty()) {
+            textInput.setText(input);
+            textInput.setForeground(new Color(204, 204, 204));
+        }
+
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BarraTop;
     private javax.swing.JButton BtnCrearDirectivo;
     private javax.swing.JButton BtnCrearJugador;
     private javax.swing.JButton BtnCrearTecnico;
+    private javax.swing.JButton BtnDarDeAltaAtras;
     private javax.swing.JButton BtnDarDeAltaPersona;
     private javax.swing.JButton BtnEliminarPersona;
     private javax.swing.JButton BtnGastos;
@@ -1059,6 +1460,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton BtnImprimir;
     private javax.swing.JButton BtnJugarPartido;
     private javax.swing.JButton BtnModificarDatos;
+    private javax.swing.JComboBox<Demarcacion> ComBoxDemarcacion;
     private javax.swing.JComboBox<Especialidad> ComboBoxTecnicoEspecialidad;
     private javax.swing.JComboBox<Puesto> ComboBoxTecnicoPuesto;
     private javax.swing.JPanel DarDeAltaWindow;
@@ -1102,7 +1504,9 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel TextoAltaJugadorApellido;
     private javax.swing.JLabel TextoAltaJugadorDNI;
     private javax.swing.JLabel TextoAltaJugadorDNI1;
+    private javax.swing.JLabel TextoAltaJugadorDemarcacion;
     private javax.swing.JLabel TextoAltaJugadorEdad;
+    private javax.swing.JLabel TextoAltaJugadorEstadoFisico;
     private javax.swing.JLabel TextoAltaJugadorNombre;
     private javax.swing.JLabel TextoAltaJugadorTelefono;
     private javax.swing.JLabel TextoAltaJugadorValor;
@@ -1111,6 +1515,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel TextoAltaTecnicoDNI;
     private javax.swing.JLabel TextoAltaTecnicoNombre;
     private javax.swing.JLabel TextoAltaTecnicoTelefono;
+    private javax.swing.JToggleButton ToggleEstadoFisico;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator11;
@@ -1121,7 +1526,9 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator16;
     private javax.swing.JSeparator jSeparator17;
     private javax.swing.JSeparator jSeparator18;
+    private javax.swing.JSeparator jSeparator19;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator20;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
@@ -1194,9 +1601,85 @@ public class MainWindow extends javax.swing.JFrame {
     public JComboBox<Puesto> getComboBoxTecnicoPuesto() {
         return ComboBoxTecnicoPuesto;
     }
-    
-    
-    
-    
+
+    public JComboBox<Demarcacion> getComBoxDemarcacion() {
+        return ComBoxDemarcacion;
+    }
+
+    public JToggleButton getToggleEstadoFisico() {
+        return ToggleEstadoFisico;
+    }
+
+    public JButton getBtnDarDeAltaAtras() {
+        return BtnDarDeAltaAtras;
+    }
+
+    public JButton getBtnCrearDirectivo() {
+        return BtnCrearDirectivo;
+    }
+
+    public JButton getBtnCrearJugador() {
+        return BtnCrearJugador;
+    }
+
+    public JButton getBtnCrearTecnico() {
+        return BtnCrearTecnico;
+    }
+
+    public JTextField getInputAltaDirectivoApellido() {
+        return InputAltaDirectivoApellido;
+    }
+
+    public JTextField getInputAltaDirectivoCargo() {
+        return InputAltaDirectivoCargo;
+    }
+
+    public JTextField getInputAltaDirectivoDNI() {
+        return InputAltaDirectivoDNI;
+    }
+
+    public JTextField getInputAltaDirectivoNombre() {
+        return InputAltaDirectivoNombre;
+    }
+
+    public JTextField getInputAltaDirectivoTelefono() {
+        return InputAltaDirectivoTelefono;
+    }
+
+    public JTextField getInputAltaJugadorApellido() {
+        return InputAltaJugadorApellido;
+    }
+
+    public JTextField getInputAltaJugadorDNI() {
+        return InputAltaJugadorDNI;
+    }
+
+    public JTextField getInputAltaJugadorEdad() {
+        return InputAltaJugadorEdad;
+    }
+
+    public JTextField getInputAltaJugadorNombre() {
+        return InputAltaJugadorNombre;
+    }
+
+    public JTextField getInputAltaJugadorTelefono() {
+        return InputAltaJugadorTelefono;
+    }
+
+    public JTextField getInputAltaJugadorValor() {
+        return InputAltaJugadorValor;
+    }
+
+    public JTextField getInputAltaTecnicoApellido() {
+        return InputAltaTecnicoApellido;
+    }
+
+    public JTextField getInputAltaTecnicoDNI() {
+        return InputAltaTecnicoDNI;
+    }
+
+    public JTextField getInputAltaTecnicoTelefono() {
+        return InputAltaTecnicoTelefono;
+    }
 
 }
