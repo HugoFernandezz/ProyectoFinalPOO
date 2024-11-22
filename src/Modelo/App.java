@@ -157,8 +157,6 @@ public class App {
 
                         Gestor.getInstancia().mostrarListaPersonas();
                         System.out.println("Escriba el DNI de la persona a la que le quiere generar una nomina");
-                        Persona personaNomina = Gestor.getInstancia().recuperarPersonaDNI();
-                        generarNominaUnipersonal(personaNomina);
                         // </editor-fold>
                         break;
                     case 6:

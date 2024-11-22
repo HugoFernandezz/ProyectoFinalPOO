@@ -15,13 +15,18 @@ import Modelo.Especialidad;
 import Modelo.Puesto;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.JToggleButton;
@@ -37,41 +42,24 @@ public class MainWindow extends javax.swing.JFrame {
     Color backgroundColor = new Color(59, 185, 122);
     Icon icon = new ImageIcon(getClass().getResource("/Media/IconBall.png"));
 
+    List<JTextField> camposAltaInputsYModificar;
+    List<JTextField> camposNumericos;
+    List<JTextField> camposModificarInputs;
+    List<JButton> botonesHomeEstilizar;
+    List<JButton> botonesModificar;
+    //Me permite crear una lista de ComboBoxes de enumerados de cualquier tipo
+    List<JComboBox<? extends Enum<?>>> listaComboBoxModificar = new ArrayList<>();
+
+    DefaultTableModel modelo;
+
     public MainWindow() {
 
-        //Lista de componentes a los que voy a aplicar algunos cambios visuales como pequeñas animaciones
-        JTextField[] camposNumericos = {InputAltaJugadorTelefono, InputAltaJugadorEdad, InputAltaJugadorValor, InputAltaTecnicoTelefono, InputAltaDirectivoTelefono};
-
         initComponents();
+
+        InicializarVariables();
+
         InicializarEventos();
 
-        //Tabla para ver la plantilla de futbol actual
-        String[] columnas = {"Nombre", "Apellido", "Rol", "DNI"};
-        //Creo el modelo que luego metere en la tabla
-        DefaultTableModel modelo = new DefaultTableModel(columnas, 0) {
-            //Le sobreescribo el metodo para que el usuario no pueda editar las celdas de las tablas
-            @Override
-            public boolean isCellEditable(int row, int column) {
-                return false; // Desactiva la edición de celdas
-            }
-        };
-
-        //Relleno el modelo con las personas que tiene la listaPersonas
-        for (Persona persona : Gestor.getInstancia().ListaPersonasDentroDelClub()) {
-            modelo.addRow(new String[]{persona.getNombre(), persona.getApellido(), persona.getClass().getSimpleName(), persona.getDni()});
-        }
-
-        //Asigno el modelo a las tablas
-        TablaContenidoPlantilla.setModel(modelo);
-        TablaGestionPersonas.setModel(modelo);
-        //Que no sea clickable ya que la tabla del home quiero que sea solo vista
-        TablaContenidoPlantilla.setEnabled(false);
-
-        //Creo el CardLayout para cambiar entre ventanas
-        PanelRaiz.setLayout(new CardLayout());
-        PanelRaiz.add(HomeWindow, "homeWindow");
-        PanelRaiz.add(GestionWindow, "gestionWindow");
-        PanelRaiz.add(DarDeAltaWindow, "darDeAltaWindow");
     }
 
     /**
@@ -172,6 +160,74 @@ public class MainWindow extends javax.swing.JFrame {
         jSeparator11 = new javax.swing.JSeparator();
         InputAltaDirectivoNombre = new javax.swing.JTextField();
         BtnDarDeAltaAtras = new javax.swing.JButton();
+        ModificarPersonaWindow = new javax.swing.JPanel();
+        Text_DarDeAlta1 = new javax.swing.JLabel();
+        jSeparator21 = new javax.swing.JSeparator();
+        TabbedModificar = new javax.swing.JTabbedPane();
+        PanelModificarJugador = new javax.swing.JPanel();
+        TextoAltaJugadorNombre1 = new javax.swing.JLabel();
+        InputModificarJugadorNombre = new javax.swing.JTextField();
+        jSeparator22 = new javax.swing.JSeparator();
+        TextoAltaJugadorApellido1 = new javax.swing.JLabel();
+        InputModificarJugadorApellido = new javax.swing.JTextField();
+        jSeparator23 = new javax.swing.JSeparator();
+        TextoAltaJugadorTelefono1 = new javax.swing.JLabel();
+        InputModificarJugadorTelefono = new javax.swing.JTextField();
+        jSeparator24 = new javax.swing.JSeparator();
+        TextoAltaJugadorEdad1 = new javax.swing.JLabel();
+        InputModificarJugadorEdad = new javax.swing.JTextField();
+        jSeparator25 = new javax.swing.JSeparator();
+        TextoAltaJugadorValor2 = new javax.swing.JLabel();
+        InputModificarJugadorValor = new javax.swing.JTextField();
+        jSeparator26 = new javax.swing.JSeparator();
+        TextoAltaJugadorDNI2 = new javax.swing.JLabel();
+        InputModificarJugadorDNI = new javax.swing.JTextField();
+        jSeparator27 = new javax.swing.JSeparator();
+        BtnModificarJugador = new javax.swing.JButton();
+        TextoAltaJugadorDemarcacion1 = new javax.swing.JLabel();
+        jSeparator28 = new javax.swing.JSeparator();
+        ComBoxModificarDemarcacion = new javax.swing.JComboBox<>();
+        TextoAltaJugadorEstadoFisico1 = new javax.swing.JLabel();
+        jSeparator29 = new javax.swing.JSeparator();
+        ToggleModificarEstadoFisico = new javax.swing.JToggleButton();
+        PanelModificarTecnico = new javax.swing.JPanel();
+        TextoAltaTecnicoNombre1 = new javax.swing.JLabel();
+        InputModificarTecnicoNombre = new javax.swing.JTextField();
+        jSeparator30 = new javax.swing.JSeparator();
+        TextoAltaTecnicoApellido1 = new javax.swing.JLabel();
+        InputModificarTecnicoApellido = new javax.swing.JTextField();
+        jSeparator31 = new javax.swing.JSeparator();
+        TextoAltaTecnicoTelefono1 = new javax.swing.JLabel();
+        InputModificarTecnicoTelefono = new javax.swing.JTextField();
+        jSeparator32 = new javax.swing.JSeparator();
+        TextoAltaTecnicoDNI1 = new javax.swing.JLabel();
+        InputModificarTecnicoDNI = new javax.swing.JTextField();
+        jSeparator33 = new javax.swing.JSeparator();
+        TextoAltaJugadorValor3 = new javax.swing.JLabel();
+        jSeparator34 = new javax.swing.JSeparator();
+        TextoAltaJugadorDNI3 = new javax.swing.JLabel();
+        jSeparator35 = new javax.swing.JSeparator();
+        BtnModificarTécnico = new javax.swing.JButton();
+        ComboBoxModificarTecnicoEspecialidad = new javax.swing.JComboBox<>();
+        ComboBoxModificarTecnicoPuesto = new javax.swing.JComboBox<>();
+        PanelModificarDirectivo = new javax.swing.JPanel();
+        TextoAltaDirectivoNombre1 = new javax.swing.JLabel();
+        InputModificarDirectivoCargo = new javax.swing.JTextField();
+        jSeparator36 = new javax.swing.JSeparator();
+        TextoAltaDirectivoApellido1 = new javax.swing.JLabel();
+        InputModificarDirectivoApellido = new javax.swing.JTextField();
+        jSeparator37 = new javax.swing.JSeparator();
+        TextoAltaDirectivoTelefono1 = new javax.swing.JLabel();
+        InputModificarDirectivoTelefono = new javax.swing.JTextField();
+        jSeparator38 = new javax.swing.JSeparator();
+        TextoAltaDirectivoDNI1 = new javax.swing.JLabel();
+        InputModificarDirectivoDNI = new javax.swing.JTextField();
+        jSeparator39 = new javax.swing.JSeparator();
+        BtnModificarDirectivo = new javax.swing.JButton();
+        TextoAltaDirectivoCargo1 = new javax.swing.JLabel();
+        jSeparator40 = new javax.swing.JSeparator();
+        InputModificarDirectivoNombre = new javax.swing.JTextField();
+        BtnDarDeAltaAtrasModificar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -196,19 +252,6 @@ public class MainWindow extends javax.swing.JFrame {
         BtnGestionarPlantilla.setBorder(null);
         BtnGestionarPlantilla.setContentAreaFilled(false);
         BtnGestionarPlantilla.setFocusPainted(false);
-        BtnGestionarPlantilla.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                BtnGestionarPlantillaMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                BtnGestionarPlantillaMouseExited(evt);
-            }
-        });
-        BtnGestionarPlantilla.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnGestionarPlantillaActionPerformed(evt);
-            }
-        });
         HomeWindow.add(BtnGestionarPlantilla, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, -1, -1));
 
         BtnJugarPartido.setBackground(new java.awt.Color(59, 185, 122));
@@ -217,19 +260,6 @@ public class MainWindow extends javax.swing.JFrame {
         BtnJugarPartido.setText("Jugar partido");
         BtnJugarPartido.setBorder(null);
         BtnJugarPartido.setContentAreaFilled(false);
-        BtnJugarPartido.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                BtnJugarPartidoMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                BtnJugarPartidoMouseExited(evt);
-            }
-        });
-        BtnJugarPartido.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnJugarPartidoActionPerformed(evt);
-            }
-        });
         HomeWindow.add(BtnJugarPartido, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, -1, -1));
 
         BtnGastos.setBackground(new java.awt.Color(59, 185, 122));
@@ -238,19 +268,6 @@ public class MainWindow extends javax.swing.JFrame {
         BtnGastos.setText("Gastos");
         BtnGastos.setBorder(null);
         BtnGastos.setContentAreaFilled(false);
-        BtnGastos.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                BtnGastosMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                BtnGastosMouseExited(evt);
-            }
-        });
-        BtnGastos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnGastosActionPerformed(evt);
-            }
-        });
         HomeWindow.add(BtnGastos, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 390, -1, -1));
 
         BtnImprimir.setBackground(new java.awt.Color(59, 185, 122));
@@ -259,19 +276,6 @@ public class MainWindow extends javax.swing.JFrame {
         BtnImprimir.setText("Imprimir");
         BtnImprimir.setBorder(null);
         BtnImprimir.setContentAreaFilled(false);
-        BtnImprimir.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                BtnImprimirMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                BtnImprimirMouseExited(evt);
-            }
-        });
-        BtnImprimir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnImprimirActionPerformed(evt);
-            }
-        });
         HomeWindow.add(BtnImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 470, -1, -1));
 
         Separador1.setForeground(new java.awt.Color(255, 255, 255));
@@ -352,11 +356,6 @@ public class MainWindow extends javax.swing.JFrame {
         GestionWindow.add(BtnDarDeAltaPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, 150, 70));
 
         BtnEliminarPersona.setText("Eliminar persona");
-        BtnEliminarPersona.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnEliminarPersonaActionPerformed(evt);
-            }
-        });
         GestionWindow.add(BtnEliminarPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 420, 170, 30));
 
         BtnModificarDatos.setText("Modificar persona");
@@ -368,19 +367,6 @@ public class MainWindow extends javax.swing.JFrame {
         BtnHome.setBorder(null);
         BtnHome.setBorderPainted(false);
         BtnHome.setContentAreaFilled(false);
-        BtnHome.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                BtnHomeMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                BtnHomeMouseExited(evt);
-            }
-        });
-        BtnHome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnHomeActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout BarraTopLayout = new javax.swing.GroupLayout(BarraTop);
         BarraTop.setLayout(BarraTopLayout);
@@ -418,7 +404,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         PanelRaiz.add(GestionWindow, "card3");
 
-        DarDeAltaWindow.setBackground(new java.awt.Color(50, 162, 135));
+        DarDeAltaWindow.setBackground(new java.awt.Color(59, 185, 122));
         DarDeAltaWindow.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Text_DarDeAlta.setFont(new java.awt.Font("Poppins SemiBold", 1, 65)); // NOI18N
@@ -429,11 +415,11 @@ public class MainWindow extends javax.swing.JFrame {
         jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
         DarDeAltaWindow.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 110, 450, 10));
 
-        TabbedDarDeAlta.setBackground(new java.awt.Color(59, 185, 122));
+        TabbedDarDeAlta.setBackground(new java.awt.Color(169, 253, 172));
         TabbedDarDeAlta.setForeground(new java.awt.Color(255, 255, 255));
         TabbedDarDeAlta.setFont(new java.awt.Font("Poppins", 1, 12)); // NOI18N
 
-        PanelAltaJugador.setBackground(new java.awt.Color(59, 185, 122));
+        PanelAltaJugador.setBackground(new java.awt.Color(169, 253, 172));
         PanelAltaJugador.setForeground(new java.awt.Color(169, 253, 172));
         PanelAltaJugador.setToolTipText("");
 
@@ -442,19 +428,11 @@ public class MainWindow extends javax.swing.JFrame {
         TextoAltaJugadorNombre.setForeground(new java.awt.Color(255, 255, 255));
         TextoAltaJugadorNombre.setText("Nombre");
 
-        InputAltaJugadorNombre.setBackground(new java.awt.Color(59, 185, 122));
+        InputAltaJugadorNombre.setBackground(new java.awt.Color(169, 253, 172));
         InputAltaJugadorNombre.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
         InputAltaJugadorNombre.setForeground(new java.awt.Color(204, 204, 204));
         InputAltaJugadorNombre.setText("Inserte el nombre...");
         InputAltaJugadorNombre.setBorder(null);
-        InputAltaJugadorNombre.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                InputAltaJugadorNombreFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                InputAltaJugadorNombreFocusLost(evt);
-            }
-        });
 
         jSeparator2.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator2.setForeground(new java.awt.Color(255, 255, 255));
@@ -469,14 +447,6 @@ public class MainWindow extends javax.swing.JFrame {
         InputAltaJugadorApellido.setForeground(new java.awt.Color(204, 204, 204));
         InputAltaJugadorApellido.setText("Inserte el apellido...");
         InputAltaJugadorApellido.setBorder(null);
-        InputAltaJugadorApellido.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                InputAltaJugadorApellidoFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                InputAltaJugadorApellidoFocusLost(evt);
-            }
-        });
 
         jSeparator3.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator3.setForeground(new java.awt.Color(255, 255, 255));
@@ -491,19 +461,6 @@ public class MainWindow extends javax.swing.JFrame {
         InputAltaJugadorTelefono.setForeground(new java.awt.Color(204, 204, 204));
         InputAltaJugadorTelefono.setText("Inserte el teléfono...");
         InputAltaJugadorTelefono.setBorder(null);
-        InputAltaJugadorTelefono.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                InputAltaJugadorTelefonoFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                InputAltaJugadorTelefonoFocusLost(evt);
-            }
-        });
-        InputAltaJugadorTelefono.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                InputAltaJugadorTelefonoKeyTyped(evt);
-            }
-        });
 
         jSeparator4.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator4.setForeground(new java.awt.Color(255, 255, 255));
@@ -518,19 +475,6 @@ public class MainWindow extends javax.swing.JFrame {
         InputAltaJugadorEdad.setForeground(new java.awt.Color(204, 204, 204));
         InputAltaJugadorEdad.setText("Inserte la edad...");
         InputAltaJugadorEdad.setBorder(null);
-        InputAltaJugadorEdad.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                InputAltaJugadorEdadFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                InputAltaJugadorEdadFocusLost(evt);
-            }
-        });
-        InputAltaJugadorEdad.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                InputAltaJugadorEdadKeyTyped(evt);
-            }
-        });
 
         jSeparator5.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator5.setForeground(new java.awt.Color(255, 255, 255));
@@ -545,19 +489,6 @@ public class MainWindow extends javax.swing.JFrame {
         InputAltaJugadorValor.setForeground(new java.awt.Color(204, 204, 204));
         InputAltaJugadorValor.setText("Inserte el valor de mercado...");
         InputAltaJugadorValor.setBorder(null);
-        InputAltaJugadorValor.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                InputAltaJugadorValorFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                InputAltaJugadorValorFocusLost(evt);
-            }
-        });
-        InputAltaJugadorValor.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                InputAltaJugadorValorKeyTyped(evt);
-            }
-        });
 
         jSeparator6.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator6.setForeground(new java.awt.Color(255, 255, 255));
@@ -572,14 +503,6 @@ public class MainWindow extends javax.swing.JFrame {
         InputAltaJugadorDNI.setForeground(new java.awt.Color(204, 204, 204));
         InputAltaJugadorDNI.setText("Inserte el DNI...");
         InputAltaJugadorDNI.setBorder(null);
-        InputAltaJugadorDNI.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                InputAltaJugadorDNIFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                InputAltaJugadorDNIFocusLost(evt);
-            }
-        });
 
         jSeparator7.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator7.setForeground(new java.awt.Color(255, 255, 255));
@@ -598,9 +521,6 @@ public class MainWindow extends javax.swing.JFrame {
         jSeparator19.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator19.setForeground(new java.awt.Color(255, 255, 255));
 
-        ComBoxDemarcacion.setBackground(new java.awt.Color(50, 162, 135));
-        ComBoxDemarcacion.setBorder(null);
-
         TextoAltaJugadorEstadoFisico.setBackground(new java.awt.Color(255, 255, 255));
         TextoAltaJugadorEstadoFisico.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
         TextoAltaJugadorEstadoFisico.setForeground(new java.awt.Color(255, 255, 255));
@@ -614,11 +534,6 @@ public class MainWindow extends javax.swing.JFrame {
         ToggleEstadoFisico.setForeground(new java.awt.Color(255, 255, 255));
         ToggleEstadoFisico.setText("Saludable");
         ToggleEstadoFisico.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        ToggleEstadoFisico.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                ToggleEstadoFisicoMousePressed(evt);
-            }
-        });
         ToggleEstadoFisico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ToggleEstadoFisicoActionPerformed(evt);
@@ -755,14 +670,6 @@ public class MainWindow extends javax.swing.JFrame {
         InputAltaTecnicoNombre.setForeground(new java.awt.Color(204, 204, 204));
         InputAltaTecnicoNombre.setText("Inserte el nombre...");
         InputAltaTecnicoNombre.setBorder(null);
-        InputAltaTecnicoNombre.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                InputAltaTecnicoNombreFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                InputAltaTecnicoNombreFocusLost(evt);
-            }
-        });
 
         jSeparator12.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator12.setForeground(new java.awt.Color(255, 255, 255));
@@ -777,14 +684,6 @@ public class MainWindow extends javax.swing.JFrame {
         InputAltaTecnicoApellido.setForeground(new java.awt.Color(204, 204, 204));
         InputAltaTecnicoApellido.setText("Inserte el apellido...");
         InputAltaTecnicoApellido.setBorder(null);
-        InputAltaTecnicoApellido.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                InputAltaTecnicoApellidoFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                InputAltaTecnicoApellidoFocusLost(evt);
-            }
-        });
 
         jSeparator14.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator14.setForeground(new java.awt.Color(255, 255, 255));
@@ -799,19 +698,6 @@ public class MainWindow extends javax.swing.JFrame {
         InputAltaTecnicoTelefono.setForeground(new java.awt.Color(204, 204, 204));
         InputAltaTecnicoTelefono.setText("Inserte el teléfono...");
         InputAltaTecnicoTelefono.setBorder(null);
-        InputAltaTecnicoTelefono.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                InputAltaTecnicoTelefonoFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                InputAltaTecnicoTelefonoFocusLost(evt);
-            }
-        });
-        InputAltaTecnicoTelefono.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                InputAltaTecnicoTelefonoKeyTyped(evt);
-            }
-        });
 
         jSeparator15.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator15.setForeground(new java.awt.Color(255, 255, 255));
@@ -826,14 +712,6 @@ public class MainWindow extends javax.swing.JFrame {
         InputAltaTecnicoDNI.setForeground(new java.awt.Color(204, 204, 204));
         InputAltaTecnicoDNI.setText("Inserte el DNI...");
         InputAltaTecnicoDNI.setBorder(null);
-        InputAltaTecnicoDNI.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                InputAltaTecnicoDNIFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                InputAltaTecnicoDNIFocusLost(evt);
-            }
-        });
 
         jSeparator16.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator16.setForeground(new java.awt.Color(255, 255, 255));
@@ -964,14 +842,6 @@ public class MainWindow extends javax.swing.JFrame {
         InputAltaDirectivoCargo.setForeground(new java.awt.Color(204, 204, 204));
         InputAltaDirectivoCargo.setText("Inserte el cargo...");
         InputAltaDirectivoCargo.setBorder(null);
-        InputAltaDirectivoCargo.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                InputAltaDirectivoCargoFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                InputAltaDirectivoCargoFocusLost(evt);
-            }
-        });
 
         jSeparator8.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator8.setForeground(new java.awt.Color(255, 255, 255));
@@ -986,14 +856,6 @@ public class MainWindow extends javax.swing.JFrame {
         InputAltaDirectivoApellido.setForeground(new java.awt.Color(204, 204, 204));
         InputAltaDirectivoApellido.setText("Inserte el apellido...");
         InputAltaDirectivoApellido.setBorder(null);
-        InputAltaDirectivoApellido.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                InputAltaDirectivoApellidoFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                InputAltaDirectivoApellidoFocusLost(evt);
-            }
-        });
 
         jSeparator9.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator9.setForeground(new java.awt.Color(255, 255, 255));
@@ -1008,19 +870,6 @@ public class MainWindow extends javax.swing.JFrame {
         InputAltaDirectivoTelefono.setForeground(new java.awt.Color(204, 204, 204));
         InputAltaDirectivoTelefono.setText("Inserte el teléfono...");
         InputAltaDirectivoTelefono.setBorder(null);
-        InputAltaDirectivoTelefono.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                InputAltaDirectivoTelefonoFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                InputAltaDirectivoTelefonoFocusLost(evt);
-            }
-        });
-        InputAltaDirectivoTelefono.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                InputAltaDirectivoTelefonoKeyTyped(evt);
-            }
-        });
 
         jSeparator10.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator10.setForeground(new java.awt.Color(255, 255, 255));
@@ -1035,14 +884,6 @@ public class MainWindow extends javax.swing.JFrame {
         InputAltaDirectivoDNI.setForeground(new java.awt.Color(204, 204, 204));
         InputAltaDirectivoDNI.setText("Inserte el DNI...");
         InputAltaDirectivoDNI.setBorder(null);
-        InputAltaDirectivoDNI.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                InputAltaDirectivoDNIFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                InputAltaDirectivoDNIFocusLost(evt);
-            }
-        });
 
         jSeparator13.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator13.setForeground(new java.awt.Color(255, 255, 255));
@@ -1066,14 +907,6 @@ public class MainWindow extends javax.swing.JFrame {
         InputAltaDirectivoNombre.setForeground(new java.awt.Color(204, 204, 204));
         InputAltaDirectivoNombre.setText("Inserte el nombre...");
         InputAltaDirectivoNombre.setBorder(null);
-        InputAltaDirectivoNombre.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                InputAltaDirectivoNombreFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                InputAltaDirectivoNombreFocusLost(evt);
-            }
-        });
 
         javax.swing.GroupLayout PanelAltaDirectivoLayout = new javax.swing.GroupLayout(PanelAltaDirectivo);
         PanelAltaDirectivo.setLayout(PanelAltaDirectivoLayout);
@@ -1168,12 +1001,619 @@ public class MainWindow extends javax.swing.JFrame {
 
         DarDeAltaWindow.add(TabbedDarDeAlta, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 1000, 480));
 
-        BtnDarDeAltaAtras.setBackground(new java.awt.Color(50, 162, 135));
+        BtnDarDeAltaAtras.setBackground(new java.awt.Color(59, 185, 122));
         BtnDarDeAltaAtras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Media/arrow.png"))); // NOI18N
         BtnDarDeAltaAtras.setBorder(null);
         DarDeAltaWindow.add(BtnDarDeAltaAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 60, 60));
 
         PanelRaiz.add(DarDeAltaWindow, "card4");
+
+        ModificarPersonaWindow.setBackground(new java.awt.Color(59, 185, 122));
+        ModificarPersonaWindow.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Text_DarDeAlta1.setFont(new java.awt.Font("Poppins SemiBold", 1, 65)); // NOI18N
+        Text_DarDeAlta1.setForeground(new java.awt.Color(255, 255, 255));
+        Text_DarDeAlta1.setText("Modificar datos");
+        ModificarPersonaWindow.add(Text_DarDeAlta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, -1, -1));
+
+        jSeparator21.setForeground(new java.awt.Color(255, 255, 255));
+        ModificarPersonaWindow.add(jSeparator21, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 640, 10));
+
+        TabbedModificar.setBackground(new java.awt.Color(169, 253, 172));
+        TabbedModificar.setForeground(new java.awt.Color(255, 255, 255));
+        TabbedModificar.setFont(new java.awt.Font("Poppins", 1, 12)); // NOI18N
+
+        PanelModificarJugador.setBackground(new java.awt.Color(169, 253, 172));
+        PanelModificarJugador.setForeground(new java.awt.Color(169, 253, 172));
+        PanelModificarJugador.setToolTipText("");
+
+        TextoAltaJugadorNombre1.setBackground(new java.awt.Color(255, 255, 255));
+        TextoAltaJugadorNombre1.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
+        TextoAltaJugadorNombre1.setForeground(new java.awt.Color(255, 255, 255));
+        TextoAltaJugadorNombre1.setText("Nombre");
+
+        InputModificarJugadorNombre.setBackground(new java.awt.Color(169, 253, 172));
+        InputModificarJugadorNombre.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
+        InputModificarJugadorNombre.setForeground(new java.awt.Color(204, 204, 204));
+        InputModificarJugadorNombre.setText("Inserte el nombre...");
+        InputModificarJugadorNombre.setBorder(null);
+
+        jSeparator22.setBackground(new java.awt.Color(255, 255, 255));
+        jSeparator22.setForeground(new java.awt.Color(255, 255, 255));
+
+        TextoAltaJugadorApellido1.setBackground(new java.awt.Color(255, 255, 255));
+        TextoAltaJugadorApellido1.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
+        TextoAltaJugadorApellido1.setForeground(new java.awt.Color(255, 255, 255));
+        TextoAltaJugadorApellido1.setText("Apellidos");
+
+        InputModificarJugadorApellido.setBackground(new java.awt.Color(169, 253, 172));
+        InputModificarJugadorApellido.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
+        InputModificarJugadorApellido.setForeground(new java.awt.Color(204, 204, 204));
+        InputModificarJugadorApellido.setText("Inserte el apellido...");
+        InputModificarJugadorApellido.setBorder(null);
+
+        jSeparator23.setBackground(new java.awt.Color(255, 255, 255));
+        jSeparator23.setForeground(new java.awt.Color(255, 255, 255));
+
+        TextoAltaJugadorTelefono1.setBackground(new java.awt.Color(255, 255, 255));
+        TextoAltaJugadorTelefono1.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
+        TextoAltaJugadorTelefono1.setForeground(new java.awt.Color(255, 255, 255));
+        TextoAltaJugadorTelefono1.setText("Teléfono");
+
+        InputModificarJugadorTelefono.setBackground(new java.awt.Color(169, 253, 172));
+        InputModificarJugadorTelefono.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
+        InputModificarJugadorTelefono.setForeground(new java.awt.Color(204, 204, 204));
+        InputModificarJugadorTelefono.setText("Inserte el teléfono...");
+        InputModificarJugadorTelefono.setBorder(null);
+
+        jSeparator24.setBackground(new java.awt.Color(255, 255, 255));
+        jSeparator24.setForeground(new java.awt.Color(255, 255, 255));
+
+        TextoAltaJugadorEdad1.setBackground(new java.awt.Color(255, 255, 255));
+        TextoAltaJugadorEdad1.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
+        TextoAltaJugadorEdad1.setForeground(new java.awt.Color(255, 255, 255));
+        TextoAltaJugadorEdad1.setText("Edad");
+
+        InputModificarJugadorEdad.setBackground(new java.awt.Color(169, 253, 172));
+        InputModificarJugadorEdad.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
+        InputModificarJugadorEdad.setForeground(new java.awt.Color(204, 204, 204));
+        InputModificarJugadorEdad.setText("Inserte la edad...");
+        InputModificarJugadorEdad.setBorder(null);
+
+        jSeparator25.setBackground(new java.awt.Color(255, 255, 255));
+        jSeparator25.setForeground(new java.awt.Color(255, 255, 255));
+
+        TextoAltaJugadorValor2.setBackground(new java.awt.Color(255, 255, 255));
+        TextoAltaJugadorValor2.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
+        TextoAltaJugadorValor2.setForeground(new java.awt.Color(255, 255, 255));
+        TextoAltaJugadorValor2.setText("Valor de mercado");
+
+        InputModificarJugadorValor.setBackground(new java.awt.Color(169, 253, 172));
+        InputModificarJugadorValor.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
+        InputModificarJugadorValor.setForeground(new java.awt.Color(204, 204, 204));
+        InputModificarJugadorValor.setText("Inserte el valor de mercado...");
+        InputModificarJugadorValor.setBorder(null);
+
+        jSeparator26.setBackground(new java.awt.Color(255, 255, 255));
+        jSeparator26.setForeground(new java.awt.Color(255, 255, 255));
+
+        TextoAltaJugadorDNI2.setBackground(new java.awt.Color(255, 255, 255));
+        TextoAltaJugadorDNI2.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
+        TextoAltaJugadorDNI2.setForeground(new java.awt.Color(255, 255, 255));
+        TextoAltaJugadorDNI2.setText("DNI");
+
+        InputModificarJugadorDNI.setBackground(new java.awt.Color(169, 253, 172));
+        InputModificarJugadorDNI.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
+        InputModificarJugadorDNI.setForeground(new java.awt.Color(204, 204, 204));
+        InputModificarJugadorDNI.setText("Inserte el DNI...");
+        InputModificarJugadorDNI.setBorder(null);
+        InputModificarJugadorDNI.setEnabled(false);
+
+        jSeparator27.setBackground(new java.awt.Color(255, 255, 255));
+        jSeparator27.setForeground(new java.awt.Color(255, 255, 255));
+
+        BtnModificarJugador.setBackground(new java.awt.Color(59, 185, 122));
+        BtnModificarJugador.setFont(new java.awt.Font("Poppins", 1, 24)); // NOI18N
+        BtnModificarJugador.setForeground(new java.awt.Color(255, 255, 255));
+        BtnModificarJugador.setText("Modificar jugador");
+        BtnModificarJugador.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        TextoAltaJugadorDemarcacion1.setBackground(new java.awt.Color(255, 255, 255));
+        TextoAltaJugadorDemarcacion1.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
+        TextoAltaJugadorDemarcacion1.setForeground(new java.awt.Color(255, 255, 255));
+        TextoAltaJugadorDemarcacion1.setText("Demarcacion");
+
+        jSeparator28.setBackground(new java.awt.Color(255, 255, 255));
+        jSeparator28.setForeground(new java.awt.Color(255, 255, 255));
+
+        TextoAltaJugadorEstadoFisico1.setBackground(new java.awt.Color(255, 255, 255));
+        TextoAltaJugadorEstadoFisico1.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
+        TextoAltaJugadorEstadoFisico1.setForeground(new java.awt.Color(255, 255, 255));
+        TextoAltaJugadorEstadoFisico1.setText("Estado fisico");
+
+        jSeparator29.setBackground(new java.awt.Color(255, 255, 255));
+        jSeparator29.setForeground(new java.awt.Color(255, 255, 255));
+
+        ToggleModificarEstadoFisico.setBackground(new java.awt.Color(59, 185, 122));
+        ToggleModificarEstadoFisico.setFont(new java.awt.Font("Poppins SemiBold", 1, 12)); // NOI18N
+        ToggleModificarEstadoFisico.setForeground(new java.awt.Color(255, 255, 255));
+        ToggleModificarEstadoFisico.setText("Saludable");
+        ToggleModificarEstadoFisico.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        ToggleModificarEstadoFisico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ToggleModificarEstadoFisicoActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout PanelModificarJugadorLayout = new javax.swing.GroupLayout(PanelModificarJugador);
+        PanelModificarJugador.setLayout(PanelModificarJugadorLayout);
+        PanelModificarJugadorLayout.setHorizontalGroup(
+            PanelModificarJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelModificarJugadorLayout.createSequentialGroup()
+                .addGap(81, 81, 81)
+                .addGroup(PanelModificarJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelModificarJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(PanelModificarJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(TextoAltaJugadorApellido1)
+                            .addComponent(jSeparator23)
+                            .addComponent(InputModificarJugadorApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(PanelModificarJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(TextoAltaJugadorNombre1)
+                            .addComponent(jSeparator22)
+                            .addComponent(InputModificarJugadorNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)))
+                    .addGroup(PanelModificarJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(TextoAltaJugadorTelefono1)
+                        .addComponent(jSeparator24)
+                        .addComponent(InputModificarJugadorTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PanelModificarJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(TextoAltaJugadorEdad1)
+                        .addComponent(jSeparator25)
+                        .addComponent(InputModificarJugadorEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(PanelModificarJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelModificarJugadorLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 406, Short.MAX_VALUE)
+                        .addComponent(BtnModificarJugador, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(65, 65, 65))
+                    .addGroup(PanelModificarJugadorLayout.createSequentialGroup()
+                        .addGap(107, 107, 107)
+                        .addGroup(PanelModificarJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(TextoAltaJugadorDemarcacion1)
+                            .addComponent(TextoAltaJugadorValor2)
+                            .addComponent(jSeparator26)
+                            .addComponent(InputModificarJugadorValor)
+                            .addComponent(TextoAltaJugadorDNI2)
+                            .addComponent(jSeparator27)
+                            .addComponent(InputModificarJugadorDNI)
+                            .addComponent(ComBoxModificarDemarcacion, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jSeparator28, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(PanelModificarJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(TextoAltaJugadorEstadoFisico1)
+                            .addComponent(jSeparator29, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ToggleModificarEstadoFisico, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(93, 93, 93))))
+        );
+        PanelModificarJugadorLayout.setVerticalGroup(
+            PanelModificarJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelModificarJugadorLayout.createSequentialGroup()
+                .addGap(62, 62, 62)
+                .addGroup(PanelModificarJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(PanelModificarJugadorLayout.createSequentialGroup()
+                        .addComponent(TextoAltaJugadorNombre1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(InputModificarJugadorNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSeparator22, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PanelModificarJugadorLayout.createSequentialGroup()
+                        .addComponent(TextoAltaJugadorValor2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(InputModificarJugadorValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSeparator26, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PanelModificarJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(PanelModificarJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(PanelModificarJugadorLayout.createSequentialGroup()
+                            .addComponent(TextoAltaJugadorApellido1)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(InputModificarJugadorApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jSeparator23, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(PanelModificarJugadorLayout.createSequentialGroup()
+                            .addComponent(TextoAltaJugadorDNI2)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(InputModificarJugadorDNI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jSeparator27, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(PanelModificarJugadorLayout.createSequentialGroup()
+                        .addComponent(TextoAltaJugadorEstadoFisico1)
+                        .addGap(5, 5, 5)
+                        .addComponent(ToggleModificarEstadoFisico, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSeparator29, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(PanelModificarJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelModificarJugadorLayout.createSequentialGroup()
+                        .addComponent(TextoAltaJugadorTelefono1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(InputModificarJugadorTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSeparator24, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(PanelModificarJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(PanelModificarJugadorLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(TextoAltaJugadorEdad1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(InputModificarJugadorEdad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jSeparator25, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelModificarJugadorLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                                .addComponent(BtnModificarJugador, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(60, 60, 60))))
+                    .addGroup(PanelModificarJugadorLayout.createSequentialGroup()
+                        .addComponent(TextoAltaJugadorDemarcacion1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ComBoxModificarDemarcacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jSeparator28, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
+        );
+
+        TabbedModificar.addTab("Jugador", PanelModificarJugador);
+
+        PanelModificarTecnico.setBackground(new java.awt.Color(169, 253, 172));
+
+        TextoAltaTecnicoNombre1.setBackground(new java.awt.Color(255, 255, 255));
+        TextoAltaTecnicoNombre1.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
+        TextoAltaTecnicoNombre1.setForeground(new java.awt.Color(255, 255, 255));
+        TextoAltaTecnicoNombre1.setText("Nombre");
+
+        InputModificarTecnicoNombre.setBackground(new java.awt.Color(169, 253, 172));
+        InputModificarTecnicoNombre.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
+        InputModificarTecnicoNombre.setForeground(new java.awt.Color(204, 204, 204));
+        InputModificarTecnicoNombre.setText("Inserte el nombre...");
+        InputModificarTecnicoNombre.setBorder(null);
+
+        jSeparator30.setBackground(new java.awt.Color(255, 255, 255));
+        jSeparator30.setForeground(new java.awt.Color(255, 255, 255));
+
+        TextoAltaTecnicoApellido1.setBackground(new java.awt.Color(255, 255, 255));
+        TextoAltaTecnicoApellido1.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
+        TextoAltaTecnicoApellido1.setForeground(new java.awt.Color(255, 255, 255));
+        TextoAltaTecnicoApellido1.setText("Apellidos");
+
+        InputModificarTecnicoApellido.setBackground(new java.awt.Color(169, 253, 172));
+        InputModificarTecnicoApellido.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
+        InputModificarTecnicoApellido.setForeground(new java.awt.Color(204, 204, 204));
+        InputModificarTecnicoApellido.setText("Inserte el apellido...");
+        InputModificarTecnicoApellido.setBorder(null);
+
+        jSeparator31.setBackground(new java.awt.Color(255, 255, 255));
+        jSeparator31.setForeground(new java.awt.Color(255, 255, 255));
+
+        TextoAltaTecnicoTelefono1.setBackground(new java.awt.Color(255, 255, 255));
+        TextoAltaTecnicoTelefono1.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
+        TextoAltaTecnicoTelefono1.setForeground(new java.awt.Color(255, 255, 255));
+        TextoAltaTecnicoTelefono1.setText("Teléfono");
+
+        InputModificarTecnicoTelefono.setBackground(new java.awt.Color(169, 253, 172));
+        InputModificarTecnicoTelefono.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
+        InputModificarTecnicoTelefono.setForeground(new java.awt.Color(204, 204, 204));
+        InputModificarTecnicoTelefono.setText("Inserte el teléfono...");
+        InputModificarTecnicoTelefono.setBorder(null);
+
+        jSeparator32.setBackground(new java.awt.Color(255, 255, 255));
+        jSeparator32.setForeground(new java.awt.Color(255, 255, 255));
+
+        TextoAltaTecnicoDNI1.setBackground(new java.awt.Color(255, 255, 255));
+        TextoAltaTecnicoDNI1.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
+        TextoAltaTecnicoDNI1.setForeground(new java.awt.Color(255, 255, 255));
+        TextoAltaTecnicoDNI1.setText("DNI");
+
+        InputModificarTecnicoDNI.setBackground(new java.awt.Color(169, 253, 172));
+        InputModificarTecnicoDNI.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
+        InputModificarTecnicoDNI.setForeground(new java.awt.Color(204, 204, 204));
+        InputModificarTecnicoDNI.setText("Inserte el DNI...");
+        InputModificarTecnicoDNI.setBorder(null);
+        InputModificarTecnicoDNI.setEnabled(false);
+
+        jSeparator33.setBackground(new java.awt.Color(255, 255, 255));
+        jSeparator33.setForeground(new java.awt.Color(255, 255, 255));
+
+        TextoAltaJugadorValor3.setBackground(new java.awt.Color(255, 255, 255));
+        TextoAltaJugadorValor3.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
+        TextoAltaJugadorValor3.setForeground(new java.awt.Color(255, 255, 255));
+        TextoAltaJugadorValor3.setText("Puesto");
+
+        jSeparator34.setBackground(new java.awt.Color(255, 255, 255));
+        jSeparator34.setForeground(new java.awt.Color(255, 255, 255));
+
+        TextoAltaJugadorDNI3.setBackground(new java.awt.Color(255, 255, 255));
+        TextoAltaJugadorDNI3.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
+        TextoAltaJugadorDNI3.setForeground(new java.awt.Color(255, 255, 255));
+        TextoAltaJugadorDNI3.setText("Especialidad");
+
+        jSeparator35.setBackground(new java.awt.Color(255, 255, 255));
+        jSeparator35.setForeground(new java.awt.Color(255, 255, 255));
+
+        BtnModificarTécnico.setBackground(new java.awt.Color(59, 185, 122));
+        BtnModificarTécnico.setFont(new java.awt.Font("Poppins", 1, 24)); // NOI18N
+        BtnModificarTécnico.setForeground(new java.awt.Color(255, 255, 255));
+        BtnModificarTécnico.setText("Modificar técnico");
+        BtnModificarTécnico.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        javax.swing.GroupLayout PanelModificarTecnicoLayout = new javax.swing.GroupLayout(PanelModificarTecnico);
+        PanelModificarTecnico.setLayout(PanelModificarTecnicoLayout);
+        PanelModificarTecnicoLayout.setHorizontalGroup(
+            PanelModificarTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelModificarTecnicoLayout.createSequentialGroup()
+                .addGap(81, 81, 81)
+                .addGroup(PanelModificarTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelModificarTecnicoLayout.createSequentialGroup()
+                        .addGroup(PanelModificarTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(PanelModificarTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(TextoAltaTecnicoTelefono1)
+                                .addComponent(jSeparator32)
+                                .addComponent(InputModificarTecnicoTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(PanelModificarTecnicoLayout.createSequentialGroup()
+                                .addGroup(PanelModificarTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(PanelModificarTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(TextoAltaTecnicoApellido1)
+                                        .addComponent(jSeparator31)
+                                        .addComponent(InputModificarTecnicoApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(PanelModificarTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(TextoAltaTecnicoNombre1)
+                                        .addComponent(jSeparator30)
+                                        .addComponent(InputModificarTecnicoNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)))
+                                .addGap(107, 107, 107)
+                                .addGroup(PanelModificarTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(TextoAltaJugadorValor3)
+                                    .addComponent(jSeparator34, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)
+                                    .addComponent(TextoAltaJugadorDNI3)
+                                    .addComponent(jSeparator35)
+                                    .addComponent(ComboBoxModificarTecnicoEspecialidad, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(ComboBoxModificarTecnicoPuesto, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(PanelModificarTecnicoLayout.createSequentialGroup()
+                        .addGroup(PanelModificarTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(TextoAltaTecnicoDNI1)
+                            .addComponent(jSeparator33)
+                            .addComponent(InputModificarTecnicoDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 401, Short.MAX_VALUE)
+                        .addComponent(BtnModificarTécnico, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(70, 70, 70))))
+        );
+        PanelModificarTecnicoLayout.setVerticalGroup(
+            PanelModificarTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelModificarTecnicoLayout.createSequentialGroup()
+                .addGap(62, 62, 62)
+                .addGroup(PanelModificarTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(PanelModificarTecnicoLayout.createSequentialGroup()
+                        .addComponent(TextoAltaTecnicoNombre1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(InputModificarTecnicoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSeparator30, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PanelModificarTecnicoLayout.createSequentialGroup()
+                        .addComponent(TextoAltaJugadorValor3)
+                        .addGap(9, 9, 9)
+                        .addComponent(ComboBoxModificarTecnicoPuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jSeparator34, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(PanelModificarTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelModificarTecnicoLayout.createSequentialGroup()
+                        .addComponent(TextoAltaTecnicoApellido1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(InputModificarTecnicoApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSeparator31, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(TextoAltaTecnicoTelefono1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(InputModificarTecnicoTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSeparator32, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(PanelModificarTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(PanelModificarTecnicoLayout.createSequentialGroup()
+                                .addComponent(TextoAltaTecnicoDNI1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(InputModificarTecnicoDNI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jSeparator33, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(BtnModificarTécnico, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(PanelModificarTecnicoLayout.createSequentialGroup()
+                        .addComponent(TextoAltaJugadorDNI3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(ComboBoxModificarTecnicoEspecialidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(9, 9, 9)
+                        .addComponent(jSeparator35, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(68, Short.MAX_VALUE))
+        );
+
+        TabbedModificar.addTab("Técnico", PanelModificarTecnico);
+
+        PanelModificarDirectivo.setBackground(new java.awt.Color(169, 253, 172));
+
+        TextoAltaDirectivoNombre1.setBackground(new java.awt.Color(255, 255, 255));
+        TextoAltaDirectivoNombre1.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
+        TextoAltaDirectivoNombre1.setForeground(new java.awt.Color(255, 255, 255));
+        TextoAltaDirectivoNombre1.setText("Nombre");
+
+        InputModificarDirectivoCargo.setBackground(new java.awt.Color(169, 253, 172));
+        InputModificarDirectivoCargo.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
+        InputModificarDirectivoCargo.setForeground(new java.awt.Color(204, 204, 204));
+        InputModificarDirectivoCargo.setText("Inserte el cargo...");
+        InputModificarDirectivoCargo.setBorder(null);
+
+        jSeparator36.setBackground(new java.awt.Color(255, 255, 255));
+        jSeparator36.setForeground(new java.awt.Color(255, 255, 255));
+
+        TextoAltaDirectivoApellido1.setBackground(new java.awt.Color(255, 255, 255));
+        TextoAltaDirectivoApellido1.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
+        TextoAltaDirectivoApellido1.setForeground(new java.awt.Color(255, 255, 255));
+        TextoAltaDirectivoApellido1.setText("Apellidos");
+
+        InputModificarDirectivoApellido.setBackground(new java.awt.Color(169, 253, 172));
+        InputModificarDirectivoApellido.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
+        InputModificarDirectivoApellido.setForeground(new java.awt.Color(204, 204, 204));
+        InputModificarDirectivoApellido.setText("Inserte el apellido...");
+        InputModificarDirectivoApellido.setBorder(null);
+
+        jSeparator37.setBackground(new java.awt.Color(255, 255, 255));
+        jSeparator37.setForeground(new java.awt.Color(255, 255, 255));
+
+        TextoAltaDirectivoTelefono1.setBackground(new java.awt.Color(255, 255, 255));
+        TextoAltaDirectivoTelefono1.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
+        TextoAltaDirectivoTelefono1.setForeground(new java.awt.Color(255, 255, 255));
+        TextoAltaDirectivoTelefono1.setText("Teléfono");
+
+        InputModificarDirectivoTelefono.setBackground(new java.awt.Color(169, 253, 172));
+        InputModificarDirectivoTelefono.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
+        InputModificarDirectivoTelefono.setForeground(new java.awt.Color(204, 204, 204));
+        InputModificarDirectivoTelefono.setText("Inserte el teléfono...");
+        InputModificarDirectivoTelefono.setBorder(null);
+
+        jSeparator38.setBackground(new java.awt.Color(255, 255, 255));
+        jSeparator38.setForeground(new java.awt.Color(255, 255, 255));
+
+        TextoAltaDirectivoDNI1.setBackground(new java.awt.Color(255, 255, 255));
+        TextoAltaDirectivoDNI1.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
+        TextoAltaDirectivoDNI1.setForeground(new java.awt.Color(255, 255, 255));
+        TextoAltaDirectivoDNI1.setText("DNI");
+
+        InputModificarDirectivoDNI.setBackground(new java.awt.Color(169, 253, 172));
+        InputModificarDirectivoDNI.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
+        InputModificarDirectivoDNI.setForeground(new java.awt.Color(204, 204, 204));
+        InputModificarDirectivoDNI.setText("Inserte el DNI...");
+        InputModificarDirectivoDNI.setBorder(null);
+        InputModificarDirectivoDNI.setEnabled(false);
+
+        jSeparator39.setBackground(new java.awt.Color(255, 255, 255));
+        jSeparator39.setForeground(new java.awt.Color(255, 255, 255));
+
+        BtnModificarDirectivo.setBackground(new java.awt.Color(59, 185, 122));
+        BtnModificarDirectivo.setFont(new java.awt.Font("Poppins", 1, 24)); // NOI18N
+        BtnModificarDirectivo.setForeground(new java.awt.Color(255, 255, 255));
+        BtnModificarDirectivo.setText("Modificar directivo");
+        BtnModificarDirectivo.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        TextoAltaDirectivoCargo1.setBackground(new java.awt.Color(255, 255, 255));
+        TextoAltaDirectivoCargo1.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
+        TextoAltaDirectivoCargo1.setForeground(new java.awt.Color(255, 255, 255));
+        TextoAltaDirectivoCargo1.setText("Cargo");
+
+        jSeparator40.setBackground(new java.awt.Color(255, 255, 255));
+        jSeparator40.setForeground(new java.awt.Color(255, 255, 255));
+
+        InputModificarDirectivoNombre.setBackground(new java.awt.Color(169, 253, 172));
+        InputModificarDirectivoNombre.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
+        InputModificarDirectivoNombre.setForeground(new java.awt.Color(204, 204, 204));
+        InputModificarDirectivoNombre.setText("Inserte el nombre...");
+        InputModificarDirectivoNombre.setBorder(null);
+
+        javax.swing.GroupLayout PanelModificarDirectivoLayout = new javax.swing.GroupLayout(PanelModificarDirectivo);
+        PanelModificarDirectivo.setLayout(PanelModificarDirectivoLayout);
+        PanelModificarDirectivoLayout.setHorizontalGroup(
+            PanelModificarDirectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelModificarDirectivoLayout.createSequentialGroup()
+                .addGap(81, 81, 81)
+                .addGroup(PanelModificarDirectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelModificarDirectivoLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(BtnModificarDirectivo, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(70, 70, 70))
+                    .addGroup(PanelModificarDirectivoLayout.createSequentialGroup()
+                        .addGroup(PanelModificarDirectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(PanelModificarDirectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(PanelModificarDirectivoLayout.createSequentialGroup()
+                                    .addComponent(InputModificarDirectivoNombre)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                                .addGroup(PanelModificarDirectivoLayout.createSequentialGroup()
+                                    .addComponent(jSeparator36, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(131, 131, 131)))
+                            .addGroup(PanelModificarDirectivoLayout.createSequentialGroup()
+                                .addGroup(PanelModificarDirectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(PanelModificarDirectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(PanelModificarDirectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(TextoAltaDirectivoDNI1)
+                                            .addComponent(jSeparator39)
+                                            .addComponent(InputModificarDirectivoDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(PanelModificarDirectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(TextoAltaDirectivoTelefono1)
+                                            .addComponent(jSeparator38)
+                                            .addComponent(InputModificarDirectivoTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(PanelModificarDirectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(PanelModificarDirectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(TextoAltaDirectivoApellido1)
+                                            .addComponent(jSeparator37)
+                                            .addComponent(InputModificarDirectivoApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(PanelModificarDirectivoLayout.createSequentialGroup()
+                                            .addComponent(TextoAltaDirectivoNombre1)
+                                            .addGap(143, 143, 143))))
+                                .addGap(131, 131, 131)))
+                        .addGroup(PanelModificarDirectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(TextoAltaDirectivoCargo1)
+                            .addComponent(jSeparator40, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(InputModificarDirectivoCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(384, Short.MAX_VALUE))))
+        );
+        PanelModificarDirectivoLayout.setVerticalGroup(
+            PanelModificarDirectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelModificarDirectivoLayout.createSequentialGroup()
+                .addGap(58, 58, 58)
+                .addGroup(PanelModificarDirectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PanelModificarDirectivoLayout.createSequentialGroup()
+                        .addGap(81, 81, 81)
+                        .addComponent(TextoAltaDirectivoApellido1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(InputModificarDirectivoApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSeparator37, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(TextoAltaDirectivoTelefono1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(InputModificarDirectivoTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSeparator38, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(PanelModificarDirectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(PanelModificarDirectivoLayout.createSequentialGroup()
+                                .addGap(32, 32, 32)
+                                .addComponent(BtnModificarDirectivo, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(PanelModificarDirectivoLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(TextoAltaDirectivoDNI1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(InputModificarDirectivoDNI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jSeparator39, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PanelModificarDirectivoLayout.createSequentialGroup()
+                        .addGroup(PanelModificarDirectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(TextoAltaDirectivoNombre1)
+                            .addComponent(TextoAltaDirectivoCargo1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(PanelModificarDirectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(InputModificarDirectivoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(InputModificarDirectivoCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(PanelModificarDirectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jSeparator36, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jSeparator40, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+        );
+
+        TabbedModificar.addTab("Directivo", PanelModificarDirectivo);
+
+        ModificarPersonaWindow.add(TabbedModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 1000, 480));
+
+        BtnDarDeAltaAtrasModificar.setBackground(new java.awt.Color(59, 185, 122));
+        BtnDarDeAltaAtrasModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Media/arrow.png"))); // NOI18N
+        BtnDarDeAltaAtrasModificar.setBorder(null);
+        ModificarPersonaWindow.add(BtnDarDeAltaAtrasModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 60, 60));
+
+        PanelRaiz.add(ModificarPersonaWindow, "card4");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1195,9 +1635,125 @@ public class MainWindow extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void InicializarEventos() {
-        JTextField[] camposNumericos = {InputAltaJugadorTelefono, InputAltaJugadorEdad, InputAltaJugadorValor, InputAltaTecnicoTelefono, InputAltaDirectivoTelefono};
+    private void InicializarVariables() {
+        //Inicializo arrays de componentes con comportamientos compartidos
+        camposAltaInputsYModificar = List.of(
+                InputAltaDirectivoApellido,
+                InputAltaDirectivoCargo,
+                InputAltaDirectivoDNI,
+                InputAltaDirectivoNombre,
+                InputAltaDirectivoTelefono,
+                InputAltaTecnicoApellido,
+                InputAltaTecnicoDNI,
+                InputAltaTecnicoNombre,
+                InputAltaTecnicoTelefono,
+                InputAltaJugadorApellido,
+                InputAltaJugadorDNI,
+                InputAltaJugadorEdad,
+                InputAltaJugadorNombre,
+                InputAltaJugadorTelefono,
+                InputAltaJugadorValor,
+                InputModificarDirectivoApellido,
+                InputModificarDirectivoCargo,
+                InputModificarDirectivoDNI,
+                InputModificarDirectivoNombre,
+                InputModificarDirectivoTelefono,
+                InputModificarTecnicoApellido,
+                InputModificarTecnicoDNI,
+                InputModificarTecnicoNombre,
+                InputModificarTecnicoTelefono,
+                InputModificarJugadorApellido,
+                InputModificarJugadorDNI,
+                InputModificarJugadorEdad,
+                InputModificarJugadorNombre,
+                InputModificarJugadorTelefono,
+                InputModificarJugadorValor
+        );
 
+        camposModificarInputs = List.of(
+                InputModificarDirectivoApellido,
+                InputModificarDirectivoCargo,
+                InputModificarDirectivoDNI,
+                InputModificarDirectivoNombre,
+                InputModificarDirectivoTelefono,
+                InputModificarTecnicoApellido,
+                InputModificarTecnicoDNI,
+                InputModificarTecnicoNombre,
+                InputModificarTecnicoTelefono,
+                InputModificarJugadorApellido,
+                InputModificarJugadorDNI,
+                InputModificarJugadorEdad,
+                InputModificarJugadorNombre,
+                InputModificarJugadorTelefono,
+                InputModificarJugadorValor
+        );
+
+        listaComboBoxModificar = List.of(
+                ComboBoxModificarTecnicoEspecialidad,
+                ComboBoxModificarTecnicoPuesto,
+                ComboBoxModificarTecnicoPuesto
+        );
+
+        botonesModificar = List.of(
+                BtnModificarDirectivo,
+                BtnModificarJugador,
+                BtnModificarTécnico
+        );
+
+        camposNumericos = List.of(
+                InputAltaJugadorTelefono,
+                InputAltaJugadorEdad,
+                InputAltaJugadorValor,
+                InputAltaTecnicoTelefono,
+                InputAltaDirectivoTelefono,
+                InputModificarJugadorTelefono,
+                InputModificarJugadorEdad,
+                InputModificarJugadorValor,
+                InputModificarTecnicoTelefono,
+                InputModificarDirectivoTelefono);
+
+        botonesHomeEstilizar = List.of(
+                BtnGestionarPlantilla,
+                BtnGastos,
+                BtnImprimir,
+                BtnJugarPartido);
+
+        //Tabla para ver la plantilla de futbol actual
+        String[] columnas = {"Nombre", "Apellido", "Rol", "DNI"};
+        //Creo el modelo que luego metere en la tabla
+        modelo = new DefaultTableModel(columnas, 0) {
+            //Le sobreescribo el metodo para que el usuario no pueda editar las celdas de las tablas
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false; // Desactiva la edición de celdas
+            }
+        };
+
+        //Relleno el modelo con las personas que tiene la lista de personas dentro del club
+        for (Persona persona : Gestor.getInstancia().ListaPersonasDentroDelClub()) {
+            modelo.addRow(new String[]{persona.getNombre(), persona.getApellido(), persona.getClass().getSimpleName(), persona.getDni()});
+        }
+
+        //Asigno el modelo a las tablas
+        TablaContenidoPlantilla.setModel(modelo);
+        TablaGestionPersonas.setModel(modelo);
+        //Que no sea clickable ya que la tabla del home quiero que sea solo vista
+        TablaContenidoPlantilla.setEnabled(false);
+
+        //Creo el CardLayout para cambiar entre ventanas
+        PanelRaiz.setLayout(new CardLayout());
+        PanelRaiz.add(HomeWindow, "homeWindow");
+        PanelRaiz.add(GestionWindow, "gestionWindow");
+        PanelRaiz.add(DarDeAltaWindow, "darDeAltaWindow");
+        PanelRaiz.add(ModificarPersonaWindow, "modificarPersonaWindow");
+        TabbedModificar.addTab("Modificar jugador", PanelModificarJugador);
+        TabbedModificar.addTab("Modificar tecnico", PanelModificarTecnico);
+        TabbedModificar.addTab("Modificar directivo", PanelModificarDirectivo);
+    }
+
+    private void InicializarEventos() {
+
+        //Comportamiento compartidos de los campos numericos (No admites caracteres)
         for (JTextField field : camposNumericos) {
             field.addKeyListener(new java.awt.event.KeyAdapter() {
                 @Override
@@ -1207,10 +1763,8 @@ public class MainWindow extends javax.swing.JFrame {
             });
         }
 
-        JTextField[] camposInputs = {InputAltaDirectivoApellido, InputAltaDirectivoCargo, InputAltaDirectivoDNI, InputAltaDirectivoNombre, InputAltaDirectivoTelefono, InputAltaTecnicoApellido,
-            InputAltaTecnicoDNI, InputAltaTecnicoNombre, InputAltaTecnicoTelefono, InputAltaJugadorApellido, InputAltaJugadorDNI, InputAltaJugadorEdad, InputAltaJugadorNombre, InputAltaJugadorTelefono, InputAltaJugadorValor};
-
-        for (JTextField field : camposInputs) {
+        //Comportamiento comportidos de los campos normales (Enseñan un texto predefinido y si clickas se borra)
+        for (JTextField field : camposAltaInputsYModificar) {
             field.addFocusListener(new FocusAdapter() {
                 String textoPredefinido = field.getText();
 
@@ -1226,8 +1780,7 @@ public class MainWindow extends javax.swing.JFrame {
             });
         }
 
-        JButton[] botonesHomeEstilizar = {BtnGestionarPlantilla, BtnGastos, BtnImprimir, BtnJugarPartido};
-
+        //Comportamiento comportidos de los botones del Home (pequeño :onhover que muestra un icono de un balon)
         for (JButton boton : botonesHomeEstilizar) {
             boton.addMouseListener(new MouseListener() {
                 @Override
@@ -1259,70 +1812,6 @@ public class MainWindow extends javax.swing.JFrame {
         }
     }
 
-    private void BtnGestionarPlantillaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGestionarPlantillaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BtnGestionarPlantillaActionPerformed
-
-    private void BtnJugarPartidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnJugarPartidoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BtnJugarPartidoActionPerformed
-
-    private void BtnGastosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGastosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BtnGastosActionPerformed
-
-    private void BtnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnImprimirActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BtnImprimirActionPerformed
-
-    private void BtnGestionarPlantillaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnGestionarPlantillaMouseEntered
-
-    }//GEN-LAST:event_BtnGestionarPlantillaMouseEntered
-
-    private void BtnJugarPartidoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnJugarPartidoMouseEntered
-
-    }//GEN-LAST:event_BtnJugarPartidoMouseEntered
-
-    private void BtnGastosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnGastosMouseEntered
-
-    }//GEN-LAST:event_BtnGastosMouseEntered
-
-    private void BtnImprimirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnImprimirMouseEntered
-
-    }//GEN-LAST:event_BtnImprimirMouseEntered
-
-    private void BtnGestionarPlantillaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnGestionarPlantillaMouseExited
-
-    }//GEN-LAST:event_BtnGestionarPlantillaMouseExited
-
-    private void BtnJugarPartidoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnJugarPartidoMouseExited
-
-    }//GEN-LAST:event_BtnJugarPartidoMouseExited
-
-    private void BtnGastosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnGastosMouseExited
-
-    }//GEN-LAST:event_BtnGastosMouseExited
-
-    private void BtnImprimirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnImprimirMouseExited
-
-    }//GEN-LAST:event_BtnImprimirMouseExited
-
-    private void BtnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnHomeActionPerformed
-
-    }//GEN-LAST:event_BtnHomeActionPerformed
-
-    private void BtnHomeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnHomeMouseEntered
-
-    }//GEN-LAST:event_BtnHomeMouseEntered
-
-    private void BtnHomeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnHomeMouseExited
-
-    }//GEN-LAST:event_BtnHomeMouseExited
-
-    private void BtnEliminarPersonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminarPersonaActionPerformed
-
-    }//GEN-LAST:event_BtnEliminarPersonaActionPerformed
-
     private void ToggleEstadoFisicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ToggleEstadoFisicoActionPerformed
         if (ToggleEstadoFisico.isSelected() == true) {
             ToggleEstadoFisico.setContentAreaFilled(false);
@@ -1338,149 +1827,9 @@ public class MainWindow extends javax.swing.JFrame {
 
     }//GEN-LAST:event_ToggleEstadoFisicoActionPerformed
 
-    private void ToggleEstadoFisicoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ToggleEstadoFisicoMousePressed
-
-    }//GEN-LAST:event_ToggleEstadoFisicoMousePressed
-
-    private void InputAltaJugadorTelefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_InputAltaJugadorTelefonoKeyTyped
-
-    }//GEN-LAST:event_InputAltaJugadorTelefonoKeyTyped
-
-    private void InputAltaJugadorEdadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_InputAltaJugadorEdadKeyTyped
-
-    }//GEN-LAST:event_InputAltaJugadorEdadKeyTyped
-
-    private void InputAltaJugadorValorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_InputAltaJugadorValorKeyTyped
-
-    }//GEN-LAST:event_InputAltaJugadorValorKeyTyped
-
-    private void InputAltaTecnicoTelefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_InputAltaTecnicoTelefonoKeyTyped
-
-    }//GEN-LAST:event_InputAltaTecnicoTelefonoKeyTyped
-
-    private void InputAltaDirectivoTelefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_InputAltaDirectivoTelefonoKeyTyped
-
-    }//GEN-LAST:event_InputAltaDirectivoTelefonoKeyTyped
-
-    private void InputAltaJugadorNombreFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaJugadorNombreFocusGained
-
-    }//GEN-LAST:event_InputAltaJugadorNombreFocusGained
-
-    private void InputAltaJugadorNombreFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaJugadorNombreFocusLost
-
-    }//GEN-LAST:event_InputAltaJugadorNombreFocusLost
-
-    private void InputAltaJugadorApellidoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaJugadorApellidoFocusGained
-
-    }//GEN-LAST:event_InputAltaJugadorApellidoFocusGained
-
-    private void InputAltaJugadorApellidoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaJugadorApellidoFocusLost
-
-    }//GEN-LAST:event_InputAltaJugadorApellidoFocusLost
-
-    private void InputAltaJugadorTelefonoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaJugadorTelefonoFocusGained
-
-    }//GEN-LAST:event_InputAltaJugadorTelefonoFocusGained
-
-    private void InputAltaJugadorTelefonoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaJugadorTelefonoFocusLost
-
-    }//GEN-LAST:event_InputAltaJugadorTelefonoFocusLost
-
-    private void InputAltaTecnicoNombreFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaTecnicoNombreFocusGained
-
-    }//GEN-LAST:event_InputAltaTecnicoNombreFocusGained
-
-    private void InputAltaTecnicoNombreFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaTecnicoNombreFocusLost
-
-    }//GEN-LAST:event_InputAltaTecnicoNombreFocusLost
-
-    private void InputAltaDirectivoNombreFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaDirectivoNombreFocusGained
-
-    }//GEN-LAST:event_InputAltaDirectivoNombreFocusGained
-
-    private void InputAltaDirectivoNombreFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaDirectivoNombreFocusLost
-
-    }//GEN-LAST:event_InputAltaDirectivoNombreFocusLost
-
-    private void InputAltaJugadorEdadFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaJugadorEdadFocusGained
-
-    }//GEN-LAST:event_InputAltaJugadorEdadFocusGained
-
-    private void InputAltaJugadorEdadFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaJugadorEdadFocusLost
-
-    }//GEN-LAST:event_InputAltaJugadorEdadFocusLost
-
-    private void InputAltaJugadorValorFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaJugadorValorFocusGained
-
-    }//GEN-LAST:event_InputAltaJugadorValorFocusGained
-
-    private void InputAltaJugadorValorFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaJugadorValorFocusLost
-
-    }//GEN-LAST:event_InputAltaJugadorValorFocusLost
-
-    private void InputAltaTecnicoApellidoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaTecnicoApellidoFocusGained
-
-    }//GEN-LAST:event_InputAltaTecnicoApellidoFocusGained
-
-    private void InputAltaTecnicoApellidoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaTecnicoApellidoFocusLost
-
-    }//GEN-LAST:event_InputAltaTecnicoApellidoFocusLost
-
-    private void InputAltaTecnicoTelefonoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaTecnicoTelefonoFocusGained
-
-    }//GEN-LAST:event_InputAltaTecnicoTelefonoFocusGained
-
-    private void InputAltaTecnicoTelefonoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaTecnicoTelefonoFocusLost
-
-    }//GEN-LAST:event_InputAltaTecnicoTelefonoFocusLost
-
-    private void InputAltaTecnicoDNIFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaTecnicoDNIFocusGained
-
-    }//GEN-LAST:event_InputAltaTecnicoDNIFocusGained
-
-    private void InputAltaTecnicoDNIFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaTecnicoDNIFocusLost
-
-    }//GEN-LAST:event_InputAltaTecnicoDNIFocusLost
-
-    private void InputAltaDirectivoApellidoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaDirectivoApellidoFocusGained
-
-    }//GEN-LAST:event_InputAltaDirectivoApellidoFocusGained
-
-    private void InputAltaDirectivoApellidoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaDirectivoApellidoFocusLost
-
-    }//GEN-LAST:event_InputAltaDirectivoApellidoFocusLost
-
-    private void InputAltaDirectivoTelefonoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaDirectivoTelefonoFocusGained
-
-    }//GEN-LAST:event_InputAltaDirectivoTelefonoFocusGained
-
-    private void InputAltaDirectivoTelefonoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaDirectivoTelefonoFocusLost
-
-    }//GEN-LAST:event_InputAltaDirectivoTelefonoFocusLost
-
-    private void InputAltaDirectivoDNIFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaDirectivoDNIFocusGained
-
-    }//GEN-LAST:event_InputAltaDirectivoDNIFocusGained
-
-    private void InputAltaDirectivoDNIFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaDirectivoDNIFocusLost
-
-    }//GEN-LAST:event_InputAltaDirectivoDNIFocusLost
-
-    private void InputAltaDirectivoCargoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaDirectivoCargoFocusGained
-
-    }//GEN-LAST:event_InputAltaDirectivoCargoFocusGained
-
-    private void InputAltaDirectivoCargoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaDirectivoCargoFocusLost
-
-    }//GEN-LAST:event_InputAltaDirectivoCargoFocusLost
-
-    private void InputAltaJugadorDNIFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaJugadorDNIFocusGained
-
-    }//GEN-LAST:event_InputAltaJugadorDNIFocusGained
-
-    private void InputAltaJugadorDNIFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_InputAltaJugadorDNIFocusLost
-
-    }//GEN-LAST:event_InputAltaJugadorDNIFocusLost
+    private void ToggleModificarEstadoFisicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ToggleModificarEstadoFisicoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ToggleModificarEstadoFisicoActionPerformed
 
     private void forzarSoloNumero(java.awt.event.KeyEvent evt) {
         char c = evt.getKeyChar();
@@ -1509,7 +1858,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     }
 
-    private void LostFocusStylishTextInput(JTextField textInput, String input) {
+    public void LostFocusStylishTextInput(JTextField textInput, String input) {
         if (textInput.getText().isEmpty()) {
             textInput.setText(input);
             textInput.setForeground(new Color(204, 204, 204));
@@ -1524,6 +1873,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton BtnCrearJugador;
     private javax.swing.JButton BtnCrearTecnico;
     private javax.swing.JButton BtnDarDeAltaAtras;
+    private javax.swing.JButton BtnDarDeAltaAtrasModificar;
     private javax.swing.JButton BtnDarDeAltaPersona;
     private javax.swing.JButton BtnEliminarPersona;
     private javax.swing.JButton BtnGastos;
@@ -1532,7 +1882,13 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton BtnImprimir;
     private javax.swing.JButton BtnJugarPartido;
     private javax.swing.JButton BtnModificarDatos;
+    private javax.swing.JButton BtnModificarDirectivo;
+    private javax.swing.JButton BtnModificarJugador;
+    private javax.swing.JButton BtnModificarTécnico;
     private javax.swing.JComboBox<Demarcacion> ComBoxDemarcacion;
+    private javax.swing.JComboBox<Demarcacion> ComBoxModificarDemarcacion;
+    private javax.swing.JComboBox<Especialidad> ComboBoxModificarTecnicoEspecialidad;
+    private javax.swing.JComboBox<Puesto> ComboBoxModificarTecnicoPuesto;
     private javax.swing.JComboBox<Especialidad> ComboBoxTecnicoEspecialidad;
     private javax.swing.JComboBox<Puesto> ComboBoxTecnicoPuesto;
     private javax.swing.JPanel DarDeAltaWindow;
@@ -1553,41 +1909,82 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTextField InputAltaTecnicoDNI;
     private javax.swing.JTextField InputAltaTecnicoNombre;
     private javax.swing.JTextField InputAltaTecnicoTelefono;
+    private javax.swing.JTextField InputModificarDirectivoApellido;
+    private javax.swing.JTextField InputModificarDirectivoCargo;
+    private javax.swing.JTextField InputModificarDirectivoDNI;
+    private javax.swing.JTextField InputModificarDirectivoNombre;
+    private javax.swing.JTextField InputModificarDirectivoTelefono;
+    private javax.swing.JTextField InputModificarJugadorApellido;
+    private javax.swing.JTextField InputModificarJugadorDNI;
+    private javax.swing.JTextField InputModificarJugadorEdad;
+    private javax.swing.JTextField InputModificarJugadorNombre;
+    private javax.swing.JTextField InputModificarJugadorTelefono;
+    private javax.swing.JTextField InputModificarJugadorValor;
+    private javax.swing.JTextField InputModificarTecnicoApellido;
+    private javax.swing.JTextField InputModificarTecnicoDNI;
+    private javax.swing.JTextField InputModificarTecnicoNombre;
+    private javax.swing.JTextField InputModificarTecnicoTelefono;
+    private javax.swing.JPanel ModificarPersonaWindow;
     private javax.swing.JPanel PanelAltaDirectivo;
     private javax.swing.JPanel PanelAltaJugador;
     private javax.swing.JPanel PanelAltaTecnico;
     private javax.swing.JScrollPane PanelGestionPersonas;
+    private javax.swing.JPanel PanelModificarDirectivo;
+    private javax.swing.JPanel PanelModificarJugador;
+    private javax.swing.JPanel PanelModificarTecnico;
     private javax.swing.JScrollPane PanelPlantilla;
     private javax.swing.JPanel PanelRaiz;
     private javax.swing.JPanel Panel_RightSide;
     private javax.swing.JSeparator Separador;
     private javax.swing.JSeparator Separador1;
     private javax.swing.JTabbedPane TabbedDarDeAlta;
+    private javax.swing.JTabbedPane TabbedModificar;
     private javax.swing.JTable TablaContenidoPlantilla;
     private javax.swing.JTable TablaGestionPersonas;
     private javax.swing.JLabel Text_DarDeAlta;
+    private javax.swing.JLabel Text_DarDeAlta1;
     private javax.swing.JLabel Text_PlantillaActual;
     private javax.swing.JLabel Text_Titulo;
     private javax.swing.JLabel TextoAltaDirectivoApellido;
+    private javax.swing.JLabel TextoAltaDirectivoApellido1;
     private javax.swing.JLabel TextoAltaDirectivoCargo;
+    private javax.swing.JLabel TextoAltaDirectivoCargo1;
     private javax.swing.JLabel TextoAltaDirectivoDNI;
+    private javax.swing.JLabel TextoAltaDirectivoDNI1;
     private javax.swing.JLabel TextoAltaDirectivoNombre;
+    private javax.swing.JLabel TextoAltaDirectivoNombre1;
     private javax.swing.JLabel TextoAltaDirectivoTelefono;
+    private javax.swing.JLabel TextoAltaDirectivoTelefono1;
     private javax.swing.JLabel TextoAltaJugadorApellido;
+    private javax.swing.JLabel TextoAltaJugadorApellido1;
     private javax.swing.JLabel TextoAltaJugadorDNI;
     private javax.swing.JLabel TextoAltaJugadorDNI1;
+    private javax.swing.JLabel TextoAltaJugadorDNI2;
+    private javax.swing.JLabel TextoAltaJugadorDNI3;
     private javax.swing.JLabel TextoAltaJugadorDemarcacion;
+    private javax.swing.JLabel TextoAltaJugadorDemarcacion1;
     private javax.swing.JLabel TextoAltaJugadorEdad;
+    private javax.swing.JLabel TextoAltaJugadorEdad1;
     private javax.swing.JLabel TextoAltaJugadorEstadoFisico;
+    private javax.swing.JLabel TextoAltaJugadorEstadoFisico1;
     private javax.swing.JLabel TextoAltaJugadorNombre;
+    private javax.swing.JLabel TextoAltaJugadorNombre1;
     private javax.swing.JLabel TextoAltaJugadorTelefono;
+    private javax.swing.JLabel TextoAltaJugadorTelefono1;
     private javax.swing.JLabel TextoAltaJugadorValor;
     private javax.swing.JLabel TextoAltaJugadorValor1;
+    private javax.swing.JLabel TextoAltaJugadorValor2;
+    private javax.swing.JLabel TextoAltaJugadorValor3;
     private javax.swing.JLabel TextoAltaTecnicoApellido;
+    private javax.swing.JLabel TextoAltaTecnicoApellido1;
     private javax.swing.JLabel TextoAltaTecnicoDNI;
+    private javax.swing.JLabel TextoAltaTecnicoDNI1;
     private javax.swing.JLabel TextoAltaTecnicoNombre;
+    private javax.swing.JLabel TextoAltaTecnicoNombre1;
     private javax.swing.JLabel TextoAltaTecnicoTelefono;
+    private javax.swing.JLabel TextoAltaTecnicoTelefono1;
     private javax.swing.JToggleButton ToggleEstadoFisico;
+    private javax.swing.JToggleButton ToggleModificarEstadoFisico;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator11;
@@ -1601,8 +1998,28 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator19;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator20;
+    private javax.swing.JSeparator jSeparator21;
+    private javax.swing.JSeparator jSeparator22;
+    private javax.swing.JSeparator jSeparator23;
+    private javax.swing.JSeparator jSeparator24;
+    private javax.swing.JSeparator jSeparator25;
+    private javax.swing.JSeparator jSeparator26;
+    private javax.swing.JSeparator jSeparator27;
+    private javax.swing.JSeparator jSeparator28;
+    private javax.swing.JSeparator jSeparator29;
     private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator30;
+    private javax.swing.JSeparator jSeparator31;
+    private javax.swing.JSeparator jSeparator32;
+    private javax.swing.JSeparator jSeparator33;
+    private javax.swing.JSeparator jSeparator34;
+    private javax.swing.JSeparator jSeparator35;
+    private javax.swing.JSeparator jSeparator36;
+    private javax.swing.JSeparator jSeparator37;
+    private javax.swing.JSeparator jSeparator38;
+    private javax.swing.JSeparator jSeparator39;
     private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JSeparator jSeparator40;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
@@ -1752,6 +2169,142 @@ public class MainWindow extends javax.swing.JFrame {
 
     public JTextField getInputAltaTecnicoTelefono() {
         return InputAltaTecnicoTelefono;
+    }
+
+    public JTextField getInputAltaTecnicoNombre() {
+        return InputAltaTecnicoNombre;
+    }
+
+    public List<JTextField> getCamposAltaInputsYModificar() {
+        return camposAltaInputsYModificar;
+    }
+
+    public JPanel getDarDeAltaWindow() {
+        return DarDeAltaWindow;
+    }
+
+    public DefaultTableModel getModelo() {
+        return modelo;
+    }
+
+    public JButton getBtnModificarDatos() {
+        return BtnModificarDatos;
+    }
+
+    public JButton getBtnDarDeAltaAtrasModificar() {
+        return BtnDarDeAltaAtrasModificar;
+    }
+
+    public List<JTextField> getCamposModificarInputs() {
+        return camposModificarInputs;
+    }
+
+    public JPanel getPanelModificarDirectivo() {
+        return PanelModificarDirectivo;
+    }
+
+    public JPanel getPanelModificarJugador() {
+        return PanelModificarJugador;
+    }
+
+    public JPanel getPanelModificarTecnico() {
+        return PanelModificarTecnico;
+    }
+
+    public List<JComboBox<? extends Enum<?>>> getListaComboBoxModificar() {
+        return listaComboBoxModificar;
+    }
+
+    public JComboBox<Demarcacion> getComBoxModificarDemarcacion() {
+        return ComBoxModificarDemarcacion;
+    }
+
+    public JComboBox<Especialidad> getComboBoxModificarTecnicoEspecialidad() {
+        return ComboBoxModificarTecnicoEspecialidad;
+    }
+
+    public JComboBox<Puesto> getComboBoxModificarTecnicoPuesto() {
+        return ComboBoxModificarTecnicoPuesto;
+    }
+
+    public JTabbedPane getTabbedModificar() {
+        return TabbedModificar;
+    }
+
+    public JTextField getInputModificarDirectivoApellido() {
+        return InputModificarDirectivoApellido;
+    }
+
+    public JTextField getInputModificarDirectivoCargo() {
+        return InputModificarDirectivoCargo;
+    }
+
+    public JTextField getInputModificarDirectivoDNI() {
+        return InputModificarDirectivoDNI;
+    }
+
+    public JTextField getInputModificarDirectivoNombre() {
+        return InputModificarDirectivoNombre;
+    }
+
+    public JTextField getInputModificarDirectivoTelefono() {
+        return InputModificarDirectivoTelefono;
+    }
+
+    public JTextField getInputModificarJugadorApellido() {
+        return InputModificarJugadorApellido;
+    }
+
+    public JTextField getInputModificarJugadorDNI() {
+        return InputModificarJugadorDNI;
+    }
+
+    public JTextField getInputModificarJugadorEdad() {
+        return InputModificarJugadorEdad;
+    }
+
+    public JTextField getInputModificarJugadorNombre() {
+        return InputModificarJugadorNombre;
+    }
+
+    public JTextField getInputModificarJugadorTelefono() {
+        return InputModificarJugadorTelefono;
+    }
+
+    public JTextField getInputModificarJugadorValor() {
+        return InputModificarJugadorValor;
+    }
+
+    public JTextField getInputModificarTecnicoApellido() {
+        return InputModificarTecnicoApellido;
+    }
+
+    public JTextField getInputModificarTecnicoDNI() {
+        return InputModificarTecnicoDNI;
+    }
+
+    public JTextField getInputModificarTecnicoNombre() {
+        return InputModificarTecnicoNombre;
+    }
+
+    public JTextField getInputModificarTecnicoTelefono() {
+        return InputModificarTecnicoTelefono;
+    }
+
+    public JButton getBtnModificarDirectivo() {
+        return BtnModificarDirectivo;
+    }
+
+    public JButton getBtnModificarJugador() {
+        return BtnModificarJugador;
+    }
+
+    public JButton getBtnModificarTécnico() {
+        return BtnModificarTécnico;
+    }
+
+    public List<JButton> getBotonesModificar() {
+        return botonesModificar;
     }
 
 }

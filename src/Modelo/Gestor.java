@@ -15,11 +15,11 @@ import java.util.List;
 import java.util.Scanner;
 
 /**
- * Clase Gestor que implementa el patrón Singleton para manejar listas de personas,
- * partidos y nóminas en un club deportivo.
- * Proporciona métodos para gestionar el registro y salida de personas, generación
- * de archivos de texto con información del club, y gestión de nóminas.
- * 
+ * Clase Gestor que implementa el patrón Singleton para manejar listas de
+ * personas, partidos y nóminas en un club deportivo. Proporciona métodos para
+ * gestionar el registro y salida de personas, generación de archivos de texto
+ * con información del club, y gestión de nóminas.
+ *
  */
 public class Gestor {
 
@@ -42,8 +42,8 @@ public class Gestor {
     private List<Nomina> listaNominas;
 
     /**
-     * Constructor privado que inicializa las listas, evitando la creación
-     * de instancias externas de la clase.
+     * Constructor privado que inicializa las listas, evitando la creación de
+     * instancias externas de la clase.
      */
     private Gestor() {
         this.listaPersonas = new ArrayList<>();
@@ -54,7 +54,7 @@ public class Gestor {
     /**
      * Método público estático que devuelve la instancia única de Gestor.
      * Implementa el patrón Singleton.
-     * 
+     *
      * @return la instancia única de Gestor
      */
     public static Gestor getInstancia() {
@@ -66,7 +66,7 @@ public class Gestor {
 
     /**
      * Agrega una persona a la lista de personas.
-     * 
+     *
      * @param persona la persona a agregar a listaPersonas
      */
     public void agregarPersona(Persona persona) {
@@ -75,21 +75,23 @@ public class Gestor {
 
     /**
      * Elimina una persona de la lista de personas.
-     * 
+     *
      * @param persona la persona a eliminar de listaPersonas
      */
     public void eliminarPersona(Persona persona) {
-        listaPersonas.remove(persona);
+        Date diaDespido = new Date();
+        persona.setIsOnClub(false);
+        persona.setDiaDespido(diaDespido);
     }
 
     /**
      * Elimina una persona de la lista de personas por su índice.
-     * 
+     *
      * @param indice el índice de la persona en listaPersonas a eliminar
      */
     public void eliminarPersona(int indice) {
         Date diaDespido = new Date();
-        
+
         if (indice > listaPersonas.size() || indice <= 0) {
             System.err.print("Error, el indice seleccionado no existe\n");
         } else {
@@ -103,7 +105,7 @@ public class Gestor {
 
     /**
      * Devuelve la lista completa de personas en el club.
-     * 
+     *
      * @return lista de personas en el club
      */
     public List<Persona> getListaPersonas() {
@@ -125,14 +127,14 @@ public class Gestor {
         }
         System.out.println("");
     }
-    
+
     /**
      * Devuelve una lista de personas que están activas en el club.
-     * 
+     *
      * @return lista de personas activas en el club
      */
     public List<Persona> ListaPersonasDentroDelClub() {
-        List<Persona> listaPersonasDentroClub = new ArrayList<>(); ;
+        List<Persona> listaPersonasDentroClub = new ArrayList<>();;
         for (Persona persona : getListaPersonas()) {
             if (persona.isIsOnClub()) {
                 listaPersonasDentroClub.add(persona);
@@ -144,7 +146,7 @@ public class Gestor {
 
     /**
      * Recupera una persona de la lista por índice.
-     * 
+     *
      * @param indice el índice de la persona en listaPersonas a recuperar
      * @return la persona en la posición indicada o null si no existe
      */
@@ -158,7 +160,7 @@ public class Gestor {
 
     /**
      * Devuelve la lista de partidos del club.
-     * 
+     *
      * @return lista de partidos jugados por el club
      */
     public List<Partido> getListaPartidos() {
@@ -167,7 +169,7 @@ public class Gestor {
 
     /**
      * Establece la lista de partidos del club.
-     * 
+     *
      * @param listaPartidos la lista de partidos a asignar
      */
     public void setListaPartidos(List<Partido> listaPartidos) {
@@ -176,7 +178,7 @@ public class Gestor {
 
     /**
      * Agrega un partido a la lista de partidos del club.
-     * 
+     *
      * @param partido el partido a agregar a listaPartidos
      */
     public void agregarPartido(Partido partido) {
@@ -185,7 +187,7 @@ public class Gestor {
 
     /**
      * Devuelve la lista de nóminas del club.
-     * 
+     *
      * @return lista de nóminas generadas para el club
      */
     public List<Nomina> getListaNominas() {
@@ -194,16 +196,17 @@ public class Gestor {
 
     /**
      * Recupera una nómina de la lista de nóminas por índice.
-     * 
+     *
      * @param indice el índice de la nómina en listaNominas
      * @return la nómina en la posición indicada
      */
     public Nomina getNominaByIndex(int indice) {
         return listaNominas.get(indice - 1);
     }
+
     /**
      * Agrega una nómina a la lista de nóminas del club.
-     * 
+     *
      * @param nomina la nómina a agregar a listaNominas
      */
     public void agregarNomina(Nomina nomina) {
@@ -212,26 +215,23 @@ public class Gestor {
 
     /**
      * Recupera una persona de la lista según su DNI.
-     * 
+     *
+     * @param dni
      * @return la persona con el DNI introducido o null si no se encuentra
      */
-    public Persona recuperarPersonaDNI() {
-        while (true) {
-            Scanner inputReader = new Scanner(System.in); // Reading from System.in
-            String dni = inputReader.next();
-            inputReader.nextLine();  // Consumir el salto de línea
-            for (Persona persona : listaPersonas) {
-                if (persona.getDni().equals(dni)) {
-                    return persona;
-                }
+    public Persona recuperarPersonaDNI(String dni) {
+        for (Persona persona : listaPersonas) {
+            if (persona.getDni().equals(dni)) {
+                return persona;
             }
-            System.out.println("No se encontro a ninguna persona con el DNI: " + dni + " \nIntroduzca el DNI de nuevo.");
         }
+        System.out.println("No se encontró a ninguna persona con el DNI: " + dni);
+        return null; // Devolvemos null si no se encuentra
     }
 
     /**
      * Devuelve una lista de personas activas ordenadas por DNI.
-     * 
+     *
      * @param lista lista de personas a ordenar
      * @return lista de personas activas ordenadas por DNI
      */
@@ -251,8 +251,9 @@ public class Gestor {
     }
 
     /**
-     * Devuelve una lista de personas fuera del club ordenadas por nombre y apellido.
-     * 
+     * Devuelve una lista de personas fuera del club ordenadas por nombre y
+     * apellido.
+     *
      * @param lista lista de personas a filtrar
      * @return lista de personas fuera del club ordenadas
      */
@@ -275,7 +276,7 @@ public class Gestor {
 
     /**
      * Establece la lista de nóminas del club.
-     * 
+     *
      * @param listaNominas la lista de nóminas a asignar
      */
     public void setListaNominas(List<Nomina> listaNominas) {
@@ -285,7 +286,7 @@ public class Gestor {
     // <editor-fold defaultstate="collapsed" desc="Metodos generadores de archivos texto">
     /**
      * Crea un archivo si no existe.
-     * 
+     *
      * @param file el archivo a validar o crear
      */
     public void validarFichero(File file) {
@@ -330,7 +331,8 @@ public class Gestor {
     }
 
     /**
-     * Genera un archivo de texto con la lista de empleados que han sido eliminados del club.
+     * Genera un archivo de texto con la lista de empleados que han sido
+     * eliminados del club.
      */
     public void generarEmpleadosEliminados() {
         File empleadosEliminadosFichero = new File("empleadosEliminados.txt");
@@ -354,7 +356,7 @@ public class Gestor {
             System.out.println("Error al escribir en el archivo: " + e.getMessage());
         }
     }
-    
+
     /**
      * Genera un archivo de texto con la lista de partidos jugados por el club.
      */
@@ -382,9 +384,10 @@ public class Gestor {
         }
 
     }
-    
+
     /**
-     * Genera un archivo de texto con la lista de nóminas generadas para las personas del club.
+     * Genera un archivo de texto con la lista de nóminas generadas para las
+     * personas del club.
      */
     public void generarListaNominas() {
         File listadoNominas = new File("listadoNominas.txt");
