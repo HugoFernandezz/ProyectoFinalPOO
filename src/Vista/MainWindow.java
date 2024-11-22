@@ -15,8 +15,6 @@ import Modelo.Especialidad;
 import Modelo.Puesto;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JButton;
@@ -59,7 +57,7 @@ public class MainWindow extends javax.swing.JFrame {
         };
 
         //Relleno el modelo con las personas que tiene la listaPersonas
-        for (Persona persona : Gestor.getInstancia().getListaPersonas()) {
+        for (Persona persona : Gestor.getInstancia().ListaPersonasDentroDelClub()) {
             modelo.addRow(new String[]{persona.getNombre(), persona.getApellido(), persona.getClass().getSimpleName(), persona.getDni()});
         }
 
@@ -420,7 +418,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         PanelRaiz.add(GestionWindow, "card3");
 
-        DarDeAltaWindow.setBackground(new java.awt.Color(59, 185, 122));
+        DarDeAltaWindow.setBackground(new java.awt.Color(50, 162, 135));
         DarDeAltaWindow.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Text_DarDeAlta.setFont(new java.awt.Font("Poppins SemiBold", 1, 65)); // NOI18N
@@ -431,11 +429,11 @@ public class MainWindow extends javax.swing.JFrame {
         jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
         DarDeAltaWindow.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 110, 450, 10));
 
-        TabbedDarDeAlta.setBackground(new java.awt.Color(169, 253, 172));
+        TabbedDarDeAlta.setBackground(new java.awt.Color(59, 185, 122));
         TabbedDarDeAlta.setForeground(new java.awt.Color(255, 255, 255));
         TabbedDarDeAlta.setFont(new java.awt.Font("Poppins", 1, 12)); // NOI18N
 
-        PanelAltaJugador.setBackground(new java.awt.Color(169, 253, 172));
+        PanelAltaJugador.setBackground(new java.awt.Color(59, 185, 122));
         PanelAltaJugador.setForeground(new java.awt.Color(169, 253, 172));
         PanelAltaJugador.setToolTipText("");
 
@@ -444,7 +442,7 @@ public class MainWindow extends javax.swing.JFrame {
         TextoAltaJugadorNombre.setForeground(new java.awt.Color(255, 255, 255));
         TextoAltaJugadorNombre.setText("Nombre");
 
-        InputAltaJugadorNombre.setBackground(new java.awt.Color(169, 253, 172));
+        InputAltaJugadorNombre.setBackground(new java.awt.Color(59, 185, 122));
         InputAltaJugadorNombre.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
         InputAltaJugadorNombre.setForeground(new java.awt.Color(204, 204, 204));
         InputAltaJugadorNombre.setText("Inserte el nombre...");
@@ -599,6 +597,9 @@ public class MainWindow extends javax.swing.JFrame {
 
         jSeparator19.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator19.setForeground(new java.awt.Color(255, 255, 255));
+
+        ComBoxDemarcacion.setBackground(new java.awt.Color(50, 162, 135));
+        ComBoxDemarcacion.setBorder(null);
 
         TextoAltaJugadorEstadoFisico.setBackground(new java.awt.Color(255, 255, 255));
         TextoAltaJugadorEstadoFisico.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
@@ -1167,7 +1168,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         DarDeAltaWindow.add(TabbedDarDeAlta, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 1000, 480));
 
-        BtnDarDeAltaAtras.setBackground(new java.awt.Color(59, 185, 122));
+        BtnDarDeAltaAtras.setBackground(new java.awt.Color(50, 162, 135));
         BtnDarDeAltaAtras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Media/arrow.png"))); // NOI18N
         BtnDarDeAltaAtras.setBorder(null);
         DarDeAltaWindow.add(BtnDarDeAltaAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 60, 60));

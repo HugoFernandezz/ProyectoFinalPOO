@@ -489,7 +489,7 @@
         <Container class="javax.swing.JPanel" name="DarDeAltaWindow">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="7a" green="b9" red="3b" type="rgb"/>
+              <Color blue="87" green="a2" red="32" type="rgb"/>
             </Property>
           </Properties>
           <Constraints>
@@ -533,7 +533,7 @@
             <Container class="javax.swing.JTabbedPane" name="TabbedDarDeAlta">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ac" green="fd" red="a9" type="rgb"/>
+                  <Color blue="7a" green="b9" red="3b" type="rgb"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -553,7 +553,7 @@
                 <Container class="javax.swing.JPanel" name="PanelAltaJugador">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ac" green="fd" red="a9" type="rgb"/>
+                      <Color blue="7a" green="b9" red="3b" type="rgb"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ac" green="fd" red="a9" type="rgb"/>
@@ -730,7 +730,7 @@
                     <Component class="javax.swing.JTextField" name="InputAltaJugadorNombre">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="ac" green="fd" red="a9" type="rgb"/>
+                          <Color blue="7a" green="b9" red="3b" type="rgb"/>
                         </Property>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Poppins SemiBold" size="12" style="0"/>
@@ -1030,6 +1030,14 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JComboBox" name="ComBoxDemarcacion">
+                      <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="87" green="a2" red="32" type="rgb"/>
+                        </Property>
+                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                          <Border info="null"/>
+                        </Property>
+                      </Properties>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Demarcacion&gt;"/>
                       </AuxValues>
@@ -1856,7 +1864,7 @@
             <Component class="javax.swing.JButton" name="BtnDarDeAltaAtras">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="7a" green="b9" red="3b" type="rgb"/>
+                  <Color blue="87" green="a2" red="32" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/Media/arrow.png"/>
