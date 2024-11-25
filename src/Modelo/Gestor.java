@@ -4,6 +4,9 @@
  */
 package Modelo;
 
+import static Modelo.App.InputInt;
+import static Modelo.App.elegirLocal;
+import static Modelo.App.inputReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -273,6 +276,29 @@ public class Gestor {
 
         return myNewListPersona;
     }
+    
+    
+    /**
+     * Permite crear un nuevo partido y registrar su resultado.
+     *
+     * Este método solicita al usuario los detalles necesarios para crear un
+     * partido, incluyendo el nombre del equipo rival, si el partido se juega de
+     * local, y los goles marcados por ambos equipos. Luego, crea una instancia
+     * del objeto {@link Partido} con la información proporcionada y la
+     * registra.
+     *
+     * <p>
+     * El partido se registra con el nombre del rival, el estado de localía, y
+     * los goles de ambos equipos.</p>
+     *
+     * @see Partido
+     */
+    public static void crearPartido(String nombreRival, boolean isLocal, int golesLocal, int golesVisitante) {
+
+        Partido partido = new Partido(nombreRival, isLocal, golesLocal, golesVisitante);
+        System.out.println("-----------------------------------------\nPartido contra " + nombreRival + " jugado con exito. \n-----------------------------------------\n\n");
+    }
+
 
     /**
      * Establece la lista de nóminas del club.
