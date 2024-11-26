@@ -944,7 +944,7 @@ public class App {
                 int subIndice = InputInt(1, nomina.getConceptos().size());
                 inputReader.nextLine();  // Consumir el salto de línea
 
-                Concepto conceptoModificar = nomina.getConceptos(subIndice);
+                Concepto conceptoModificar = nomina.getConcepto(subIndice);
 
                 conceptoModificar = crearNuevoConcepto();
                 nomina.modificarConceptoIndex(conceptoModificar, subIndice);

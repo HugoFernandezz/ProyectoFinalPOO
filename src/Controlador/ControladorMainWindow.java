@@ -59,6 +59,10 @@ public class ControladorMainWindow implements MouseListener {
 
     JTable tablaGestion;
 
+    //Tabla para ver los conceptos de las nominas
+    String[] columnasConceptos = {"Descripcion", "Importe", "Codigo"};
+    DefaultTableModel modeloConceptos;
+
     public ControladorMainWindow(MainWindow homeWindow) {
         this.mainWindow = homeWindow;
         tablaGestion = mainWindow.getTablaGestionPersonas();
@@ -93,6 +97,7 @@ public class ControladorMainWindow implements MouseListener {
         mainWindow.getBtnHomeGastos().addActionListener(e -> cambiarEscena(CARD_HOME));
         mainWindow.getBtnCrearNomina().addActionListener(e -> cambiarEscenaNomina());
         mainWindow.getBtnCrearFactura().addActionListener(e -> cambiarEscena(CARD_FACTURA));
+        mainWindow.getBtnModificarConceptoNomina().addActionListener(e -> cambiarEscenaModificarConcepto());
 
         //Inicializando correctamente los combobox
         mainWindow.getComboBoxTecnicoPuesto().setModel(new DefaultComboBoxModel<>(Puesto.values()));
@@ -116,10 +121,13 @@ public class ControladorMainWindow implements MouseListener {
         //Boton de jugar partidos
         mainWindow.getBtnTerminarPartido().addActionListener(e -> intentarJugarPartido());
 
-        //Botones de Ggastos
+        //Botones de Gastos
         mainWindow.getBtnCrearNominaFinal().addActionListener(e -> intentarCrearNomina());
         mainWindow.getCrearFacturaFinal().addActionListener(e -> intentarCrearFactura());
-        mainWindow.getBtnModificarConceptoNomina().addActionListener(e -> cambiarEscena(CARD_MODIFICAR_CONCEPTO));
+
+        //Botones de Conceptos
+        mainWindow.getBtnModificarConcepto().addActionListener(e -> recuperarConcepto(mainWindow.getTablaConceptosNomina()));
+        mainWindow.getBtnEliminarConcepto().addActionListener(e -> eliminarConcepto(mainWindow.getTablaConceptosNomina(), personasSeleccionadasGastos.get(0), modeloConceptos));
 
         //Listener de la tabla de personas de la ventana de gestion
         tablaGestion.getSelectionModel().addListSelectionListener((ListSelectionEvent e) -> {
@@ -155,6 +163,14 @@ public class ControladorMainWindow implements MouseListener {
         mainWindow.getBtnJugarPartido().addMouseListener(this);
         mainWindow.getToggleEstadoFisico().addMouseListener(this);
 
+        modeloConceptos = new DefaultTableModel(columnasConceptos, 0) {
+            //Le sobreescribo el metodo para que el usuario no pueda editar las celdas de las tablas
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false; // Desactiva la edición de celdas
+            }
+        };
+
     }
 
     // Método que ejecuta la lógica de cambiar entre escenas
@@ -179,8 +195,7 @@ public class ControladorMainWindow implements MouseListener {
             System.out.println("no hay ninguna persona seleccionada");
         }
     }
-    
-    
+
     //Método para cambiar a la escena de modificar jugador (Requiere seleccionar un jugador)
     private void cambiarEscenaNomina() {
         if (personasSeleccionadasGastos.size() > 0) {
@@ -189,6 +204,24 @@ public class ControladorMainWindow implements MouseListener {
 
         } else {
             JOptionPane.showMessageDialog(null, "Deberas seleccionar a una o varias personas a las que quieras crear una nómina");
+        }
+    }
+
+    private void cambiarEscenaModificarConcepto() {
+
+        if (personasSeleccionadasGastos.size() == 1) {
+
+            if (personasSeleccionadasGastos.get(0).getNomina() == null) {
+                JOptionPane.showMessageDialog(null, "Parece que " + personasSeleccionadasGastos.get(0).getNombre() + " todavía no tiene ninguna nómina creada. ¿Por qué no pruebas a creale una?");
+            } else {
+
+                String nombre = personasSeleccionadasGastos.get(0).getNombre();
+                cambiarEscena(CARD_MODIFICAR_CONCEPTO);
+                mainWindow.getTituloModificarConceptos().setText("Nomina de " + nombre);
+                rellenarModeloTablaConceptos(personasSeleccionadasGastos.get(0), modeloConceptos);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Deberas seleccionar a una sola persona a la que quieras modificar conceptos de su nomina");
         }
     }
 
@@ -363,7 +396,7 @@ public class ControladorMainWindow implements MouseListener {
         jugador.setValorMercado(valor);
         jugador.setDemarcacion(demarcacion);
 
-        actualizarModeloTabla(mainWindow.getModelo());
+        actualizarModeloTablaPersonas(mainWindow.getModeloPersonas());
         JOptionPane.showMessageDialog(null, "¡Los datos se han actualizado correctamente!");
         limpiarDatosPersona();
         cambiarEscena(CARD_GESTION);
@@ -392,7 +425,7 @@ public class ControladorMainWindow implements MouseListener {
         tecnico.setEspecialidad(especialidad);
         tecnico.setEspecialidad(especialidad);
 
-        actualizarModeloTabla(mainWindow.getModelo());
+        actualizarModeloTablaPersonas(mainWindow.getModeloPersonas());
         JOptionPane.showMessageDialog(null, "¡Los datos se han actualizado correctamente!");
         limpiarDatosPersona();
         cambiarEscena(CARD_GESTION);
@@ -418,7 +451,7 @@ public class ControladorMainWindow implements MouseListener {
         directivo.setTelefono(tlf);
         directivo.setCargo(cargo);
 
-        actualizarModeloTabla(mainWindow.getModelo());
+        actualizarModeloTablaPersonas(mainWindow.getModeloPersonas());
         JOptionPane.showMessageDialog(null, "¡Los datos se han actualizado correctamente!");
         limpiarDatosPersona();
         cambiarEscena(CARD_GESTION);
@@ -438,7 +471,7 @@ public class ControladorMainWindow implements MouseListener {
 
     }
 
-    private void actualizarModeloTabla(DefaultTableModel modelo) {
+    private void actualizarModeloTablaPersonas(DefaultTableModel modelo) {
 
         //Vacio el modelo
         modelo.setRowCount(0);
@@ -464,7 +497,7 @@ public class ControladorMainWindow implements MouseListener {
 
         Tecnico tecnico = new Tecnico(nombre, apellido, telefono, puesto, especialidad, dni);
 
-        actualizarModeloTabla(mainWindow.getModelo());
+        actualizarModeloTablaPersonas(mainWindow.getModeloPersonas());
 
         JOptionPane.showMessageDialog(null, "¡El técnico " + nombre + " se ha unido al club!");
     }
@@ -495,7 +528,7 @@ public class ControladorMainWindow implements MouseListener {
 
         Directivo directivo = new Directivo(nombre, apellido, dni, telefono, cargo);
 
-        actualizarModeloTabla(mainWindow.getModelo());
+        actualizarModeloTablaPersonas(mainWindow.getModeloPersonas());
 
         JOptionPane.showMessageDialog(null, "¡El directivo " + nombre + " se ha unido al club!");
     }
@@ -549,7 +582,7 @@ public class ControladorMainWindow implements MouseListener {
 
         Jugador jugador = new Jugador(nombre, apellido, telefono, demarcacion, edad, valorMercado, estadoFisico, dni);
 
-        actualizarModeloTabla(mainWindow.getModelo());
+        actualizarModeloTablaPersonas(mainWindow.getModeloPersonas());
 
         JOptionPane.showMessageDialog(null, "¡El jugador " + nombre + " se ha unido al club!");
 
@@ -625,12 +658,22 @@ public class ControladorMainWindow implements MouseListener {
         int ano = Integer.parseInt(mainWindow.getInputCrearNominaAno().getText());
         Meses mes = (Meses) mainWindow.getComBoxMesNomina().getSelectedItem();
 
-        //Para mostrar los nombres al final
+        //Para mostrar los nombres al final en el JOptionPane (Pop-up)
         StringBuilder nombres = new StringBuilder();
 
         for (Persona p : personasSeleccionadasGastos) {
+
             Concepto concepto = new Concepto(id, descripcion, importe);
-            Nomina nomina = new Nomina(mes, ano, concepto, p);
+
+            if (p.getNomina() == null) {
+
+                new Nomina(mes, ano, concepto, p);
+
+            } else {
+
+                p.getNomina().setConcepto(concepto);
+
+            }
 
             System.out.println("Nomina creada a: " + p.getNombre());
             nombres.append("- ").append(p.getNombre()).append("\n");
@@ -645,7 +688,7 @@ public class ControladorMainWindow implements MouseListener {
     }
 
     private void intentarCrearFactura() {
-        
+
         //Creo la lista de campos que tiene que rellenar
         List<JTextField> listaCampos = new ArrayList<>();
         listaCampos.add(mainWindow.getInputCrearFacturaCIF());
@@ -660,21 +703,54 @@ public class ControladorMainWindow implements MouseListener {
         }
 
     }
-    
-    private void crearFactura(){
-    
+
+    private void crearFactura() {
+
         String CIF = mainWindow.getInputCrearFacturaCIF().getText();
         String ID = mainWindow.getInputCrearFacturaID().getText();
         String nombre = mainWindow.getInputCrearFacturaNombre().getText();
         float cantidad = Float.valueOf(mainWindow.getInputCrearFacturaCantidad().getText());
         String fecha = mainWindow.getInputCrearFacturaFecha().getText();
-        
+
         Cliente cliente = new Cliente(CIF, nombre);
         Factura factura = new Factura(ID, cantidad, fecha, cliente);
-        
+
         JOptionPane.showMessageDialog(null, "¡Factura creada con éxito!");
-        
+
         cambiarEscena(CARD_GASTOS);
+    }
+
+    private void rellenarModeloTablaConceptos(Persona p, DefaultTableModel modelo) {
+        //Vacio el modelo
+        modelo.setRowCount(0);
+
+        //Y lo vuelvo a llenar
+        List<Concepto> listaConceptos = new ArrayList<>();
+        listaConceptos.addAll(p.getNomina().getConceptos());
+
+        //Relleno el modeloConceptos con las los conceptos de la nomina de la persona que se le pasa por parametro
+        for (Concepto concepto : listaConceptos) {
+            modeloConceptos.addRow(new String[]{concepto.getDescripcion(), String.valueOf(concepto.getImporte()), concepto.getCodigo()});
+        }
+
+        mainWindow.getTablaConceptosNomina().setModel(modeloConceptos);
+
+    }
+
+    private Concepto recuperarConcepto(JTable tabla) {
+        filaSeleccionada = tabla.getSelectedRow();
+        System.out.println("Se devolvio el concepto con id: " + Gestor.getInstancia().recuperarConceptoPorIndice(filaSeleccionada, personasSeleccionadasGastos.get(0)).getCodigo());
+        return Gestor.getInstancia().recuperarConceptoPorIndice(filaSeleccionada, personasSeleccionadasGastos.get(0));
+
+    }
+
+    private void eliminarConcepto(JTable tabla, Persona p, DefaultTableModel modelo) {
+        filaSeleccionada = tabla.getSelectedRow();
+        String ID = tabla.getModel().getValueAt(filaSeleccionada, 2).toString();
+        System.out.println(ID);
+        Gestor.getInstancia().removeConceptoPorID(ID, p);
+        JOptionPane.showMessageDialog(null, "¡Concepto con id: " + ID + " eliminada con éxito!");
+        rellenarModeloTablaConceptos(p, modelo);
     }
 
     @Override

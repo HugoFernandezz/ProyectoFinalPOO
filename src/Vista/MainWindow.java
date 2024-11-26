@@ -5,6 +5,7 @@
 package Vista;
 
 import Modelo.App;
+import Modelo.Concepto;
 import Modelo.Gestor;
 import Modelo.Persona;
 import Modelo.Demarcacion;
@@ -40,7 +41,7 @@ import javax.swing.table.DefaultTableModel;
  * @author HugoFDZ
  */
 public class MainWindow extends javax.swing.JFrame {
-
+    
     Color colorTexto = new Color(241, 255, 231);
     Color backgroundColor = new Color(59, 185, 122);
     Icon icon = new ImageIcon(getClass().getResource("/Media/IconBall.png"));
@@ -53,7 +54,8 @@ public class MainWindow extends javax.swing.JFrame {
     //Me permite crear una lista de ComboBoxes de enumerados de cualquier tipo
     List<JComboBox<? extends Enum<?>>> listaComboBoxModificar = new ArrayList<>();
 
-    DefaultTableModel modelo;
+    DefaultTableModel modeloPersonas;
+    
 
     public MainWindow() {
 
@@ -183,6 +185,11 @@ public class MainWindow extends javax.swing.JFrame {
         InputAltaDirectivoNombre = new javax.swing.JTextField();
         BtnDarDeAltaAtras = new javax.swing.JButton();
         ModificarConceptoWindow = new javax.swing.JPanel();
+        PanelConceptosNomina = new javax.swing.JScrollPane();
+        TablaConceptosNomina = new javax.swing.JTable();
+        TituloModificarConceptos = new javax.swing.JLabel();
+        BtnModificarConcepto = new javax.swing.JButton();
+        BtnEliminarConcepto = new javax.swing.JButton();
         FacturaWindow = new javax.swing.JPanel();
         TituloCrearFactura = new javax.swing.JLabel();
         TextoCrearFacturaNombre = new javax.swing.JLabel();
@@ -605,7 +612,7 @@ public class MainWindow extends javax.swing.JFrame {
         ));
         PanelGastosPersonas.setViewportView(TablaGastosPersonas);
 
-        GastosWindow.add(PanelGastosPersonas, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 120, 630, 440));
+        GastosWindow.add(PanelGastosPersonas, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 100, 630, 440));
 
         BtnCrearNomina.setText("Crear nómina/s");
         GastosWindow.add(BtnCrearNomina, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 209, 217, 58));
@@ -1224,15 +1231,53 @@ public class MainWindow extends javax.swing.JFrame {
 
         ModificarConceptoWindow.setBackground(new java.awt.Color(59, 185, 122));
 
+        TablaConceptosNomina.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        PanelConceptosNomina.setViewportView(TablaConceptosNomina);
+
+        TituloModificarConceptos.setFont(new java.awt.Font("Poppins SemiBold", 1, 36)); // NOI18N
+        TituloModificarConceptos.setForeground(new java.awt.Color(255, 255, 255));
+
+        BtnModificarConcepto.setText("Modificar concepto");
+
+        BtnEliminarConcepto.setText("Eliminar concepto");
+
         javax.swing.GroupLayout ModificarConceptoWindowLayout = new javax.swing.GroupLayout(ModificarConceptoWindow);
         ModificarConceptoWindow.setLayout(ModificarConceptoWindowLayout);
         ModificarConceptoWindowLayout.setHorizontalGroup(
             ModificarConceptoWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 950, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ModificarConceptoWindowLayout.createSequentialGroup()
+                .addGap(95, 95, 95)
+                .addGroup(ModificarConceptoWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(BtnModificarConcepto, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BtnEliminarConcepto, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 152, Short.MAX_VALUE)
+                .addGroup(ModificarConceptoWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(TituloModificarConceptos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(PanelConceptosNomina))
+                .addGap(77, 77, 77))
         );
         ModificarConceptoWindowLayout.setVerticalGroup(
             ModificarConceptoWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 560, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ModificarConceptoWindowLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(TituloModificarConceptos, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(ModificarConceptoWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ModificarConceptoWindowLayout.createSequentialGroup()
+                        .addComponent(PanelConceptosNomina, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(50, 50, 50))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ModificarConceptoWindowLayout.createSequentialGroup()
+                        .addComponent(BtnModificarConcepto, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(68, 68, 68)
+                        .addComponent(BtnEliminarConcepto, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(167, 167, 167))))
         );
 
         PanelRaiz.add(ModificarConceptoWindow, "card10");
@@ -2305,9 +2350,10 @@ public class MainWindow extends javax.swing.JFrame {
                 BtnJugarPartido);
 
         //Tabla para ver la plantilla de futbol actual
-        String[] columnas = {"Nombre", "Apellido", "Rol", "DNI"};
-        //Creo el modelo que luego metere en la tabla
-        modelo = new DefaultTableModel(columnas, 0) {
+        String[] columnasPersonas = {"Nombre", "Apellido", "Rol", "DNI"};
+        
+        //Creo el modeloPersonas que luego metere en la tabla
+        modeloPersonas = new DefaultTableModel(columnasPersonas, 0) {
             //Le sobreescribo el metodo para que el usuario no pueda editar las celdas de las tablas
             @Override
             public boolean isCellEditable(int row, int column) {
@@ -2315,15 +2361,17 @@ public class MainWindow extends javax.swing.JFrame {
             }
         };
 
-        //Relleno el modelo con las personas que tiene la lista de personas dentro del club
+
+        //Relleno el modeloPersonas con las personas que tiene la lista de personas dentro del club
         for (Persona persona : Gestor.getInstancia().ListaPersonasDentroDelClub()) {
-            modelo.addRow(new String[]{persona.getNombre(), persona.getApellido(), persona.getClass().getSimpleName(), persona.getDni()});
+            modeloPersonas.addRow(new String[]{persona.getNombre(), persona.getApellido(), persona.getClass().getSimpleName(), persona.getDni()});
         }
 
-        //Asigno el modelo a las tablas
-        TablaContenidoPlantilla.setModel(modelo);
-        TablaGestionPersonas.setModel(modelo);
-        TablaGastosPersonas.setModel(modelo);
+
+        //Asigno el modeloPersonas a las tablas
+        TablaContenidoPlantilla.setModel(modeloPersonas);
+        TablaGestionPersonas.setModel(modeloPersonas);
+        TablaGastosPersonas.setModel(modeloPersonas);
         //Que no sea clickable ya que la tabla del home quiero que sea solo vista
         TablaContenidoPlantilla.setEnabled(false);
 
@@ -2355,19 +2403,19 @@ public class MainWindow extends javax.swing.JFrame {
             });
         }
 
-        //Comportamiento comportidos de los campos normales (Enseñan un texto predefinido y si clickas se borra)
+        //Comportamiento compartidos de los campos normales (Enseñan un texto predefinido y si clickas se borra)
         for (JTextField field : camposAltaInputsYModificar) {
             field.addFocusListener(new FocusAdapter() {
-                String textoPredefinido = field.getText();
+                String textoInicial = field.getText();
 
                 @Override
                 public void focusGained(FocusEvent evt) {
-                    GainFocusStylishTextInput(field);
+                    GainFocusStylishTextInput(field, textoInicial);
                 }
 
                 @Override
                 public void focusLost(FocusEvent evt) {
-                    LostFocusStylishTextInput(field, textoPredefinido);
+                    LostFocusStylishTextInput(field, textoInicial);
                 }
             });
         }
@@ -2485,18 +2533,18 @@ public class MainWindow extends javax.swing.JFrame {
         boton.setIcon(null);
     }
 
-    private void GainFocusStylishTextInput(JTextField textInput) {
-        //Chequea que el campo estaba vacio(mensaja predefinido)...Espero que ningun jugador se llame 'Inserte'...
-        if (textInput.getText().contains("Inserte ")) {
+    private void GainFocusStylishTextInput(JTextField textInput, String textoInicial) {
+        //Chequea que el campo estaba vacio o es igual al placeholder (texto inicial)
+        if (textInput.getText().equals(textoInicial)) {
             textInput.setText("");
             textInput.setForeground(Color.white);
         }
 
     }
 
-    public void LostFocusStylishTextInput(JTextField textInput, String input) {
+    public void LostFocusStylishTextInput(JTextField textInput, String placeholderText) {
         if (textInput.getText().isEmpty()) {
-            textInput.setText(input);
+            textInput.setText(placeholderText);
             textInput.setForeground(new Color(204, 204, 204));
         }
 
@@ -2514,6 +2562,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton BtnDarDeAltaAtras;
     private javax.swing.JButton BtnDarDeAltaAtrasModificar;
     private javax.swing.JButton BtnDarDeAltaPersona;
+    private javax.swing.JButton BtnEliminarConcepto;
     private javax.swing.JButton BtnEliminarPersona;
     private javax.swing.JButton BtnGastos;
     private javax.swing.JButton BtnGestionarPlantilla;
@@ -2522,6 +2571,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton BtnHomePartido;
     private javax.swing.JButton BtnImprimir;
     private javax.swing.JButton BtnJugarPartido;
+    private javax.swing.JButton BtnModificarConcepto;
     private javax.swing.JButton BtnModificarConceptoNomina;
     private javax.swing.JButton BtnModificarDatos;
     private javax.swing.JButton BtnModificarDirectivo;
@@ -2591,6 +2641,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JPanel PanelAltaDirectivo;
     private javax.swing.JPanel PanelAltaJugador;
     private javax.swing.JPanel PanelAltaTecnico;
+    private javax.swing.JScrollPane PanelConceptosNomina;
     private javax.swing.JScrollPane PanelGastosPersonas;
     private javax.swing.JScrollPane PanelGestionPersonas;
     private javax.swing.JPanel PanelModificarDirectivo;
@@ -2605,6 +2656,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JSeparator Separador1;
     private javax.swing.JTabbedPane TabbedDarDeAlta;
     private javax.swing.JTabbedPane TabbedModificar;
+    private javax.swing.JTable TablaConceptosNomina;
     private javax.swing.JTable TablaContenidoPlantilla;
     private javax.swing.JTable TablaGastosPersonas;
     private javax.swing.JTable TablaGestionPersonas;
@@ -2663,6 +2715,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel TextoNombreEquipoRival;
     private javax.swing.JLabel TituloCrearFactura;
     private javax.swing.JLabel TituloCrearNomina;
+    private javax.swing.JLabel TituloModificarConceptos;
     private javax.swing.JToggleButton ToggleEstadoFisico;
     private javax.swing.JToggleButton ToggleModificarEstadoFisico;
     private javax.swing.JSpinner VisitanteGolesSpinner;
@@ -2877,8 +2930,8 @@ public class MainWindow extends javax.swing.JFrame {
         return DarDeAltaWindow;
     }
 
-    public DefaultTableModel getModelo() {
-        return modelo;
+    public DefaultTableModel getModeloPersonas() {
+        return modeloPersonas;
     }
 
     public JButton getBtnModificarDatos() {
@@ -3091,6 +3144,22 @@ public class MainWindow extends javax.swing.JFrame {
 
     public JTextField getInputCrearFacturaFecha() {
         return InputCrearFacturaFecha;
+    }
+
+    public JLabel getTituloModificarConceptos() {
+        return TituloModificarConceptos;
+    }
+
+    public JTable getTablaConceptosNomina() {
+        return TablaConceptosNomina;
+    }
+
+    public JButton getBtnEliminarConcepto() {
+        return BtnEliminarConcepto;
+    }
+
+    public JButton getBtnModificarConcepto() {
+        return BtnModificarConcepto;
     }
 
     
