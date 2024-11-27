@@ -14,17 +14,16 @@ import java.util.List;
  *
  * @author HugoFDZ
  */
-public class ControladorImprimir {
-
-    private MainWindow mainWindow;
+public class ControladorImprimir extends ControladorEscenas {
 
     String nombrePDFEmpleados;
     String nombrePDFEliminados;
     List<Persona> listaPersonasSortedDNI;
     List<Persona> listaPersonasEliminadas;
 
-    public ControladorImprimir(MainWindow homeWindow) {
-        this.mainWindow = homeWindow;
+    public ControladorImprimir(MainWindow mainWindow) {
+
+        super(mainWindow);
 
         inicializarVariables();
 
@@ -41,24 +40,35 @@ public class ControladorImprimir {
         mainWindow.getBtnImprimirTXTNominas().addActionListener(e -> Gestor.getInstancia().generarListaNominas());
 
         //Botones de los PDF
-        mainWindow.getBtnImprimirPDFSortedDNI().addActionListener(e -> ExporterPDF.getInstancia().crearPDFPersonas(nombrePDFEmpleados, listaPersonasSortedDNI));
-        mainWindow.getBtnImprimirPDFSortedNombre().addActionListener(e -> ExporterPDF.getInstancia().crearPDFPersonas(nombrePDFEliminados, listaPersonasEliminadas));
+        mainWindow.getBtnImprimirPDFSortedDNI().addActionListener(e -> crearPDFPersonasOrdenadasPorDNI());
+        mainWindow.getBtnImprimirPDFSortedNombre().addActionListener(e -> crearPDFPersonasFueraDelClub());
         mainWindow.getBtnImprimirPDFResultadosEquipo().addActionListener(e -> ExporterPDF.getInstancia().crearPDFPartidos());
         mainWindow.getBtnImprimirPDFNominas().addActionListener(e -> ExporterPDF.getInstancia().crearPDFNominas());
+
+        //Boton de cambiar escena
+        mainWindow.getBtnHomeImprimir().addActionListener(e -> cambiarEscena(CARD_HOME));
 
     }
 
     private void inicializarVariables() {
 
-        //Recojo los datos de la lista que quiero crear en el pdf de empleados ordenador por DNI
-        listaPersonasSortedDNI = Gestor.getInstancia().listaPersonasSortedDNI(Gestor.getInstancia().getListaPersonas());
         nombrePDFEmpleados = ExporterPDF.getInstancia().getNameFileEmpleados();
 
-        //Recojo los datos de la lista que quiero crear en el pdf de empleados despedidos ordenador por nombre
-        listaPersonasEliminadas = Gestor.getInstancia().listaPersonasFueraClub(Gestor.getInstancia().getListaPersonas());
         nombrePDFEliminados = ExporterPDF.getInstancia().getNameFileEmpleadosEliminados();
         //Creo el PDF con mi clase ExportedPDF
 
+    }
+
+    private void crearPDFPersonasOrdenadasPorDNI() {
+        //Recojo los datos de la lista que quiero crear en el pdf de empleados ordenador por DNI
+        listaPersonasSortedDNI = Gestor.getInstancia().listaPersonasSortedDNI(Gestor.getInstancia().getListaPersonas());
+        ExporterPDF.getInstancia().crearPDFPersonas(nombrePDFEmpleados, listaPersonasSortedDNI);
+    }
+
+    private void crearPDFPersonasFueraDelClub() {
+        //Recojo los datos de la lista que quiero crear en el pdf de empleados despedidos ordenador por nombre
+        listaPersonasEliminadas = Gestor.getInstancia().listaPersonasFueraClub(Gestor.getInstancia().getListaPersonas());
+        ExporterPDF.getInstancia().crearPDFPersonas(nombrePDFEliminados, listaPersonasEliminadas);
     }
 
 }

@@ -3,14 +3,12 @@
  */
 package Modelo;
 
-import Controlador.ControladorImprimir;
-import Controlador.ControladorMainWindow;
-import Vista.MainWindow;
+
+import Controlador.ControladorPrincipal;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
-import javax.swing.SwingUtilities;
 
 /**
  *
@@ -78,11 +76,9 @@ public class App {
         Directivo Juan = new Directivo("Juan", "Lopez", "67890123V", 612345604, "Responsable de Marketing");
 
         // </editor-fold>
-        MainWindow mainWindow = new MainWindow();
-        ControladorMainWindow controladorMainWindow = new ControladorMainWindow(mainWindow);
-        ControladorImprimir controladorImprimir = new ControladorImprimir(mainWindow);
-        mainWindow.setLocationRelativeTo(null);
-        mainWindow.setVisible(true);
+
+        ControladorPrincipal controladorPrincipal = new ControladorPrincipal();
+
 
         while (true) {
 

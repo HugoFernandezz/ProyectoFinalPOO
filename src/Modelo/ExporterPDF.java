@@ -78,7 +78,7 @@ public class ExporterPDF {
 
             // Si la lista está vacía, agregamos un texto mínimo
             if (listaPersonas.isEmpty()) {
-                documento.add(new Paragraph("No hay ninguna persona en el club."));
+                documento.add(new Paragraph("Todavía no hay personas."));
                 System.out.println("[*]La lista que está intentando utilizar está vacía.");
             } else {
                 int indice = 0;

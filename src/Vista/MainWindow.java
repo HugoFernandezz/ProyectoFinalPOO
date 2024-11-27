@@ -698,19 +698,9 @@ public class MainWindow extends javax.swing.JFrame {
         ImprimirWindow.add(labelTXT, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 180, 210, 58));
 
         BtnImprimirTXTSortedNombre.setText("Empleados eliminados");
-        BtnImprimirTXTSortedNombre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnImprimirTXTSortedNombreActionPerformed(evt);
-            }
-        });
         ImprimirWindow.add(BtnImprimirTXTSortedNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 340, 220, 53));
 
         BtnImprimirTXTSortedDNI.setText("Empleados activos");
-        BtnImprimirTXTSortedDNI.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnImprimirTXTSortedDNIActionPerformed(evt);
-            }
-        });
         ImprimirWindow.add(BtnImprimirTXTSortedDNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 250, 220, 53));
 
         jLabel2.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
@@ -733,11 +723,6 @@ public class MainWindow extends javax.swing.JFrame {
         ImprimirWindow.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 440, 380, 40));
 
         BtnImprimirTXTResultadosEquipo.setText("Resultados del equipo");
-        BtnImprimirTXTResultadosEquipo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnImprimirTXTResultadosEquipoActionPerformed(evt);
-            }
-        });
         ImprimirWindow.add(BtnImprimirTXTResultadosEquipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 430, 220, 53));
 
         jLabel5.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
@@ -748,11 +733,6 @@ public class MainWindow extends javax.swing.JFrame {
         ImprimirWindow.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 530, 310, 40));
 
         BtnImprimirTXTNominas.setText("Empleados eliminados");
-        BtnImprimirTXTNominas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnImprimirTXTNominasActionPerformed(evt);
-            }
-        });
         ImprimirWindow.add(BtnImprimirTXTNominas, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 520, 220, 53));
 
         jSeparator60.setForeground(new java.awt.Color(255, 255, 255));
@@ -771,35 +751,15 @@ public class MainWindow extends javax.swing.JFrame {
         ImprimirWindow.add(jSeparator62, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 410, 960, 10));
 
         BtnImprimirPDFSortedDNI.setText("Empleados activos");
-        BtnImprimirPDFSortedDNI.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnImprimirPDFSortedDNIActionPerformed(evt);
-            }
-        });
         ImprimirWindow.add(BtnImprimirPDFSortedDNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 250, 220, 53));
 
         BtnImprimirPDFSortedNombre.setText("Empleados eliminados");
-        BtnImprimirPDFSortedNombre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnImprimirPDFSortedNombreActionPerformed(evt);
-            }
-        });
         ImprimirWindow.add(BtnImprimirPDFSortedNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 340, 220, 53));
 
         BtnImprimirPDFResultadosEquipo.setText("Resultados del equipo");
-        BtnImprimirPDFResultadosEquipo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnImprimirPDFResultadosEquipoActionPerformed(evt);
-            }
-        });
         ImprimirWindow.add(BtnImprimirPDFResultadosEquipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 430, 220, 53));
 
         BtnImprimirPDFNominas.setText("Empleados eliminados");
-        BtnImprimirPDFNominas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnImprimirPDFNominasActionPerformed(evt);
-            }
-        });
         ImprimirWindow.add(BtnImprimirPDFNominas, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 520, 220, 53));
 
         PanelRaiz.add(ImprimirWindow, "card12");
@@ -937,11 +897,6 @@ public class MainWindow extends javax.swing.JFrame {
         ToggleEstadoFisico.setForeground(new java.awt.Color(255, 255, 255));
         ToggleEstadoFisico.setText("Saludable");
         ToggleEstadoFisico.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        ToggleEstadoFisico.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ToggleEstadoFisicoActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout PanelAltaJugadorLayout = new javax.swing.GroupLayout(PanelAltaJugador);
         PanelAltaJugador.setLayout(PanelAltaJugadorLayout);
@@ -1672,11 +1627,6 @@ public class MainWindow extends javax.swing.JFrame {
         InputCrearNominaDescripcion.setForeground(new java.awt.Color(204, 204, 204));
         InputCrearNominaDescripcion.setText("Inserte la descripcion...");
         InputCrearNominaDescripcion.setBorder(null);
-        InputCrearNominaDescripcion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                InputCrearNominaDescripcionActionPerformed(evt);
-            }
-        });
 
         jSeparator43.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator43.setForeground(new java.awt.Color(255, 255, 255));
@@ -1702,11 +1652,6 @@ public class MainWindow extends javax.swing.JFrame {
         InputCrearNominaAno.setForeground(new java.awt.Color(204, 204, 204));
         InputCrearNominaAno.setText("Inserte el año...");
         InputCrearNominaAno.setBorder(null);
-        InputCrearNominaAno.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                InputCrearNominaAnoActionPerformed(evt);
-            }
-        });
 
         TextoCrearNominaMes.setBackground(new java.awt.Color(255, 255, 255));
         TextoCrearNominaMes.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
@@ -1852,11 +1797,6 @@ public class MainWindow extends javax.swing.JFrame {
         InputModificarNominaDescripcion.setForeground(new java.awt.Color(204, 204, 204));
         InputModificarNominaDescripcion.setText("Inserte la descripcion...");
         InputModificarNominaDescripcion.setBorder(null);
-        InputModificarNominaDescripcion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                InputModificarNominaDescripcionActionPerformed(evt);
-            }
-        });
 
         jSeparator54.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator54.setForeground(new java.awt.Color(255, 255, 255));
@@ -1883,11 +1823,6 @@ public class MainWindow extends javax.swing.JFrame {
         InputModificarNominaAno.setText("Inserte el año...");
         InputModificarNominaAno.setBorder(null);
         InputModificarNominaAno.setEnabled(false);
-        InputModificarNominaAno.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                InputModificarNominaAnoActionPerformed(evt);
-            }
-        });
 
         ComBoxMesNominaModificar.setEnabled(false);
 
@@ -2140,11 +2075,6 @@ public class MainWindow extends javax.swing.JFrame {
         ToggleModificarEstadoFisico.setForeground(new java.awt.Color(255, 255, 255));
         ToggleModificarEstadoFisico.setText("Saludable");
         ToggleModificarEstadoFisico.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        ToggleModificarEstadoFisico.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ToggleModificarEstadoFisicoActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout PanelModificarJugadorLayout = new javax.swing.GroupLayout(PanelModificarJugador);
         PanelModificarJugador.setLayout(PanelModificarJugadorLayout);
@@ -2854,21 +2784,6 @@ public class MainWindow extends javax.swing.JFrame {
 
     }
 
-    private void ToggleEstadoFisicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ToggleEstadoFisicoActionPerformed
-        if (ToggleEstadoFisico.isSelected() == true) {
-            ToggleEstadoFisico.setContentAreaFilled(false);
-            ToggleEstadoFisico.setOpaque(true);
-            ToggleEstadoFisico.setBackground(Color.red);
-            ToggleEstadoFisico.setText("Lesionado");
-        } else {
-            ToggleEstadoFisico.setContentAreaFilled(false);
-            ToggleEstadoFisico.setOpaque(true);
-            ToggleEstadoFisico.setBackground(backgroundColor);
-            ToggleEstadoFisico.setText("Saludable");
-        }
-
-    }//GEN-LAST:event_ToggleEstadoFisicoActionPerformed
-
     //Validador de entrada hecha con IA
     private void forzarSoloFecha(java.awt.event.KeyEvent evt, JTextField campoTexto) {
         char c = evt.getKeyChar();
@@ -2895,58 +2810,6 @@ public class MainWindow extends javax.swing.JFrame {
         }
     }
 
-
-    private void ToggleModificarEstadoFisicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ToggleModificarEstadoFisicoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ToggleModificarEstadoFisicoActionPerformed
-
-    private void InputCrearNominaDescripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InputCrearNominaDescripcionActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_InputCrearNominaDescripcionActionPerformed
-
-    private void InputCrearNominaAnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InputCrearNominaAnoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_InputCrearNominaAnoActionPerformed
-
-    private void InputModificarNominaDescripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InputModificarNominaDescripcionActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_InputModificarNominaDescripcionActionPerformed
-
-    private void InputModificarNominaAnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InputModificarNominaAnoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_InputModificarNominaAnoActionPerformed
-
-    private void BtnImprimirTXTSortedNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnImprimirTXTSortedNombreActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BtnImprimirTXTSortedNombreActionPerformed
-
-    private void BtnImprimirTXTSortedDNIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnImprimirTXTSortedDNIActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BtnImprimirTXTSortedDNIActionPerformed
-
-    private void BtnImprimirTXTResultadosEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnImprimirTXTResultadosEquipoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BtnImprimirTXTResultadosEquipoActionPerformed
-
-    private void BtnImprimirTXTNominasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnImprimirTXTNominasActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BtnImprimirTXTNominasActionPerformed
-
-    private void BtnImprimirPDFSortedDNIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnImprimirPDFSortedDNIActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BtnImprimirPDFSortedDNIActionPerformed
-
-    private void BtnImprimirPDFSortedNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnImprimirPDFSortedNombreActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BtnImprimirPDFSortedNombreActionPerformed
-
-    private void BtnImprimirPDFResultadosEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnImprimirPDFResultadosEquipoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BtnImprimirPDFResultadosEquipoActionPerformed
-
-    private void BtnImprimirPDFNominasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnImprimirPDFNominasActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BtnImprimirPDFNominasActionPerformed
 
     private void forzarSoloNumero(java.awt.event.KeyEvent evt) {
         char c = evt.getKeyChar();
@@ -3719,6 +3582,7 @@ public class MainWindow extends javax.swing.JFrame {
     public JButton getBtnImprimirTXTSortedNombre() {
         return BtnImprimirTXTSortedNombre;
     }
+    
     
     
     
