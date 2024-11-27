@@ -4,25 +4,37 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Clase que representa una nómina de un empleado, la cual incluye el mes y el año,
- * los conceptos relacionados con la nómina y la persona a la que corresponde.
- * Una nómina puede tener múltiples conceptos, cada uno con su respectiva descripción
- * y valor. La clase proporciona métodos para modificar, agregar y eliminar conceptos
- * de la nómina.
- * 
+ * Clase que representa una nómina de un empleado, la cual incluye el mes y el
+ * año, los conceptos relacionados con la nómina y la persona a la que
+ * corresponde. Una nómina puede tener múltiples conceptos, cada uno con su
+ * respectiva descripción y valor. La clase proporciona métodos para modificar,
+ * agregar y eliminar conceptos de la nómina.
+ *
  * @author HugoFDZ
  */
 public class Nomina {
 
-    private Meses mes;              /** El mes al que corresponde la nómina */
-    private int ano;                /** El año al que corresponde la nómina */
-    private List<Concepto> conceptos = new ArrayList<>(); /** Lista de los conceptos asociados a la nómina */
-    private Persona persona;        /** La persona a la que corresponde la nómina */
+    private Meses mes;
+    /**
+     * El mes al que corresponde la nómina
+     */
+    private int ano;
+    /**
+     * El año al que corresponde la nómina
+     */
+    private List<Concepto> conceptos = new ArrayList<>();
+    /**
+     * Lista de los conceptos asociados a la nómina
+     */
+    private Persona persona;
 
     /**
-     * Constructor de la clase Nomina. Crea una nueva nómina con un mes, año y concepto
-     * inicial, y asigna la persona asociada a la nómina.
-     * 
+     * La persona a la que corresponde la nómina
+     */
+    /**
+     * Constructor de la clase Nomina. Crea una nueva nómina con un mes, año y
+     * concepto inicial, y asigna la persona asociada a la nómina.
+     *
      * @param mes El mes al que corresponde la nómina
      * @param ano El año al que corresponde la nómina
      * @param concepto El concepto que se añadirá a la nómina
@@ -31,11 +43,13 @@ public class Nomina {
     public Nomina(Meses mes, int ano, Concepto concepto, Persona persona) {
         this(mes, ano, concepto); // Delegación al constructor más básico
         this.persona = persona;
+        persona.setNomina(this);
     }
 
     /**
-     * Constructor básico de la clase Nomina. Crea una nómina con un mes, año y concepto.
-     * 
+     * Constructor básico de la clase Nomina. Crea una nómina con un mes, año y
+     * concepto.
+     *
      * @param mes El mes al que corresponde la nómina
      * @param ano El año al que corresponde la nómina
      * @param concepto El concepto que se añadirá a la nómina
@@ -44,12 +58,13 @@ public class Nomina {
         this.mes = mes;
         this.ano = ano;
         conceptos.add(concepto);
-        Gestor.getInstancia().agregarNomina(this); 
+        Gestor.getInstancia().agregarNomina(this);
     }
 
     /**
-     * Constructor de copia de la clase Nomina. Crea una nueva nómina a partir de otra existente.
-     * 
+     * Constructor de copia de la clase Nomina. Crea una nueva nómina a partir
+     * de otra existente.
+     *
      * @param otra La otra nómina de la que se copiarán los datos
      */
     public Nomina(Nomina otra) {
@@ -61,7 +76,7 @@ public class Nomina {
 
     /**
      * Obtiene el mes al que corresponde la nómina.
-     * 
+     *
      * @return El mes de la nómina
      */
     public Meses getMes() {
@@ -70,7 +85,7 @@ public class Nomina {
 
     /**
      * Establece el mes de la nómina.
-     * 
+     *
      * @param mes El mes de la nómina
      */
     public void setMes(Meses mes) {
@@ -79,7 +94,7 @@ public class Nomina {
 
     /**
      * Obtiene el año al que corresponde la nómina.
-     * 
+     *
      * @return El año de la nómina
      */
     public int getAno() {
@@ -88,7 +103,7 @@ public class Nomina {
 
     /**
      * Establece el año de la nómina.
-     * 
+     *
      * @param ano El año de la nómina
      */
     public void setAno(int ano) {
@@ -97,7 +112,7 @@ public class Nomina {
 
     /**
      * Obtiene la persona asociada a la nómina.
-     * 
+     *
      * @return La persona asociada a la nómina
      */
     public Persona getPersona() {
@@ -106,7 +121,7 @@ public class Nomina {
 
     /**
      * Establece la persona asociada a la nómina.
-     * 
+     *
      * @param persona La persona a asignar a la nómina
      */
     public void setPersona(Persona persona) {
@@ -115,7 +130,7 @@ public class Nomina {
 
     /**
      * Obtiene la lista de conceptos de la nómina.
-     * 
+     *
      * @return La lista de conceptos de la nómina
      */
     public List<Concepto> getConceptos() {
@@ -124,7 +139,7 @@ public class Nomina {
 
     /**
      * Establece la lista de conceptos de la nómina.
-     * 
+     *
      * @param conceptos La lista de conceptos a asignar
      */
     public void setConceptos(List<Concepto> conceptos) {
@@ -133,7 +148,7 @@ public class Nomina {
 
     /**
      * Agrega un concepto a la lista de conceptos de la nómina.
-     * 
+     *
      * @param concepto El concepto a añadir a la nómina
      */
     public void setConcepto(Concepto concepto) {
@@ -142,17 +157,17 @@ public class Nomina {
 
     /**
      * Obtiene un concepto de la nómina por su índice.
-     * 
+     *
      * @param indice El índice del concepto en la lista
      * @return El concepto en el índice especificado
      */
-    public Concepto getConceptos(int indice) {
-        return conceptos.get(indice - 1);
+    public Concepto getConcepto(int indice) {
+        return conceptos.get(indice);
     }
 
     /**
      * Modifica un concepto de la nómina en un índice específico.
-     * 
+     *
      * @param concepto El nuevo concepto para reemplazar al anterior
      * @param indice El índice del concepto a modificar
      */
@@ -164,12 +179,23 @@ public class Nomina {
 
     /**
      * Elimina un concepto de la nómina en el índice especificado.
-     * 
+     *
      * @param indice El índice del concepto a eliminar
      * @return El concepto eliminado de la lista
      */
     public Concepto deleteConcepto(int indice) {
         System.out.println("Concepto eliminado con exito");
-        return conceptos.remove(indice - 1);
+        return conceptos.remove(indice);
+    }
+
+    public void deleteConcepto(String id) {
+        //Tengo que recorrer una copia de la lista porque si borro un item de la lista que estoy recorriendo
+        //me puede saltar una excepcion "java.util.ConcurrentModificationException"
+        for (Concepto concepto : new ArrayList<>(conceptos)) {
+            if (concepto.getCodigo().equals(id)) {
+                conceptos.remove(concepto); 
+            }
+        }
+
     }
 }

@@ -9,7 +9,7 @@ package Modelo;
  * 
  * @author HugoFDZ
  */
-enum Meses {
+public enum Meses {
     Enero,        /** Representa el mes de enero */
     Febrero,      /** Representa el mes de febrero */
     Marzo,        /** Representa el mes de marzo */

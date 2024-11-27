@@ -3,6 +3,7 @@
  */
 package Modelo;
 
+import Controlador.ControladorImprimir;
 import Controlador.ControladorMainWindow;
 import Vista.MainWindow;
 import java.util.ArrayList;
@@ -77,10 +78,9 @@ public class App {
         Directivo Juan = new Directivo("Juan", "Lopez", "67890123V", 612345604, "Responsable de Marketing");
 
         // </editor-fold>
-        
-        
         MainWindow mainWindow = new MainWindow();
         ControladorMainWindow controladorMainWindow = new ControladorMainWindow(mainWindow);
+        ControladorImprimir controladorImprimir = new ControladorImprimir(mainWindow);
         mainWindow.setLocationRelativeTo(null);
         mainWindow.setVisible(true);
 
@@ -148,9 +148,7 @@ public class App {
                         // </editor-fold>
                         break;
                     case 4:
-                        // <editor-fold defaultstate="collapsed" desc="Opcion 4 - Crear partido">
-                        crearPartido();
-                        // </editor-fold>
+
                         break;
                     case 5:
                         // <editor-fold defaultstate="collapsed" desc="Opcion 5 - Crear una nomina">
@@ -781,39 +779,6 @@ public class App {
     }
 
     /**
-     * Permite crear un nuevo partido y registrar su resultado.
-     *
-     * Este método solicita al usuario los detalles necesarios para crear un
-     * partido, incluyendo el nombre del equipo rival, si el partido se juega de
-     * local, y los goles marcados por ambos equipos. Luego, crea una instancia
-     * del objeto {@link Partido} con la información proporcionada y la
-     * registra.
-     *
-     * <p>
-     * El partido se registra con el nombre del rival, el estado de localía, y
-     * los goles de ambos equipos.</p>
-     *
-     * @see Partido
-     */
-    public static void crearPartido() {
-
-        System.out.println("Indique el nombre del equipo rival");
-        String nombreRival = inputReader.next();
-        inputReader.nextLine();  // Consumir el salto de línea
-        System.out.println("Indique si usted juega de local");
-        boolean isLocal = elegirLocal();
-        System.out.println("Indique el numero de goles locales");
-        int golesLocal = InputInt();
-        inputReader.nextLine();  // Consumir el salto de línea
-        System.out.println("Indique el numero de goles visitante");
-        int golesVisitante = InputInt();
-        inputReader.nextLine();  // Consumir el salto de línea
-
-        Partido partido = new Partido(nombreRival, isLocal, golesLocal, golesVisitante);
-        System.out.println("-----------------------------------------\nPartido contra " + nombreRival + " jugado con exito. \n-----------------------------------------\n\n");
-    }
-
-    /**
      * Permite al usuario indicar si su equipo juega de local en un partido.
      *
      * Este método solicita al usuario que ingrese una respuesta para determinar
@@ -979,7 +944,7 @@ public class App {
                 int subIndice = InputInt(1, nomina.getConceptos().size());
                 inputReader.nextLine();  // Consumir el salto de línea
 
-                Concepto conceptoModificar = nomina.getConceptos(subIndice);
+                Concepto conceptoModificar = nomina.getConcepto(subIndice);
 
                 conceptoModificar = crearNuevoConcepto();
                 nomina.modificarConceptoIndex(conceptoModificar, subIndice);
