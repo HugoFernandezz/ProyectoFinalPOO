@@ -146,6 +146,18 @@ public class Gestor {
         }
         return listaPersonasDentroClub;
     }
+    
+    public List<Jugador> ListaJugadoresActivos() {
+        List<Jugador> ListaJugadoresActivos = new ArrayList<>();;
+        for (Persona persona : getListaPersonas()) {
+            if (persona.isIsOnClub() && persona instanceof Jugador) {
+                Jugador j = (Jugador)persona;
+               ListaJugadoresActivos.add(j);
+            }
+
+        }
+        return ListaJugadoresActivos;
+    }
 
     /**
      * Recupera una persona de la lista por índice.

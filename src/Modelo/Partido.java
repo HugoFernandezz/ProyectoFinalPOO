@@ -55,11 +55,12 @@ public class Partido {
     public Partido(String equipoRival, boolean isLocal, int golesLocales, int golesVisitante) {
         Date diaPartido = new Date();
         setResultado(new Resultado(golesLocales, golesVisitante));
-        this.resultado = resultado;
         this.equipoRival = equipoRival;
         this.isLocal = isLocal;
         setFechaPartido(diaPartido);
         Gestor.getInstancia().agregarPartido(this);
+        //Agrego mis jugadores del club a la convocatoria
+        jugadores.addAll(Gestor.getInstancia().ListaJugadoresActivos());
     }
 
     /**
