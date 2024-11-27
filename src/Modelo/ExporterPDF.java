@@ -13,10 +13,10 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * Clase encargada de exportar información a documentos PDF, como listas de empleados, 
- * partidos jugados y nóminas del club.
- * Implementa el patrón Singleton para garantizar una única instancia de ExporterPDF.
- * 
+ * Clase encargada de exportar información a documentos PDF, como listas de
+ * empleados, partidos jugados y nóminas del club. Implementa el patrón
+ * Singleton para garantizar una única instancia de ExporterPDF.
+ *
  */
 public class ExporterPDF {
 
@@ -29,7 +29,7 @@ public class ExporterPDF {
 
     /**
      * Obtiene el nombre del archivo de la lista de empleados.
-     * 
+     *
      * @return el nombre del archivo de empleados
      */
     public String getNameFileEmpleados() {
@@ -38,7 +38,7 @@ public class ExporterPDF {
 
     /**
      * Obtiene el nombre del archivo de la lista de empleados eliminados.
-     * 
+     *
      * @return el nombre del archivo de empleados eliminados
      */
     public String getNameFileEmpleadosEliminados() {
@@ -51,7 +51,7 @@ public class ExporterPDF {
 
     /**
      * Obtiene la instancia única de la clase ExporterPDF.
-     * 
+     *
      * @return la instancia única de ExporterPDF
      */
     public static ExporterPDF getInstancia() {
@@ -63,17 +63,22 @@ public class ExporterPDF {
 
     /**
      * Crea un documento PDF con una lista de personas.
-     * 
+     *
      * @param nombreDocumento Nombre del archivo PDF a generar
      * @param listaPersonas Lista de personas a incluir en el documento
      */
     public void crearPDFPersonas(String nombreDocumento, List<Persona> listaPersonas) {
+        Document documento = null;
+        PdfWriter writer = null;
         try {
-            Document documento = new Document();
-            PdfWriter.getInstance(documento, new FileOutputStream(nombreDocumento));
+            // Creamos el documento
+            documento = new Document();
+            writer = PdfWriter.getInstance(documento, new FileOutputStream(nombreDocumento));
             documento.open();
 
+            // Si la lista está vacía, agregamos un texto mínimo
             if (listaPersonas.isEmpty()) {
+                documento.add(new Paragraph("No hay ninguna persona en el club."));
                 System.out.println("[*]La lista que está intentando utilizar está vacía.");
             } else {
                 int indice = 0;
@@ -83,11 +88,19 @@ public class ExporterPDF {
                     documento.add(new Paragraph(indice + "- " + persona.getNombre() + " " + persona.getApellido() + " con el DNI: " + persona.getDni()));
                     documento.add(paragraph);
                 }
-                documento.close();
-                System.out.println("[+]PDF creado");
             }
+
         } catch (DocumentException | IOException e) {
             e.printStackTrace();
+        } finally {
+            // Asegurarse de que el documento y el writer se cierren correctamente
+            if (documento != null) {
+                documento.close(); // Cierro el documento
+            }
+            if (writer != null) {
+                writer.close(); // Cierro el escritor
+            }
+            System.out.println("[+]PDF creado");
         }
     }
 
@@ -95,26 +108,37 @@ public class ExporterPDF {
      * Crea un documento PDF con una lista de partidos jugados.
      */
     public void crearPDFPartidos() {
+        Document documento = null;
+        PdfWriter writer = null;
         try {
-            Document documento = new Document();
-            PdfWriter.getInstance(documento, new FileOutputStream(NAMEPARTIDOSJUGADOS));
+            // Creamos el documento
+            documento = new Document();
+            writer = PdfWriter.getInstance(documento, new FileOutputStream(NAMEPARTIDOSJUGADOS));
             documento.open();
 
+            // Si la lista está vacía, agregamos un texto mínimo
             if (Gestor.getInstancia().getListaPartidos().isEmpty()) {
+                documento.add(new Paragraph("No se han jugado partidos."));
                 System.out.println("[*]La lista que está intentando utilizar está vacía.");
             } else {
                 int indice = 0;
                 for (Partido partido : Gestor.getInstancia().getListaPartidos()) {
-                    Paragraph paragraph = new Paragraph();
                     indice++;
                     documento.add(new Paragraph(indice + " - " + "Partido jugado contra " + partido.getEquipoRival() + " finalizó con un resultado de: " + partido.getResultado()));
-                    documento.add(paragraph);
                 }
-                documento.close();
-                System.out.println("[+]PDF creado");
             }
+
         } catch (DocumentException | IOException e) {
             e.printStackTrace();
+        } finally {
+            // Asegurarse de que el documento y el writer se cierren correctamente ya que si no da error al abrir el pdf
+            if (documento != null) {
+                documento.close(); // Cierro el documento
+            }
+            if (writer != null) {
+                writer.close(); // Cierro el escritor
+            }
+            System.out.println("[+]PDF creado");
         }
     }
 
@@ -122,18 +146,24 @@ public class ExporterPDF {
      * Crea un documento PDF con una lista de nóminas.
      */
     public void crearPDFNominas() {
+        Document documento = null;
+        PdfWriter writer = null;
         try {
-            Document documento = new Document();
-            PdfWriter.getInstance(documento, new FileOutputStream(NAMENOMINAS));
+            // Creo el documento
+            documento = new Document();
+            writer = PdfWriter.getInstance(documento, new FileOutputStream(NAMENOMINAS));
             documento.open();
 
+            // Si la lista de nóminas está vacía, le pongo un texto de que no hay nominas aun
             if (Gestor.getInstancia().getListaNominas().isEmpty()) {
+                documento.add(new Paragraph("El club todavía no tiene ninguna nomina."));
                 System.out.println("[*]La lista que está intentando utilizar está vacía.");
             } else {
                 int indice = 0;
                 for (Nomina nomina : Gestor.getInstancia().getListaNominas()) {
                     Paragraph paragraph = new Paragraph();
                     indice++;
+
                     documento.add(new Paragraph("----------------------------------------------------------------------------"));
                     documento.add(paragraph);
                     documento.add(new Paragraph("Nómina número: " + indice));
@@ -154,11 +184,20 @@ public class ExporterPDF {
                         documento.add(paragraph);
                     }
                 }
-                documento.close();
-                System.out.println("[+]PDF creado");
             }
+
         } catch (DocumentException | IOException e) {
             e.printStackTrace();
+        } finally {
+            // Asegurarse de que el documento y el writer se cierren correctamente
+            if (documento != null) {
+                documento.close(); // Cierro el documento
+            }
+            if (writer != null) {
+                writer.close(); // Cierro el escritor
+            }
+            System.out.println("[+]PDF creado");
         }
     }
+
 }

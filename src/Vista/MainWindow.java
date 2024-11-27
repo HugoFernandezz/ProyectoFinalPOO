@@ -41,7 +41,7 @@ import javax.swing.table.DefaultTableModel;
  * @author HugoFDZ
  */
 public class MainWindow extends javax.swing.JFrame {
-    
+
     Color colorTexto = new Color(241, 255, 231);
     Color backgroundColor = new Color(59, 185, 122);
     Icon icon = new ImageIcon(getClass().getResource("/Media/IconBall.png"));
@@ -49,13 +49,14 @@ public class MainWindow extends javax.swing.JFrame {
     List<JTextField> camposAltaInputsYModificar;
     List<JTextField> camposNumericos;
     List<JTextField> camposModificarInputs;
+    List<JTextField> camposModificarNomina;
+    List<JTextField> camposCrearNomina;
     List<JButton> botonesHomeEstilizar;
     List<JButton> botonesModificar;
     //Me permite crear una lista de ComboBoxes de enumerados de cualquier tipo
     List<JComboBox<? extends Enum<?>>> listaComboBoxModificar = new ArrayList<>();
 
     DefaultTableModel modeloPersonas;
-    
 
     public MainWindow() {
 
@@ -116,6 +117,28 @@ public class MainWindow extends javax.swing.JFrame {
         BtnCrearNomina = new javax.swing.JButton();
         BtnCrearFactura = new javax.swing.JButton();
         BtnModificarConceptoNomina = new javax.swing.JButton();
+        ImprimirWindow = new javax.swing.JPanel();
+        BtnHomeImprimir = new javax.swing.JButton();
+        TituloImprimir = new javax.swing.JLabel();
+        jSeparator59 = new javax.swing.JSeparator();
+        labelPDF = new javax.swing.JLabel();
+        labelTXT = new javax.swing.JLabel();
+        BtnImprimirTXTSortedNombre = new javax.swing.JButton();
+        BtnImprimirTXTSortedDNI = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        BtnImprimirTXTResultadosEquipo = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        BtnImprimirTXTNominas = new javax.swing.JButton();
+        jSeparator60 = new javax.swing.JSeparator();
+        jLabel6 = new javax.swing.JLabel();
+        jSeparator61 = new javax.swing.JSeparator();
+        jSeparator62 = new javax.swing.JSeparator();
+        BtnImprimirPDFSortedDNI = new javax.swing.JButton();
+        BtnImprimirPDFSortedNombre = new javax.swing.JButton();
+        BtnImprimirPDFResultadosEquipo = new javax.swing.JButton();
+        BtnImprimirPDFNominas = new javax.swing.JButton();
         DarDeAltaWindow = new javax.swing.JPanel();
         Text_DarDeAlta = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
@@ -190,6 +213,7 @@ public class MainWindow extends javax.swing.JFrame {
         TituloModificarConceptos = new javax.swing.JLabel();
         BtnModificarConcepto = new javax.swing.JButton();
         BtnEliminarConcepto = new javax.swing.JButton();
+        BtnHomeModificarConceptos = new javax.swing.JButton();
         FacturaWindow = new javax.swing.JPanel();
         TituloCrearFactura = new javax.swing.JLabel();
         TextoCrearFacturaNombre = new javax.swing.JLabel();
@@ -209,6 +233,7 @@ public class MainWindow extends javax.swing.JFrame {
         InputCrearFacturaFecha = new javax.swing.JTextField();
         jSeparator52 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
+        BtnHomeCrearFactura = new javax.swing.JButton();
         CrearNominaWindow = new javax.swing.JPanel();
         TextoCrearNominaImporte = new javax.swing.JLabel();
         InputCrearNominaImporte = new javax.swing.JTextField();
@@ -228,6 +253,27 @@ public class MainWindow extends javax.swing.JFrame {
         TextoCrearNominaImporte2 = new javax.swing.JLabel();
         InputCrearNominaID = new javax.swing.JTextField();
         jSeparator47 = new javax.swing.JSeparator();
+        BtnHomeCrearNomina = new javax.swing.JButton();
+        ModificarNominaWindow = new javax.swing.JPanel();
+        TextoCrearNominaImporte3 = new javax.swing.JLabel();
+        InputModificarNominaImporte = new javax.swing.JTextField();
+        jSeparator53 = new javax.swing.JSeparator();
+        TextoCrearNominaImporte4 = new javax.swing.JLabel();
+        InputModificarNominaDescripcion = new javax.swing.JTextField();
+        jSeparator54 = new javax.swing.JSeparator();
+        jSeparator55 = new javax.swing.JSeparator();
+        TextoCrearNominaFecha1 = new javax.swing.JLabel();
+        TituloCrearNomina1 = new javax.swing.JLabel();
+        jSeparator56 = new javax.swing.JSeparator();
+        BtnModificarNominaFinal = new javax.swing.JButton();
+        InputModificarNominaAno = new javax.swing.JTextField();
+        ComBoxMesNominaModificar = new javax.swing.JComboBox<>();
+        TextoCrearNominaMes1 = new javax.swing.JLabel();
+        jSeparator57 = new javax.swing.JSeparator();
+        TextoCrearNominaImporte5 = new javax.swing.JLabel();
+        InputModificarNominaID = new javax.swing.JTextField();
+        jSeparator58 = new javax.swing.JSeparator();
+        BtnHomeModificarNomina = new javax.swing.JButton();
         ModificarPersonaWindow = new javax.swing.JPanel();
         Text_DarDeAlta1 = new javax.swing.JLabel();
         jSeparator21 = new javax.swing.JSeparator();
@@ -530,7 +576,7 @@ public class MainWindow extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JugarPartidoWindowLayout.createSequentialGroup()
                 .addGap(61, 61, 61)
                 .addComponent(BtnHomePartido)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 195, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 200, Short.MAX_VALUE)
                 .addGroup(JugarPartidoWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(PartidoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(JugarPartidoWindowLayout.createSequentialGroup()
@@ -624,6 +670,139 @@ public class MainWindow extends javax.swing.JFrame {
         GastosWindow.add(BtnModificarConceptoNomina, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 407, 217, 60));
 
         PanelRaiz.add(GastosWindow, "card7");
+
+        ImprimirWindow.setBackground(new java.awt.Color(59, 185, 122));
+        ImprimirWindow.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        BtnHomeImprimir.setBackground(new java.awt.Color(59, 185, 122));
+        BtnHomeImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Media/home.png"))); // NOI18N
+        BtnHomeImprimir.setBorder(null);
+        ImprimirWindow.add(BtnHomeImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 42, 53, -1));
+
+        TituloImprimir.setFont(new java.awt.Font("Segoe UI", 1, 56)); // NOI18N
+        TituloImprimir.setForeground(new java.awt.Color(255, 255, 255));
+        TituloImprimir.setText("Imprimir listados");
+        ImprimirWindow.add(TituloImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(269, 51, -1, -1));
+
+        jSeparator59.setForeground(new java.awt.Color(255, 255, 255));
+        ImprimirWindow.add(jSeparator59, new org.netbeans.lib.awtextra.AbsoluteConstraints(152, 133, 738, 10));
+
+        labelPDF.setFont(new java.awt.Font("Poppins SemiBold", 0, 18)); // NOI18N
+        labelPDF.setForeground(new java.awt.Color(255, 255, 255));
+        labelPDF.setText("Ficheros PDF");
+        ImprimirWindow.add(labelPDF, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 180, 120, 58));
+
+        labelTXT.setFont(new java.awt.Font("Poppins SemiBold", 0, 18)); // NOI18N
+        labelTXT.setForeground(new java.awt.Color(255, 255, 255));
+        labelTXT.setText("Ficheros de texto (.txt)");
+        ImprimirWindow.add(labelTXT, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 180, 210, 58));
+
+        BtnImprimirTXTSortedNombre.setText("Empleados eliminados");
+        BtnImprimirTXTSortedNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnImprimirTXTSortedNombreActionPerformed(evt);
+            }
+        });
+        ImprimirWindow.add(BtnImprimirTXTSortedNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 340, 220, 53));
+
+        BtnImprimirTXTSortedDNI.setText("Empleados activos");
+        BtnImprimirTXTSortedDNI.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnImprimirTXTSortedDNIActionPerformed(evt);
+            }
+        });
+        ImprimirWindow.add(BtnImprimirTXTSortedDNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 250, 220, 53));
+
+        jLabel2.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel2.setText("Listado de empleados despedidos ordenados");
+        jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        ImprimirWindow.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 350, 30));
+
+        jLabel3.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Listado de empleados activos ordenados por DNI");
+        ImprimirWindow.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 380, 33));
+
+        jLabel4.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel4.setText("Listado de resultados del equipo de una temporada");
+        jLabel4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        ImprimirWindow.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 440, 380, 40));
+
+        BtnImprimirTXTResultadosEquipo.setText("Resultados del equipo");
+        BtnImprimirTXTResultadosEquipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnImprimirTXTResultadosEquipoActionPerformed(evt);
+            }
+        });
+        ImprimirWindow.add(BtnImprimirTXTResultadosEquipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 430, 220, 53));
+
+        jLabel5.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel5.setText("Listado de nominas generadas");
+        jLabel5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        ImprimirWindow.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 530, 310, 40));
+
+        BtnImprimirTXTNominas.setText("Empleados eliminados");
+        BtnImprimirTXTNominas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnImprimirTXTNominasActionPerformed(evt);
+            }
+        });
+        ImprimirWindow.add(BtnImprimirTXTNominas, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 520, 220, 53));
+
+        jSeparator60.setForeground(new java.awt.Color(255, 255, 255));
+        ImprimirWindow.add(jSeparator60, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 500, 960, 10));
+
+        jLabel6.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel6.setText(" por nombre y apellido");
+        ImprimirWindow.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, -1, -1));
+
+        jSeparator61.setForeground(new java.awt.Color(255, 255, 255));
+        ImprimirWindow.add(jSeparator61, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 960, 10));
+
+        jSeparator62.setForeground(new java.awt.Color(255, 255, 255));
+        ImprimirWindow.add(jSeparator62, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 410, 960, 10));
+
+        BtnImprimirPDFSortedDNI.setText("Empleados activos");
+        BtnImprimirPDFSortedDNI.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnImprimirPDFSortedDNIActionPerformed(evt);
+            }
+        });
+        ImprimirWindow.add(BtnImprimirPDFSortedDNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 250, 220, 53));
+
+        BtnImprimirPDFSortedNombre.setText("Empleados eliminados");
+        BtnImprimirPDFSortedNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnImprimirPDFSortedNombreActionPerformed(evt);
+            }
+        });
+        ImprimirWindow.add(BtnImprimirPDFSortedNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 340, 220, 53));
+
+        BtnImprimirPDFResultadosEquipo.setText("Resultados del equipo");
+        BtnImprimirPDFResultadosEquipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnImprimirPDFResultadosEquipoActionPerformed(evt);
+            }
+        });
+        ImprimirWindow.add(BtnImprimirPDFResultadosEquipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 430, 220, 53));
+
+        BtnImprimirPDFNominas.setText("Empleados eliminados");
+        BtnImprimirPDFNominas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnImprimirPDFNominasActionPerformed(evt);
+            }
+        });
+        ImprimirWindow.add(BtnImprimirPDFNominas, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 520, 220, 53));
+
+        PanelRaiz.add(ImprimirWindow, "card12");
 
         DarDeAltaWindow.setBackground(new java.awt.Color(59, 185, 122));
         DarDeAltaWindow.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1248,6 +1427,8 @@ public class MainWindow extends javax.swing.JFrame {
 
         BtnEliminarConcepto.setText("Eliminar concepto");
 
+        BtnHomeModificarConceptos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Media/home.png"))); // NOI18N
+
         javax.swing.GroupLayout ModificarConceptoWindowLayout = new javax.swing.GroupLayout(ModificarConceptoWindow);
         ModificarConceptoWindow.setLayout(ModificarConceptoWindowLayout);
         ModificarConceptoWindowLayout.setHorizontalGroup(
@@ -1256,8 +1437,9 @@ public class MainWindow extends javax.swing.JFrame {
                 .addGap(95, 95, 95)
                 .addGroup(ModificarConceptoWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(BtnModificarConcepto, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BtnEliminarConcepto, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 152, Short.MAX_VALUE)
+                    .addComponent(BtnEliminarConcepto, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BtnHomeModificarConceptos))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 157, Short.MAX_VALUE)
                 .addGroup(ModificarConceptoWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(TituloModificarConceptos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(PanelConceptosNomina))
@@ -1266,9 +1448,15 @@ public class MainWindow extends javax.swing.JFrame {
         ModificarConceptoWindowLayout.setVerticalGroup(
             ModificarConceptoWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ModificarConceptoWindowLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(TituloModificarConceptos, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(ModificarConceptoWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ModificarConceptoWindowLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(TituloModificarConceptos, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                    .addGroup(ModificarConceptoWindowLayout.createSequentialGroup()
+                        .addGap(45, 45, 45)
+                        .addComponent(BtnHomeModificarConceptos)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(ModificarConceptoWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(ModificarConceptoWindowLayout.createSequentialGroup()
                         .addComponent(PanelConceptosNomina, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1363,43 +1551,45 @@ public class MainWindow extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Formato: DD/MM/YYYY");
 
+        BtnHomeCrearFactura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Media/home.png"))); // NOI18N
+
         javax.swing.GroupLayout FacturaWindowLayout = new javax.swing.GroupLayout(FacturaWindow);
         FacturaWindow.setLayout(FacturaWindowLayout);
         FacturaWindowLayout.setHorizontalGroup(
             FacturaWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(FacturaWindowLayout.createSequentialGroup()
+                .addGap(82, 82, 82)
                 .addGroup(FacturaWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(FacturaWindowLayout.createSequentialGroup()
-                        .addGap(284, 284, 284)
+                        .addComponent(BtnHomeCrearFactura)
+                        .addGap(154, 154, 154)
                         .addComponent(TituloCrearFactura))
-                    .addGroup(FacturaWindowLayout.createSequentialGroup()
-                        .addGap(82, 82, 82)
-                        .addGroup(FacturaWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(FacturaWindowLayout.createSequentialGroup()
-                                .addGroup(FacturaWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(InputCrearFacturaCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jSeparator50, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(CrearFacturaFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(FacturaWindowLayout.createSequentialGroup()
-                                .addGroup(FacturaWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(TextoCrearFacturaNombre)
-                                    .addComponent(InputCrearFacturaNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jSeparator48, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(TextoCrearFacturaCIF)
-                                    .addComponent(InputCrearFacturaCIF, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jSeparator49, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(TextoCrearFacturaCantidad))
-                                .addGap(73, 73, 73)
-                                .addGroup(FacturaWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
-                                    .addComponent(TextoCrearFacturaFechaPago)
-                                    .addComponent(TextoCrearFacturaID)
-                                    .addComponent(InputCrearFacturaID, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jSeparator51, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(InputCrearFacturaFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jSeparator52, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 267, Short.MAX_VALUE)))))
+                    .addGroup(FacturaWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(FacturaWindowLayout.createSequentialGroup()
+                            .addGroup(FacturaWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(InputCrearFacturaCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jSeparator50, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(CrearFacturaFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(FacturaWindowLayout.createSequentialGroup()
+                            .addGroup(FacturaWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(TextoCrearFacturaNombre)
+                                .addComponent(InputCrearFacturaNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jSeparator48, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(TextoCrearFacturaCIF)
+                                .addComponent(InputCrearFacturaCIF, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jSeparator49, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(TextoCrearFacturaCantidad))
+                            .addGap(73, 73, 73)
+                            .addGroup(FacturaWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel1)
+                                .addComponent(TextoCrearFacturaFechaPago)
+                                .addComponent(TextoCrearFacturaID)
+                                .addComponent(InputCrearFacturaID, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jSeparator51, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(InputCrearFacturaFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jSeparator52, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(0, 337, Short.MAX_VALUE))))
                 .addGap(124, 124, 124))
         );
         FacturaWindowLayout.setVerticalGroup(
@@ -1408,7 +1598,9 @@ public class MainWindow extends javax.swing.JFrame {
                 .addGap(38, 38, 38)
                 .addGroup(FacturaWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(FacturaWindowLayout.createSequentialGroup()
-                        .addComponent(TituloCrearFactura)
+                        .addGroup(FacturaWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(TituloCrearFactura)
+                            .addComponent(BtnHomeCrearFactura))
                         .addGap(63, 63, 63)
                         .addComponent(TextoCrearFacturaNombre)
                         .addGap(6, 6, 6)
@@ -1535,6 +1727,8 @@ public class MainWindow extends javax.swing.JFrame {
         jSeparator47.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator47.setForeground(new java.awt.Color(255, 255, 255));
 
+        BtnHomeCrearNomina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Media/home.png"))); // NOI18N
+
         javax.swing.GroupLayout CrearNominaWindowLayout = new javax.swing.GroupLayout(CrearNominaWindow);
         CrearNominaWindow.setLayout(CrearNominaWindowLayout);
         CrearNominaWindowLayout.setHorizontalGroup(
@@ -1542,7 +1736,9 @@ public class MainWindow extends javax.swing.JFrame {
             .addGroup(CrearNominaWindowLayout.createSequentialGroup()
                 .addGroup(CrearNominaWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(CrearNominaWindowLayout.createSequentialGroup()
-                        .addGap(300, 300, 300)
+                        .addGap(82, 82, 82)
+                        .addComponent(BtnHomeCrearNomina)
+                        .addGap(170, 170, 170)
                         .addComponent(TituloCrearNomina))
                     .addGroup(CrearNominaWindowLayout.createSequentialGroup()
                         .addGap(116, 116, 116)
@@ -1580,7 +1776,9 @@ public class MainWindow extends javax.swing.JFrame {
             CrearNominaWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(CrearNominaWindowLayout.createSequentialGroup()
                 .addGap(50, 50, 50)
-                .addComponent(TituloCrearNomina)
+                .addGroup(CrearNominaWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(TituloCrearNomina)
+                    .addComponent(BtnHomeCrearNomina))
                 .addGap(6, 6, 6)
                 .addComponent(jSeparator45, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(92, 92, 92)
@@ -1624,6 +1822,189 @@ public class MainWindow extends javax.swing.JFrame {
         );
 
         PanelRaiz.add(CrearNominaWindow, "card8");
+
+        ModificarNominaWindow.setBackground(new java.awt.Color(59, 185, 122));
+
+        TextoCrearNominaImporte3.setBackground(new java.awt.Color(255, 255, 255));
+        TextoCrearNominaImporte3.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
+        TextoCrearNominaImporte3.setForeground(new java.awt.Color(255, 255, 255));
+        TextoCrearNominaImporte3.setText("Importe");
+
+        InputModificarNominaImporte.setBackground(new java.awt.Color(59, 185, 122));
+        InputModificarNominaImporte.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
+        InputModificarNominaImporte.setForeground(new java.awt.Color(204, 204, 204));
+        InputModificarNominaImporte.setText("Inserte el importe...");
+        InputModificarNominaImporte.setBorder(null);
+
+        jSeparator53.setBackground(new java.awt.Color(255, 255, 255));
+        jSeparator53.setForeground(new java.awt.Color(255, 255, 255));
+
+        TextoCrearNominaImporte4.setBackground(new java.awt.Color(255, 255, 255));
+        TextoCrearNominaImporte4.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
+        TextoCrearNominaImporte4.setForeground(new java.awt.Color(255, 255, 255));
+        TextoCrearNominaImporte4.setText("Descripción");
+
+        InputModificarNominaDescripcion.setBackground(new java.awt.Color(59, 185, 122));
+        InputModificarNominaDescripcion.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
+        InputModificarNominaDescripcion.setForeground(new java.awt.Color(204, 204, 204));
+        InputModificarNominaDescripcion.setText("Inserte la descripcion...");
+        InputModificarNominaDescripcion.setBorder(null);
+        InputModificarNominaDescripcion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InputModificarNominaDescripcionActionPerformed(evt);
+            }
+        });
+
+        jSeparator54.setBackground(new java.awt.Color(255, 255, 255));
+        jSeparator54.setForeground(new java.awt.Color(255, 255, 255));
+
+        jSeparator55.setBackground(new java.awt.Color(255, 255, 255));
+        jSeparator55.setForeground(new java.awt.Color(255, 255, 255));
+
+        TextoCrearNominaFecha1.setBackground(new java.awt.Color(255, 255, 255));
+        TextoCrearNominaFecha1.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
+        TextoCrearNominaFecha1.setForeground(new java.awt.Color(255, 255, 255));
+        TextoCrearNominaFecha1.setText("Año");
+
+        TituloCrearNomina1.setFont(new java.awt.Font("Segoe UI", 1, 56)); // NOI18N
+        TituloCrearNomina1.setForeground(new java.awt.Color(255, 255, 255));
+        TituloCrearNomina1.setText("Modificar nómina");
+
+        jSeparator56.setForeground(new java.awt.Color(255, 255, 255));
+
+        BtnModificarNominaFinal.setText("Modificar nómina");
+
+        InputModificarNominaAno.setBackground(new java.awt.Color(59, 185, 122));
+        InputModificarNominaAno.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
+        InputModificarNominaAno.setForeground(new java.awt.Color(204, 204, 204));
+        InputModificarNominaAno.setText("Inserte el año...");
+        InputModificarNominaAno.setBorder(null);
+        InputModificarNominaAno.setEnabled(false);
+        InputModificarNominaAno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InputModificarNominaAnoActionPerformed(evt);
+            }
+        });
+
+        ComBoxMesNominaModificar.setEnabled(false);
+
+        TextoCrearNominaMes1.setBackground(new java.awt.Color(255, 255, 255));
+        TextoCrearNominaMes1.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
+        TextoCrearNominaMes1.setForeground(new java.awt.Color(255, 255, 255));
+        TextoCrearNominaMes1.setText("Mes");
+
+        jSeparator57.setBackground(new java.awt.Color(255, 255, 255));
+        jSeparator57.setForeground(new java.awt.Color(255, 255, 255));
+
+        TextoCrearNominaImporte5.setBackground(new java.awt.Color(255, 255, 255));
+        TextoCrearNominaImporte5.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
+        TextoCrearNominaImporte5.setForeground(new java.awt.Color(255, 255, 255));
+        TextoCrearNominaImporte5.setText("Codigo único");
+
+        InputModificarNominaID.setBackground(new java.awt.Color(59, 185, 122));
+        InputModificarNominaID.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
+        InputModificarNominaID.setForeground(new java.awt.Color(204, 204, 204));
+        InputModificarNominaID.setText("Inserte el codigo único...");
+        InputModificarNominaID.setBorder(null);
+
+        jSeparator58.setBackground(new java.awt.Color(255, 255, 255));
+        jSeparator58.setForeground(new java.awt.Color(255, 255, 255));
+
+        BtnHomeModificarNomina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Media/home.png"))); // NOI18N
+
+        javax.swing.GroupLayout ModificarNominaWindowLayout = new javax.swing.GroupLayout(ModificarNominaWindow);
+        ModificarNominaWindow.setLayout(ModificarNominaWindowLayout);
+        ModificarNominaWindowLayout.setHorizontalGroup(
+            ModificarNominaWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ModificarNominaWindowLayout.createSequentialGroup()
+                .addGroup(ModificarNominaWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ModificarNominaWindowLayout.createSequentialGroup()
+                        .addGap(91, 91, 91)
+                        .addComponent(BtnHomeModificarNomina)
+                        .addGap(161, 161, 161)
+                        .addComponent(TituloCrearNomina1))
+                    .addGroup(ModificarNominaWindowLayout.createSequentialGroup()
+                        .addGap(116, 116, 116)
+                        .addGroup(ModificarNominaWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jSeparator56, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 783, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(ModificarNominaWindowLayout.createSequentialGroup()
+                                .addGroup(ModificarNominaWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(TextoCrearNominaFecha1)
+                                    .addComponent(jSeparator55, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(InputModificarNominaAno, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(BtnModificarNominaFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(8, 8, 8))))
+                    .addGroup(ModificarNominaWindowLayout.createSequentialGroup()
+                        .addGap(116, 116, 116)
+                        .addGroup(ModificarNominaWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(TextoCrearNominaImporte4)
+                            .addComponent(jSeparator54, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(InputModificarNominaDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TextoCrearNominaImporte3)
+                            .addComponent(InputModificarNominaImporte, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jSeparator53, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(100, 100, 100)
+                        .addGroup(ModificarNominaWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(TextoCrearNominaImporte5)
+                            .addComponent(InputModificarNominaID, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jSeparator58, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(ModificarNominaWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(TextoCrearNominaMes1)
+                                .addComponent(ComBoxMesNominaModificar, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jSeparator57, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(116, 116, 116))
+        );
+        ModificarNominaWindowLayout.setVerticalGroup(
+            ModificarNominaWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ModificarNominaWindowLayout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addGroup(ModificarNominaWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(TituloCrearNomina1)
+                    .addComponent(BtnHomeModificarNomina))
+                .addGap(6, 6, 6)
+                .addComponent(jSeparator56, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(92, 92, 92)
+                .addGroup(ModificarNominaWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(ModificarNominaWindowLayout.createSequentialGroup()
+                        .addGroup(ModificarNominaWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(ModificarNominaWindowLayout.createSequentialGroup()
+                                .addComponent(TextoCrearNominaImporte3)
+                                .addGap(6, 6, 6)
+                                .addComponent(InputModificarNominaImporte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(6, 6, 6)
+                                .addComponent(jSeparator53, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(ModificarNominaWindowLayout.createSequentialGroup()
+                                .addComponent(TextoCrearNominaImporte5)
+                                .addGap(6, 6, 6)
+                                .addComponent(InputModificarNominaID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(6, 6, 6)
+                                .addComponent(jSeparator58, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(ModificarNominaWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(ModificarNominaWindowLayout.createSequentialGroup()
+                                .addComponent(TextoCrearNominaImporte4)
+                                .addGap(6, 6, 6)
+                                .addComponent(InputModificarNominaDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(6, 6, 6)
+                                .addComponent(jSeparator54, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(ModificarNominaWindowLayout.createSequentialGroup()
+                                .addComponent(TextoCrearNominaMes1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(ComBoxMesNominaModificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jSeparator57, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addComponent(TextoCrearNominaFecha1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(InputModificarNominaAno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(7, 7, 7)
+                        .addComponent(jSeparator55, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(BtnModificarNominaFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(153, Short.MAX_VALUE))
+        );
+
+        PanelRaiz.add(ModificarNominaWindow, "card8");
 
         ModificarPersonaWindow.setBackground(new java.awt.Color(59, 185, 122));
         ModificarPersonaWindow.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -2254,8 +2635,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void InicializarVariables() {
         //Inicializo arrays de componentes con comportamientos compartidos
-        camposAltaInputsYModificar = List.of(
-                InputAltaDirectivoApellido,
+        camposAltaInputsYModificar = List.of(InputAltaDirectivoApellido,
                 InputAltaDirectivoCargo,
                 InputAltaDirectivoDNI,
                 InputAltaDirectivoNombre,
@@ -2321,14 +2701,25 @@ public class MainWindow extends javax.swing.JFrame {
                 ComboBoxModificarTecnicoPuesto
         );
 
+        camposModificarNomina = List.of(InputModificarNominaImporte,
+                InputModificarNominaDescripcion,
+                InputModificarNominaAno,
+                InputModificarNominaID
+        );
+
+        camposCrearNomina = List.of(InputCrearNominaImporte,
+                InputCrearNominaDescripcion,
+                InputCrearNominaAno,
+                InputCrearNominaID
+        );
+
         botonesModificar = List.of(
                 BtnModificarDirectivo,
                 BtnModificarJugador,
                 BtnModificarTécnico
         );
 
-        camposNumericos = List.of(
-                InputAltaJugadorTelefono,
+        camposNumericos = List.of(InputAltaJugadorTelefono,
                 InputAltaJugadorEdad,
                 InputAltaJugadorValor,
                 InputAltaTecnicoTelefono,
@@ -2351,7 +2742,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         //Tabla para ver la plantilla de futbol actual
         String[] columnasPersonas = {"Nombre", "Apellido", "Rol", "DNI"};
-        
+
         //Creo el modeloPersonas que luego metere en la tabla
         modeloPersonas = new DefaultTableModel(columnasPersonas, 0) {
             //Le sobreescribo el metodo para que el usuario no pueda editar las celdas de las tablas
@@ -2361,12 +2752,10 @@ public class MainWindow extends javax.swing.JFrame {
             }
         };
 
-
         //Relleno el modeloPersonas con las personas que tiene la lista de personas dentro del club
         for (Persona persona : Gestor.getInstancia().ListaPersonasDentroDelClub()) {
             modeloPersonas.addRow(new String[]{persona.getNombre(), persona.getApellido(), persona.getClass().getSimpleName(), persona.getDni()});
         }
-
 
         //Asigno el modeloPersonas a las tablas
         TablaContenidoPlantilla.setModel(modeloPersonas);
@@ -2386,6 +2775,8 @@ public class MainWindow extends javax.swing.JFrame {
         PanelRaiz.add(CrearNominaWindow, "crearNominaWindow");
         PanelRaiz.add(FacturaWindow, "facturaWindow");
         PanelRaiz.add(ModificarConceptoWindow, "modificarConceptoWindow");
+        PanelRaiz.add(ModificarNominaWindow, "modificarNominaWindow");
+        PanelRaiz.add(ImprimirWindow, "imprimirWindow");
         TabbedModificar.addTab("Modificar jugador", PanelModificarJugador);
         TabbedModificar.addTab("Modificar tecnico", PanelModificarTecnico);
         TabbedModificar.addTab("Modificar directivo", PanelModificarDirectivo);
@@ -2475,7 +2866,6 @@ public class MainWindow extends javax.swing.JFrame {
 
     }//GEN-LAST:event_ToggleEstadoFisicoActionPerformed
 
-    
     //Validador de entrada hecha con IA
     private void forzarSoloFecha(java.awt.event.KeyEvent evt, JTextField campoTexto) {
         char c = evt.getKeyChar();
@@ -2514,6 +2904,46 @@ public class MainWindow extends javax.swing.JFrame {
     private void InputCrearNominaAnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InputCrearNominaAnoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_InputCrearNominaAnoActionPerformed
+
+    private void InputModificarNominaDescripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InputModificarNominaDescripcionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_InputModificarNominaDescripcionActionPerformed
+
+    private void InputModificarNominaAnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InputModificarNominaAnoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_InputModificarNominaAnoActionPerformed
+
+    private void BtnImprimirTXTSortedNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnImprimirTXTSortedNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnImprimirTXTSortedNombreActionPerformed
+
+    private void BtnImprimirTXTSortedDNIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnImprimirTXTSortedDNIActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnImprimirTXTSortedDNIActionPerformed
+
+    private void BtnImprimirTXTResultadosEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnImprimirTXTResultadosEquipoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnImprimirTXTResultadosEquipoActionPerformed
+
+    private void BtnImprimirTXTNominasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnImprimirTXTNominasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnImprimirTXTNominasActionPerformed
+
+    private void BtnImprimirPDFSortedDNIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnImprimirPDFSortedDNIActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnImprimirPDFSortedDNIActionPerformed
+
+    private void BtnImprimirPDFSortedNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnImprimirPDFSortedNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnImprimirPDFSortedNombreActionPerformed
+
+    private void BtnImprimirPDFResultadosEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnImprimirPDFResultadosEquipoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnImprimirPDFResultadosEquipoActionPerformed
+
+    private void BtnImprimirPDFNominasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnImprimirPDFNominasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnImprimirPDFNominasActionPerformed
 
     private void forzarSoloNumero(java.awt.event.KeyEvent evt) {
         char c = evt.getKeyChar();
@@ -2567,19 +2997,34 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton BtnGastos;
     private javax.swing.JButton BtnGestionarPlantilla;
     private javax.swing.JButton BtnHome;
+    private javax.swing.JButton BtnHomeCrearFactura;
+    private javax.swing.JButton BtnHomeCrearNomina;
     private javax.swing.JButton BtnHomeGastos;
+    private javax.swing.JButton BtnHomeImprimir;
+    private javax.swing.JButton BtnHomeModificarConceptos;
+    private javax.swing.JButton BtnHomeModificarNomina;
     private javax.swing.JButton BtnHomePartido;
     private javax.swing.JButton BtnImprimir;
+    private javax.swing.JButton BtnImprimirPDFNominas;
+    private javax.swing.JButton BtnImprimirPDFResultadosEquipo;
+    private javax.swing.JButton BtnImprimirPDFSortedDNI;
+    private javax.swing.JButton BtnImprimirPDFSortedNombre;
+    private javax.swing.JButton BtnImprimirTXTNominas;
+    private javax.swing.JButton BtnImprimirTXTResultadosEquipo;
+    private javax.swing.JButton BtnImprimirTXTSortedDNI;
+    private javax.swing.JButton BtnImprimirTXTSortedNombre;
     private javax.swing.JButton BtnJugarPartido;
     private javax.swing.JButton BtnModificarConcepto;
     private javax.swing.JButton BtnModificarConceptoNomina;
     private javax.swing.JButton BtnModificarDatos;
     private javax.swing.JButton BtnModificarDirectivo;
     private javax.swing.JButton BtnModificarJugador;
+    private javax.swing.JButton BtnModificarNominaFinal;
     private javax.swing.JButton BtnModificarTécnico;
     private javax.swing.JButton BtnTerminarPartido;
     private javax.swing.JComboBox<Demarcacion> ComBoxDemarcacion;
     private javax.swing.JComboBox<Meses> ComBoxMesNomina;
+    private javax.swing.JComboBox<Meses> ComBoxMesNominaModificar;
     private javax.swing.JComboBox<Demarcacion> ComBoxModificarDemarcacion;
     private javax.swing.JComboBox<Especialidad> ComboBoxModificarTecnicoEspecialidad;
     private javax.swing.JComboBox<Puesto> ComboBoxModificarTecnicoPuesto;
@@ -2594,6 +3039,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel GolesLocalLabel;
     private javax.swing.JLabel GolesVisitanteLabel;
     private javax.swing.JPanel HomeWindow;
+    private javax.swing.JPanel ImprimirWindow;
     private javax.swing.JTextField InputAltaDirectivoApellido;
     private javax.swing.JTextField InputAltaDirectivoCargo;
     private javax.swing.JTextField InputAltaDirectivoDNI;
@@ -2629,6 +3075,10 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTextField InputModificarJugadorNombre;
     private javax.swing.JTextField InputModificarJugadorTelefono;
     private javax.swing.JTextField InputModificarJugadorValor;
+    private javax.swing.JTextField InputModificarNominaAno;
+    private javax.swing.JTextField InputModificarNominaDescripcion;
+    private javax.swing.JTextField InputModificarNominaID;
+    private javax.swing.JTextField InputModificarNominaImporte;
     private javax.swing.JTextField InputModificarTecnicoApellido;
     private javax.swing.JTextField InputModificarTecnicoDNI;
     private javax.swing.JTextField InputModificarTecnicoNombre;
@@ -2637,6 +3087,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JPanel JugarPartidoWindow;
     private javax.swing.JSpinner LocalGolesSpinner;
     private javax.swing.JPanel ModificarConceptoWindow;
+    private javax.swing.JPanel ModificarNominaWindow;
     private javax.swing.JPanel ModificarPersonaWindow;
     private javax.swing.JPanel PanelAltaDirectivo;
     private javax.swing.JPanel PanelAltaJugador;
@@ -2708,18 +3159,30 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel TextoCrearFacturaID;
     private javax.swing.JLabel TextoCrearFacturaNombre;
     private javax.swing.JLabel TextoCrearNominaFecha;
+    private javax.swing.JLabel TextoCrearNominaFecha1;
     private javax.swing.JLabel TextoCrearNominaImporte;
     private javax.swing.JLabel TextoCrearNominaImporte1;
     private javax.swing.JLabel TextoCrearNominaImporte2;
+    private javax.swing.JLabel TextoCrearNominaImporte3;
+    private javax.swing.JLabel TextoCrearNominaImporte4;
+    private javax.swing.JLabel TextoCrearNominaImporte5;
     private javax.swing.JLabel TextoCrearNominaMes;
+    private javax.swing.JLabel TextoCrearNominaMes1;
     private javax.swing.JLabel TextoNombreEquipoRival;
     private javax.swing.JLabel TituloCrearFactura;
     private javax.swing.JLabel TituloCrearNomina;
+    private javax.swing.JLabel TituloCrearNomina1;
+    private javax.swing.JLabel TituloImprimir;
     private javax.swing.JLabel TituloModificarConceptos;
     private javax.swing.JToggleButton ToggleEstadoFisico;
     private javax.swing.JToggleButton ToggleModificarEstadoFisico;
     private javax.swing.JSpinner VisitanteGolesSpinner;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator11;
@@ -2768,10 +3231,22 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator50;
     private javax.swing.JSeparator jSeparator51;
     private javax.swing.JSeparator jSeparator52;
+    private javax.swing.JSeparator jSeparator53;
+    private javax.swing.JSeparator jSeparator54;
+    private javax.swing.JSeparator jSeparator55;
+    private javax.swing.JSeparator jSeparator56;
+    private javax.swing.JSeparator jSeparator57;
+    private javax.swing.JSeparator jSeparator58;
+    private javax.swing.JSeparator jSeparator59;
     private javax.swing.JSeparator jSeparator6;
+    private javax.swing.JSeparator jSeparator60;
+    private javax.swing.JSeparator jSeparator61;
+    private javax.swing.JSeparator jSeparator62;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
+    private javax.swing.JLabel labelPDF;
+    private javax.swing.JLabel labelTXT;
     // End of variables declaration//GEN-END:variables
 
     public JPanel getHomeWindow() {
@@ -3162,7 +3637,89 @@ public class MainWindow extends javax.swing.JFrame {
         return BtnModificarConcepto;
     }
 
-    
-    
-}
+    public List<JTextField> getcamposModificarNomina() {
+        return camposModificarNomina;
+    }
 
+    public List<JTextField> getcamposCrearNomina() {
+        return camposCrearNomina;
+    }
+
+    public JTextField getInputModificarNominaAno() {
+        return InputModificarNominaAno;
+    }
+
+    public JTextField getInputModificarNominaDescripcion() {
+        return InputModificarNominaDescripcion;
+    }
+
+    public JTextField getInputModificarNominaID() {
+        return InputModificarNominaID;
+    }
+
+    public JTextField getInputModificarNominaImporte() {
+        return InputModificarNominaImporte;
+    }
+
+    public JButton getBtnModificarNominaFinal() {
+        return BtnModificarNominaFinal;
+    }
+
+    public JButton getBtnHomeModificarConceptos() {
+        return BtnHomeModificarConceptos;
+    }
+
+    public JButton getBtnHomeCrearFactura() {
+        return BtnHomeCrearFactura;
+    }
+
+    public JButton getBtnHomeCrearNomina() {
+        return BtnHomeCrearNomina;
+    }
+
+    public JButton getBtnHomeModificarNomina() {
+        return BtnHomeModificarNomina;
+    }
+
+    public JButton getBtnHomeImprimir() {
+        return BtnHomeImprimir;
+    }
+
+    public JButton getBtnImprimirPDFNominas() {
+        return BtnImprimirPDFNominas;
+    }
+
+    public JButton getBtnImprimirPDFResultadosEquipo() {
+        return BtnImprimirPDFResultadosEquipo;
+    }
+
+    public JButton getBtnImprimirPDFSortedDNI() {
+        return BtnImprimirPDFSortedDNI;
+    }
+
+    public JButton getBtnImprimirPDFSortedNombre() {
+        return BtnImprimirPDFSortedNombre;
+    }
+
+    public JButton getBtnImprimirTXTNominas() {
+        return BtnImprimirTXTNominas;
+    }
+
+    public JButton getBtnImprimirTXTResultadosEquipo() {
+        return BtnImprimirTXTResultadosEquipo;
+    }
+
+    public JButton getBtnImprimirTXTSortedDNI() {
+        return BtnImprimirTXTSortedDNI;
+    }
+
+    public JButton getBtnImprimirTXTSortedNombre() {
+        return BtnImprimirTXTSortedNombre;
+    }
+    
+    
+    
+    
+    
+
+}

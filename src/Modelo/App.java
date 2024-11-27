@@ -3,6 +3,7 @@
  */
 package Modelo;
 
+import Controlador.ControladorImprimir;
 import Controlador.ControladorMainWindow;
 import Vista.MainWindow;
 import java.util.ArrayList;
@@ -77,10 +78,9 @@ public class App {
         Directivo Juan = new Directivo("Juan", "Lopez", "67890123V", 612345604, "Responsable de Marketing");
 
         // </editor-fold>
-        
-        
         MainWindow mainWindow = new MainWindow();
         ControladorMainWindow controladorMainWindow = new ControladorMainWindow(mainWindow);
+        ControladorImprimir controladorImprimir = new ControladorImprimir(mainWindow);
         mainWindow.setLocationRelativeTo(null);
         mainWindow.setVisible(true);
 
