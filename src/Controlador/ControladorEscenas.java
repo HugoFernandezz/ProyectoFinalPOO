@@ -4,13 +4,11 @@
  */
 package Controlador;
 
-import Modelo.Gestor;
 import Modelo.Persona;
 import Vista.MainWindow;
 import java.awt.CardLayout;
 import java.util.List;
 import javax.swing.JTextField;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -19,6 +17,9 @@ import javax.swing.table.DefaultTableModel;
 public class ControladorEscenas {
 
     protected MainWindow mainWindow;
+    
+    protected int filaSeleccionada;
+    protected Persona personaSeleccionada;
 
     public ControladorEscenas(MainWindow mainWindow) {
         if (mainWindow == null) {
@@ -60,20 +61,6 @@ public class ControladorEscenas {
 
     }
 
-    protected void actualizarModeloTablaPersonas(DefaultTableModel modelo) {
-
-        //Vacio el modelo
-        modelo.setRowCount(0);
-
-        //Y lo vuelvo a llenar
-        for (Persona persona : Gestor.getInstancia().ListaPersonasDentroDelClub()) {
-            modelo.addRow(new String[]{
-                persona.getNombre(),
-                persona.getApellido(),
-                persona.getClass().getSimpleName(),
-                persona.getDni()
-            });
-        }
-    }
+    
 
 }

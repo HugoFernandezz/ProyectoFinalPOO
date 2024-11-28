@@ -29,7 +29,6 @@ import javax.swing.table.DefaultTableModel;
 public class ControladorGastos extends ControladorEscenas {
 
     int[] filasSeleccionadasGastos;
-    private int filaSeleccionada;
     List<Persona> personasSeleccionadasGastos = new ArrayList<>();
     private Concepto conceptoActual;
     //Tabla para ver los conceptos de las nominas
@@ -48,6 +47,7 @@ public class ControladorGastos extends ControladorEscenas {
 
     private void inicializarVariables() {
 
+        //Inicializo el comboBox de los meses
         mainWindow.getComBoxMesNomina().setModel(new DefaultComboBoxModel<>(Meses.values()));
         //Botones de Gastos
         mainWindow.getBtnCrearNominaFinal().addActionListener(e -> intentarCrearNomina());
@@ -93,7 +93,7 @@ public class ControladorGastos extends ControladorEscenas {
 
     }
 
-    //Método para cambiar a la escena de modificar jugador (Requiere seleccionar un jugador)
+    //Método para cambiar a la escena de crearle nomina a persona/s (Requiere tener 1 o varias personas de la tabla seleccionados)
     private void cambiarEscenaNomina() {
         if (personasSeleccionadasGastos.size() > 0) {
 

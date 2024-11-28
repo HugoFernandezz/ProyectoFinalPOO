@@ -4,8 +4,6 @@
  */
 package Vista;
 
-import Modelo.App;
-import Modelo.Concepto;
 import Modelo.Gestor;
 import Modelo.Persona;
 import Modelo.Demarcacion;
@@ -2629,9 +2627,9 @@ public class MainWindow extends javax.swing.JFrame {
         );
 
         listaComboBoxModificar = List.of(
-                ComboBoxModificarTecnicoEspecialidad,
                 ComboBoxModificarTecnicoPuesto,
-                ComboBoxModificarTecnicoPuesto
+                ComboBoxModificarTecnicoEspecialidad,
+                ComBoxModificarDemarcacion
         );
 
         camposModificarNomina = List.of(InputModificarNominaImporte,
@@ -3115,6 +3113,8 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel labelTXT;
     // End of variables declaration//GEN-END:variables
 
+    // <editor-fold defaultstate="collapsed" desc="Getters">
+    
     public JPanel getHomeWindow() {
         return HomeWindow;
     }
@@ -3582,6 +3582,8 @@ public class MainWindow extends javax.swing.JFrame {
     public JButton getBtnImprimirTXTSortedNombre() {
         return BtnImprimirTXTSortedNombre;
     }
+    
+    // </editor-fold>
     
     
     

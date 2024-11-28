@@ -20,7 +20,7 @@ import javax.swing.JTextField;
  *
  * @author HugoFDZ
  */
-public class ControladorCrearPersona extends ControladorEscenas {
+public class ControladorCrearPersona extends ControladorGestorPersonas {
 
     public ControladorCrearPersona(MainWindow mainWindow) {
 
@@ -76,6 +76,8 @@ public class ControladorCrearPersona extends ControladorEscenas {
         JOptionPane.showMessageDialog(null, "¡El jugador " + nombre + " se ha unido al club!");
 
         System.out.println("Se ha creado el jugador: " + nombre + " Apellido: " + apellido + " edad: " + edad + " tlf: " + telefono + " valorMercado: " + valorMercado + " dni: " + dni + " demarcacion: " + demarcacion.toString() + " ESta lesionado?: " + estadoFisico);
+
+        cambiarEscena(CARD_GESTION);
     }
 
     private void intentarCrearTecnico() {
@@ -108,20 +110,8 @@ public class ControladorCrearPersona extends ControladorEscenas {
         actualizarModeloTablaPersonas(mainWindow.getModeloPersonas());
 
         JOptionPane.showMessageDialog(null, "¡El técnico " + nombre + " se ha unido al club!");
-    }
 
-    private void crearDirectivo() {
-        String nombre = mainWindow.getInputAltaDirectivoNombre().getText();
-        String apellido = mainWindow.getInputAltaDirectivoApellido().getText();
-        int telefono = Integer.parseInt(mainWindow.getInputAltaDirectivoTelefono().getText());
-        String dni = mainWindow.getInputAltaDirectivoDNI().getText();
-        String cargo = mainWindow.getInputAltaDirectivoCargo().getText();
-
-        Directivo directivo = new Directivo(nombre, apellido, dni, telefono, cargo);
-
-        actualizarModeloTablaPersonas(mainWindow.getModeloPersonas());
-
-        JOptionPane.showMessageDialog(null, "¡El directivo " + nombre + " se ha unido al club!");
+        cambiarEscena(CARD_GESTION);
     }
 
     private void intentarCrearDirectivo() {
@@ -139,6 +129,22 @@ public class ControladorCrearPersona extends ControladorEscenas {
             JOptionPane.showMessageDialog(null, "Error, parece que hubo algun problema al crear un directivo. \nAsegurese de que todos los campos estan rellenos.");
         }
 
+    }
+
+    private void crearDirectivo() {
+        String nombre = mainWindow.getInputAltaDirectivoNombre().getText();
+        String apellido = mainWindow.getInputAltaDirectivoApellido().getText();
+        int telefono = Integer.parseInt(mainWindow.getInputAltaDirectivoTelefono().getText());
+        String dni = mainWindow.getInputAltaDirectivoDNI().getText();
+        String cargo = mainWindow.getInputAltaDirectivoCargo().getText();
+
+        Directivo directivo = new Directivo(nombre, apellido, dni, telefono, cargo);
+
+        actualizarModeloTablaPersonas(mainWindow.getModeloPersonas());
+
+        JOptionPane.showMessageDialog(null, "¡El directivo " + nombre + " se ha unido al club!");
+
+        cambiarEscena(CARD_GESTION);
     }
 
 }
