@@ -17,16 +17,9 @@ import javax.swing.JTextField;
 public class ControladorEscenas {
 
     protected MainWindow mainWindow;
-    
+
     protected int filaSeleccionada;
     protected Persona personaSeleccionada;
-
-    public ControladorEscenas(MainWindow mainWindow) {
-        if (mainWindow == null) {
-            throw new IllegalArgumentException("MainWindow no puede ser null.");
-        }
-        this.mainWindow = mainWindow;
-    }
 
     protected final String CARD_HOME = "homeWindow";
     protected final String CARD_GESTION = "gestionWindow";
@@ -39,6 +32,13 @@ public class ControladorEscenas {
     protected final String CARD_MODIFICAR_CONCEPTO = "modificarConceptoWindow";
     protected final String CARD_MODIFICAR_NOMINA = "modificarNominaWindow";
     protected final String CARD_IMPRIMIR = "imprimirWindow";
+
+    public ControladorEscenas(MainWindow mainWindow) {
+        if (mainWindow == null) {
+            throw new IllegalArgumentException("MainWindow no puede ser null.");
+        }
+        this.mainWindow = mainWindow;
+    }
 
     // Método que ejecuta la lógica de cambiar entre escenas
     protected void cambiarEscena(String destino) {
@@ -60,7 +60,5 @@ public class ControladorEscenas {
         return campoVacio;
 
     }
-
-    
 
 }

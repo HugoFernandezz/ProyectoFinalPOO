@@ -60,9 +60,9 @@ public class MainWindow extends javax.swing.JFrame {
 
         initComponents();
 
-        InicializarVariables();
+        inicializarVariables();
 
-        InicializarEventos();
+        inicializarEventos();
 
     }
 
@@ -2564,7 +2564,7 @@ public class MainWindow extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void InicializarVariables() {
+    private void inicializarVariables() {
         //Inicializo arrays de componentes con comportamientos compartidos
         camposAltaInputsYModificar = List.of(InputAltaDirectivoApellido,
                 InputAltaDirectivoCargo,
@@ -2713,7 +2713,7 @@ public class MainWindow extends javax.swing.JFrame {
         TabbedModificar.addTab("Modificar directivo", PanelModificarDirectivo);
     }
 
-    private void InicializarEventos() {
+    private void inicializarEventos() {
 
         //Comportamiento compartidos de los campos numericos (No admites caracteres)
         for (JTextField field : camposNumericos) {

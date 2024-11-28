@@ -12,7 +12,6 @@ import Modelo.Puesto;
 import Vista.MainWindow;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
-import javax.swing.event.ListSelectionEvent;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -20,8 +19,6 @@ import javax.swing.table.DefaultTableModel;
  * @author HugoFDZ
  */
 public class ControladorGestion extends ControladorGestorPersonas {
-    
-    
     
     
     public ControladorGestion(MainWindow mainWindow) {

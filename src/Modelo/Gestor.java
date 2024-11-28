@@ -4,9 +4,7 @@
  */
 package Modelo;
 
-import static Modelo.App.InputInt;
-import static Modelo.App.elegirLocal;
-import static Modelo.App.inputReader;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -15,7 +13,6 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
-import java.util.Scanner;
 
 /**
  * Clase Gestor que implementa el patrón Singleton para manejar listas de
