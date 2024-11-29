@@ -14,11 +14,15 @@ import javax.swing.ImageIcon;
 import Modelo.Especialidad;
 import Modelo.Meses;
 import Modelo.Puesto;
+import java.awt.Font;
+import java.awt.FontFormatException;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JButton;
@@ -52,6 +56,8 @@ public class MainWindow extends javax.swing.JFrame {
     List<JButton> botonesModificar;
     //Me permite crear una lista de ComboBoxes de enumerados de cualquier tipo
     List<JComboBox<? extends Enum<?>>> listaComboBoxModificar = new ArrayList<>();
+    
+    Font customFont;
 
     DefaultTableModel modeloPersonas;
 
@@ -62,6 +68,8 @@ public class MainWindow extends javax.swing.JFrame {
         inicializarVariables();
 
         inicializarEventos();
+        
+        this.setFont(customFont);
 
     }
 
@@ -518,7 +526,7 @@ public class MainWindow extends javax.swing.JFrame {
         BtnHome.setBorderPainted(false);
         BtnHome.setContentAreaFilled(false);
 
-        Text_PlantillaActual1.setFont(new java.awt.Font("Poppins SemiBold", 1, 24)); // NOI18N
+        Text_PlantillaActual1.setFont(new java.awt.Font("Poppins SemiBold", 1, 48)); // NOI18N
         Text_PlantillaActual1.setForeground(new java.awt.Color(255, 255, 255));
         Text_PlantillaActual1.setText("Gestiona la plantilla");
 
@@ -529,9 +537,9 @@ public class MainWindow extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(45, 45, 45)
                 .addComponent(BtnHome)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 454, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 326, Short.MAX_VALUE)
                 .addComponent(Text_PlantillaActual1)
-                .addGap(230, 230, 230))
+                .addGap(97, 97, 97))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -542,7 +550,7 @@ public class MainWindow extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(Text_PlantillaActual1)
-                .addGap(33, 33, 33))
+                .addGap(26, 26, 26))
         );
 
         GestionWindow.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 130));
@@ -2580,6 +2588,7 @@ public class MainWindow extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void inicializarVariables() {
+
         //Inicializo arrays de componentes con comportamientos compartidos
         camposAltaInputsYModificar = List.of(InputAltaDirectivoApellido,
                 InputAltaDirectivoCargo,
@@ -2726,6 +2735,16 @@ public class MainWindow extends javax.swing.JFrame {
         TabbedModificar.addTab("Modificar jugador", PanelModificarJugador);
         TabbedModificar.addTab("Modificar tecnico", PanelModificarTecnico);
         TabbedModificar.addTab("Modificar directivo", PanelModificarDirectivo);
+        
+         // Cargar la fuente personalizada
+        Font customFont = cargarFuente("/Media/Fuente/Poppins-SemiBold.ttf", 16f);
+        
+        if (customFont != null) {
+            System.out.println("Fuente cargada correctamente: " + customFont.getName());
+        } else {
+            System.err.println("No se pudo cargar la fuente.");
+        }
+        
     }
 
     private void inicializarEventos() {
@@ -2857,6 +2876,19 @@ public class MainWindow extends javax.swing.JFrame {
             textInput.setForeground(new Color(107,107,107));
         }
 
+    }
+    
+    public static Font cargarFuente(String fontPath, float size) {
+        try (InputStream is = MainWindow.class.getResourceAsStream(fontPath)) {
+            if (is == null) {
+                System.err.println("El archivo no fue encontrado en: " + fontPath);
+                return null;
+            }
+            return Font.createFont(Font.TRUETYPE_FONT, is).deriveFont(size);
+        } catch (FontFormatException | IOException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
 

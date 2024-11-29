@@ -37,6 +37,8 @@ public class ControladorPrincipal {
         // Mostrar la ventana principal
         mainWindow.setVisible(true);
         mainWindow.setLocationRelativeTo(null);
+        mainWindow.setResizable(false);
+                
     }
 
 }
