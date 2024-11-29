@@ -28,9 +28,8 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ControladorGastos extends ControladorEscenas {
 
-    int[] filasSeleccionadasGastos;
-    private int filaSeleccionada;
-    List<Persona> personasSeleccionadasGastos = new ArrayList<>();
+    private int[] filasSeleccionadasGastos;
+    private List<Persona> personasSeleccionadasGastos = new ArrayList<>();
     private Concepto conceptoActual;
     //Tabla para ver los conceptos de las nominas
     String[] columnasConceptos = {"Descripcion", "Importe", "Codigo"};
@@ -48,6 +47,7 @@ public class ControladorGastos extends ControladorEscenas {
 
     private void inicializarVariables() {
 
+        //Inicializo el comboBox de los meses
         mainWindow.getComBoxMesNomina().setModel(new DefaultComboBoxModel<>(Meses.values()));
         //Botones de Gastos
         mainWindow.getBtnCrearNominaFinal().addActionListener(e -> intentarCrearNomina());
@@ -93,7 +93,7 @@ public class ControladorGastos extends ControladorEscenas {
 
     }
 
-    //Método para cambiar a la escena de modificar jugador (Requiere seleccionar un jugador)
+    //Método para cambiar a la escena de crearle nomina a persona/s (Requiere tener 1 o varias personas de la tabla seleccionados)
     private void cambiarEscenaNomina() {
         if (personasSeleccionadasGastos.size() > 0) {
 
@@ -169,58 +169,8 @@ public class ControladorGastos extends ControladorEscenas {
         }
 
     }
-
-    private void recuperarConcepto(JTable tabla) {
-        filaSeleccionada = tabla.getSelectedRow();
-        System.out.println("Se devolvio el concepto con id: " + Gestor.getInstancia().recuperarConceptoPorIndice(filaSeleccionada, personasSeleccionadasGastos.get(0)).getCodigo());
-        conceptoActual = Gestor.getInstancia().recuperarConceptoPorIndice(filaSeleccionada, personasSeleccionadasGastos.get(0));
-        cambiarEscenaDatosRellenosConcepto(conceptoActual);
-
-    }
-
-    private void crearFactura() {
-
-        String CIF = mainWindow.getInputCrearFacturaCIF().getText();
-        String ID = mainWindow.getInputCrearFacturaID().getText();
-        String nombre = mainWindow.getInputCrearFacturaNombre().getText();
-        float cantidad = Float.valueOf(mainWindow.getInputCrearFacturaCantidad().getText());
-        String fecha = mainWindow.getInputCrearFacturaFecha().getText();
-
-        Cliente cliente = new Cliente(CIF, nombre);
-        Factura factura = new Factura(ID, cantidad, fecha, cliente);
-
-        JOptionPane.showMessageDialog(null, "¡Factura creada con éxito!");
-
-        cambiarEscena(CARD_GASTOS);
-    }
-
-    private void eliminarConcepto() {
-        filaSeleccionada = mainWindow.getTablaConceptosNomina().getSelectedRow();
-        String ID = mainWindow.getTablaConceptosNomina().getModel().getValueAt(filaSeleccionada, 2).toString();
-        System.out.println(ID);
-        Gestor.getInstancia().removeConceptoPorID(ID, personasSeleccionadasGastos.get(0));
-        JOptionPane.showMessageDialog(null, "¡Concepto con id: " + ID + " eliminada con éxito!");
-        rellenarModeloTablaConceptos();
-    }
-
-    private void intentarCrearFactura() {
-
-        //Creo la lista de campos que tiene que rellenar
-        List<JTextField> listaCampos = new ArrayList<>();
-        listaCampos.add(mainWindow.getInputCrearFacturaCIF());
-        listaCampos.add(mainWindow.getInputCrearFacturaCantidad());
-        listaCampos.add(mainWindow.getInputCrearFacturaID());
-        listaCampos.add(mainWindow.getInputCrearFacturaNombre());
-
-        if (!comprobarCamposVacios(listaCampos)) {
-            crearFactura();
-        } else {
-            JOptionPane.showMessageDialog(null, "Error, parece que hubo algun problema al crear una factura. \nAsegurese de que todos los campos estan rellenos.");
-        }
-
-    }
-
-    private void crearNomina(List<Persona> personasSeleccionadasGastos) {
+    
+     private void crearNomina(List<Persona> personasSeleccionadasGastos) {
 
         int importe = Integer.parseInt(mainWindow.getInputCrearNominaImporte().getText());
         String descripcion = mainWindow.getInputCrearNominaDescripcion().getText();
@@ -258,6 +208,58 @@ public class ControladorGastos extends ControladorEscenas {
         limpiarCampos(mainWindow.getcamposCrearNomina());
 
     }
+
+    private void recuperarConcepto(JTable tabla) {
+        filaSeleccionada = tabla.getSelectedRow();
+        System.out.println("Se devolvio el concepto con id: " + Gestor.getInstancia().recuperarConceptoPorIndice(filaSeleccionada, personasSeleccionadasGastos.get(0)).getCodigo());
+        conceptoActual = Gestor.getInstancia().recuperarConceptoPorIndice(filaSeleccionada, personasSeleccionadasGastos.get(0));
+        cambiarEscenaDatosRellenosConcepto(conceptoActual);
+
+    }
+    
+    private void intentarCrearFactura() {
+
+        //Creo la lista de campos que tiene que rellenar
+        List<JTextField> listaCampos = new ArrayList<>();
+        listaCampos.add(mainWindow.getInputCrearFacturaCIF());
+        listaCampos.add(mainWindow.getInputCrearFacturaCantidad());
+        listaCampos.add(mainWindow.getInputCrearFacturaID());
+        listaCampos.add(mainWindow.getInputCrearFacturaNombre());
+
+        if (!comprobarCamposVacios(listaCampos)) {
+            crearFactura();
+        } else {
+            JOptionPane.showMessageDialog(null, "Error, parece que hubo algun problema al crear una factura. \nAsegurese de que todos los campos estan rellenos.");
+        }
+
+    }
+
+    private void crearFactura() {
+
+        String CIF = mainWindow.getInputCrearFacturaCIF().getText();
+        String ID = mainWindow.getInputCrearFacturaID().getText();
+        String nombre = mainWindow.getInputCrearFacturaNombre().getText();
+        float cantidad = Float.valueOf(mainWindow.getInputCrearFacturaCantidad().getText());
+        String fecha = mainWindow.getInputCrearFacturaFecha().getText();
+
+        Cliente cliente = new Cliente(CIF, nombre);
+        Factura factura = new Factura(ID, cantidad, fecha, cliente);
+
+        JOptionPane.showMessageDialog(null, "¡Factura creada con éxito!");
+
+        cambiarEscena(CARD_GASTOS);
+    }
+
+    private void eliminarConcepto() {
+        filaSeleccionada = mainWindow.getTablaConceptosNomina().getSelectedRow();
+        String ID = mainWindow.getTablaConceptosNomina().getModel().getValueAt(filaSeleccionada, 2).toString();
+        System.out.println(ID);
+        Gestor.getInstancia().removeConceptoPorID(ID, personasSeleccionadasGastos.get(0));
+        JOptionPane.showMessageDialog(null, "¡Concepto con id: " + ID + " eliminada con éxito!");
+        rellenarModeloTablaConceptos();
+    }
+
+    
 
     private void cambiarEscenaDatosRellenosConcepto(Concepto concepto) {
 

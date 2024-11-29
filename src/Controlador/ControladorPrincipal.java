@@ -10,16 +10,16 @@ import Vista.MainWindow;
  *
  * @author HugoFDZ
  */
-
 public class ControladorPrincipal {
 
-    private MainWindow mainWindow;
-    private ControladorImprimir controladorImprimir;
-    private ControladorHome controladorHome;
-    private ControladorGestion controladorGestion;
-    private ControladorJugarPartido controladorPartidos;
-    private ControladorGastos controladorGastos;
-    private ControladorCrearPersona controladorCrearPersona;
+    private final MainWindow mainWindow;
+    private final ControladorImprimir controladorImprimir;
+    private final ControladorHome controladorHome;
+    private final ControladorGestion controladorGestion;
+    private final ControladorJugarPartido controladorPartidos;
+    private final ControladorGastos controladorGastos;
+    private final ControladorCrearPersona controladorCrearPersona;
+    private final ControladorModificarPersona controladorModificarPersona;
 
     public ControladorPrincipal() {
         // Instancia única de la ventana principal
@@ -32,14 +32,13 @@ public class ControladorPrincipal {
         controladorPartidos = new ControladorJugarPartido(mainWindow);
         controladorGastos = new ControladorGastos(mainWindow);
         controladorCrearPersona = new ControladorCrearPersona(mainWindow);
+        controladorModificarPersona = new ControladorModificarPersona(mainWindow);
 
         // Mostrar la ventana principal
         mainWindow.setVisible(true);
         mainWindow.setLocationRelativeTo(null);
+        mainWindow.setResizable(false);
+                
     }
 
-    
 }
-
-    
-
