@@ -296,6 +296,7 @@ public class MainWindow extends javax.swing.JFrame {
         InputModificarNominaID = new javax.swing.JTextField();
         jSeparator58 = new javax.swing.JSeparator();
         ModificarPersonaWindow = new javax.swing.JPanel();
+        BtnDarDeAltaAtrasModificar = new javax.swing.JButton();
         TabbedModificar = new javax.swing.JTabbedPane();
         PanelModificarJugador = new javax.swing.JPanel();
         TextoAltaJugadorNombre1 = new javax.swing.JLabel();
@@ -360,7 +361,6 @@ public class MainWindow extends javax.swing.JFrame {
         TextoAltaDirectivoCargo1 = new javax.swing.JLabel();
         jSeparator40 = new javax.swing.JSeparator();
         InputModificarDirectivoNombre = new javax.swing.JTextField();
-        BtnDarDeAltaAtrasModificar = new javax.swing.JButton();
         jPanel11 = new javax.swing.JPanel();
         TituloDarDeAlta = new javax.swing.JLabel();
 
@@ -529,7 +529,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(246, 144, 84));
 
-        BtnHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Media/home.png"))); // NOI18N
+        BtnHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Media/home.png"))); // NOI18N
         BtnHome.setBorder(null);
         BtnHome.setBorderPainted(false);
         BtnHome.setContentAreaFilled(false);
@@ -545,7 +545,7 @@ public class MainWindow extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(45, 45, 45)
                 .addComponent(BtnHome)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 312, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 377, Short.MAX_VALUE)
                 .addComponent(Text_TituloPlantilla)
                 .addGap(111, 111, 111))
         );
@@ -619,7 +619,7 @@ public class MainWindow extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(246, 144, 84));
 
         BtnHomePartido.setBackground(new java.awt.Color(246, 144, 84));
-        BtnHomePartido.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Media/home.png"))); // NOI18N
+        BtnHomePartido.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Media/home.png"))); // NOI18N
         BtnHomePartido.setBorder(null);
 
         PartidoLabel.setFont(new java.awt.Font("Poppins SemiBold", 0, 48)); // NOI18N
@@ -698,7 +698,7 @@ public class MainWindow extends javax.swing.JFrame {
         GestionLabel.setText("Gestionar gastos");
 
         BtnHomeGastos.setBackground(new java.awt.Color(246, 144, 84));
-        BtnHomeGastos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Media/home.png"))); // NOI18N
+        BtnHomeGastos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Media/home.png"))); // NOI18N
         BtnHomeGastos.setBorder(null);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -833,7 +833,7 @@ public class MainWindow extends javax.swing.JFrame {
         jPanel5.setBackground(new java.awt.Color(246, 144, 84));
 
         BtnHomeImprimir.setBackground(new java.awt.Color(246, 144, 84));
-        BtnHomeImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Media/home.png"))); // NOI18N
+        BtnHomeImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Media/home.png"))); // NOI18N
         BtnHomeImprimir.setBorder(null);
 
         TituloImprimir.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
@@ -1003,21 +1003,21 @@ public class MainWindow extends javax.swing.JFrame {
                 .addGroup(PanelAltaJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelAltaJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(PanelAltaJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(TextoAltaJugadorApellido)
                             .addComponent(jSeparator3)
-                            .addComponent(InputAltaJugadorApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(InputAltaJugadorApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TextoAltaJugadorApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(PanelAltaJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(TextoAltaJugadorNombre)
                             .addComponent(jSeparator2)
-                            .addComponent(InputAltaJugadorNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)))
+                            .addComponent(InputAltaJugadorNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)
+                            .addComponent(TextoAltaJugadorNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(PanelAltaJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(TextoAltaJugadorTelefono)
                         .addComponent(jSeparator4)
-                        .addComponent(InputAltaJugadorTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(InputAltaJugadorTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(TextoAltaJugadorTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(PanelAltaJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(TextoAltaJugadorEdad)
                         .addComponent(jSeparator5)
-                        .addComponent(InputAltaJugadorEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(InputAltaJugadorEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(TextoAltaJugadorEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(PanelAltaJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelAltaJugadorLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 436, Short.MAX_VALUE)
@@ -1025,28 +1025,32 @@ public class MainWindow extends javax.swing.JFrame {
                         .addGap(65, 65, 65))
                     .addGroup(PanelAltaJugadorLayout.createSequentialGroup()
                         .addGap(107, 107, 107)
-                        .addGroup(PanelAltaJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(TextoAltaJugadorDemarcacion)
-                            .addComponent(TextoAltaJugadorValor)
-                            .addComponent(jSeparator6)
-                            .addComponent(InputAltaJugadorValor)
-                            .addComponent(TextoAltaJugadorDNI)
-                            .addComponent(jSeparator7)
-                            .addComponent(InputAltaJugadorDNI)
-                            .addComponent(ComBoxDemarcacion, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jSeparator19, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(PanelAltaJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(TextoAltaJugadorEstadoFisico)
-                            .addComponent(jSeparator20, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ToggleEstadoFisico, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(93, 93, 93))))
+                            .addGroup(PanelAltaJugadorLayout.createSequentialGroup()
+                                .addGroup(PanelAltaJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(TextoAltaJugadorDemarcacion)
+                                    .addComponent(jSeparator6)
+                                    .addComponent(jSeparator7)
+                                    .addComponent(InputAltaJugadorDNI)
+                                    .addComponent(ComBoxDemarcacion, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jSeparator19, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(TextoAltaJugadorDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(TextoAltaJugadorValor, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(PanelAltaJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jSeparator20, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(ToggleEstadoFisico, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(TextoAltaJugadorEstadoFisico, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(93, 93, 93))
+                            .addGroup(PanelAltaJugadorLayout.createSequentialGroup()
+                                .addComponent(InputAltaJugadorValor, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
         );
         PanelAltaJugadorLayout.setVerticalGroup(
             PanelAltaJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelAltaJugadorLayout.createSequentialGroup()
                 .addGap(62, 62, 62)
-                .addGroup(PanelAltaJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(PanelAltaJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(PanelAltaJugadorLayout.createSequentialGroup()
                         .addComponent(TextoAltaJugadorNombre)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1054,54 +1058,55 @@ public class MainWindow extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(PanelAltaJugadorLayout.createSequentialGroup()
-                        .addComponent(TextoAltaJugadorValor)
+                        .addComponent(TextoAltaJugadorValor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(InputAltaJugadorValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(PanelAltaJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(PanelAltaJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(PanelAltaJugadorLayout.createSequentialGroup()
-                            .addComponent(TextoAltaJugadorApellido)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(InputAltaJugadorApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(PanelAltaJugadorLayout.createSequentialGroup()
-                            .addComponent(TextoAltaJugadorDNI)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(InputAltaJugadorDNI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(PanelAltaJugadorLayout.createSequentialGroup()
-                        .addComponent(TextoAltaJugadorEstadoFisico)
-                        .addGap(5, 5, 5)
-                        .addComponent(ToggleEstadoFisico, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator20, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
                 .addGroup(PanelAltaJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelAltaJugadorLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(TextoAltaJugadorEstadoFisico)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(PanelAltaJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(PanelAltaJugadorLayout.createSequentialGroup()
+                                .addComponent(TextoAltaJugadorDNI)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(InputAltaJugadorDNI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(PanelAltaJugadorLayout.createSequentialGroup()
+                                .addComponent(ToggleEstadoFisico, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jSeparator20, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(PanelAltaJugadorLayout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(TextoAltaJugadorApellido)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(InputAltaJugadorApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(PanelAltaJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelAltaJugadorLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
                         .addComponent(TextoAltaJugadorTelefono)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(InputAltaJugadorTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(PanelAltaJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(PanelAltaJugadorLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(TextoAltaJugadorEdad)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(InputAltaJugadorEdad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelAltaJugadorLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
-                                .addComponent(BtnCrearJugador, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(60, 60, 60))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(TextoAltaJugadorEdad)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(InputAltaJugadorEdad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelAltaJugadorLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
+                        .addComponent(BtnCrearJugador, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(60, 60, 60))
                     .addGroup(PanelAltaJugadorLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
                         .addComponent(TextoAltaJugadorDemarcacion)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(ComBoxDemarcacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1206,32 +1211,32 @@ public class MainWindow extends javax.swing.JFrame {
                 .addGap(81, 81, 81)
                 .addGroup(PanelAltaTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelAltaTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(TextoAltaTecnicoTelefono)
                         .addComponent(jSeparator15)
-                        .addComponent(InputAltaTecnicoTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(InputAltaTecnicoTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(TextoAltaTecnicoTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(PanelAltaTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(PanelAltaTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(TextoAltaTecnicoApellido)
                             .addComponent(jSeparator14)
-                            .addComponent(InputAltaTecnicoApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(InputAltaTecnicoApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TextoAltaTecnicoApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(PanelAltaTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(TextoAltaTecnicoNombre)
                             .addComponent(jSeparator12)
-                            .addComponent(InputAltaTecnicoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(InputAltaTecnicoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TextoAltaTecnicoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(PanelAltaTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(TextoAltaTecnicoDNI)
                         .addComponent(jSeparator16)
-                        .addComponent(InputAltaTecnicoDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(InputAltaTecnicoDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(TextoAltaTecnicoDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(PanelAltaTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelAltaTecnicoLayout.createSequentialGroup()
                         .addGap(107, 107, 107)
                         .addGroup(PanelAltaTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(TextoAltaJugadorValor1)
                             .addComponent(jSeparator17, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)
-                            .addComponent(TextoAltaJugadorDNI1)
                             .addComponent(jSeparator18)
                             .addComponent(ComboBoxTecnicoEspecialidad, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(ComboBoxTecnicoPuesto, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(ComboBoxTecnicoPuesto, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(TextoAltaJugadorDNI1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TextoAltaJugadorValor1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(438, Short.MAX_VALUE))
                     .addGroup(PanelAltaTecnicoLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1280,7 +1285,7 @@ public class MainWindow extends javax.swing.JFrame {
                         .addComponent(ComboBoxTecnicoEspecialidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(9, 9, 9)
                         .addComponent(jSeparator18, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
                         .addComponent(BtnCrearTecnico, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(59, 59, 59))))
         );
@@ -1374,33 +1379,32 @@ public class MainWindow extends javax.swing.JFrame {
                 .addGroup(PanelAltaDirectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelAltaDirectivoLayout.createSequentialGroup()
                         .addGroup(PanelAltaDirectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(TextoAltaDirectivoNombre)
                             .addGroup(PanelAltaDirectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(InputAltaDirectivoNombre, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jSeparator8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)))
+                                .addComponent(jSeparator8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE))
+                            .addComponent(TextoAltaDirectivoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(131, 131, 131)
                         .addGroup(PanelAltaDirectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(TextoAltaDirectivoCargo)
                             .addComponent(jSeparator11, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(InputAltaDirectivoCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(InputAltaDirectivoCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TextoAltaDirectivoCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(414, Short.MAX_VALUE))
                     .addGroup(PanelAltaDirectivoLayout.createSequentialGroup()
                         .addGroup(PanelAltaDirectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(InputAltaDirectivoTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TextoAltaDirectivoApellido)
-                            .addComponent(InputAltaDirectivoApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(InputAltaDirectivoApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TextoAltaDirectivoApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(PanelAltaDirectivoLayout.createSequentialGroup()
                         .addGroup(PanelAltaDirectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(PanelAltaDirectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(TextoAltaDirectivoDNI)
                                 .addComponent(jSeparator13)
                                 .addComponent(InputAltaDirectivoDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jSeparator10))
-                            .addGroup(PanelAltaDirectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(TextoAltaDirectivoTelefono)
-                                .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jSeparator10)
+                                .addComponent(TextoAltaDirectivoDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TextoAltaDirectivoTelefono, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 433, Short.MAX_VALUE)
                         .addComponent(BtnCrearDirectivo, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(68, 68, 68))))
         );
@@ -1434,7 +1438,7 @@ public class MainWindow extends javax.swing.JFrame {
                         .addComponent(InputAltaDirectivoDNI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSeparator13, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(87, Short.MAX_VALUE))
+                        .addContainerGap(111, Short.MAX_VALUE))
                     .addGroup(PanelAltaDirectivoLayout.createSequentialGroup()
                         .addComponent(TextoAltaDirectivoCargo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1458,7 +1462,7 @@ public class MainWindow extends javax.swing.JFrame {
         GestionLabel1.setText("Dar de alta");
 
         BtnDarDeAltaAtras.setBackground(new java.awt.Color(246, 144, 84));
-        BtnDarDeAltaAtras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Media/arrow.png"))); // NOI18N
+        BtnDarDeAltaAtras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Media/arrow.png"))); // NOI18N
         BtnDarDeAltaAtras.setBorder(null);
 
         jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
@@ -1505,7 +1509,7 @@ public class MainWindow extends javax.swing.JFrame {
         TituloModificarConcepto.setText("Modificar conceptos");
 
         BtnHomeModificarConceptos.setBackground(new java.awt.Color(246, 144, 84));
-        BtnHomeModificarConceptos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Media/home.png"))); // NOI18N
+        BtnHomeModificarConceptos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Media/home.png"))); // NOI18N
         BtnHomeModificarConceptos.setBorder(null);
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
@@ -1569,7 +1573,7 @@ public class MainWindow extends javax.swing.JFrame {
         jPanel8.setBackground(new java.awt.Color(246, 144, 84));
 
         BtnHomeCrearFactura.setBackground(new java.awt.Color(246, 144, 84));
-        BtnHomeCrearFactura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Media/home.png"))); // NOI18N
+        BtnHomeCrearFactura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Media/home.png"))); // NOI18N
         BtnHomeCrearFactura.setBorder(null);
 
         TituloCrearFactura.setFont(new java.awt.Font("Segoe UI", 1, 56)); // NOI18N
@@ -1585,7 +1589,7 @@ public class MainWindow extends javax.swing.JFrame {
                 .addComponent(BtnHomeCrearFactura)
                 .addGap(236, 236, 236)
                 .addComponent(TituloCrearFactura)
-                .addContainerGap(370, Short.MAX_VALUE))
+                .addContainerGap(367, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1606,7 +1610,7 @@ public class MainWindow extends javax.swing.JFrame {
         TextoCrearFacturaNombre.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
         TextoCrearFacturaNombre.setForeground(new java.awt.Color(246, 144, 84));
         TextoCrearFacturaNombre.setText("Nombre del cliente");
-        FacturaWindow.add(TextoCrearFacturaNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, -1, -1));
+        FacturaWindow.add(TextoCrearFacturaNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, 190, -1));
 
         InputCrearFacturaNombre.setBackground(new java.awt.Color(218, 240, 234));
         InputCrearFacturaNombre.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
@@ -1630,7 +1634,7 @@ public class MainWindow extends javax.swing.JFrame {
         TextoCrearFacturaCIF.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
         TextoCrearFacturaCIF.setForeground(new java.awt.Color(246, 144, 84));
         TextoCrearFacturaCIF.setText("CIF del cliente");
-        FacturaWindow.add(TextoCrearFacturaCIF, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 320, -1, -1));
+        FacturaWindow.add(TextoCrearFacturaCIF, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 320, 170, -1));
 
         jSeparator49.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator49.setForeground(new java.awt.Color(255, 255, 255));
@@ -1640,7 +1644,7 @@ public class MainWindow extends javax.swing.JFrame {
         TextoCrearFacturaCantidad.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
         TextoCrearFacturaCantidad.setForeground(new java.awt.Color(246, 144, 84));
         TextoCrearFacturaCantidad.setText("Cantidad en euros");
-        FacturaWindow.add(TextoCrearFacturaCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 410, -1, -1));
+        FacturaWindow.add(TextoCrearFacturaCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 410, 180, -1));
 
         InputCrearFacturaCantidad.setBackground(new java.awt.Color(218, 240, 234));
         InputCrearFacturaCantidad.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
@@ -1657,7 +1661,7 @@ public class MainWindow extends javax.swing.JFrame {
         TextoCrearFacturaID.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
         TextoCrearFacturaID.setForeground(new java.awt.Color(246, 144, 84));
         TextoCrearFacturaID.setText("Código único");
-        FacturaWindow.add(TextoCrearFacturaID, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 240, -1, -1));
+        FacturaWindow.add(TextoCrearFacturaID, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 240, 170, -1));
 
         InputCrearFacturaID.setBackground(new java.awt.Color(218, 240, 234));
         InputCrearFacturaID.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
@@ -1680,7 +1684,7 @@ public class MainWindow extends javax.swing.JFrame {
         TextoCrearFacturaFechaPago.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
         TextoCrearFacturaFechaPago.setForeground(new java.awt.Color(246, 144, 84));
         TextoCrearFacturaFechaPago.setText("Fecha de pago");
-        FacturaWindow.add(TextoCrearFacturaFechaPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 320, -1, -1));
+        FacturaWindow.add(TextoCrearFacturaFechaPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 320, 180, -1));
 
         InputCrearFacturaFecha.setBackground(new java.awt.Color(218, 240, 234));
         InputCrearFacturaFecha.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
@@ -1709,7 +1713,7 @@ public class MainWindow extends javax.swing.JFrame {
         TituloCrearFactura1.setText("Crear nómina");
 
         BtnHomeCrearNomina.setBackground(new java.awt.Color(246, 144, 84));
-        BtnHomeCrearNomina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Media/home.png"))); // NOI18N
+        BtnHomeCrearNomina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Media/home.png"))); // NOI18N
         BtnHomeCrearNomina.setBorder(null);
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
@@ -1721,7 +1725,7 @@ public class MainWindow extends javax.swing.JFrame {
                 .addComponent(BtnHomeCrearNomina)
                 .addGap(282, 282, 282)
                 .addComponent(TituloCrearFactura1)
-                .addContainerGap(311, Short.MAX_VALUE))
+                .addContainerGap(309, Short.MAX_VALUE))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1741,7 +1745,7 @@ public class MainWindow extends javax.swing.JFrame {
         TextoCrearNominaImporte.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
         TextoCrearNominaImporte.setForeground(new java.awt.Color(246, 144, 84));
         TextoCrearNominaImporte.setText("Importe");
-        CrearNominaWindow.add(TextoCrearNominaImporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 234, -1, -1));
+        CrearNominaWindow.add(TextoCrearNominaImporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 234, 140, -1));
 
         InputCrearNominaImporte.setBackground(new java.awt.Color(218, 240, 234));
         InputCrearNominaImporte.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
@@ -1758,7 +1762,7 @@ public class MainWindow extends javax.swing.JFrame {
         TextoCrearNominaImporte1.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
         TextoCrearNominaImporte1.setForeground(new java.awt.Color(246, 144, 84));
         TextoCrearNominaImporte1.setText("Descripción");
-        CrearNominaWindow.add(TextoCrearNominaImporte1, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 312, -1, -1));
+        CrearNominaWindow.add(TextoCrearNominaImporte1, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 312, 140, -1));
 
         InputCrearNominaDescripcion.setBackground(new java.awt.Color(218, 240, 234));
         InputCrearNominaDescripcion.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
@@ -1779,7 +1783,7 @@ public class MainWindow extends javax.swing.JFrame {
         TextoCrearNominaFecha.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
         TextoCrearNominaFecha.setForeground(new java.awt.Color(246, 144, 84));
         TextoCrearNominaFecha.setText("Año");
-        CrearNominaWindow.add(TextoCrearNominaFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 393, -1, -1));
+        CrearNominaWindow.add(TextoCrearNominaFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 393, 100, -1));
 
         TituloCrearNomina.setFont(new java.awt.Font("Segoe UI", 1, 56)); // NOI18N
         TituloCrearNomina.setForeground(new java.awt.Color(255, 255, 255));
@@ -1807,7 +1811,7 @@ public class MainWindow extends javax.swing.JFrame {
         TextoCrearNominaMes.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
         TextoCrearNominaMes.setForeground(new java.awt.Color(246, 144, 84));
         TextoCrearNominaMes.setText("Mes");
-        CrearNominaWindow.add(TextoCrearNominaMes, new org.netbeans.lib.awtextra.AbsoluteConstraints(418, 303, -1, -1));
+        CrearNominaWindow.add(TextoCrearNominaMes, new org.netbeans.lib.awtextra.AbsoluteConstraints(418, 303, 100, -1));
 
         jSeparator46.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator46.setForeground(new java.awt.Color(255, 255, 255));
@@ -1817,7 +1821,7 @@ public class MainWindow extends javax.swing.JFrame {
         TextoCrearNominaImporte2.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
         TextoCrearNominaImporte2.setForeground(new java.awt.Color(246, 144, 84));
         TextoCrearNominaImporte2.setText("Codigo único");
-        CrearNominaWindow.add(TextoCrearNominaImporte2, new org.netbeans.lib.awtextra.AbsoluteConstraints(418, 234, -1, -1));
+        CrearNominaWindow.add(TextoCrearNominaImporte2, new org.netbeans.lib.awtextra.AbsoluteConstraints(418, 234, 150, -1));
 
         InputCrearNominaID.setBackground(new java.awt.Color(218, 240, 234));
         InputCrearNominaID.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
@@ -1842,7 +1846,7 @@ public class MainWindow extends javax.swing.JFrame {
         TituloCrearNomina1.setText("Modificar nómina");
 
         BtnHomeModificarNomina.setBackground(new java.awt.Color(246, 144, 84));
-        BtnHomeModificarNomina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Media/home.png"))); // NOI18N
+        BtnHomeModificarNomina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Media/home.png"))); // NOI18N
         BtnHomeModificarNomina.setBorder(null);
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
@@ -1854,7 +1858,7 @@ public class MainWindow extends javax.swing.JFrame {
                 .addComponent(BtnHomeModificarNomina)
                 .addGap(203, 203, 203)
                 .addComponent(TituloCrearNomina1)
-                .addContainerGap(274, Short.MAX_VALUE))
+                .addContainerGap(273, Short.MAX_VALUE))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1875,7 +1879,7 @@ public class MainWindow extends javax.swing.JFrame {
         TextoCrearNominaImporte3.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
         TextoCrearNominaImporte3.setForeground(new java.awt.Color(246, 144, 84));
         TextoCrearNominaImporte3.setText("Importe");
-        ModificarNominaWindow.add(TextoCrearNominaImporte3, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 234, -1, -1));
+        ModificarNominaWindow.add(TextoCrearNominaImporte3, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 234, 130, -1));
 
         InputModificarNominaImporte.setBackground(new java.awt.Color(218, 240, 234));
         InputModificarNominaImporte.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
@@ -1892,7 +1896,7 @@ public class MainWindow extends javax.swing.JFrame {
         TextoCrearNominaImporte4.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
         TextoCrearNominaImporte4.setForeground(new java.awt.Color(246, 144, 84));
         TextoCrearNominaImporte4.setText("Descripción");
-        ModificarNominaWindow.add(TextoCrearNominaImporte4, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 312, -1, -1));
+        ModificarNominaWindow.add(TextoCrearNominaImporte4, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 312, 150, -1));
 
         InputModificarNominaDescripcion.setBackground(new java.awt.Color(218, 240, 234));
         InputModificarNominaDescripcion.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
@@ -1913,7 +1917,7 @@ public class MainWindow extends javax.swing.JFrame {
         TextoCrearNominaFecha1.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
         TextoCrearNominaFecha1.setForeground(new java.awt.Color(246, 144, 84));
         TextoCrearNominaFecha1.setText("Año");
-        ModificarNominaWindow.add(TextoCrearNominaFecha1, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 393, -1, -1));
+        ModificarNominaWindow.add(TextoCrearNominaFecha1, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 393, 100, -1));
 
         BtnModificarNominaFinal.setBackground(new java.awt.Color(29, 78, 138));
         BtnModificarNominaFinal.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
@@ -1938,7 +1942,7 @@ public class MainWindow extends javax.swing.JFrame {
         TextoCrearNominaMes1.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
         TextoCrearNominaMes1.setForeground(new java.awt.Color(246, 144, 84));
         TextoCrearNominaMes1.setText("Mes");
-        ModificarNominaWindow.add(TextoCrearNominaMes1, new org.netbeans.lib.awtextra.AbsoluteConstraints(418, 303, -1, -1));
+        ModificarNominaWindow.add(TextoCrearNominaMes1, new org.netbeans.lib.awtextra.AbsoluteConstraints(418, 303, 110, -1));
 
         jSeparator57.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator57.setForeground(new java.awt.Color(255, 255, 255));
@@ -1948,7 +1952,7 @@ public class MainWindow extends javax.swing.JFrame {
         TextoCrearNominaImporte5.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
         TextoCrearNominaImporte5.setForeground(new java.awt.Color(246, 144, 84));
         TextoCrearNominaImporte5.setText("Codigo único");
-        ModificarNominaWindow.add(TextoCrearNominaImporte5, new org.netbeans.lib.awtextra.AbsoluteConstraints(418, 234, -1, -1));
+        ModificarNominaWindow.add(TextoCrearNominaImporte5, new org.netbeans.lib.awtextra.AbsoluteConstraints(418, 234, 160, -1));
 
         InputModificarNominaID.setBackground(new java.awt.Color(218, 240, 234));
         InputModificarNominaID.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
@@ -1965,6 +1969,11 @@ public class MainWindow extends javax.swing.JFrame {
 
         ModificarPersonaWindow.setBackground(new java.awt.Color(59, 185, 122));
         ModificarPersonaWindow.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        BtnDarDeAltaAtrasModificar.setBackground(new java.awt.Color(246, 144, 84));
+        BtnDarDeAltaAtrasModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Media/arrow.png"))); // NOI18N
+        BtnDarDeAltaAtrasModificar.setBorder(null);
+        ModificarPersonaWindow.add(BtnDarDeAltaAtrasModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 60, 60));
 
         TabbedModificar.setBackground(new java.awt.Color(149, 212, 195));
         TabbedModificar.setForeground(new java.awt.Color(255, 255, 255));
@@ -2099,21 +2108,21 @@ public class MainWindow extends javax.swing.JFrame {
                 .addGroup(PanelModificarJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelModificarJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(PanelModificarJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(TextoAltaJugadorApellido1)
                             .addComponent(jSeparator23)
-                            .addComponent(InputModificarJugadorApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(InputModificarJugadorApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TextoAltaJugadorApellido1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(PanelModificarJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(TextoAltaJugadorNombre1)
                             .addComponent(jSeparator22)
-                            .addComponent(InputModificarJugadorNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)))
+                            .addComponent(InputModificarJugadorNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)
+                            .addComponent(TextoAltaJugadorNombre1, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(PanelModificarJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(TextoAltaJugadorTelefono1)
                         .addComponent(jSeparator24)
-                        .addComponent(InputModificarJugadorTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(InputModificarJugadorTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(TextoAltaJugadorTelefono1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(PanelModificarJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(TextoAltaJugadorEdad1)
                         .addComponent(jSeparator25)
-                        .addComponent(InputModificarJugadorEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(InputModificarJugadorEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(TextoAltaJugadorEdad1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(PanelModificarJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelModificarJugadorLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 436, Short.MAX_VALUE)
@@ -2122,20 +2131,20 @@ public class MainWindow extends javax.swing.JFrame {
                     .addGroup(PanelModificarJugadorLayout.createSequentialGroup()
                         .addGap(107, 107, 107)
                         .addGroup(PanelModificarJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(TextoAltaJugadorDemarcacion1)
-                            .addComponent(TextoAltaJugadorValor2)
                             .addComponent(jSeparator26)
                             .addComponent(InputModificarJugadorValor)
-                            .addComponent(TextoAltaJugadorDNI2)
                             .addComponent(jSeparator27)
                             .addComponent(InputModificarJugadorDNI)
                             .addComponent(ComBoxModificarDemarcacion, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jSeparator28, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jSeparator28, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TextoAltaJugadorValor2, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TextoAltaJugadorDNI2, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TextoAltaJugadorDemarcacion1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(PanelModificarJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(TextoAltaJugadorEstadoFisico1)
                             .addComponent(jSeparator29, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ToggleModificarEstadoFisico, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(ToggleModificarEstadoFisico, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TextoAltaJugadorEstadoFisico1, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(93, 93, 93))))
         );
         PanelModificarJugadorLayout.setVerticalGroup(
@@ -2156,6 +2165,8 @@ public class MainWindow extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSeparator26, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(TextoAltaJugadorEstadoFisico1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PanelModificarJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(PanelModificarJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(PanelModificarJugadorLayout.createSequentialGroup()
@@ -2171,8 +2182,6 @@ public class MainWindow extends javax.swing.JFrame {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jSeparator27, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(PanelModificarJugadorLayout.createSequentialGroup()
-                        .addComponent(TextoAltaJugadorEstadoFisico1)
-                        .addGap(5, 5, 5)
                         .addComponent(ToggleModificarEstadoFisico, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSeparator29, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -2194,7 +2203,7 @@ public class MainWindow extends javax.swing.JFrame {
                                 .addComponent(jSeparator25, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelModificarJugadorLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                                 .addComponent(BtnModificarJugador, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(60, 60, 60))))
                     .addGroup(PanelModificarJugadorLayout.createSequentialGroup()
@@ -2305,33 +2314,33 @@ public class MainWindow extends javax.swing.JFrame {
                     .addGroup(PanelModificarTecnicoLayout.createSequentialGroup()
                         .addGroup(PanelModificarTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(PanelModificarTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(TextoAltaTecnicoTelefono1)
                                 .addComponent(jSeparator32)
-                                .addComponent(InputModificarTecnicoTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(InputModificarTecnicoTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(TextoAltaTecnicoTelefono1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(PanelModificarTecnicoLayout.createSequentialGroup()
                                 .addGroup(PanelModificarTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(PanelModificarTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(TextoAltaTecnicoApellido1)
                                         .addComponent(jSeparator31)
-                                        .addComponent(InputModificarTecnicoApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(InputModificarTecnicoApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(TextoAltaTecnicoApellido1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(PanelModificarTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(TextoAltaTecnicoNombre1)
                                         .addComponent(jSeparator30)
-                                        .addComponent(InputModificarTecnicoNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)))
+                                        .addComponent(InputModificarTecnicoNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)
+                                        .addComponent(TextoAltaTecnicoNombre1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(107, 107, 107)
                                 .addGroup(PanelModificarTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(TextoAltaJugadorValor3)
                                     .addComponent(jSeparator34, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)
-                                    .addComponent(TextoAltaJugadorDNI3)
                                     .addComponent(jSeparator35)
                                     .addComponent(ComboBoxModificarTecnicoEspecialidad, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(ComboBoxModificarTecnicoPuesto, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                    .addComponent(ComboBoxModificarTecnicoPuesto, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(TextoAltaJugadorValor3, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(TextoAltaJugadorDNI3, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(PanelModificarTecnicoLayout.createSequentialGroup()
                         .addGroup(PanelModificarTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(TextoAltaTecnicoDNI1)
                             .addComponent(jSeparator33)
-                            .addComponent(InputModificarTecnicoDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(InputModificarTecnicoDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TextoAltaTecnicoDNI1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 431, Short.MAX_VALUE)
                         .addComponent(BtnModificarTécnico, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(70, 70, 70))))
@@ -2383,7 +2392,7 @@ public class MainWindow extends javax.swing.JFrame {
                         .addComponent(ComboBoxModificarTecnicoEspecialidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(9, 9, 9)
                         .addComponent(jSeparator35, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(68, Short.MAX_VALUE))
+                .addContainerGap(83, Short.MAX_VALUE))
         );
 
         TabbedModificar.addTab("Técnico", PanelModificarTecnico);
@@ -2479,28 +2488,26 @@ public class MainWindow extends javax.swing.JFrame {
                 .addGroup(PanelModificarDirectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(PanelModificarDirectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(PanelModificarDirectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(TextoAltaDirectivoDNI1)
                             .addComponent(jSeparator39)
-                            .addComponent(InputModificarDirectivoDNI, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE))
+                            .addComponent(InputModificarDirectivoDNI, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)
+                            .addComponent(TextoAltaDirectivoDNI1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(PanelModificarDirectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(TextoAltaDirectivoTelefono1)
                             .addComponent(jSeparator38)
-                            .addComponent(InputModificarDirectivoTelefono, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)))
-                    .addGroup(PanelModificarDirectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(PanelModificarDirectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jSeparator37)
-                            .addComponent(InputModificarDirectivoApellido, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)
-                            .addComponent(TextoAltaDirectivoApellido1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(PanelModificarDirectivoLayout.createSequentialGroup()
-                            .addComponent(TextoAltaDirectivoNombre1)
-                            .addGap(143, 143, 143)))
+                            .addComponent(InputModificarDirectivoTelefono, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)
+                            .addComponent(TextoAltaDirectivoTelefono1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jSeparator37)
+                    .addComponent(InputModificarDirectivoApellido, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)
                     .addComponent(InputModificarDirectivoNombre)
-                    .addComponent(jSeparator36))
+                    .addComponent(jSeparator36)
+                    .addGroup(PanelModificarDirectivoLayout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(TextoAltaDirectivoNombre1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TextoAltaDirectivoApellido1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 132, Short.MAX_VALUE)
                 .addGroup(PanelModificarDirectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(TextoAltaDirectivoCargo1)
                     .addComponent(jSeparator40, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(InputModificarDirectivoCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(InputModificarDirectivoCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TextoAltaDirectivoCargo1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(413, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelModificarDirectivoLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -2550,11 +2557,6 @@ public class MainWindow extends javax.swing.JFrame {
         TabbedModificar.addTab("Directivo", PanelModificarDirectivo);
 
         ModificarPersonaWindow.add(TabbedModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 1030, 480));
-
-        BtnDarDeAltaAtrasModificar.setBackground(new java.awt.Color(246, 144, 84));
-        BtnDarDeAltaAtrasModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Media/arrow.png"))); // NOI18N
-        BtnDarDeAltaAtrasModificar.setBorder(null);
-        ModificarPersonaWindow.add(BtnDarDeAltaAtrasModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 60, 60));
 
         jPanel11.setBackground(new java.awt.Color(246, 144, 84));
 

@@ -446,7 +446,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                           <Component id="BtnHome" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="312" max="32767" attributes="0"/>
+                          <EmptySpace pref="377" max="32767" attributes="0"/>
                           <Component id="Text_TituloPlantilla" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="111" max="-2" attributes="0"/>
                       </Group>
@@ -471,7 +471,7 @@
                 <Component class="javax.swing.JButton" name="BtnHome">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Media/home.png"/>
+                      <Image iconType="3" name="/Resources/Media/home.png"/>
                     </Property>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="null"/>
@@ -719,7 +719,7 @@
                       <Color blue="54" green="90" red="f6" type="rgb"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Media/home.png"/>
+                      <Image iconType="3" name="/Resources/Media/home.png"/>
                     </Property>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="null"/>
@@ -906,7 +906,7 @@
                       <Color blue="54" green="90" red="f6" type="rgb"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Media/home.png"/>
+                      <Image iconType="3" name="/Resources/Media/home.png"/>
                     </Property>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="null"/>
@@ -1289,7 +1289,7 @@
                       <Color blue="54" green="90" red="f6" type="rgb"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Media/home.png"/>
+                      <Image iconType="3" name="/Resources/Media/home.png"/>
                     </Property>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="null"/>
@@ -1373,25 +1373,25 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="TextoAltaJugadorApellido" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="jSeparator3" alignment="0" max="32767" attributes="0"/>
                                           <Component id="InputAltaJugadorApellido" alignment="0" min="-2" pref="202" max="-2" attributes="0"/>
+                                          <Component id="TextoAltaJugadorApellido" alignment="0" min="-2" pref="104" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="TextoAltaJugadorNombre" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="jSeparator2" alignment="0" max="32767" attributes="0"/>
                                           <Component id="InputAltaJugadorNombre" alignment="0" pref="202" max="32767" attributes="0"/>
+                                          <Component id="TextoAltaJugadorNombre" alignment="0" min="-2" pref="90" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="TextoAltaJugadorTelefono" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jSeparator4" alignment="0" max="32767" attributes="0"/>
                                       <Component id="InputAltaJugadorTelefono" alignment="0" min="-2" pref="202" max="-2" attributes="0"/>
+                                      <Component id="TextoAltaJugadorTelefono" alignment="0" min="-2" pref="92" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="TextoAltaJugadorEdad" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jSeparator5" alignment="0" max="32767" attributes="0"/>
                                       <Component id="InputAltaJugadorEdad" alignment="0" min="-2" pref="202" max="-2" attributes="0"/>
+                                      <Component id="TextoAltaJugadorEdad" alignment="0" min="-2" pref="66" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -1402,24 +1402,31 @@
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="107" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="TextoAltaJugadorDemarcacion" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="TextoAltaJugadorValor" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jSeparator6" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="InputAltaJugadorValor" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="TextoAltaJugadorDNI" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jSeparator7" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="InputAltaJugadorDNI" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="ComBoxDemarcacion" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jSeparator19" alignment="0" min="-2" pref="202" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="32767" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="TextoAltaJugadorEstadoFisico" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jSeparator20" alignment="0" min="-2" pref="202" max="-2" attributes="0"/>
-                                          <Component id="ToggleEstadoFisico" min="-2" pref="91" max="-2" attributes="0"/>
+                                          <Group type="102" attributes="0">
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="TextoAltaJugadorDemarcacion" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jSeparator6" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="jSeparator7" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="InputAltaJugadorDNI" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="ComBoxDemarcacion" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="jSeparator19" alignment="0" min="-2" pref="202" max="-2" attributes="0"/>
+                                                  <Component id="TextoAltaJugadorDNI" alignment="0" min="-2" pref="82" max="-2" attributes="0"/>
+                                                  <Component id="TextoAltaJugadorValor" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="jSeparator20" alignment="0" min="-2" pref="202" max="-2" attributes="0"/>
+                                                  <Component id="ToggleEstadoFisico" min="-2" pref="91" max="-2" attributes="0"/>
+                                                  <Component id="TextoAltaJugadorEstadoFisico" alignment="0" min="-2" pref="134" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <Component id="InputAltaJugadorValor" min="-2" pref="274" max="-2" attributes="0"/>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                          </Group>
                                       </Group>
-                                      <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -1429,7 +1436,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                   <Group type="102" attributes="0">
                                       <Component id="TextoAltaJugadorNombre" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
@@ -1438,65 +1445,65 @@
                                       <Component id="jSeparator2" min="-2" pref="10" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
-                                      <Component id="TextoAltaJugadorValor" min="-2" max="-2" attributes="0"/>
+                                      <Component id="TextoAltaJugadorValor" max="32767" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="InputAltaJugadorValor" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jSeparator6" min="-2" pref="10" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Component id="TextoAltaJugadorApellido" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="InputAltaJugadorApellido" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jSeparator3" min="-2" pref="10" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" attributes="0">
-                                          <Component id="TextoAltaJugadorDNI" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="InputAltaJugadorDNI" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jSeparator7" min="-2" pref="10" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="TextoAltaJugadorEstadoFisico" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Component id="TextoAltaJugadorDNI" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="InputAltaJugadorDNI" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="jSeparator7" min="-2" pref="10" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <Component id="ToggleEstadoFisico" min="-2" pref="31" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="jSeparator20" min="-2" pref="10" max="-2" attributes="0"/>
+                                          </Group>
                                       </Group>
                                   </Group>
-                                  <Group type="102" attributes="0">
-                                      <Component id="TextoAltaJugadorEstadoFisico" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
-                                      <Component id="ToggleEstadoFisico" min="-2" pref="31" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                                      <Component id="TextoAltaJugadorApellido" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jSeparator20" min="-2" pref="10" max="-2" attributes="0"/>
+                                      <Component id="InputAltaJugadorApellido" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jSeparator3" min="-2" pref="10" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                                       <Component id="TextoAltaJugadorTelefono" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="InputAltaJugadorTelefono" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jSeparator4" min="-2" pref="10" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="TextoAltaJugadorEdad" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="InputAltaJugadorEdad" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="jSeparator5" min="-2" pref="10" max="-2" attributes="0"/>
-                                              <EmptySpace max="32767" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <EmptySpace pref="21" max="32767" attributes="0"/>
-                                              <Component id="BtnCrearJugador" min="-2" pref="78" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="TextoAltaJugadorEdad" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="InputAltaJugadorEdad" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jSeparator5" min="-2" pref="10" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <EmptySpace pref="100" max="32767" attributes="0"/>
+                                      <Component id="BtnCrearJugador" min="-2" pref="78" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="TextoAltaJugadorDemarcacion" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="ComBoxDemarcacion" min="-2" max="-2" attributes="0"/>
@@ -1878,38 +1885,38 @@
                               <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="TextoAltaTecnicoTelefono" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jSeparator15" alignment="0" max="32767" attributes="0"/>
                                       <Component id="InputAltaTecnicoTelefono" alignment="0" min="-2" pref="202" max="-2" attributes="0"/>
+                                      <Component id="TextoAltaTecnicoTelefono" alignment="0" min="-2" pref="105" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                                       <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="TextoAltaTecnicoApellido" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="jSeparator14" alignment="0" max="32767" attributes="0"/>
                                           <Component id="InputAltaTecnicoApellido" alignment="0" min="-2" pref="202" max="-2" attributes="0"/>
+                                          <Component id="TextoAltaTecnicoApellido" alignment="0" min="-2" pref="111" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="TextoAltaTecnicoNombre" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="jSeparator12" alignment="0" max="32767" attributes="0"/>
                                           <Component id="InputAltaTecnicoNombre" alignment="0" min="-2" pref="202" max="-2" attributes="0"/>
+                                          <Component id="TextoAltaTecnicoNombre" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="TextoAltaTecnicoDNI" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jSeparator16" alignment="0" max="32767" attributes="0"/>
                                       <Component id="InputAltaTecnicoDNI" alignment="0" min="-2" pref="202" max="-2" attributes="0"/>
+                                      <Component id="TextoAltaTecnicoDNI" alignment="0" min="-2" pref="89" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="107" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="TextoAltaJugadorValor1" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="jSeparator17" alignment="0" pref="202" max="32767" attributes="0"/>
-                                          <Component id="TextoAltaJugadorDNI1" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="jSeparator18" alignment="0" max="32767" attributes="0"/>
                                           <Component id="ComboBoxTecnicoEspecialidad" alignment="0" max="32767" attributes="0"/>
                                           <Component id="ComboBoxTecnicoPuesto" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="TextoAltaJugadorDNI1" alignment="0" min="-2" pref="136" max="-2" attributes="0"/>
+                                          <Component id="TextoAltaJugadorValor1" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace pref="438" max="32767" attributes="0"/>
                                   </Group>
@@ -1965,7 +1972,7 @@
                                       <Component id="ComboBoxTecnicoEspecialidad" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                                       <Component id="jSeparator18" min="-2" pref="10" max="-2" attributes="0"/>
-                                      <EmptySpace pref="84" max="32767" attributes="0"/>
+                                      <EmptySpace pref="90" max="32767" attributes="0"/>
                                       <Component id="BtnCrearTecnico" min="-2" pref="78" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
                                   </Group>
@@ -2258,42 +2265,40 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="TextoAltaDirectivoNombre" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                               <Component id="InputAltaDirectivoNombre" alignment="0" max="32767" attributes="0"/>
                                               <Component id="jSeparator8" alignment="0" pref="202" max="32767" attributes="0"/>
                                           </Group>
+                                          <Component id="TextoAltaDirectivoNombre" min="-2" pref="108" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="131" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="TextoAltaDirectivoCargo" min="-2" max="-2" attributes="0"/>
                                           <Component id="jSeparator11" min="-2" pref="194" max="-2" attributes="0"/>
                                           <Component id="InputAltaDirectivoCargo" min="-2" pref="202" max="-2" attributes="0"/>
+                                          <Component id="TextoAltaDirectivoCargo" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace pref="414" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="InputAltaDirectivoTelefono" min="-2" pref="202" max="-2" attributes="0"/>
-                                          <Component id="TextoAltaDirectivoApellido" min="-2" max="-2" attributes="0"/>
                                           <Component id="InputAltaDirectivoApellido" min="-2" pref="202" max="-2" attributes="0"/>
+                                          <Component id="TextoAltaDirectivoApellido" alignment="0" min="-2" pref="116" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="1" attributes="0">
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="TextoAltaDirectivoDNI" alignment="0" min="-2" max="-2" attributes="0"/>
                                               <Component id="jSeparator13" alignment="0" max="32767" attributes="0"/>
                                               <Component id="InputAltaDirectivoDNI" alignment="0" min="-2" pref="202" max="-2" attributes="0"/>
                                               <Component id="jSeparator10" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="TextoAltaDirectivoDNI" alignment="0" min="-2" pref="88" max="-2" attributes="0"/>
                                           </Group>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="TextoAltaDirectivoTelefono" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jSeparator9" alignment="0" min="-2" pref="202" max="-2" attributes="0"/>
-                                          </Group>
+                                          <Component id="jSeparator9" min="-2" pref="202" max="-2" attributes="0"/>
+                                          <Component id="TextoAltaDirectivoTelefono" alignment="0" min="-2" pref="121" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace max="32767" attributes="0"/>
+                                      <EmptySpace pref="433" max="32767" attributes="0"/>
                                       <Component id="BtnCrearDirectivo" min="-2" pref="246" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
                                   </Group>
@@ -2331,7 +2336,7 @@
                                       <Component id="InputAltaDirectivoDNI" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jSeparator13" min="-2" pref="10" max="-2" attributes="0"/>
-                                      <EmptySpace pref="87" max="32767" attributes="0"/>
+                                      <EmptySpace pref="111" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="TextoAltaDirectivoCargo" min="-2" max="-2" attributes="0"/>
@@ -2643,7 +2648,7 @@
                       <Color blue="54" green="90" red="f6" type="rgb"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Media/arrow.png"/>
+                      <Image iconType="3" name="/Resources/Media/arrow.png"/>
                     </Property>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="null"/>
@@ -2732,7 +2737,7 @@
                       <Color blue="54" green="90" red="f6" type="rgb"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Media/home.png"/>
+                      <Image iconType="3" name="/Resources/Media/home.png"/>
                     </Property>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="null"/>
@@ -2865,7 +2870,7 @@
                           <Component id="BtnHomeCrearFactura" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="236" max="-2" attributes="0"/>
                           <Component id="TituloCrearFactura" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="370" max="32767" attributes="0"/>
+                          <EmptySpace pref="367" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -2894,7 +2899,7 @@
                       <Color blue="54" green="90" red="f6" type="rgb"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Media/home.png"/>
+                      <Image iconType="3" name="/Resources/Media/home.png"/>
                     </Property>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="null"/>
@@ -2929,7 +2934,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="100" y="240" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="100" y="240" width="190" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -3007,7 +3012,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="100" y="320" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="100" y="320" width="170" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -3041,7 +3046,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="100" y="410" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="100" y="410" width="180" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -3097,7 +3102,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="370" y="240" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="370" y="240" width="170" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -3172,7 +3177,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="370" y="320" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="370" y="320" width="180" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -3264,7 +3269,7 @@
                           <Component id="BtnHomeCrearNomina" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="282" max="-2" attributes="0"/>
                           <Component id="TituloCrearFactura1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="311" max="32767" attributes="0"/>
+                          <EmptySpace pref="309" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -3301,7 +3306,7 @@
                       <Color blue="54" green="90" red="f6" type="rgb"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Media/home.png"/>
+                      <Image iconType="3" name="/Resources/Media/home.png"/>
                     </Property>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="null"/>
@@ -3325,7 +3330,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="116" y="234" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="116" y="234" width="140" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -3381,7 +3386,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="116" y="312" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="116" y="312" width="140" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -3452,7 +3457,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="116" y="393" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="116" y="393" width="100" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -3546,7 +3551,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="418" y="303" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="418" y="303" width="100" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -3580,7 +3585,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="418" y="234" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="418" y="234" width="150" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -3659,7 +3664,7 @@
                           <Component id="BtnHomeModificarNomina" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="203" max="-2" attributes="0"/>
                           <Component id="TituloCrearNomina1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="274" max="32767" attributes="0"/>
+                          <EmptySpace pref="273" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -3699,7 +3704,7 @@
                       <Color blue="54" green="90" red="f6" type="rgb"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Media/home.png"/>
+                      <Image iconType="3" name="/Resources/Media/home.png"/>
                     </Property>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="null"/>
@@ -3723,7 +3728,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="116" y="234" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="116" y="234" width="130" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -3779,7 +3784,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="116" y="312" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="116" y="312" width="150" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -3850,7 +3855,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="116" y="393" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="116" y="393" width="100" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -3930,7 +3935,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="418" y="303" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="418" y="303" width="110" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -3964,7 +3969,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="418" y="234" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="418" y="234" width="160" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -4023,6 +4028,24 @@
             <Property name="useNullLayout" type="boolean" value="false"/>
           </Layout>
           <SubComponents>
+            <Component class="javax.swing.JButton" name="BtnDarDeAltaAtrasModificar">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="54" green="90" red="f6" type="rgb"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Resources/Media/arrow.png"/>
+                </Property>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="null"/>
+                </Property>
+              </Properties>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="40" y="40" width="60" height="60"/>
+                </Constraint>
+              </Constraints>
+            </Component>
             <Container class="javax.swing.JTabbedPane" name="TabbedModificar">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -4069,25 +4092,25 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                                       <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="TextoAltaJugadorApellido1" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="jSeparator23" alignment="0" max="32767" attributes="0"/>
                                           <Component id="InputModificarJugadorApellido" alignment="0" min="-2" pref="202" max="-2" attributes="0"/>
+                                          <Component id="TextoAltaJugadorApellido1" alignment="0" min="-2" pref="130" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="TextoAltaJugadorNombre1" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="jSeparator22" alignment="0" max="32767" attributes="0"/>
                                           <Component id="InputModificarJugadorNombre" alignment="0" pref="202" max="32767" attributes="0"/>
+                                          <Component id="TextoAltaJugadorNombre1" alignment="0" min="-2" pref="133" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="TextoAltaJugadorTelefono1" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jSeparator24" alignment="0" max="32767" attributes="0"/>
                                       <Component id="InputModificarJugadorTelefono" alignment="0" min="-2" pref="202" max="-2" attributes="0"/>
+                                      <Component id="TextoAltaJugadorTelefono1" alignment="0" min="-2" pref="121" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="TextoAltaJugadorEdad1" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jSeparator25" alignment="0" max="32767" attributes="0"/>
                                       <Component id="InputModificarJugadorEdad" alignment="0" min="-2" pref="202" max="-2" attributes="0"/>
+                                      <Component id="TextoAltaJugadorEdad1" alignment="0" min="-2" pref="121" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -4099,21 +4122,21 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="107" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="TextoAltaJugadorDemarcacion1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="TextoAltaJugadorValor2" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="jSeparator26" alignment="0" max="32767" attributes="0"/>
                                           <Component id="InputModificarJugadorValor" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="TextoAltaJugadorDNI2" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="jSeparator27" alignment="0" max="32767" attributes="0"/>
                                           <Component id="InputModificarJugadorDNI" alignment="0" max="32767" attributes="0"/>
                                           <Component id="ComBoxModificarDemarcacion" alignment="0" max="32767" attributes="0"/>
                                           <Component id="jSeparator28" alignment="0" min="-2" pref="202" max="-2" attributes="0"/>
+                                          <Component id="TextoAltaJugadorValor2" alignment="0" min="-2" pref="162" max="-2" attributes="0"/>
+                                          <Component id="TextoAltaJugadorDNI2" alignment="0" min="-2" pref="91" max="-2" attributes="0"/>
+                                          <Component id="TextoAltaJugadorDemarcacion1" alignment="0" min="-2" pref="143" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="32767" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="TextoAltaJugadorEstadoFisico1" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="jSeparator29" alignment="0" min="-2" pref="202" max="-2" attributes="0"/>
                                           <Component id="ToggleModificarEstadoFisico" alignment="0" min="-2" pref="91" max="-2" attributes="0"/>
+                                          <Component id="TextoAltaJugadorEstadoFisico1" alignment="0" min="-2" pref="124" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
                                   </Group>
@@ -4142,6 +4165,8 @@
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
+                              <Component id="TextoAltaJugadorEstadoFisico1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Group type="103" alignment="1" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
@@ -4160,8 +4185,6 @@
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
-                                      <Component id="TextoAltaJugadorEstadoFisico1" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                                       <Component id="ToggleModificarEstadoFisico" min="-2" pref="31" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jSeparator29" min="-2" pref="10" max="-2" attributes="0"/>
@@ -4186,7 +4209,7 @@
                                               <EmptySpace max="32767" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="1" attributes="0">
-                                              <EmptySpace pref="21" max="32767" attributes="0"/>
+                                              <EmptySpace pref="25" max="32767" attributes="0"/>
                                               <Component id="BtnModificarJugador" min="-2" pref="78" max="-2" attributes="0"/>
                                               <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
                                           </Group>
@@ -4577,31 +4600,31 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="TextoAltaTecnicoTelefono1" alignment="0" min="-2" max="-2" attributes="0"/>
                                               <Component id="jSeparator32" alignment="0" max="32767" attributes="0"/>
                                               <Component id="InputModificarTecnicoTelefono" alignment="0" min="-2" pref="202" max="-2" attributes="0"/>
+                                              <Component id="TextoAltaTecnicoTelefono1" alignment="0" min="-2" pref="115" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
                                               <Group type="103" groupAlignment="1" attributes="0">
                                                   <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                                                      <Component id="TextoAltaTecnicoApellido1" alignment="0" min="-2" max="-2" attributes="0"/>
                                                       <Component id="jSeparator31" alignment="0" max="32767" attributes="0"/>
                                                       <Component id="InputModificarTecnicoApellido" alignment="0" min="-2" pref="202" max="-2" attributes="0"/>
+                                                      <Component id="TextoAltaTecnicoApellido1" alignment="0" min="-2" pref="128" max="-2" attributes="0"/>
                                                   </Group>
                                                   <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                                                      <Component id="TextoAltaTecnicoNombre1" alignment="0" min="-2" max="-2" attributes="0"/>
                                                       <Component id="jSeparator30" alignment="0" max="32767" attributes="0"/>
                                                       <Component id="InputModificarTecnicoNombre" alignment="0" pref="202" max="32767" attributes="0"/>
+                                                      <Component id="TextoAltaTecnicoNombre1" alignment="0" min="-2" pref="110" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
                                               <EmptySpace min="-2" pref="107" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="TextoAltaJugadorValor3" alignment="0" min="-2" max="-2" attributes="0"/>
                                                   <Component id="jSeparator34" alignment="0" pref="202" max="32767" attributes="0"/>
-                                                  <Component id="TextoAltaJugadorDNI3" alignment="0" min="-2" max="-2" attributes="0"/>
                                                   <Component id="jSeparator35" alignment="0" max="32767" attributes="0"/>
                                                   <Component id="ComboBoxModificarTecnicoEspecialidad" alignment="0" max="32767" attributes="0"/>
                                                   <Component id="ComboBoxModificarTecnicoPuesto" alignment="1" max="32767" attributes="0"/>
+                                                  <Component id="TextoAltaJugadorValor3" alignment="0" min="-2" pref="95" max="-2" attributes="0"/>
+                                                  <Component id="TextoAltaJugadorDNI3" alignment="0" min="-2" pref="152" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                       </Group>
@@ -4609,9 +4632,9 @@
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="TextoAltaTecnicoDNI1" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="jSeparator33" alignment="0" max="32767" attributes="0"/>
                                           <Component id="InputModificarTecnicoDNI" alignment="0" min="-2" pref="202" max="-2" attributes="0"/>
+                                          <Component id="TextoAltaTecnicoDNI1" alignment="0" min="-2" pref="87" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace pref="431" max="32767" attributes="0"/>
                                       <Component id="BtnModificarTécnico" min="-2" pref="246" max="-2" attributes="0"/>
@@ -4676,7 +4699,7 @@
                                       <Component id="jSeparator35" min="-2" pref="10" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="68" max="32767" attributes="0"/>
+                              <EmptySpace pref="83" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -4966,35 +4989,31 @@
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                                       <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="TextoAltaDirectivoDNI1" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="jSeparator39" alignment="0" max="32767" attributes="0"/>
                                           <Component id="InputModificarDirectivoDNI" alignment="0" pref="202" max="32767" attributes="0"/>
+                                          <Component id="TextoAltaDirectivoDNI1" alignment="0" min="-2" pref="84" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="TextoAltaDirectivoTelefono1" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="jSeparator38" alignment="0" max="32767" attributes="0"/>
                                           <Component id="InputModificarDirectivoTelefono" alignment="0" pref="202" max="32767" attributes="0"/>
+                                          <Component id="TextoAltaDirectivoTelefono1" alignment="0" min="-2" pref="119" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                      <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="jSeparator37" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="InputModificarDirectivoApellido" alignment="0" pref="202" max="32767" attributes="0"/>
-                                          <Component id="TextoAltaDirectivoApellido1" alignment="0" min="-2" pref="89" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="TextoAltaDirectivoNombre1" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="143" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
+                                  <Component id="jSeparator37" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="InputModificarDirectivoApellido" alignment="0" pref="202" max="32767" attributes="0"/>
                                   <Component id="InputModificarDirectivoNombre" alignment="0" max="32767" attributes="0"/>
                                   <Component id="jSeparator36" max="32767" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                                      <Component id="TextoAltaDirectivoNombre1" min="-2" pref="113" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="TextoAltaDirectivoApellido1" alignment="0" min="-2" pref="131" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace pref="132" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="TextoAltaDirectivoCargo1" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jSeparator40" alignment="0" min="-2" pref="194" max="-2" attributes="0"/>
                                   <Component id="InputModificarDirectivoCargo" alignment="0" min="-2" pref="202" max="-2" attributes="0"/>
+                                  <Component id="TextoAltaDirectivoCargo1" alignment="0" min="-2" pref="84" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace pref="413" max="32767" attributes="0"/>
                           </Group>
@@ -5292,24 +5311,6 @@
                 </Container>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JButton" name="BtnDarDeAltaAtrasModificar">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="54" green="90" red="f6" type="rgb"/>
-                </Property>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Media/arrow.png"/>
-                </Property>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="null"/>
-                </Property>
-              </Properties>
-              <Constraints>
-                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="40" y="40" width="60" height="60"/>
-                </Constraint>
-              </Constraints>
-            </Component>
             <Container class="javax.swing.JPanel" name="jPanel11">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
