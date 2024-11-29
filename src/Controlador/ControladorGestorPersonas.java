@@ -44,8 +44,6 @@ public class ControladorGestorPersonas extends ControladorEscenas {
                 if (filaSeleccionada != -1) {
                     
                     personaSeleccionada = Gestor.getInstancia().recuperarPersona(filaSeleccionada + 1);
-                    //Debug en consola
-                    System.out.println("Se ha recuperado a " + personaSeleccionada.getNombre());
                     
                 }
             }

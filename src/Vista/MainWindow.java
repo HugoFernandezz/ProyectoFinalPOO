@@ -40,8 +40,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class MainWindow extends javax.swing.JFrame {
 
-    Color colorTexto = new Color(241, 255, 231);
-    Color backgroundColor = new Color(59, 185, 122);
+    Color colorTexto = new Color(0, 0, 0);
     Icon icon = new ImageIcon(getClass().getResource("/Media/IconBall.png"));
 
     List<JTextField> camposAltaInputsYModificar;
@@ -77,48 +76,47 @@ public class MainWindow extends javax.swing.JFrame {
 
         PanelRaiz = new javax.swing.JPanel();
         HomeWindow = new javax.swing.JPanel();
-        Text_Titulo = new javax.swing.JLabel();
-        Separador = new javax.swing.JSeparator();
         BtnGestionarPlantilla = new javax.swing.JButton();
         BtnJugarPartido = new javax.swing.JButton();
         BtnGastos = new javax.swing.JButton();
         BtnImprimir = new javax.swing.JButton();
-        Separador1 = new javax.swing.JSeparator();
-        Panel_RightSide = new javax.swing.JPanel();
-        Text_PlantillaActual = new javax.swing.JLabel();
         PanelPlantilla = new javax.swing.JScrollPane();
         TablaContenidoPlantilla = new javax.swing.JTable();
+        jPanel1 = new javax.swing.JPanel();
+        Text_PlantillaActual = new javax.swing.JLabel();
+        Text_Titulo = new javax.swing.JLabel();
         GestionWindow = new javax.swing.JPanel();
         BtnDarDeAltaPersona = new javax.swing.JButton();
         BtnEliminarPersona = new javax.swing.JButton();
         BtnModificarDatos = new javax.swing.JButton();
-        BarraTop = new javax.swing.JPanel();
-        BtnHome = new javax.swing.JButton();
         PanelGestionPersonas = new javax.swing.JScrollPane();
         TablaGestionPersonas = new javax.swing.JTable();
+        jPanel2 = new javax.swing.JPanel();
+        BtnHome = new javax.swing.JButton();
+        Text_PlantillaActual1 = new javax.swing.JLabel();
         JugarPartidoWindow = new javax.swing.JPanel();
         VisitanteGolesSpinner = new javax.swing.JSpinner();
         LocalGolesSpinner = new javax.swing.JSpinner();
         GolesLocalLabel = new javax.swing.JLabel();
         GolesVisitanteLabel = new javax.swing.JLabel();
-        PartidoLabel = new javax.swing.JLabel();
         BtnTerminarPartido = new javax.swing.JButton();
-        BtnHomePartido = new javax.swing.JButton();
         TextoNombreEquipoRival = new javax.swing.JLabel();
         InputNombreRival = new javax.swing.JTextField();
         jSeparator41 = new javax.swing.JSeparator();
         RadioBtnVisitante = new javax.swing.JRadioButton();
+        jPanel3 = new javax.swing.JPanel();
+        BtnHomePartido = new javax.swing.JButton();
+        PartidoLabel = new javax.swing.JLabel();
         GastosWindow = new javax.swing.JPanel();
-        BtnHomeGastos = new javax.swing.JButton();
         PanelGastosPersonas = new javax.swing.JScrollPane();
         TablaGastosPersonas = new javax.swing.JTable();
         BtnCrearNomina = new javax.swing.JButton();
         BtnCrearFactura = new javax.swing.JButton();
         BtnModificarConceptoNomina = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        GestionLabel = new javax.swing.JLabel();
+        BtnHomeGastos = new javax.swing.JButton();
         ImprimirWindow = new javax.swing.JPanel();
-        BtnHomeImprimir = new javax.swing.JButton();
-        TituloImprimir = new javax.swing.JLabel();
-        jSeparator59 = new javax.swing.JSeparator();
         labelPDF = new javax.swing.JLabel();
         labelTXT = new javax.swing.JLabel();
         BtnImprimirTXTSortedNombre = new javax.swing.JButton();
@@ -137,9 +135,10 @@ public class MainWindow extends javax.swing.JFrame {
         BtnImprimirPDFSortedNombre = new javax.swing.JButton();
         BtnImprimirPDFResultadosEquipo = new javax.swing.JButton();
         BtnImprimirPDFNominas = new javax.swing.JButton();
+        jPanel5 = new javax.swing.JPanel();
+        BtnHomeImprimir = new javax.swing.JButton();
+        TituloImprimir = new javax.swing.JLabel();
         DarDeAltaWindow = new javax.swing.JPanel();
-        Text_DarDeAlta = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
         TabbedDarDeAlta = new javax.swing.JTabbedPane();
         PanelAltaJugador = new javax.swing.JPanel();
         TextoAltaJugadorNombre = new javax.swing.JLabel();
@@ -204,15 +203,22 @@ public class MainWindow extends javax.swing.JFrame {
         TextoAltaDirectivoCargo = new javax.swing.JLabel();
         jSeparator11 = new javax.swing.JSeparator();
         InputAltaDirectivoNombre = new javax.swing.JTextField();
+        jPanel6 = new javax.swing.JPanel();
+        GestionLabel1 = new javax.swing.JLabel();
         BtnDarDeAltaAtras = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
         ModificarConceptoWindow = new javax.swing.JPanel();
+        jPanel7 = new javax.swing.JPanel();
+        TituloImprimir1 = new javax.swing.JLabel();
+        BtnHomeModificarConceptos = new javax.swing.JButton();
         PanelConceptosNomina = new javax.swing.JScrollPane();
         TablaConceptosNomina = new javax.swing.JTable();
         TituloModificarConceptos = new javax.swing.JLabel();
         BtnModificarConcepto = new javax.swing.JButton();
         BtnEliminarConcepto = new javax.swing.JButton();
-        BtnHomeModificarConceptos = new javax.swing.JButton();
         FacturaWindow = new javax.swing.JPanel();
+        jPanel8 = new javax.swing.JPanel();
+        BtnHomeCrearFactura = new javax.swing.JButton();
         TituloCrearFactura = new javax.swing.JLabel();
         TextoCrearFacturaNombre = new javax.swing.JLabel();
         InputCrearFacturaNombre = new javax.swing.JTextField();
@@ -231,8 +237,10 @@ public class MainWindow extends javax.swing.JFrame {
         InputCrearFacturaFecha = new javax.swing.JTextField();
         jSeparator52 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
-        BtnHomeCrearFactura = new javax.swing.JButton();
         CrearNominaWindow = new javax.swing.JPanel();
+        jPanel9 = new javax.swing.JPanel();
+        TituloCrearFactura1 = new javax.swing.JLabel();
+        BtnHomeCrearNomina = new javax.swing.JButton();
         TextoCrearNominaImporte = new javax.swing.JLabel();
         InputCrearNominaImporte = new javax.swing.JTextField();
         jSeparator42 = new javax.swing.JSeparator();
@@ -242,7 +250,6 @@ public class MainWindow extends javax.swing.JFrame {
         jSeparator44 = new javax.swing.JSeparator();
         TextoCrearNominaFecha = new javax.swing.JLabel();
         TituloCrearNomina = new javax.swing.JLabel();
-        jSeparator45 = new javax.swing.JSeparator();
         BtnCrearNominaFinal = new javax.swing.JButton();
         InputCrearNominaAno = new javax.swing.JTextField();
         ComBoxMesNomina = new javax.swing.JComboBox<>();
@@ -251,8 +258,10 @@ public class MainWindow extends javax.swing.JFrame {
         TextoCrearNominaImporte2 = new javax.swing.JLabel();
         InputCrearNominaID = new javax.swing.JTextField();
         jSeparator47 = new javax.swing.JSeparator();
-        BtnHomeCrearNomina = new javax.swing.JButton();
         ModificarNominaWindow = new javax.swing.JPanel();
+        jPanel10 = new javax.swing.JPanel();
+        TituloCrearNomina1 = new javax.swing.JLabel();
+        BtnHomeModificarNomina = new javax.swing.JButton();
         TextoCrearNominaImporte3 = new javax.swing.JLabel();
         InputModificarNominaImporte = new javax.swing.JTextField();
         jSeparator53 = new javax.swing.JSeparator();
@@ -261,8 +270,6 @@ public class MainWindow extends javax.swing.JFrame {
         jSeparator54 = new javax.swing.JSeparator();
         jSeparator55 = new javax.swing.JSeparator();
         TextoCrearNominaFecha1 = new javax.swing.JLabel();
-        TituloCrearNomina1 = new javax.swing.JLabel();
-        jSeparator56 = new javax.swing.JSeparator();
         BtnModificarNominaFinal = new javax.swing.JButton();
         InputModificarNominaAno = new javax.swing.JTextField();
         ComBoxMesNominaModificar = new javax.swing.JComboBox<>();
@@ -271,7 +278,6 @@ public class MainWindow extends javax.swing.JFrame {
         TextoCrearNominaImporte5 = new javax.swing.JLabel();
         InputModificarNominaID = new javax.swing.JTextField();
         jSeparator58 = new javax.swing.JSeparator();
-        BtnHomeModificarNomina = new javax.swing.JButton();
         ModificarPersonaWindow = new javax.swing.JPanel();
         Text_DarDeAlta1 = new javax.swing.JLabel();
         jSeparator21 = new javax.swing.JSeparator();
@@ -340,26 +346,20 @@ public class MainWindow extends javax.swing.JFrame {
         jSeparator40 = new javax.swing.JSeparator();
         InputModificarDirectivoNombre = new javax.swing.JTextField();
         BtnDarDeAltaAtrasModificar = new javax.swing.JButton();
+        jPanel11 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         PanelRaiz.setLayout(new java.awt.CardLayout());
 
-        HomeWindow.setBackground(new java.awt.Color(59, 185, 122));
+        HomeWindow.setBackground(new java.awt.Color(244, 244, 244));
+        HomeWindow.setForeground(new java.awt.Color(227, 227, 227));
         HomeWindow.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         HomeWindow.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Text_Titulo.setFont(new java.awt.Font("Poppins SemiBold", 1, 56)); // NOI18N
-        Text_Titulo.setForeground(new java.awt.Color(255, 255, 255));
-        Text_Titulo.setText("¡Gestiona tu club!");
-        HomeWindow.add(Text_Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 570, 60));
-
-        Separador.setForeground(new java.awt.Color(255, 255, 255));
-        HomeWindow.add(Separador, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 610, 20));
-
         BtnGestionarPlantilla.setBackground(new java.awt.Color(59, 185, 122));
         BtnGestionarPlantilla.setFont(new java.awt.Font("Poppins SemiBold", 1, 36)); // NOI18N
-        BtnGestionarPlantilla.setForeground(new java.awt.Color(241, 255, 231));
+        BtnGestionarPlantilla.setForeground(new java.awt.Color(0, 0, 0));
         BtnGestionarPlantilla.setText("Gestionar plantilla");
         BtnGestionarPlantilla.setBorder(null);
         BtnGestionarPlantilla.setContentAreaFilled(false);
@@ -368,7 +368,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         BtnJugarPartido.setBackground(new java.awt.Color(59, 185, 122));
         BtnJugarPartido.setFont(new java.awt.Font("Poppins SemiBold", 1, 36)); // NOI18N
-        BtnJugarPartido.setForeground(new java.awt.Color(241, 255, 231));
+        BtnJugarPartido.setForeground(new java.awt.Color(0, 0, 0));
         BtnJugarPartido.setText("Jugar partido");
         BtnJugarPartido.setBorder(null);
         BtnJugarPartido.setContentAreaFilled(false);
@@ -376,7 +376,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         BtnGastos.setBackground(new java.awt.Color(59, 185, 122));
         BtnGastos.setFont(new java.awt.Font("Poppins SemiBold", 1, 36)); // NOI18N
-        BtnGastos.setForeground(new java.awt.Color(241, 255, 231));
+        BtnGastos.setForeground(new java.awt.Color(0, 0, 0));
         BtnGastos.setText("Gastos");
         BtnGastos.setBorder(null);
         BtnGastos.setContentAreaFilled(false);
@@ -384,30 +384,21 @@ public class MainWindow extends javax.swing.JFrame {
 
         BtnImprimir.setBackground(new java.awt.Color(59, 185, 122));
         BtnImprimir.setFont(new java.awt.Font("Poppins SemiBold", 1, 36)); // NOI18N
-        BtnImprimir.setForeground(new java.awt.Color(241, 255, 231));
+        BtnImprimir.setForeground(new java.awt.Color(0, 0, 0));
         BtnImprimir.setText("Imprimir");
         BtnImprimir.setBorder(null);
         BtnImprimir.setContentAreaFilled(false);
         HomeWindow.add(BtnImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 470, -1, -1));
 
-        Separador1.setForeground(new java.awt.Color(255, 255, 255));
-        HomeWindow.add(Separador1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 610, 20));
-
-        Panel_RightSide.setBackground(new java.awt.Color(50, 162, 135));
-        Panel_RightSide.setForeground(new java.awt.Color(50, 162, 135));
-
-        Text_PlantillaActual.setFont(new java.awt.Font("Poppins SemiBold", 1, 24)); // NOI18N
-        Text_PlantillaActual.setForeground(new java.awt.Color(255, 255, 255));
-        Text_PlantillaActual.setText("Plantilla actual");
-
-        PanelPlantilla.setBackground(new java.awt.Color(50, 162, 135));
+        PanelPlantilla.setBackground(new java.awt.Color(246, 144, 84));
         PanelPlantilla.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        PanelPlantilla.setForeground(new java.awt.Color(50, 162, 135));
+        PanelPlantilla.setForeground(new java.awt.Color(0, 0, 0));
         PanelPlantilla.setToolTipText("");
         PanelPlantilla.setFont(new java.awt.Font("Poppins SemiBold", 1, 12)); // NOI18N
 
-        TablaContenidoPlantilla.setBackground(new java.awt.Color(50, 162, 135));
+        TablaContenidoPlantilla.setBackground(new java.awt.Color(246, 144, 84));
         TablaContenidoPlantilla.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        TablaContenidoPlantilla.setForeground(new java.awt.Color(0, 0, 0));
         TablaContenidoPlantilla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -427,78 +418,78 @@ public class MainWindow extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        TablaContenidoPlantilla.setGridColor(new java.awt.Color(169, 253, 172));
+        TablaContenidoPlantilla.setGridColor(new java.awt.Color(0, 0, 0));
         TablaContenidoPlantilla.setSelectionBackground(new java.awt.Color(255, 255, 255));
         TablaContenidoPlantilla.setSelectionForeground(new java.awt.Color(255, 255, 255));
         TablaContenidoPlantilla.setShowGrid(false);
         TablaContenidoPlantilla.setShowHorizontalLines(true);
         PanelPlantilla.setViewportView(TablaContenidoPlantilla);
 
-        javax.swing.GroupLayout Panel_RightSideLayout = new javax.swing.GroupLayout(Panel_RightSide);
-        Panel_RightSide.setLayout(Panel_RightSideLayout);
-        Panel_RightSideLayout.setHorizontalGroup(
-            Panel_RightSideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Panel_RightSideLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Text_PlantillaActual, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(60, 60, 60))
-            .addGroup(Panel_RightSideLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(PanelPlantilla, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(17, Short.MAX_VALUE))
+        HomeWindow.add(PanelPlantilla, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 150, 400, 440));
+
+        jPanel1.setBackground(new java.awt.Color(246, 144, 84));
+
+        Text_PlantillaActual.setFont(new java.awt.Font("Poppins SemiBold", 1, 24)); // NOI18N
+        Text_PlantillaActual.setForeground(new java.awt.Color(255, 255, 255));
+        Text_PlantillaActual.setText("Plantilla actual");
+
+        Text_Titulo.setFont(new java.awt.Font("Poppins SemiBold", 1, 56)); // NOI18N
+        Text_Titulo.setForeground(new java.awt.Color(255, 255, 255));
+        Text_Titulo.setText("¡Gestiona tu club!");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addComponent(Text_Titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(75, 75, 75)
+                .addComponent(Text_PlantillaActual)
+                .addContainerGap(140, Short.MAX_VALUE))
         );
-        Panel_RightSideLayout.setVerticalGroup(
-            Panel_RightSideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Panel_RightSideLayout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addComponent(Text_PlantillaActual, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(PanelPlantilla, javax.swing.GroupLayout.PREFERRED_SIZE, 461, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(38, Short.MAX_VALUE))
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(44, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(Text_Titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(Text_PlantillaActual)
+                        .addGap(18, 18, 18))))
         );
 
-        HomeWindow.add(Panel_RightSide, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 0, 350, 600));
+        HomeWindow.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 130));
 
         PanelRaiz.add(HomeWindow, "card2");
 
-        GestionWindow.setBackground(new java.awt.Color(59, 185, 122));
+        GestionWindow.setBackground(new java.awt.Color(218, 240, 234));
         GestionWindow.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        BtnDarDeAltaPersona.setBackground(new java.awt.Color(29, 78, 138));
+        BtnDarDeAltaPersona.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
+        BtnDarDeAltaPersona.setForeground(new java.awt.Color(255, 255, 255));
         BtnDarDeAltaPersona.setText("Dar de alta");
-        GestionWindow.add(BtnDarDeAltaPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, 150, 70));
+        GestionWindow.add(BtnDarDeAltaPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, 180, 110));
 
+        BtnEliminarPersona.setBackground(new java.awt.Color(15, 42, 75));
+        BtnEliminarPersona.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
+        BtnEliminarPersona.setForeground(new java.awt.Color(246, 144, 84));
         BtnEliminarPersona.setText("Eliminar persona");
-        GestionWindow.add(BtnEliminarPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 420, 170, 30));
+        BtnEliminarPersona.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        GestionWindow.add(BtnEliminarPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(85, 510, 170, 30));
 
+        BtnModificarDatos.setBackground(new java.awt.Color(29, 78, 138));
+        BtnModificarDatos.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
+        BtnModificarDatos.setForeground(new java.awt.Color(255, 255, 255));
         BtnModificarDatos.setText("Modificar persona");
-        GestionWindow.add(BtnModificarDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 290, 150, 80));
+        GestionWindow.add(BtnModificarDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 350, 180, 110));
 
-        BarraTop.setBackground(new java.awt.Color(50, 162, 135));
-
-        BtnHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Media/home.png"))); // NOI18N
-        BtnHome.setBorder(null);
-        BtnHome.setBorderPainted(false);
-        BtnHome.setContentAreaFilled(false);
-
-        javax.swing.GroupLayout BarraTopLayout = new javax.swing.GroupLayout(BarraTop);
-        BarraTop.setLayout(BarraTopLayout);
-        BarraTopLayout.setHorizontalGroup(
-            BarraTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BarraTopLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(BtnHome, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(911, Short.MAX_VALUE))
-        );
-        BarraTopLayout.setVerticalGroup(
-            BarraTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BarraTopLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(BtnHome, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-
-        GestionWindow.add(BarraTop, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 70));
-
+        TablaGestionPersonas.setBackground(new java.awt.Color(246, 144, 84));
+        TablaGestionPersonas.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
+        TablaGestionPersonas.setForeground(new java.awt.Color(0, 0, 0));
         TablaGestionPersonas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -518,134 +509,138 @@ public class MainWindow extends javax.swing.JFrame {
             TablaGestionPersonas.getColumnModel().getColumn(3).setHeaderValue("Title 4");
         }
 
-        GestionWindow.add(PanelGestionPersonas, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 120, 630, 440));
+        GestionWindow.add(PanelGestionPersonas, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 150, 630, 440));
+
+        jPanel2.setBackground(new java.awt.Color(246, 144, 84));
+
+        BtnHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Media/home.png"))); // NOI18N
+        BtnHome.setBorder(null);
+        BtnHome.setBorderPainted(false);
+        BtnHome.setContentAreaFilled(false);
+
+        Text_PlantillaActual1.setFont(new java.awt.Font("Poppins SemiBold", 1, 24)); // NOI18N
+        Text_PlantillaActual1.setForeground(new java.awt.Color(255, 255, 255));
+        Text_PlantillaActual1.setText("Gestiona la plantilla");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addComponent(BtnHome)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 454, Short.MAX_VALUE)
+                .addComponent(Text_PlantillaActual1)
+                .addGap(230, 230, 230))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(BtnHome)
+                .addContainerGap(48, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Text_PlantillaActual1)
+                .addGap(33, 33, 33))
+        );
+
+        GestionWindow.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 130));
 
         PanelRaiz.add(GestionWindow, "card3");
 
-        JugarPartidoWindow.setBackground(new java.awt.Color(59, 185, 122));
+        JugarPartidoWindow.setBackground(new java.awt.Color(218, 240, 234));
+        JugarPartidoWindow.setMinimumSize(new java.awt.Dimension(1030, 590));
+        JugarPartidoWindow.setPreferredSize(new java.awt.Dimension(1030, 590));
+        JugarPartidoWindow.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         VisitanteGolesSpinner.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        JugarPartidoWindow.add(VisitanteGolesSpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 290, -1, 45));
 
         LocalGolesSpinner.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        JugarPartidoWindow.add(LocalGolesSpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 290, -1, 45));
 
-        GolesLocalLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        GolesLocalLabel.setForeground(new java.awt.Color(255, 255, 255));
+        GolesLocalLabel.setFont(new java.awt.Font("Poppins SemiBold", 0, 18)); // NOI18N
+        GolesLocalLabel.setForeground(new java.awt.Color(246, 144, 84));
         GolesLocalLabel.setText("Goles rivales");
+        JugarPartidoWindow.add(GolesLocalLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(606, 253, 128, -1));
 
-        GolesVisitanteLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        GolesVisitanteLabel.setForeground(new java.awt.Color(255, 255, 255));
+        GolesVisitanteLabel.setBackground(new java.awt.Color(246, 144, 84));
+        GolesVisitanteLabel.setFont(new java.awt.Font("Poppins SemiBold", 0, 18)); // NOI18N
+        GolesVisitanteLabel.setForeground(new java.awt.Color(246, 144, 84));
         GolesVisitanteLabel.setText("Tus goles");
+        JugarPartidoWindow.add(GolesVisitanteLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(327, 254, 89, -1));
 
-        PartidoLabel.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        BtnTerminarPartido.setBackground(new java.awt.Color(29, 78, 138));
+        BtnTerminarPartido.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
+        BtnTerminarPartido.setForeground(new java.awt.Color(255, 255, 255));
+        BtnTerminarPartido.setText("Terminar partido");
+        JugarPartidoWindow.add(BtnTerminarPartido, new org.netbeans.lib.awtextra.AbsoluteConstraints(791, 479, 170, 69));
+
+        TextoNombreEquipoRival.setBackground(new java.awt.Color(255, 255, 255));
+        TextoNombreEquipoRival.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
+        TextoNombreEquipoRival.setForeground(new java.awt.Color(246, 144, 84));
+        TextoNombreEquipoRival.setText("Nombre del equipo rival");
+        JugarPartidoWindow.add(TextoNombreEquipoRival, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 413, 191, -1));
+
+        InputNombreRival.setBackground(new java.awt.Color(218, 240, 234));
+        InputNombreRival.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
+        InputNombreRival.setForeground(new java.awt.Color(107, 107, 107));
+        InputNombreRival.setText("Inserte el nombre del equipo rival...");
+        InputNombreRival.setBorder(null);
+        JugarPartidoWindow.add(InputNombreRival, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 441, -1, -1));
+
+        jSeparator41.setBackground(new java.awt.Color(255, 255, 255));
+        jSeparator41.setForeground(new java.awt.Color(255, 255, 255));
+        JugarPartidoWindow.add(jSeparator41, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 466, 244, 10));
+
+        RadioBtnVisitante.setBackground(new java.awt.Color(218, 240, 234));
+        RadioBtnVisitante.setFont(new java.awt.Font("Poppins SemiBold", 0, 18)); // NOI18N
+        RadioBtnVisitante.setForeground(new java.awt.Color(246, 144, 84));
+        RadioBtnVisitante.setText("¿Eres visitante?");
+        JugarPartidoWindow.add(RadioBtnVisitante, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 150, -1, -1));
+
+        jPanel3.setBackground(new java.awt.Color(246, 144, 84));
+
+        BtnHomePartido.setBackground(new java.awt.Color(246, 144, 84));
+        BtnHomePartido.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Media/home.png"))); // NOI18N
+        BtnHomePartido.setBorder(null);
+
+        PartidoLabel.setFont(new java.awt.Font("Poppins SemiBold", 0, 48)); // NOI18N
         PartidoLabel.setForeground(new java.awt.Color(255, 255, 255));
         PartidoLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         PartidoLabel.setText("Partido");
 
-        BtnTerminarPartido.setText("Terminar partido");
-
-        BtnHomePartido.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Media/home.png"))); // NOI18N
-
-        TextoNombreEquipoRival.setBackground(new java.awt.Color(255, 255, 255));
-        TextoNombreEquipoRival.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
-        TextoNombreEquipoRival.setForeground(new java.awt.Color(255, 255, 255));
-        TextoNombreEquipoRival.setText("Nombre del equipo rival");
-
-        InputNombreRival.setBackground(new java.awt.Color(59, 185, 122));
-        InputNombreRival.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
-        InputNombreRival.setForeground(new java.awt.Color(204, 204, 204));
-        InputNombreRival.setText("Inserte el nombre del equipo rival...");
-        InputNombreRival.setBorder(null);
-
-        jSeparator41.setBackground(new java.awt.Color(255, 255, 255));
-        jSeparator41.setForeground(new java.awt.Color(255, 255, 255));
-
-        RadioBtnVisitante.setBackground(new java.awt.Color(59, 185, 122));
-        RadioBtnVisitante.setForeground(new java.awt.Color(255, 255, 255));
-        RadioBtnVisitante.setText("¿Eres visitante?");
-
-        javax.swing.GroupLayout JugarPartidoWindowLayout = new javax.swing.GroupLayout(JugarPartidoWindow);
-        JugarPartidoWindow.setLayout(JugarPartidoWindowLayout);
-        JugarPartidoWindowLayout.setHorizontalGroup(
-            JugarPartidoWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JugarPartidoWindowLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(BtnTerminarPartido, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(93, 93, 93))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JugarPartidoWindowLayout.createSequentialGroup()
-                .addGap(61, 61, 61)
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(46, 46, 46)
                 .addComponent(BtnHomePartido)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 200, Short.MAX_VALUE)
-                .addGroup(JugarPartidoWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(PartidoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(JugarPartidoWindowLayout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addComponent(GolesVisitanteLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(190, 190, 190)
-                        .addComponent(GolesLocalLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(296, 296, 296))
-            .addGroup(JugarPartidoWindowLayout.createSequentialGroup()
-                .addGroup(JugarPartidoWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(JugarPartidoWindowLayout.createSequentialGroup()
-                        .addGap(380, 380, 380)
-                        .addGroup(JugarPartidoWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(InputNombreRival, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TextoNombreEquipoRival, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSeparator41, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(JugarPartidoWindowLayout.createSequentialGroup()
-                        .addGap(400, 400, 400)
-                        .addComponent(RadioBtnVisitante))
-                    .addGroup(JugarPartidoWindowLayout.createSequentialGroup()
-                        .addGap(303, 303, 303)
-                        .addComponent(LocalGolesSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(222, 222, 222)
-                        .addComponent(VisitanteGolesSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(232, 232, 232)
+                .addComponent(PartidoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(364, Short.MAX_VALUE))
         );
-        JugarPartidoWindowLayout.setVerticalGroup(
-            JugarPartidoWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JugarPartidoWindowLayout.createSequentialGroup()
-                .addGroup(JugarPartidoWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(JugarPartidoWindowLayout.createSequentialGroup()
-                        .addGap(53, 53, 53)
-                        .addComponent(PartidoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(JugarPartidoWindowLayout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addComponent(BtnHomePartido)))
-                .addGap(18, 18, 18)
-                .addComponent(RadioBtnVisitante)
-                .addGroup(JugarPartidoWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(JugarPartidoWindowLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
-                        .addComponent(GolesLocalLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(JugarPartidoWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(VisitanteGolesSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(LocalGolesSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(78, 78, 78)
-                        .addComponent(TextoNombreEquipoRival)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(InputNombreRival, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator41, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(3, 3, 3)
-                        .addComponent(BtnTerminarPartido, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(62, 62, 62))
-                    .addGroup(JugarPartidoWindowLayout.createSequentialGroup()
-                        .addGap(96, 96, 96)
-                        .addComponent(GolesVisitanteLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(PartidoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BtnHomePartido))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
+
+        JugarPartidoWindow.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 130));
 
         PanelRaiz.add(JugarPartidoWindow, "card6");
 
-        GastosWindow.setBackground(new java.awt.Color(59, 185, 122));
+        GastosWindow.setBackground(new java.awt.Color(218, 240, 234));
         GastosWindow.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        BtnHomeGastos.setBackground(new java.awt.Color(59, 185, 122));
-        BtnHomeGastos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Media/home.png"))); // NOI18N
-        BtnHomeGastos.setBorder(null);
-        GastosWindow.add(BtnHomeGastos, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 42, 53, -1));
-
+        TablaGastosPersonas.setBackground(new java.awt.Color(246, 144, 84));
+        TablaGastosPersonas.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
         TablaGastosPersonas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -656,139 +651,218 @@ public class MainWindow extends javax.swing.JFrame {
         ));
         PanelGastosPersonas.setViewportView(TablaGastosPersonas);
 
-        GastosWindow.add(PanelGastosPersonas, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 100, 630, 440));
+        GastosWindow.add(PanelGastosPersonas, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 150, 630, 440));
 
+        BtnCrearNomina.setBackground(new java.awt.Color(29, 78, 138));
+        BtnCrearNomina.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
+        BtnCrearNomina.setForeground(new java.awt.Color(255, 255, 255));
         BtnCrearNomina.setText("Crear nómina/s");
-        GastosWindow.add(BtnCrearNomina, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 209, 217, 58));
+        GastosWindow.add(BtnCrearNomina, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, 217, 58));
 
+        BtnCrearFactura.setBackground(new java.awt.Color(29, 78, 138));
+        BtnCrearFactura.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
+        BtnCrearFactura.setForeground(new java.awt.Color(255, 255, 255));
         BtnCrearFactura.setText("Crear factura");
-        GastosWindow.add(BtnCrearFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 302, 217, 62));
+        GastosWindow.add(BtnCrearFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 300, 217, 62));
 
+        BtnModificarConceptoNomina.setBackground(new java.awt.Color(29, 78, 138));
+        BtnModificarConceptoNomina.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
+        BtnModificarConceptoNomina.setForeground(new java.awt.Color(255, 255, 255));
         BtnModificarConceptoNomina.setText("Modificar concepto de nómina");
-        GastosWindow.add(BtnModificarConceptoNomina, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 407, 217, 60));
+        GastosWindow.add(BtnModificarConceptoNomina, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 450, 280, 60));
+
+        jPanel4.setBackground(new java.awt.Color(246, 144, 84));
+
+        GestionLabel.setFont(new java.awt.Font("Poppins SemiBold", 0, 48)); // NOI18N
+        GestionLabel.setForeground(new java.awt.Color(255, 255, 255));
+        GestionLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        GestionLabel.setText("Gestionar gastos");
+
+        BtnHomeGastos.setBackground(new java.awt.Color(246, 144, 84));
+        BtnHomeGastos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Media/home.png"))); // NOI18N
+        BtnHomeGastos.setBorder(null);
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addComponent(BtnHomeGastos, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 142, Short.MAX_VALUE)
+                .addComponent(GestionLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(223, 223, 223))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(38, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(BtnHomeGastos)
+                    .addComponent(GestionLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26))
+        );
+
+        GastosWindow.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 130));
 
         PanelRaiz.add(GastosWindow, "card7");
 
-        ImprimirWindow.setBackground(new java.awt.Color(59, 185, 122));
+        ImprimirWindow.setBackground(new java.awt.Color(218, 240, 234));
         ImprimirWindow.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        BtnHomeImprimir.setBackground(new java.awt.Color(59, 185, 122));
-        BtnHomeImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Media/home.png"))); // NOI18N
-        BtnHomeImprimir.setBorder(null);
-        ImprimirWindow.add(BtnHomeImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 42, 53, -1));
-
-        TituloImprimir.setFont(new java.awt.Font("Segoe UI", 1, 56)); // NOI18N
-        TituloImprimir.setForeground(new java.awt.Color(255, 255, 255));
-        TituloImprimir.setText("Imprimir listados");
-        ImprimirWindow.add(TituloImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(269, 51, -1, -1));
-
-        jSeparator59.setForeground(new java.awt.Color(255, 255, 255));
-        ImprimirWindow.add(jSeparator59, new org.netbeans.lib.awtextra.AbsoluteConstraints(152, 133, 738, 10));
-
         labelPDF.setFont(new java.awt.Font("Poppins SemiBold", 0, 18)); // NOI18N
-        labelPDF.setForeground(new java.awt.Color(255, 255, 255));
+        labelPDF.setForeground(new java.awt.Color(29, 78, 138));
         labelPDF.setText("Ficheros PDF");
-        ImprimirWindow.add(labelPDF, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 180, 120, 58));
+        ImprimirWindow.add(labelPDF, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 180, 120, 58));
 
         labelTXT.setFont(new java.awt.Font("Poppins SemiBold", 0, 18)); // NOI18N
-        labelTXT.setForeground(new java.awt.Color(255, 255, 255));
+        labelTXT.setForeground(new java.awt.Color(29, 78, 138));
         labelTXT.setText("Ficheros de texto (.txt)");
         ImprimirWindow.add(labelTXT, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 180, 210, 58));
 
+        BtnImprimirTXTSortedNombre.setBackground(new java.awt.Color(29, 78, 138));
+        BtnImprimirTXTSortedNombre.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
+        BtnImprimirTXTSortedNombre.setForeground(new java.awt.Color(255, 255, 255));
         BtnImprimirTXTSortedNombre.setText("Empleados eliminados");
         ImprimirWindow.add(BtnImprimirTXTSortedNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 340, 220, 53));
 
+        BtnImprimirTXTSortedDNI.setBackground(new java.awt.Color(29, 78, 138));
+        BtnImprimirTXTSortedDNI.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
+        BtnImprimirTXTSortedDNI.setForeground(new java.awt.Color(255, 255, 255));
         BtnImprimirTXTSortedDNI.setText("Empleados activos");
         ImprimirWindow.add(BtnImprimirTXTSortedDNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 250, 220, 53));
 
         jLabel2.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel2.setText("Listado de empleados despedidos ordenados");
         jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         ImprimirWindow.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 350, 30));
 
         jLabel3.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Listado de empleados activos ordenados por DNI");
         ImprimirWindow.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 380, 33));
 
         jLabel4.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel4.setText("Listado de resultados del equipo de una temporada");
         jLabel4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         ImprimirWindow.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 440, 380, 40));
 
+        BtnImprimirTXTResultadosEquipo.setBackground(new java.awt.Color(29, 78, 138));
+        BtnImprimirTXTResultadosEquipo.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
+        BtnImprimirTXTResultadosEquipo.setForeground(new java.awt.Color(255, 255, 255));
         BtnImprimirTXTResultadosEquipo.setText("Resultados del equipo");
         ImprimirWindow.add(BtnImprimirTXTResultadosEquipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 430, 220, 53));
 
         jLabel5.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel5.setText("Listado de nominas generadas");
         jLabel5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         ImprimirWindow.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 530, 310, 40));
 
+        BtnImprimirTXTNominas.setBackground(new java.awt.Color(29, 78, 138));
+        BtnImprimirTXTNominas.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
+        BtnImprimirTXTNominas.setForeground(new java.awt.Color(255, 255, 255));
         BtnImprimirTXTNominas.setText("Empleados eliminados");
         ImprimirWindow.add(BtnImprimirTXTNominas, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 520, 220, 53));
 
-        jSeparator60.setForeground(new java.awt.Color(255, 255, 255));
+        jSeparator60.setForeground(new java.awt.Color(246, 144, 84));
         ImprimirWindow.add(jSeparator60, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 500, 960, 10));
 
         jLabel6.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel6.setText(" por nombre y apellido");
         ImprimirWindow.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, -1, -1));
 
-        jSeparator61.setForeground(new java.awt.Color(255, 255, 255));
+        jSeparator61.setForeground(new java.awt.Color(246, 144, 84));
         ImprimirWindow.add(jSeparator61, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 960, 10));
 
-        jSeparator62.setForeground(new java.awt.Color(255, 255, 255));
+        jSeparator62.setForeground(new java.awt.Color(246, 144, 84));
         ImprimirWindow.add(jSeparator62, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 410, 960, 10));
 
+        BtnImprimirPDFSortedDNI.setBackground(new java.awt.Color(29, 78, 138));
+        BtnImprimirPDFSortedDNI.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
+        BtnImprimirPDFSortedDNI.setForeground(new java.awt.Color(255, 255, 255));
         BtnImprimirPDFSortedDNI.setText("Empleados activos");
         ImprimirWindow.add(BtnImprimirPDFSortedDNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 250, 220, 53));
 
+        BtnImprimirPDFSortedNombre.setBackground(new java.awt.Color(29, 78, 138));
+        BtnImprimirPDFSortedNombre.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
+        BtnImprimirPDFSortedNombre.setForeground(new java.awt.Color(255, 255, 255));
         BtnImprimirPDFSortedNombre.setText("Empleados eliminados");
         ImprimirWindow.add(BtnImprimirPDFSortedNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 340, 220, 53));
 
+        BtnImprimirPDFResultadosEquipo.setBackground(new java.awt.Color(29, 78, 138));
+        BtnImprimirPDFResultadosEquipo.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
+        BtnImprimirPDFResultadosEquipo.setForeground(new java.awt.Color(255, 255, 255));
         BtnImprimirPDFResultadosEquipo.setText("Resultados del equipo");
         ImprimirWindow.add(BtnImprimirPDFResultadosEquipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 430, 220, 53));
 
+        BtnImprimirPDFNominas.setBackground(new java.awt.Color(29, 78, 138));
+        BtnImprimirPDFNominas.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
+        BtnImprimirPDFNominas.setForeground(new java.awt.Color(255, 255, 255));
         BtnImprimirPDFNominas.setText("Empleados eliminados");
         ImprimirWindow.add(BtnImprimirPDFNominas, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 520, 220, 53));
 
+        jPanel5.setBackground(new java.awt.Color(246, 144, 84));
+
+        BtnHomeImprimir.setBackground(new java.awt.Color(246, 144, 84));
+        BtnHomeImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Media/home.png"))); // NOI18N
+        BtnHomeImprimir.setBorder(null);
+
+        TituloImprimir.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        TituloImprimir.setForeground(new java.awt.Color(255, 255, 255));
+        TituloImprimir.setText("Imprimir listados");
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addComponent(BtnHomeImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(217, 217, 217)
+                .addComponent(TituloImprimir)
+                .addContainerGap(332, Short.MAX_VALUE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addContainerGap(38, Short.MAX_VALUE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(TituloImprimir)
+                    .addComponent(BtnHomeImprimir))
+                .addGap(28, 28, 28))
+        );
+
+        ImprimirWindow.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 130));
+
         PanelRaiz.add(ImprimirWindow, "card12");
 
-        DarDeAltaWindow.setBackground(new java.awt.Color(50, 162, 135));
+        DarDeAltaWindow.setBackground(new java.awt.Color(187, 187, 187));
         DarDeAltaWindow.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Text_DarDeAlta.setFont(new java.awt.Font("Poppins SemiBold", 1, 65)); // NOI18N
-        Text_DarDeAlta.setForeground(new java.awt.Color(255, 255, 255));
-        Text_DarDeAlta.setText("Dar de alta");
-        DarDeAltaWindow.add(Text_DarDeAlta, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 20, -1, -1));
-
-        jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
-        DarDeAltaWindow.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 110, 450, 10));
-
-        TabbedDarDeAlta.setBackground(new java.awt.Color(59, 185, 122));
+        TabbedDarDeAlta.setBackground(new java.awt.Color(149, 212, 195));
         TabbedDarDeAlta.setForeground(new java.awt.Color(255, 255, 255));
         TabbedDarDeAlta.setFont(new java.awt.Font("Poppins", 1, 12)); // NOI18N
 
-        PanelAltaJugador.setBackground(new java.awt.Color(59, 185, 122));
+        PanelAltaJugador.setBackground(new java.awt.Color(218, 240, 234));
         PanelAltaJugador.setForeground(new java.awt.Color(169, 253, 172));
         PanelAltaJugador.setToolTipText("");
 
         TextoAltaJugadorNombre.setBackground(new java.awt.Color(255, 255, 255));
         TextoAltaJugadorNombre.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
-        TextoAltaJugadorNombre.setForeground(new java.awt.Color(255, 255, 255));
+        TextoAltaJugadorNombre.setForeground(new java.awt.Color(246, 144, 84));
         TextoAltaJugadorNombre.setText("Nombre");
 
-        InputAltaJugadorNombre.setBackground(new java.awt.Color(59, 185, 122));
+        InputAltaJugadorNombre.setBackground(new java.awt.Color(218, 240, 234));
         InputAltaJugadorNombre.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
-        InputAltaJugadorNombre.setForeground(new java.awt.Color(204, 204, 204));
+        InputAltaJugadorNombre.setForeground(new java.awt.Color(107, 107, 107));
         InputAltaJugadorNombre.setText("Inserte el nombre...");
         InputAltaJugadorNombre.setBorder(null);
 
@@ -797,12 +871,12 @@ public class MainWindow extends javax.swing.JFrame {
 
         TextoAltaJugadorApellido.setBackground(new java.awt.Color(255, 255, 255));
         TextoAltaJugadorApellido.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
-        TextoAltaJugadorApellido.setForeground(new java.awt.Color(255, 255, 255));
+        TextoAltaJugadorApellido.setForeground(new java.awt.Color(246, 144, 84));
         TextoAltaJugadorApellido.setText("Apellidos");
 
-        InputAltaJugadorApellido.setBackground(new java.awt.Color(169, 253, 172));
+        InputAltaJugadorApellido.setBackground(new java.awt.Color(218, 240, 234));
         InputAltaJugadorApellido.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
-        InputAltaJugadorApellido.setForeground(new java.awt.Color(204, 204, 204));
+        InputAltaJugadorApellido.setForeground(new java.awt.Color(107, 107, 107));
         InputAltaJugadorApellido.setText("Inserte el apellido...");
         InputAltaJugadorApellido.setBorder(null);
 
@@ -811,12 +885,12 @@ public class MainWindow extends javax.swing.JFrame {
 
         TextoAltaJugadorTelefono.setBackground(new java.awt.Color(255, 255, 255));
         TextoAltaJugadorTelefono.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
-        TextoAltaJugadorTelefono.setForeground(new java.awt.Color(255, 255, 255));
+        TextoAltaJugadorTelefono.setForeground(new java.awt.Color(246, 144, 84));
         TextoAltaJugadorTelefono.setText("Teléfono");
 
-        InputAltaJugadorTelefono.setBackground(new java.awt.Color(169, 253, 172));
+        InputAltaJugadorTelefono.setBackground(new java.awt.Color(218, 240, 234));
         InputAltaJugadorTelefono.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
-        InputAltaJugadorTelefono.setForeground(new java.awt.Color(204, 204, 204));
+        InputAltaJugadorTelefono.setForeground(new java.awt.Color(107, 107, 107));
         InputAltaJugadorTelefono.setText("Inserte el teléfono...");
         InputAltaJugadorTelefono.setBorder(null);
 
@@ -825,12 +899,12 @@ public class MainWindow extends javax.swing.JFrame {
 
         TextoAltaJugadorEdad.setBackground(new java.awt.Color(255, 255, 255));
         TextoAltaJugadorEdad.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
-        TextoAltaJugadorEdad.setForeground(new java.awt.Color(255, 255, 255));
+        TextoAltaJugadorEdad.setForeground(new java.awt.Color(246, 144, 84));
         TextoAltaJugadorEdad.setText("Edad");
 
-        InputAltaJugadorEdad.setBackground(new java.awt.Color(169, 253, 172));
+        InputAltaJugadorEdad.setBackground(new java.awt.Color(218, 240, 234));
         InputAltaJugadorEdad.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
-        InputAltaJugadorEdad.setForeground(new java.awt.Color(204, 204, 204));
+        InputAltaJugadorEdad.setForeground(new java.awt.Color(107, 107, 107));
         InputAltaJugadorEdad.setText("Inserte la edad...");
         InputAltaJugadorEdad.setBorder(null);
 
@@ -839,12 +913,12 @@ public class MainWindow extends javax.swing.JFrame {
 
         TextoAltaJugadorValor.setBackground(new java.awt.Color(255, 255, 255));
         TextoAltaJugadorValor.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
-        TextoAltaJugadorValor.setForeground(new java.awt.Color(255, 255, 255));
+        TextoAltaJugadorValor.setForeground(new java.awt.Color(246, 144, 84));
         TextoAltaJugadorValor.setText("Valor de mercado");
 
-        InputAltaJugadorValor.setBackground(new java.awt.Color(169, 253, 172));
+        InputAltaJugadorValor.setBackground(new java.awt.Color(218, 240, 234));
         InputAltaJugadorValor.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
-        InputAltaJugadorValor.setForeground(new java.awt.Color(204, 204, 204));
+        InputAltaJugadorValor.setForeground(new java.awt.Color(107, 107, 107));
         InputAltaJugadorValor.setText("Inserte el valor de mercado...");
         InputAltaJugadorValor.setBorder(null);
 
@@ -853,38 +927,38 @@ public class MainWindow extends javax.swing.JFrame {
 
         TextoAltaJugadorDNI.setBackground(new java.awt.Color(255, 255, 255));
         TextoAltaJugadorDNI.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
-        TextoAltaJugadorDNI.setForeground(new java.awt.Color(255, 255, 255));
+        TextoAltaJugadorDNI.setForeground(new java.awt.Color(246, 144, 84));
         TextoAltaJugadorDNI.setText("DNI");
 
-        InputAltaJugadorDNI.setBackground(new java.awt.Color(169, 253, 172));
+        InputAltaJugadorDNI.setBackground(new java.awt.Color(218, 240, 234));
         InputAltaJugadorDNI.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
-        InputAltaJugadorDNI.setForeground(new java.awt.Color(204, 204, 204));
+        InputAltaJugadorDNI.setForeground(new java.awt.Color(107, 107, 107));
         InputAltaJugadorDNI.setText("Inserte el DNI...");
         InputAltaJugadorDNI.setBorder(null);
 
         jSeparator7.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator7.setForeground(new java.awt.Color(255, 255, 255));
 
-        BtnCrearJugador.setBackground(new java.awt.Color(59, 185, 122));
-        BtnCrearJugador.setFont(new java.awt.Font("Poppins", 1, 24)); // NOI18N
+        BtnCrearJugador.setBackground(new java.awt.Color(29, 78, 138));
+        BtnCrearJugador.setFont(new java.awt.Font("Poppins SemiBold", 1, 24)); // NOI18N
         BtnCrearJugador.setForeground(new java.awt.Color(255, 255, 255));
         BtnCrearJugador.setText("Crear jugador");
         BtnCrearJugador.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         TextoAltaJugadorDemarcacion.setBackground(new java.awt.Color(255, 255, 255));
         TextoAltaJugadorDemarcacion.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
-        TextoAltaJugadorDemarcacion.setForeground(new java.awt.Color(255, 255, 255));
+        TextoAltaJugadorDemarcacion.setForeground(new java.awt.Color(246, 144, 84));
         TextoAltaJugadorDemarcacion.setText("Demarcacion");
 
         jSeparator19.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator19.setForeground(new java.awt.Color(255, 255, 255));
 
-        ComBoxDemarcacion.setBackground(new java.awt.Color(50, 162, 135));
+        ComBoxDemarcacion.setBackground(new java.awt.Color(255, 255, 255));
         ComBoxDemarcacion.setBorder(null);
 
         TextoAltaJugadorEstadoFisico.setBackground(new java.awt.Color(255, 255, 255));
         TextoAltaJugadorEstadoFisico.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
-        TextoAltaJugadorEstadoFisico.setForeground(new java.awt.Color(255, 255, 255));
+        TextoAltaJugadorEstadoFisico.setForeground(new java.awt.Color(246, 144, 84));
         TextoAltaJugadorEstadoFisico.setText("Estado fisico");
 
         jSeparator20.setBackground(new java.awt.Color(255, 255, 255));
@@ -922,7 +996,7 @@ public class MainWindow extends javax.swing.JFrame {
                         .addComponent(InputAltaJugadorEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(PanelAltaJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelAltaJugadorLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 406, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 436, Short.MAX_VALUE)
                         .addComponent(BtnCrearJugador, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(65, 65, 65))
                     .addGroup(PanelAltaJugadorLayout.createSequentialGroup()
@@ -1014,16 +1088,16 @@ public class MainWindow extends javax.swing.JFrame {
 
         TabbedDarDeAlta.addTab("Jugador", PanelAltaJugador);
 
-        PanelAltaTecnico.setBackground(new java.awt.Color(169, 253, 172));
+        PanelAltaTecnico.setBackground(new java.awt.Color(218, 240, 234));
 
         TextoAltaTecnicoNombre.setBackground(new java.awt.Color(255, 255, 255));
         TextoAltaTecnicoNombre.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
-        TextoAltaTecnicoNombre.setForeground(new java.awt.Color(255, 255, 255));
+        TextoAltaTecnicoNombre.setForeground(new java.awt.Color(246, 144, 84));
         TextoAltaTecnicoNombre.setText("Nombre");
 
-        InputAltaTecnicoNombre.setBackground(new java.awt.Color(169, 253, 172));
+        InputAltaTecnicoNombre.setBackground(new java.awt.Color(218, 240, 234));
         InputAltaTecnicoNombre.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
-        InputAltaTecnicoNombre.setForeground(new java.awt.Color(204, 204, 204));
+        InputAltaTecnicoNombre.setForeground(new java.awt.Color(107, 107, 107));
         InputAltaTecnicoNombre.setText("Inserte el nombre...");
         InputAltaTecnicoNombre.setBorder(null);
 
@@ -1032,12 +1106,12 @@ public class MainWindow extends javax.swing.JFrame {
 
         TextoAltaTecnicoApellido.setBackground(new java.awt.Color(255, 255, 255));
         TextoAltaTecnicoApellido.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
-        TextoAltaTecnicoApellido.setForeground(new java.awt.Color(255, 255, 255));
+        TextoAltaTecnicoApellido.setForeground(new java.awt.Color(246, 144, 84));
         TextoAltaTecnicoApellido.setText("Apellidos");
 
-        InputAltaTecnicoApellido.setBackground(new java.awt.Color(169, 253, 172));
+        InputAltaTecnicoApellido.setBackground(new java.awt.Color(218, 240, 234));
         InputAltaTecnicoApellido.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
-        InputAltaTecnicoApellido.setForeground(new java.awt.Color(204, 204, 204));
+        InputAltaTecnicoApellido.setForeground(new java.awt.Color(107, 107, 107));
         InputAltaTecnicoApellido.setText("Inserte el apellido...");
         InputAltaTecnicoApellido.setBorder(null);
 
@@ -1046,12 +1120,12 @@ public class MainWindow extends javax.swing.JFrame {
 
         TextoAltaTecnicoTelefono.setBackground(new java.awt.Color(255, 255, 255));
         TextoAltaTecnicoTelefono.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
-        TextoAltaTecnicoTelefono.setForeground(new java.awt.Color(255, 255, 255));
+        TextoAltaTecnicoTelefono.setForeground(new java.awt.Color(246, 144, 84));
         TextoAltaTecnicoTelefono.setText("Teléfono");
 
-        InputAltaTecnicoTelefono.setBackground(new java.awt.Color(169, 253, 172));
+        InputAltaTecnicoTelefono.setBackground(new java.awt.Color(218, 240, 234));
         InputAltaTecnicoTelefono.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
-        InputAltaTecnicoTelefono.setForeground(new java.awt.Color(204, 204, 204));
+        InputAltaTecnicoTelefono.setForeground(new java.awt.Color(107, 107, 107));
         InputAltaTecnicoTelefono.setText("Inserte el teléfono...");
         InputAltaTecnicoTelefono.setBorder(null);
 
@@ -1060,12 +1134,12 @@ public class MainWindow extends javax.swing.JFrame {
 
         TextoAltaTecnicoDNI.setBackground(new java.awt.Color(255, 255, 255));
         TextoAltaTecnicoDNI.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
-        TextoAltaTecnicoDNI.setForeground(new java.awt.Color(255, 255, 255));
+        TextoAltaTecnicoDNI.setForeground(new java.awt.Color(246, 144, 84));
         TextoAltaTecnicoDNI.setText("DNI");
 
-        InputAltaTecnicoDNI.setBackground(new java.awt.Color(169, 253, 172));
+        InputAltaTecnicoDNI.setBackground(new java.awt.Color(218, 240, 234));
         InputAltaTecnicoDNI.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
-        InputAltaTecnicoDNI.setForeground(new java.awt.Color(204, 204, 204));
+        InputAltaTecnicoDNI.setForeground(new java.awt.Color(107, 107, 107));
         InputAltaTecnicoDNI.setText("Inserte el DNI...");
         InputAltaTecnicoDNI.setBorder(null);
 
@@ -1074,7 +1148,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         TextoAltaJugadorValor1.setBackground(new java.awt.Color(255, 255, 255));
         TextoAltaJugadorValor1.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
-        TextoAltaJugadorValor1.setForeground(new java.awt.Color(255, 255, 255));
+        TextoAltaJugadorValor1.setForeground(new java.awt.Color(246, 144, 84));
         TextoAltaJugadorValor1.setText("Puesto");
 
         jSeparator17.setBackground(new java.awt.Color(255, 255, 255));
@@ -1082,17 +1156,23 @@ public class MainWindow extends javax.swing.JFrame {
 
         TextoAltaJugadorDNI1.setBackground(new java.awt.Color(255, 255, 255));
         TextoAltaJugadorDNI1.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
-        TextoAltaJugadorDNI1.setForeground(new java.awt.Color(255, 255, 255));
+        TextoAltaJugadorDNI1.setForeground(new java.awt.Color(246, 144, 84));
         TextoAltaJugadorDNI1.setText("Especialidad");
 
         jSeparator18.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator18.setForeground(new java.awt.Color(255, 255, 255));
 
-        BtnCrearTecnico.setBackground(new java.awt.Color(59, 185, 122));
-        BtnCrearTecnico.setFont(new java.awt.Font("Poppins", 1, 24)); // NOI18N
+        BtnCrearTecnico.setBackground(new java.awt.Color(29, 78, 138));
+        BtnCrearTecnico.setFont(new java.awt.Font("Poppins SemiBold", 1, 24)); // NOI18N
         BtnCrearTecnico.setForeground(new java.awt.Color(255, 255, 255));
         BtnCrearTecnico.setText("Crear técnico");
         BtnCrearTecnico.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        ComboBoxTecnicoEspecialidad.setBackground(new java.awt.Color(255, 255, 255));
+        ComboBoxTecnicoEspecialidad.setForeground(new java.awt.Color(107, 107, 107));
+
+        ComboBoxTecnicoPuesto.setBackground(new java.awt.Color(255, 255, 255));
+        ComboBoxTecnicoPuesto.setForeground(new java.awt.Color(107, 107, 107));
 
         javax.swing.GroupLayout PanelAltaTecnicoLayout = new javax.swing.GroupLayout(PanelAltaTecnico);
         PanelAltaTecnico.setLayout(PanelAltaTecnicoLayout);
@@ -1101,60 +1181,51 @@ public class MainWindow extends javax.swing.JFrame {
             .addGroup(PanelAltaTecnicoLayout.createSequentialGroup()
                 .addGap(81, 81, 81)
                 .addGroup(PanelAltaTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PanelAltaTecnicoLayout.createSequentialGroup()
-                        .addGroup(PanelAltaTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(PanelAltaTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(TextoAltaTecnicoTelefono)
-                                .addComponent(jSeparator15)
-                                .addComponent(InputAltaTecnicoTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(PanelAltaTecnicoLayout.createSequentialGroup()
-                                .addGroup(PanelAltaTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(PanelAltaTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(TextoAltaTecnicoApellido)
-                                        .addComponent(jSeparator14)
-                                        .addComponent(InputAltaTecnicoApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(PanelAltaTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(TextoAltaTecnicoNombre)
-                                        .addComponent(jSeparator12)
-                                        .addComponent(InputAltaTecnicoNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)))
-                                .addGap(107, 107, 107)
-                                .addGroup(PanelAltaTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(TextoAltaJugadorValor1)
-                                    .addComponent(jSeparator17, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)
-                                    .addComponent(TextoAltaJugadorDNI1)
-                                    .addComponent(jSeparator18)
-                                    .addComponent(ComboBoxTecnicoEspecialidad, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(ComboBoxTecnicoPuesto, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(PanelAltaTecnicoLayout.createSequentialGroup()
+                    .addGroup(PanelAltaTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(TextoAltaTecnicoTelefono)
+                        .addComponent(jSeparator15)
+                        .addComponent(InputAltaTecnicoTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PanelAltaTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(PanelAltaTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(TextoAltaTecnicoDNI)
-                            .addComponent(jSeparator16)
-                            .addComponent(InputAltaTecnicoDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 401, Short.MAX_VALUE)
+                            .addComponent(TextoAltaTecnicoApellido)
+                            .addComponent(jSeparator14)
+                            .addComponent(InputAltaTecnicoApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(PanelAltaTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(TextoAltaTecnicoNombre)
+                            .addComponent(jSeparator12)
+                            .addComponent(InputAltaTecnicoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(PanelAltaTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(TextoAltaTecnicoDNI)
+                        .addComponent(jSeparator16)
+                        .addComponent(InputAltaTecnicoDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(PanelAltaTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelAltaTecnicoLayout.createSequentialGroup()
+                        .addGap(107, 107, 107)
+                        .addGroup(PanelAltaTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(TextoAltaJugadorValor1)
+                            .addComponent(jSeparator17, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)
+                            .addComponent(TextoAltaJugadorDNI1)
+                            .addComponent(jSeparator18)
+                            .addComponent(ComboBoxTecnicoEspecialidad, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(ComboBoxTecnicoPuesto, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(438, Short.MAX_VALUE))
+                    .addGroup(PanelAltaTecnicoLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(BtnCrearTecnico, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(70, 70, 70))))
+                        .addGap(66, 66, 66))))
         );
         PanelAltaTecnicoLayout.setVerticalGroup(
             PanelAltaTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelAltaTecnicoLayout.createSequentialGroup()
                 .addGap(62, 62, 62)
-                .addGroup(PanelAltaTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(PanelAltaTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelAltaTecnicoLayout.createSequentialGroup()
                         .addComponent(TextoAltaTecnicoNombre)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(InputAltaTecnicoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator12, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(PanelAltaTecnicoLayout.createSequentialGroup()
-                        .addComponent(TextoAltaJugadorValor1)
-                        .addGap(9, 9, 9)
-                        .addComponent(ComboBoxTecnicoPuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jSeparator17, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(PanelAltaTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PanelAltaTecnicoLayout.createSequentialGroup()
+                        .addComponent(jSeparator12, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(TextoAltaTecnicoApellido)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(InputAltaTecnicoApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1167,35 +1238,41 @@ public class MainWindow extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSeparator15, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(PanelAltaTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(PanelAltaTecnicoLayout.createSequentialGroup()
-                                .addComponent(TextoAltaTecnicoDNI)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(InputAltaTecnicoDNI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jSeparator16, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(BtnCrearTecnico, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(TextoAltaTecnicoDNI)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(InputAltaTecnicoDNI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSeparator16, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(PanelAltaTecnicoLayout.createSequentialGroup()
+                        .addComponent(TextoAltaJugadorValor1)
+                        .addGap(9, 9, 9)
+                        .addComponent(ComboBoxTecnicoPuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jSeparator17, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(TextoAltaJugadorDNI1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(ComboBoxTecnicoEspecialidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(9, 9, 9)
-                        .addComponent(jSeparator18, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(68, Short.MAX_VALUE))
+                        .addComponent(jSeparator18, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
+                        .addComponent(BtnCrearTecnico, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(59, 59, 59))))
         );
 
         TabbedDarDeAlta.addTab("Técnico", PanelAltaTecnico);
 
-        PanelAltaDirectivo.setBackground(new java.awt.Color(169, 253, 172));
+        PanelAltaDirectivo.setBackground(new java.awt.Color(218, 240, 234));
 
         TextoAltaDirectivoNombre.setBackground(new java.awt.Color(255, 255, 255));
         TextoAltaDirectivoNombre.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
-        TextoAltaDirectivoNombre.setForeground(new java.awt.Color(255, 255, 255));
+        TextoAltaDirectivoNombre.setForeground(new java.awt.Color(246, 144, 84));
         TextoAltaDirectivoNombre.setText("Nombre");
 
-        InputAltaDirectivoCargo.setBackground(new java.awt.Color(169, 253, 172));
+        InputAltaDirectivoCargo.setBackground(new java.awt.Color(218, 240, 234));
         InputAltaDirectivoCargo.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
-        InputAltaDirectivoCargo.setForeground(new java.awt.Color(204, 204, 204));
+        InputAltaDirectivoCargo.setForeground(new java.awt.Color(107, 107, 107));
         InputAltaDirectivoCargo.setText("Inserte el cargo...");
         InputAltaDirectivoCargo.setBorder(null);
 
@@ -1204,12 +1281,12 @@ public class MainWindow extends javax.swing.JFrame {
 
         TextoAltaDirectivoApellido.setBackground(new java.awt.Color(255, 255, 255));
         TextoAltaDirectivoApellido.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
-        TextoAltaDirectivoApellido.setForeground(new java.awt.Color(255, 255, 255));
+        TextoAltaDirectivoApellido.setForeground(new java.awt.Color(246, 144, 84));
         TextoAltaDirectivoApellido.setText("Apellidos");
 
-        InputAltaDirectivoApellido.setBackground(new java.awt.Color(169, 253, 172));
+        InputAltaDirectivoApellido.setBackground(new java.awt.Color(218, 240, 234));
         InputAltaDirectivoApellido.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
-        InputAltaDirectivoApellido.setForeground(new java.awt.Color(204, 204, 204));
+        InputAltaDirectivoApellido.setForeground(new java.awt.Color(107, 107, 107));
         InputAltaDirectivoApellido.setText("Inserte el apellido...");
         InputAltaDirectivoApellido.setBorder(null);
 
@@ -1218,12 +1295,12 @@ public class MainWindow extends javax.swing.JFrame {
 
         TextoAltaDirectivoTelefono.setBackground(new java.awt.Color(255, 255, 255));
         TextoAltaDirectivoTelefono.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
-        TextoAltaDirectivoTelefono.setForeground(new java.awt.Color(255, 255, 255));
+        TextoAltaDirectivoTelefono.setForeground(new java.awt.Color(246, 144, 84));
         TextoAltaDirectivoTelefono.setText("Teléfono");
 
-        InputAltaDirectivoTelefono.setBackground(new java.awt.Color(169, 253, 172));
+        InputAltaDirectivoTelefono.setBackground(new java.awt.Color(218, 240, 234));
         InputAltaDirectivoTelefono.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
-        InputAltaDirectivoTelefono.setForeground(new java.awt.Color(204, 204, 204));
+        InputAltaDirectivoTelefono.setForeground(new java.awt.Color(107, 107, 107));
         InputAltaDirectivoTelefono.setText("Inserte el teléfono...");
         InputAltaDirectivoTelefono.setBorder(null);
 
@@ -1232,35 +1309,35 @@ public class MainWindow extends javax.swing.JFrame {
 
         TextoAltaDirectivoDNI.setBackground(new java.awt.Color(255, 255, 255));
         TextoAltaDirectivoDNI.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
-        TextoAltaDirectivoDNI.setForeground(new java.awt.Color(255, 255, 255));
+        TextoAltaDirectivoDNI.setForeground(new java.awt.Color(246, 144, 84));
         TextoAltaDirectivoDNI.setText("DNI");
 
-        InputAltaDirectivoDNI.setBackground(new java.awt.Color(169, 253, 172));
+        InputAltaDirectivoDNI.setBackground(new java.awt.Color(218, 240, 234));
         InputAltaDirectivoDNI.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
-        InputAltaDirectivoDNI.setForeground(new java.awt.Color(204, 204, 204));
+        InputAltaDirectivoDNI.setForeground(new java.awt.Color(107, 107, 107));
         InputAltaDirectivoDNI.setText("Inserte el DNI...");
         InputAltaDirectivoDNI.setBorder(null);
 
         jSeparator13.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator13.setForeground(new java.awt.Color(255, 255, 255));
 
-        BtnCrearDirectivo.setBackground(new java.awt.Color(59, 185, 122));
-        BtnCrearDirectivo.setFont(new java.awt.Font("Poppins", 1, 24)); // NOI18N
+        BtnCrearDirectivo.setBackground(new java.awt.Color(29, 78, 138));
+        BtnCrearDirectivo.setFont(new java.awt.Font("Poppins SemiBold", 1, 24)); // NOI18N
         BtnCrearDirectivo.setForeground(new java.awt.Color(255, 255, 255));
         BtnCrearDirectivo.setText("Crear directivo");
         BtnCrearDirectivo.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         TextoAltaDirectivoCargo.setBackground(new java.awt.Color(255, 255, 255));
         TextoAltaDirectivoCargo.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
-        TextoAltaDirectivoCargo.setForeground(new java.awt.Color(255, 255, 255));
+        TextoAltaDirectivoCargo.setForeground(new java.awt.Color(246, 144, 84));
         TextoAltaDirectivoCargo.setText("Cargo");
 
         jSeparator11.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator11.setForeground(new java.awt.Color(255, 255, 255));
 
-        InputAltaDirectivoNombre.setBackground(new java.awt.Color(169, 253, 172));
+        InputAltaDirectivoNombre.setBackground(new java.awt.Color(218, 240, 234));
         InputAltaDirectivoNombre.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
-        InputAltaDirectivoNombre.setForeground(new java.awt.Color(204, 204, 204));
+        InputAltaDirectivoNombre.setForeground(new java.awt.Color(107, 107, 107));
         InputAltaDirectivoNombre.setText("Inserte el nombre...");
         InputAltaDirectivoNombre.setBorder(null);
 
@@ -1272,100 +1349,166 @@ public class MainWindow extends javax.swing.JFrame {
                 .addGap(81, 81, 81)
                 .addGroup(PanelAltaDirectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelAltaDirectivoLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(BtnCrearDirectivo, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(70, 70, 70))
-                    .addGroup(PanelAltaDirectivoLayout.createSequentialGroup()
                         .addGroup(PanelAltaDirectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(PanelAltaDirectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(PanelAltaDirectivoLayout.createSequentialGroup()
-                                    .addComponent(InputAltaDirectivoNombre)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                                .addGroup(PanelAltaDirectivoLayout.createSequentialGroup()
-                                    .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(131, 131, 131)))
-                            .addGroup(PanelAltaDirectivoLayout.createSequentialGroup()
-                                .addGroup(PanelAltaDirectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(PanelAltaDirectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addGroup(PanelAltaDirectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(TextoAltaDirectivoDNI)
-                                            .addComponent(jSeparator13)
-                                            .addComponent(InputAltaDirectivoDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(PanelAltaDirectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(TextoAltaDirectivoTelefono)
-                                            .addComponent(jSeparator10)
-                                            .addComponent(InputAltaDirectivoTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(PanelAltaDirectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addGroup(PanelAltaDirectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(TextoAltaDirectivoApellido)
-                                            .addComponent(jSeparator9)
-                                            .addComponent(InputAltaDirectivoApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(PanelAltaDirectivoLayout.createSequentialGroup()
-                                            .addComponent(TextoAltaDirectivoNombre)
-                                            .addGap(143, 143, 143))))
-                                .addGap(131, 131, 131)))
+                            .addComponent(TextoAltaDirectivoNombre)
+                            .addGroup(PanelAltaDirectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(InputAltaDirectivoNombre, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jSeparator8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)))
+                        .addGap(131, 131, 131)
                         .addGroup(PanelAltaDirectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(TextoAltaDirectivoCargo)
                             .addComponent(jSeparator11, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(InputAltaDirectivoCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(384, Short.MAX_VALUE))))
+                        .addContainerGap(414, Short.MAX_VALUE))
+                    .addGroup(PanelAltaDirectivoLayout.createSequentialGroup()
+                        .addGroup(PanelAltaDirectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(InputAltaDirectivoTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TextoAltaDirectivoApellido)
+                            .addComponent(InputAltaDirectivoApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(PanelAltaDirectivoLayout.createSequentialGroup()
+                        .addGroup(PanelAltaDirectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(PanelAltaDirectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(TextoAltaDirectivoDNI)
+                                .addComponent(jSeparator13)
+                                .addComponent(InputAltaDirectivoDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jSeparator10))
+                            .addGroup(PanelAltaDirectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(TextoAltaDirectivoTelefono)
+                                .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(BtnCrearDirectivo, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(68, 68, 68))))
         );
         PanelAltaDirectivoLayout.setVerticalGroup(
             PanelAltaDirectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelAltaDirectivoLayout.createSequentialGroup()
                 .addGap(58, 58, 58)
-                .addGroup(PanelAltaDirectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PanelAltaDirectivoLayout.createSequentialGroup()
-                        .addGap(81, 81, 81)
+                .addGroup(PanelAltaDirectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelAltaDirectivoLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(TextoAltaDirectivoNombre)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(InputAltaDirectivoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(TextoAltaDirectivoApellido)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(InputAltaDirectivoApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(TextoAltaDirectivoTelefono)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(InputAltaDirectivoTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSeparator10, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(PanelAltaDirectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(PanelAltaDirectivoLayout.createSequentialGroup()
-                                .addGap(32, 32, 32)
-                                .addComponent(BtnCrearDirectivo, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(PanelAltaDirectivoLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(TextoAltaDirectivoDNI)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(InputAltaDirectivoDNI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jSeparator13, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PanelAltaDirectivoLayout.createSequentialGroup()
-                        .addGroup(PanelAltaDirectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(TextoAltaDirectivoNombre)
-                            .addComponent(TextoAltaDirectivoCargo))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(PanelAltaDirectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(InputAltaDirectivoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(InputAltaDirectivoCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(TextoAltaDirectivoDNI)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(PanelAltaDirectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSeparator11, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addComponent(InputAltaDirectivoDNI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSeparator13, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(87, Short.MAX_VALUE))
+                    .addGroup(PanelAltaDirectivoLayout.createSequentialGroup()
+                        .addComponent(TextoAltaDirectivoCargo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(InputAltaDirectivoCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSeparator11, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(BtnCrearDirectivo, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(58, 58, 58))))
         );
 
         TabbedDarDeAlta.addTab("Directivo", PanelAltaDirectivo);
 
-        DarDeAltaWindow.add(TabbedDarDeAlta, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 1000, 480));
+        DarDeAltaWindow.add(TabbedDarDeAlta, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 1030, 480));
 
-        BtnDarDeAltaAtras.setBackground(new java.awt.Color(50, 162, 135));
+        jPanel6.setBackground(new java.awt.Color(246, 144, 84));
+
+        GestionLabel1.setFont(new java.awt.Font("Poppins SemiBold", 0, 48)); // NOI18N
+        GestionLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        GestionLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        GestionLabel1.setText("Dar de alta");
+
+        BtnDarDeAltaAtras.setBackground(new java.awt.Color(246, 144, 84));
         BtnDarDeAltaAtras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Media/arrow.png"))); // NOI18N
         BtnDarDeAltaAtras.setBorder(null);
-        DarDeAltaWindow.add(BtnDarDeAltaAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 60, 60));
+
+        jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addComponent(BtnDarDeAltaAtras, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(101, 101, 101)
+                        .addComponent(GestionLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(272, 272, 272)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(258, Short.MAX_VALUE))
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(GestionLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BtnDarDeAltaAtras, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(38, Short.MAX_VALUE))
+        );
+
+        DarDeAltaWindow.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 170));
 
         PanelRaiz.add(DarDeAltaWindow, "card4");
 
-        ModificarConceptoWindow.setBackground(new java.awt.Color(59, 185, 122));
+        ModificarConceptoWindow.setBackground(new java.awt.Color(218, 240, 234));
+        ModificarConceptoWindow.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel7.setBackground(new java.awt.Color(246, 144, 84));
+
+        TituloImprimir1.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        TituloImprimir1.setForeground(new java.awt.Color(255, 255, 255));
+        TituloImprimir1.setText("Modificar conceptos");
+
+        BtnHomeModificarConceptos.setBackground(new java.awt.Color(246, 144, 84));
+        BtnHomeModificarConceptos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Media/home.png"))); // NOI18N
+        BtnHomeModificarConceptos.setBorder(null);
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addComponent(BtnHomeModificarConceptos)
+                .addGap(201, 201, 201)
+                .addComponent(TituloImprimir1)
+                .addContainerGap(284, Short.MAX_VALUE))
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                .addContainerGap(38, Short.MAX_VALUE)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(BtnHomeModificarConceptos)
+                    .addComponent(TituloImprimir1))
+                .addGap(28, 28, 28))
+        );
+
+        ModificarConceptoWindow.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 130));
+
+        TablaConceptosNomina.setBackground(new java.awt.Color(246, 144, 84));
+        TablaConceptosNomina.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
         TablaConceptosNomina.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -1376,569 +1519,425 @@ public class MainWindow extends javax.swing.JFrame {
         ));
         PanelConceptosNomina.setViewportView(TablaConceptosNomina);
 
+        ModificarConceptoWindow.add(PanelConceptosNomina, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 170, -1, -1));
+
         TituloModificarConceptos.setFont(new java.awt.Font("Poppins SemiBold", 1, 36)); // NOI18N
         TituloModificarConceptos.setForeground(new java.awt.Color(255, 255, 255));
+        ModificarConceptoWindow.add(TituloModificarConceptos, new org.netbeans.lib.awtextra.AbsoluteConstraints(501, 6, 452, 146));
 
+        BtnModificarConcepto.setBackground(new java.awt.Color(29, 78, 138));
+        BtnModificarConcepto.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
+        BtnModificarConcepto.setForeground(new java.awt.Color(255, 255, 255));
         BtnModificarConcepto.setText("Modificar concepto");
+        ModificarConceptoWindow.add(BtnModificarConcepto, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 280, 210, 58));
 
+        BtnEliminarConcepto.setBackground(new java.awt.Color(29, 78, 138));
+        BtnEliminarConcepto.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
+        BtnEliminarConcepto.setForeground(new java.awt.Color(246, 144, 84));
         BtnEliminarConcepto.setText("Eliminar concepto");
-
-        BtnHomeModificarConceptos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Media/home.png"))); // NOI18N
-
-        javax.swing.GroupLayout ModificarConceptoWindowLayout = new javax.swing.GroupLayout(ModificarConceptoWindow);
-        ModificarConceptoWindow.setLayout(ModificarConceptoWindowLayout);
-        ModificarConceptoWindowLayout.setHorizontalGroup(
-            ModificarConceptoWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ModificarConceptoWindowLayout.createSequentialGroup()
-                .addGap(95, 95, 95)
-                .addGroup(ModificarConceptoWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(BtnModificarConcepto, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BtnEliminarConcepto, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BtnHomeModificarConceptos))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 157, Short.MAX_VALUE)
-                .addGroup(ModificarConceptoWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(TituloModificarConceptos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(PanelConceptosNomina))
-                .addGap(77, 77, 77))
-        );
-        ModificarConceptoWindowLayout.setVerticalGroup(
-            ModificarConceptoWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ModificarConceptoWindowLayout.createSequentialGroup()
-                .addGroup(ModificarConceptoWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(ModificarConceptoWindowLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(TituloModificarConceptos, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                    .addGroup(ModificarConceptoWindowLayout.createSequentialGroup()
-                        .addGap(45, 45, 45)
-                        .addComponent(BtnHomeModificarConceptos)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGroup(ModificarConceptoWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(ModificarConceptoWindowLayout.createSequentialGroup()
-                        .addComponent(PanelConceptosNomina, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(50, 50, 50))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ModificarConceptoWindowLayout.createSequentialGroup()
-                        .addComponent(BtnModificarConcepto, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(68, 68, 68)
-                        .addComponent(BtnEliminarConcepto, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(167, 167, 167))))
-        );
+        ModificarConceptoWindow.add(BtnEliminarConcepto, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 420, 210, 58));
 
         PanelRaiz.add(ModificarConceptoWindow, "card10");
 
-        FacturaWindow.setBackground(new java.awt.Color(59, 185, 122));
+        FacturaWindow.setBackground(new java.awt.Color(218, 240, 234));
+        FacturaWindow.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel8.setBackground(new java.awt.Color(246, 144, 84));
+
+        BtnHomeCrearFactura.setBackground(new java.awt.Color(246, 144, 84));
+        BtnHomeCrearFactura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Media/home.png"))); // NOI18N
+        BtnHomeCrearFactura.setBorder(null);
 
         TituloCrearFactura.setFont(new java.awt.Font("Segoe UI", 1, 56)); // NOI18N
         TituloCrearFactura.setForeground(new java.awt.Color(255, 255, 255));
         TituloCrearFactura.setText("Crear factura");
 
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addComponent(BtnHomeCrearFactura)
+                .addGap(219, 219, 219)
+                .addComponent(TituloCrearFactura)
+                .addContainerGap(387, Short.MAX_VALUE))
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(BtnHomeCrearFactura)
+                .addGap(50, 50, 50))
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(TituloCrearFactura)
+                .addContainerGap(27, Short.MAX_VALUE))
+        );
+
+        FacturaWindow.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 130));
+
         TextoCrearFacturaNombre.setBackground(new java.awt.Color(255, 255, 255));
         TextoCrearFacturaNombre.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
-        TextoCrearFacturaNombre.setForeground(new java.awt.Color(255, 255, 255));
+        TextoCrearFacturaNombre.setForeground(new java.awt.Color(246, 144, 84));
         TextoCrearFacturaNombre.setText("Nombre del cliente");
+        FacturaWindow.add(TextoCrearFacturaNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, -1, -1));
 
-        InputCrearFacturaNombre.setBackground(new java.awt.Color(59, 185, 122));
+        InputCrearFacturaNombre.setBackground(new java.awt.Color(218, 240, 234));
         InputCrearFacturaNombre.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
-        InputCrearFacturaNombre.setForeground(new java.awt.Color(204, 204, 204));
+        InputCrearFacturaNombre.setForeground(new java.awt.Color(107, 107, 107));
         InputCrearFacturaNombre.setText("Inserte nombre...");
         InputCrearFacturaNombre.setBorder(null);
+        FacturaWindow.add(InputCrearFacturaNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, 202, -1));
 
         jSeparator48.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator48.setForeground(new java.awt.Color(255, 255, 255));
+        FacturaWindow.add(jSeparator48, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 290, 202, 10));
 
-        InputCrearFacturaCIF.setBackground(new java.awt.Color(59, 185, 122));
+        InputCrearFacturaCIF.setBackground(new java.awt.Color(218, 240, 234));
         InputCrearFacturaCIF.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
-        InputCrearFacturaCIF.setForeground(new java.awt.Color(204, 204, 204));
+        InputCrearFacturaCIF.setForeground(new java.awt.Color(107, 107, 107));
         InputCrearFacturaCIF.setText("Inserte el CIF...");
         InputCrearFacturaCIF.setBorder(null);
+        FacturaWindow.add(InputCrearFacturaCIF, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 350, 202, -1));
 
         TextoCrearFacturaCIF.setBackground(new java.awt.Color(255, 255, 255));
         TextoCrearFacturaCIF.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
-        TextoCrearFacturaCIF.setForeground(new java.awt.Color(255, 255, 255));
+        TextoCrearFacturaCIF.setForeground(new java.awt.Color(246, 144, 84));
         TextoCrearFacturaCIF.setText("CIF del cliente");
+        FacturaWindow.add(TextoCrearFacturaCIF, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 320, -1, -1));
 
         jSeparator49.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator49.setForeground(new java.awt.Color(255, 255, 255));
+        FacturaWindow.add(jSeparator49, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 370, 202, 10));
 
         TextoCrearFacturaCantidad.setBackground(new java.awt.Color(255, 255, 255));
         TextoCrearFacturaCantidad.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
-        TextoCrearFacturaCantidad.setForeground(new java.awt.Color(255, 255, 255));
+        TextoCrearFacturaCantidad.setForeground(new java.awt.Color(246, 144, 84));
         TextoCrearFacturaCantidad.setText("Cantidad en euros");
+        FacturaWindow.add(TextoCrearFacturaCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 410, -1, -1));
 
-        InputCrearFacturaCantidad.setBackground(new java.awt.Color(59, 185, 122));
+        InputCrearFacturaCantidad.setBackground(new java.awt.Color(218, 240, 234));
         InputCrearFacturaCantidad.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
-        InputCrearFacturaCantidad.setForeground(new java.awt.Color(204, 204, 204));
+        InputCrearFacturaCantidad.setForeground(new java.awt.Color(107, 107, 107));
         InputCrearFacturaCantidad.setText("Inserte la cantidad...");
         InputCrearFacturaCantidad.setBorder(null);
+        FacturaWindow.add(InputCrearFacturaCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 430, 202, -1));
 
         jSeparator50.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator50.setForeground(new java.awt.Color(255, 255, 255));
+        FacturaWindow.add(jSeparator50, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 460, 202, 10));
 
         TextoCrearFacturaID.setBackground(new java.awt.Color(255, 255, 255));
         TextoCrearFacturaID.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
-        TextoCrearFacturaID.setForeground(new java.awt.Color(255, 255, 255));
+        TextoCrearFacturaID.setForeground(new java.awt.Color(246, 144, 84));
         TextoCrearFacturaID.setText("Código único");
+        FacturaWindow.add(TextoCrearFacturaID, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 240, -1, -1));
 
-        InputCrearFacturaID.setBackground(new java.awt.Color(59, 185, 122));
+        InputCrearFacturaID.setBackground(new java.awt.Color(218, 240, 234));
         InputCrearFacturaID.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
-        InputCrearFacturaID.setForeground(new java.awt.Color(204, 204, 204));
+        InputCrearFacturaID.setForeground(new java.awt.Color(107, 107, 107));
         InputCrearFacturaID.setText("Inserte el código...");
         InputCrearFacturaID.setBorder(null);
+        FacturaWindow.add(InputCrearFacturaID, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 260, 202, -1));
 
         jSeparator51.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator51.setForeground(new java.awt.Color(255, 255, 255));
+        FacturaWindow.add(jSeparator51, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 290, 202, 10));
 
+        CrearFacturaFinal.setBackground(new java.awt.Color(29, 78, 138));
+        CrearFacturaFinal.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
+        CrearFacturaFinal.setForeground(new java.awt.Color(255, 255, 255));
         CrearFacturaFinal.setText("Crear factura");
+        FacturaWindow.add(CrearFacturaFinal, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 450, 138, 70));
 
         TextoCrearFacturaFechaPago.setBackground(new java.awt.Color(255, 255, 255));
         TextoCrearFacturaFechaPago.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
-        TextoCrearFacturaFechaPago.setForeground(new java.awt.Color(255, 255, 255));
+        TextoCrearFacturaFechaPago.setForeground(new java.awt.Color(246, 144, 84));
         TextoCrearFacturaFechaPago.setText("Fecha de pago");
+        FacturaWindow.add(TextoCrearFacturaFechaPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 320, -1, -1));
 
-        InputCrearFacturaFecha.setBackground(new java.awt.Color(59, 185, 122));
+        InputCrearFacturaFecha.setBackground(new java.awt.Color(218, 240, 234));
         InputCrearFacturaFecha.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
-        InputCrearFacturaFecha.setForeground(new java.awt.Color(204, 204, 204));
+        InputCrearFacturaFecha.setForeground(new java.awt.Color(107, 107, 107));
         InputCrearFacturaFecha.setText("Inserte la fecha...");
         InputCrearFacturaFecha.setBorder(null);
+        FacturaWindow.add(InputCrearFacturaFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 350, 202, -1));
 
         jSeparator52.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator52.setForeground(new java.awt.Color(255, 255, 255));
+        FacturaWindow.add(jSeparator52, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 370, 202, 10));
 
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Formato: DD/MM/YYYY");
-
-        BtnHomeCrearFactura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Media/home.png"))); // NOI18N
-
-        javax.swing.GroupLayout FacturaWindowLayout = new javax.swing.GroupLayout(FacturaWindow);
-        FacturaWindow.setLayout(FacturaWindowLayout);
-        FacturaWindowLayout.setHorizontalGroup(
-            FacturaWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(FacturaWindowLayout.createSequentialGroup()
-                .addGap(82, 82, 82)
-                .addGroup(FacturaWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(FacturaWindowLayout.createSequentialGroup()
-                        .addComponent(BtnHomeCrearFactura)
-                        .addGap(154, 154, 154)
-                        .addComponent(TituloCrearFactura))
-                    .addGroup(FacturaWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(FacturaWindowLayout.createSequentialGroup()
-                            .addGroup(FacturaWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(InputCrearFacturaCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jSeparator50, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(CrearFacturaFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(FacturaWindowLayout.createSequentialGroup()
-                            .addGroup(FacturaWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(TextoCrearFacturaNombre)
-                                .addComponent(InputCrearFacturaNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jSeparator48, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(TextoCrearFacturaCIF)
-                                .addComponent(InputCrearFacturaCIF, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jSeparator49, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(TextoCrearFacturaCantidad))
-                            .addGap(73, 73, 73)
-                            .addGroup(FacturaWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel1)
-                                .addComponent(TextoCrearFacturaFechaPago)
-                                .addComponent(TextoCrearFacturaID)
-                                .addComponent(InputCrearFacturaID, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jSeparator51, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(InputCrearFacturaFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jSeparator52, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(0, 337, Short.MAX_VALUE))))
-                .addGap(124, 124, 124))
-        );
-        FacturaWindowLayout.setVerticalGroup(
-            FacturaWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(FacturaWindowLayout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addGroup(FacturaWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(FacturaWindowLayout.createSequentialGroup()
-                        .addGroup(FacturaWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(TituloCrearFactura)
-                            .addComponent(BtnHomeCrearFactura))
-                        .addGap(63, 63, 63)
-                        .addComponent(TextoCrearFacturaNombre)
-                        .addGap(6, 6, 6)
-                        .addComponent(InputCrearFacturaNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(jSeparator48, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(FacturaWindowLayout.createSequentialGroup()
-                        .addComponent(TextoCrearFacturaID)
-                        .addGap(6, 6, 6)
-                        .addComponent(InputCrearFacturaID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(jSeparator51, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addGroup(FacturaWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(FacturaWindowLayout.createSequentialGroup()
-                        .addComponent(TextoCrearFacturaFechaPago)
-                        .addGap(6, 6, 6)
-                        .addComponent(InputCrearFacturaFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator52, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel1))
-                    .addGroup(FacturaWindowLayout.createSequentialGroup()
-                        .addComponent(TextoCrearFacturaCIF)
-                        .addGap(6, 6, 6)
-                        .addComponent(InputCrearFacturaCIF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(jSeparator49, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(25, 25, 25)
-                        .addComponent(TextoCrearFacturaCantidad)
-                        .addGap(6, 6, 6)
-                        .addGroup(FacturaWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(FacturaWindowLayout.createSequentialGroup()
-                                .addComponent(InputCrearFacturaCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(6, 6, 6)
-                                .addComponent(jSeparator50, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(CrearFacturaFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(116, Short.MAX_VALUE))
-        );
+        FacturaWindow.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 390, -1, -1));
 
         PanelRaiz.add(FacturaWindow, "card9");
 
-        CrearNominaWindow.setBackground(new java.awt.Color(59, 185, 122));
+        CrearNominaWindow.setBackground(new java.awt.Color(218, 240, 234));
+        CrearNominaWindow.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel9.setBackground(new java.awt.Color(246, 144, 84));
+
+        TituloCrearFactura1.setFont(new java.awt.Font("Segoe UI", 1, 56)); // NOI18N
+        TituloCrearFactura1.setForeground(new java.awt.Color(255, 255, 255));
+        TituloCrearFactura1.setText("Crear nómina");
+
+        BtnHomeCrearNomina.setBackground(new java.awt.Color(246, 144, 84));
+        BtnHomeCrearNomina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Media/home.png"))); // NOI18N
+        BtnHomeCrearNomina.setBorder(null);
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addComponent(BtnHomeCrearNomina)
+                .addGap(282, 282, 282)
+                .addComponent(TituloCrearFactura1)
+                .addContainerGap(311, Short.MAX_VALUE))
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(TituloCrearFactura1)
+                .addContainerGap(27, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(BtnHomeCrearNomina)
+                .addGap(43, 43, 43))
+        );
+
+        CrearNominaWindow.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 130));
 
         TextoCrearNominaImporte.setBackground(new java.awt.Color(255, 255, 255));
         TextoCrearNominaImporte.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
-        TextoCrearNominaImporte.setForeground(new java.awt.Color(255, 255, 255));
+        TextoCrearNominaImporte.setForeground(new java.awt.Color(246, 144, 84));
         TextoCrearNominaImporte.setText("Importe");
+        CrearNominaWindow.add(TextoCrearNominaImporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 234, -1, -1));
 
-        InputCrearNominaImporte.setBackground(new java.awt.Color(59, 185, 122));
+        InputCrearNominaImporte.setBackground(new java.awt.Color(218, 240, 234));
         InputCrearNominaImporte.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
-        InputCrearNominaImporte.setForeground(new java.awt.Color(204, 204, 204));
+        InputCrearNominaImporte.setForeground(new java.awt.Color(107, 107, 107));
         InputCrearNominaImporte.setText("Inserte el importe...");
         InputCrearNominaImporte.setBorder(null);
+        CrearNominaWindow.add(InputCrearNominaImporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 262, 202, -1));
 
         jSeparator42.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator42.setForeground(new java.awt.Color(255, 255, 255));
+        CrearNominaWindow.add(jSeparator42, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 287, 202, 10));
 
         TextoCrearNominaImporte1.setBackground(new java.awt.Color(255, 255, 255));
         TextoCrearNominaImporte1.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
-        TextoCrearNominaImporte1.setForeground(new java.awt.Color(255, 255, 255));
+        TextoCrearNominaImporte1.setForeground(new java.awt.Color(246, 144, 84));
         TextoCrearNominaImporte1.setText("Descripción");
+        CrearNominaWindow.add(TextoCrearNominaImporte1, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 312, -1, -1));
 
-        InputCrearNominaDescripcion.setBackground(new java.awt.Color(59, 185, 122));
+        InputCrearNominaDescripcion.setBackground(new java.awt.Color(218, 240, 234));
         InputCrearNominaDescripcion.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
-        InputCrearNominaDescripcion.setForeground(new java.awt.Color(204, 204, 204));
+        InputCrearNominaDescripcion.setForeground(new java.awt.Color(107, 107, 107));
         InputCrearNominaDescripcion.setText("Inserte la descripcion...");
         InputCrearNominaDescripcion.setBorder(null);
+        CrearNominaWindow.add(InputCrearNominaDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 340, 202, -1));
 
         jSeparator43.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator43.setForeground(new java.awt.Color(255, 255, 255));
+        CrearNominaWindow.add(jSeparator43, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 365, 202, 10));
 
         jSeparator44.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator44.setForeground(new java.awt.Color(255, 255, 255));
+        CrearNominaWindow.add(jSeparator44, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 447, 202, 10));
 
         TextoCrearNominaFecha.setBackground(new java.awt.Color(255, 255, 255));
         TextoCrearNominaFecha.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
-        TextoCrearNominaFecha.setForeground(new java.awt.Color(255, 255, 255));
+        TextoCrearNominaFecha.setForeground(new java.awt.Color(246, 144, 84));
         TextoCrearNominaFecha.setText("Año");
+        CrearNominaWindow.add(TextoCrearNominaFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 393, -1, -1));
 
         TituloCrearNomina.setFont(new java.awt.Font("Segoe UI", 1, 56)); // NOI18N
         TituloCrearNomina.setForeground(new java.awt.Color(255, 255, 255));
         TituloCrearNomina.setText("Crear nómina");
+        CrearNominaWindow.add(TituloCrearNomina, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 50, -1, -1));
 
-        jSeparator45.setForeground(new java.awt.Color(255, 255, 255));
-
+        BtnCrearNominaFinal.setBackground(new java.awt.Color(29, 78, 138));
+        BtnCrearNominaFinal.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
+        BtnCrearNominaFinal.setForeground(new java.awt.Color(255, 255, 255));
         BtnCrearNominaFinal.setText("Crear nómina");
+        CrearNominaWindow.add(BtnCrearNominaFinal, new org.netbeans.lib.awtextra.AbsoluteConstraints(697, 389, 194, 68));
 
-        InputCrearNominaAno.setBackground(new java.awt.Color(59, 185, 122));
+        InputCrearNominaAno.setBackground(new java.awt.Color(218, 240, 234));
         InputCrearNominaAno.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
-        InputCrearNominaAno.setForeground(new java.awt.Color(204, 204, 204));
+        InputCrearNominaAno.setForeground(new java.awt.Color(107, 107, 107));
         InputCrearNominaAno.setText("Inserte el año...");
         InputCrearNominaAno.setBorder(null);
+        CrearNominaWindow.add(InputCrearNominaAno, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 421, 202, -1));
+
+        ComBoxMesNomina.setBackground(new java.awt.Color(255, 255, 255));
+        ComBoxMesNomina.setForeground(new java.awt.Color(107, 107, 107));
+        CrearNominaWindow.add(ComBoxMesNomina, new org.netbeans.lib.awtextra.AbsoluteConstraints(418, 331, 202, -1));
 
         TextoCrearNominaMes.setBackground(new java.awt.Color(255, 255, 255));
         TextoCrearNominaMes.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
-        TextoCrearNominaMes.setForeground(new java.awt.Color(255, 255, 255));
+        TextoCrearNominaMes.setForeground(new java.awt.Color(246, 144, 84));
         TextoCrearNominaMes.setText("Mes");
+        CrearNominaWindow.add(TextoCrearNominaMes, new org.netbeans.lib.awtextra.AbsoluteConstraints(418, 303, -1, -1));
 
         jSeparator46.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator46.setForeground(new java.awt.Color(255, 255, 255));
+        CrearNominaWindow.add(jSeparator46, new org.netbeans.lib.awtextra.AbsoluteConstraints(418, 365, 202, 10));
 
         TextoCrearNominaImporte2.setBackground(new java.awt.Color(255, 255, 255));
         TextoCrearNominaImporte2.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
-        TextoCrearNominaImporte2.setForeground(new java.awt.Color(255, 255, 255));
+        TextoCrearNominaImporte2.setForeground(new java.awt.Color(246, 144, 84));
         TextoCrearNominaImporte2.setText("Codigo único");
+        CrearNominaWindow.add(TextoCrearNominaImporte2, new org.netbeans.lib.awtextra.AbsoluteConstraints(418, 234, -1, -1));
 
-        InputCrearNominaID.setBackground(new java.awt.Color(59, 185, 122));
+        InputCrearNominaID.setBackground(new java.awt.Color(218, 240, 234));
         InputCrearNominaID.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
-        InputCrearNominaID.setForeground(new java.awt.Color(204, 204, 204));
+        InputCrearNominaID.setForeground(new java.awt.Color(107, 107, 107));
         InputCrearNominaID.setText("Inserte el codigo único...");
         InputCrearNominaID.setBorder(null);
+        CrearNominaWindow.add(InputCrearNominaID, new org.netbeans.lib.awtextra.AbsoluteConstraints(418, 262, 202, -1));
 
         jSeparator47.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator47.setForeground(new java.awt.Color(255, 255, 255));
-
-        BtnHomeCrearNomina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Media/home.png"))); // NOI18N
-
-        javax.swing.GroupLayout CrearNominaWindowLayout = new javax.swing.GroupLayout(CrearNominaWindow);
-        CrearNominaWindow.setLayout(CrearNominaWindowLayout);
-        CrearNominaWindowLayout.setHorizontalGroup(
-            CrearNominaWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CrearNominaWindowLayout.createSequentialGroup()
-                .addGroup(CrearNominaWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(CrearNominaWindowLayout.createSequentialGroup()
-                        .addGap(82, 82, 82)
-                        .addComponent(BtnHomeCrearNomina)
-                        .addGap(170, 170, 170)
-                        .addComponent(TituloCrearNomina))
-                    .addGroup(CrearNominaWindowLayout.createSequentialGroup()
-                        .addGap(116, 116, 116)
-                        .addGroup(CrearNominaWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jSeparator45, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 783, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(CrearNominaWindowLayout.createSequentialGroup()
-                                .addGroup(CrearNominaWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(TextoCrearNominaFecha)
-                                    .addComponent(jSeparator44, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(InputCrearNominaAno, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(BtnCrearNominaFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(8, 8, 8))))
-                    .addGroup(CrearNominaWindowLayout.createSequentialGroup()
-                        .addGap(116, 116, 116)
-                        .addGroup(CrearNominaWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(TextoCrearNominaImporte1)
-                            .addComponent(jSeparator43, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(InputCrearNominaDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TextoCrearNominaImporte)
-                            .addComponent(InputCrearNominaImporte, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSeparator42, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(100, 100, 100)
-                        .addGroup(CrearNominaWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(TextoCrearNominaImporte2)
-                            .addComponent(InputCrearNominaID, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSeparator47, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(CrearNominaWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(TextoCrearNominaMes)
-                                .addComponent(ComBoxMesNomina, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jSeparator46, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(116, 116, 116))
-        );
-        CrearNominaWindowLayout.setVerticalGroup(
-            CrearNominaWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CrearNominaWindowLayout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addGroup(CrearNominaWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(TituloCrearNomina)
-                    .addComponent(BtnHomeCrearNomina))
-                .addGap(6, 6, 6)
-                .addComponent(jSeparator45, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(92, 92, 92)
-                .addGroup(CrearNominaWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(CrearNominaWindowLayout.createSequentialGroup()
-                        .addGroup(CrearNominaWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(CrearNominaWindowLayout.createSequentialGroup()
-                                .addComponent(TextoCrearNominaImporte)
-                                .addGap(6, 6, 6)
-                                .addComponent(InputCrearNominaImporte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(6, 6, 6)
-                                .addComponent(jSeparator42, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(CrearNominaWindowLayout.createSequentialGroup()
-                                .addComponent(TextoCrearNominaImporte2)
-                                .addGap(6, 6, 6)
-                                .addComponent(InputCrearNominaID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(6, 6, 6)
-                                .addComponent(jSeparator47, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(CrearNominaWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(CrearNominaWindowLayout.createSequentialGroup()
-                                .addComponent(TextoCrearNominaImporte1)
-                                .addGap(6, 6, 6)
-                                .addComponent(InputCrearNominaDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(6, 6, 6)
-                                .addComponent(jSeparator43, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(CrearNominaWindowLayout.createSequentialGroup()
-                                .addComponent(TextoCrearNominaMes)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(ComBoxMesNomina, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jSeparator46, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18)
-                        .addComponent(TextoCrearNominaFecha)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(InputCrearNominaAno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(7, 7, 7)
-                        .addComponent(jSeparator44, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(BtnCrearNominaFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(153, Short.MAX_VALUE))
-        );
+        CrearNominaWindow.add(jSeparator47, new org.netbeans.lib.awtextra.AbsoluteConstraints(418, 287, 202, 10));
 
         PanelRaiz.add(CrearNominaWindow, "card8");
 
-        ModificarNominaWindow.setBackground(new java.awt.Color(59, 185, 122));
+        ModificarNominaWindow.setBackground(new java.awt.Color(218, 240, 234));
+        ModificarNominaWindow.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        TextoCrearNominaImporte3.setBackground(new java.awt.Color(255, 255, 255));
-        TextoCrearNominaImporte3.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
-        TextoCrearNominaImporte3.setForeground(new java.awt.Color(255, 255, 255));
-        TextoCrearNominaImporte3.setText("Importe");
-
-        InputModificarNominaImporte.setBackground(new java.awt.Color(59, 185, 122));
-        InputModificarNominaImporte.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
-        InputModificarNominaImporte.setForeground(new java.awt.Color(204, 204, 204));
-        InputModificarNominaImporte.setText("Inserte el importe...");
-        InputModificarNominaImporte.setBorder(null);
-
-        jSeparator53.setBackground(new java.awt.Color(255, 255, 255));
-        jSeparator53.setForeground(new java.awt.Color(255, 255, 255));
-
-        TextoCrearNominaImporte4.setBackground(new java.awt.Color(255, 255, 255));
-        TextoCrearNominaImporte4.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
-        TextoCrearNominaImporte4.setForeground(new java.awt.Color(255, 255, 255));
-        TextoCrearNominaImporte4.setText("Descripción");
-
-        InputModificarNominaDescripcion.setBackground(new java.awt.Color(59, 185, 122));
-        InputModificarNominaDescripcion.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
-        InputModificarNominaDescripcion.setForeground(new java.awt.Color(204, 204, 204));
-        InputModificarNominaDescripcion.setText("Inserte la descripcion...");
-        InputModificarNominaDescripcion.setBorder(null);
-
-        jSeparator54.setBackground(new java.awt.Color(255, 255, 255));
-        jSeparator54.setForeground(new java.awt.Color(255, 255, 255));
-
-        jSeparator55.setBackground(new java.awt.Color(255, 255, 255));
-        jSeparator55.setForeground(new java.awt.Color(255, 255, 255));
-
-        TextoCrearNominaFecha1.setBackground(new java.awt.Color(255, 255, 255));
-        TextoCrearNominaFecha1.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
-        TextoCrearNominaFecha1.setForeground(new java.awt.Color(255, 255, 255));
-        TextoCrearNominaFecha1.setText("Año");
+        jPanel10.setBackground(new java.awt.Color(246, 144, 84));
 
         TituloCrearNomina1.setFont(new java.awt.Font("Segoe UI", 1, 56)); // NOI18N
         TituloCrearNomina1.setForeground(new java.awt.Color(255, 255, 255));
         TituloCrearNomina1.setText("Modificar nómina");
 
-        jSeparator56.setForeground(new java.awt.Color(255, 255, 255));
+        BtnHomeModificarNomina.setBackground(new java.awt.Color(246, 144, 84));
+        BtnHomeModificarNomina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Media/home.png"))); // NOI18N
+        BtnHomeModificarNomina.setBorder(null);
 
+        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
+        jPanel10.setLayout(jPanel10Layout);
+        jPanel10Layout.setHorizontalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addComponent(BtnHomeModificarNomina)
+                .addContainerGap(946, Short.MAX_VALUE))
+            .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel10Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(TituloCrearNomina1)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        jPanel10Layout.setVerticalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                .addContainerGap(45, Short.MAX_VALUE)
+                .addComponent(BtnHomeModificarNomina)
+                .addGap(43, 43, 43))
+            .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel10Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(TituloCrearNomina1)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        ModificarNominaWindow.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 130));
+
+        TextoCrearNominaImporte3.setBackground(new java.awt.Color(255, 255, 255));
+        TextoCrearNominaImporte3.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
+        TextoCrearNominaImporte3.setForeground(new java.awt.Color(246, 144, 84));
+        TextoCrearNominaImporte3.setText("Importe");
+        ModificarNominaWindow.add(TextoCrearNominaImporte3, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 234, -1, -1));
+
+        InputModificarNominaImporte.setBackground(new java.awt.Color(218, 240, 234));
+        InputModificarNominaImporte.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
+        InputModificarNominaImporte.setForeground(new java.awt.Color(107, 107, 107));
+        InputModificarNominaImporte.setText("Inserte el importe...");
+        InputModificarNominaImporte.setBorder(null);
+        ModificarNominaWindow.add(InputModificarNominaImporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 262, 202, -1));
+
+        jSeparator53.setBackground(new java.awt.Color(255, 255, 255));
+        jSeparator53.setForeground(new java.awt.Color(255, 255, 255));
+        ModificarNominaWindow.add(jSeparator53, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 287, 202, 10));
+
+        TextoCrearNominaImporte4.setBackground(new java.awt.Color(255, 255, 255));
+        TextoCrearNominaImporte4.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
+        TextoCrearNominaImporte4.setForeground(new java.awt.Color(246, 144, 84));
+        TextoCrearNominaImporte4.setText("Descripción");
+        ModificarNominaWindow.add(TextoCrearNominaImporte4, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 312, -1, -1));
+
+        InputModificarNominaDescripcion.setBackground(new java.awt.Color(218, 240, 234));
+        InputModificarNominaDescripcion.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
+        InputModificarNominaDescripcion.setForeground(new java.awt.Color(107, 107, 107));
+        InputModificarNominaDescripcion.setText("Inserte la descripcion...");
+        InputModificarNominaDescripcion.setBorder(null);
+        ModificarNominaWindow.add(InputModificarNominaDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 340, 202, -1));
+
+        jSeparator54.setBackground(new java.awt.Color(255, 255, 255));
+        jSeparator54.setForeground(new java.awt.Color(255, 255, 255));
+        ModificarNominaWindow.add(jSeparator54, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 365, 202, 10));
+
+        jSeparator55.setBackground(new java.awt.Color(255, 255, 255));
+        jSeparator55.setForeground(new java.awt.Color(255, 255, 255));
+        ModificarNominaWindow.add(jSeparator55, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 447, 202, 10));
+
+        TextoCrearNominaFecha1.setBackground(new java.awt.Color(255, 255, 255));
+        TextoCrearNominaFecha1.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
+        TextoCrearNominaFecha1.setForeground(new java.awt.Color(246, 144, 84));
+        TextoCrearNominaFecha1.setText("Año");
+        ModificarNominaWindow.add(TextoCrearNominaFecha1, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 393, -1, -1));
+
+        BtnModificarNominaFinal.setBackground(new java.awt.Color(29, 78, 138));
+        BtnModificarNominaFinal.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
+        BtnModificarNominaFinal.setForeground(new java.awt.Color(255, 255, 255));
         BtnModificarNominaFinal.setText("Modificar nómina");
+        ModificarNominaWindow.add(BtnModificarNominaFinal, new org.netbeans.lib.awtextra.AbsoluteConstraints(697, 389, 194, 68));
 
-        InputModificarNominaAno.setBackground(new java.awt.Color(59, 185, 122));
+        InputModificarNominaAno.setBackground(new java.awt.Color(218, 240, 234));
         InputModificarNominaAno.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
-        InputModificarNominaAno.setForeground(new java.awt.Color(204, 204, 204));
+        InputModificarNominaAno.setForeground(new java.awt.Color(107, 107, 107));
         InputModificarNominaAno.setText("Inserte el año...");
         InputModificarNominaAno.setBorder(null);
         InputModificarNominaAno.setEnabled(false);
+        ModificarNominaWindow.add(InputModificarNominaAno, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 421, 202, -1));
 
+        ComBoxMesNominaModificar.setBackground(new java.awt.Color(255, 255, 255));
+        ComBoxMesNominaModificar.setForeground(new java.awt.Color(107, 107, 107));
         ComBoxMesNominaModificar.setEnabled(false);
+        ModificarNominaWindow.add(ComBoxMesNominaModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(418, 331, 202, -1));
 
         TextoCrearNominaMes1.setBackground(new java.awt.Color(255, 255, 255));
         TextoCrearNominaMes1.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
-        TextoCrearNominaMes1.setForeground(new java.awt.Color(255, 255, 255));
+        TextoCrearNominaMes1.setForeground(new java.awt.Color(246, 144, 84));
         TextoCrearNominaMes1.setText("Mes");
+        ModificarNominaWindow.add(TextoCrearNominaMes1, new org.netbeans.lib.awtextra.AbsoluteConstraints(418, 303, -1, -1));
 
         jSeparator57.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator57.setForeground(new java.awt.Color(255, 255, 255));
+        ModificarNominaWindow.add(jSeparator57, new org.netbeans.lib.awtextra.AbsoluteConstraints(418, 365, 202, 10));
 
         TextoCrearNominaImporte5.setBackground(new java.awt.Color(255, 255, 255));
         TextoCrearNominaImporte5.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
-        TextoCrearNominaImporte5.setForeground(new java.awt.Color(255, 255, 255));
+        TextoCrearNominaImporte5.setForeground(new java.awt.Color(246, 144, 84));
         TextoCrearNominaImporte5.setText("Codigo único");
+        ModificarNominaWindow.add(TextoCrearNominaImporte5, new org.netbeans.lib.awtextra.AbsoluteConstraints(418, 234, -1, -1));
 
-        InputModificarNominaID.setBackground(new java.awt.Color(59, 185, 122));
+        InputModificarNominaID.setBackground(new java.awt.Color(218, 240, 234));
         InputModificarNominaID.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
-        InputModificarNominaID.setForeground(new java.awt.Color(204, 204, 204));
+        InputModificarNominaID.setForeground(new java.awt.Color(107, 107, 107));
         InputModificarNominaID.setText("Inserte el codigo único...");
         InputModificarNominaID.setBorder(null);
+        ModificarNominaWindow.add(InputModificarNominaID, new org.netbeans.lib.awtextra.AbsoluteConstraints(418, 262, 202, -1));
 
         jSeparator58.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator58.setForeground(new java.awt.Color(255, 255, 255));
-
-        BtnHomeModificarNomina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Media/home.png"))); // NOI18N
-
-        javax.swing.GroupLayout ModificarNominaWindowLayout = new javax.swing.GroupLayout(ModificarNominaWindow);
-        ModificarNominaWindow.setLayout(ModificarNominaWindowLayout);
-        ModificarNominaWindowLayout.setHorizontalGroup(
-            ModificarNominaWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ModificarNominaWindowLayout.createSequentialGroup()
-                .addGroup(ModificarNominaWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(ModificarNominaWindowLayout.createSequentialGroup()
-                        .addGap(91, 91, 91)
-                        .addComponent(BtnHomeModificarNomina)
-                        .addGap(161, 161, 161)
-                        .addComponent(TituloCrearNomina1))
-                    .addGroup(ModificarNominaWindowLayout.createSequentialGroup()
-                        .addGap(116, 116, 116)
-                        .addGroup(ModificarNominaWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jSeparator56, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 783, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(ModificarNominaWindowLayout.createSequentialGroup()
-                                .addGroup(ModificarNominaWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(TextoCrearNominaFecha1)
-                                    .addComponent(jSeparator55, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(InputModificarNominaAno, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(BtnModificarNominaFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(8, 8, 8))))
-                    .addGroup(ModificarNominaWindowLayout.createSequentialGroup()
-                        .addGap(116, 116, 116)
-                        .addGroup(ModificarNominaWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(TextoCrearNominaImporte4)
-                            .addComponent(jSeparator54, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(InputModificarNominaDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TextoCrearNominaImporte3)
-                            .addComponent(InputModificarNominaImporte, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSeparator53, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(100, 100, 100)
-                        .addGroup(ModificarNominaWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(TextoCrearNominaImporte5)
-                            .addComponent(InputModificarNominaID, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSeparator58, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(ModificarNominaWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(TextoCrearNominaMes1)
-                                .addComponent(ComBoxMesNominaModificar, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jSeparator57, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(116, 116, 116))
-        );
-        ModificarNominaWindowLayout.setVerticalGroup(
-            ModificarNominaWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ModificarNominaWindowLayout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addGroup(ModificarNominaWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(TituloCrearNomina1)
-                    .addComponent(BtnHomeModificarNomina))
-                .addGap(6, 6, 6)
-                .addComponent(jSeparator56, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(92, 92, 92)
-                .addGroup(ModificarNominaWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(ModificarNominaWindowLayout.createSequentialGroup()
-                        .addGroup(ModificarNominaWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(ModificarNominaWindowLayout.createSequentialGroup()
-                                .addComponent(TextoCrearNominaImporte3)
-                                .addGap(6, 6, 6)
-                                .addComponent(InputModificarNominaImporte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(6, 6, 6)
-                                .addComponent(jSeparator53, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(ModificarNominaWindowLayout.createSequentialGroup()
-                                .addComponent(TextoCrearNominaImporte5)
-                                .addGap(6, 6, 6)
-                                .addComponent(InputModificarNominaID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(6, 6, 6)
-                                .addComponent(jSeparator58, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(ModificarNominaWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(ModificarNominaWindowLayout.createSequentialGroup()
-                                .addComponent(TextoCrearNominaImporte4)
-                                .addGap(6, 6, 6)
-                                .addComponent(InputModificarNominaDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(6, 6, 6)
-                                .addComponent(jSeparator54, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(ModificarNominaWindowLayout.createSequentialGroup()
-                                .addComponent(TextoCrearNominaMes1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(ComBoxMesNominaModificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jSeparator57, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18)
-                        .addComponent(TextoCrearNominaFecha1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(InputModificarNominaAno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(7, 7, 7)
-                        .addComponent(jSeparator55, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(BtnModificarNominaFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(153, Short.MAX_VALUE))
-        );
+        ModificarNominaWindow.add(jSeparator58, new org.netbeans.lib.awtextra.AbsoluteConstraints(418, 287, 202, 10));
 
         PanelRaiz.add(ModificarNominaWindow, "card8");
 
@@ -1953,22 +1952,22 @@ public class MainWindow extends javax.swing.JFrame {
         jSeparator21.setForeground(new java.awt.Color(255, 255, 255));
         ModificarPersonaWindow.add(jSeparator21, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 640, 10));
 
-        TabbedModificar.setBackground(new java.awt.Color(169, 253, 172));
+        TabbedModificar.setBackground(new java.awt.Color(149, 212, 195));
         TabbedModificar.setForeground(new java.awt.Color(255, 255, 255));
         TabbedModificar.setFont(new java.awt.Font("Poppins", 1, 12)); // NOI18N
 
-        PanelModificarJugador.setBackground(new java.awt.Color(169, 253, 172));
+        PanelModificarJugador.setBackground(new java.awt.Color(218, 240, 234));
         PanelModificarJugador.setForeground(new java.awt.Color(169, 253, 172));
         PanelModificarJugador.setToolTipText("");
 
         TextoAltaJugadorNombre1.setBackground(new java.awt.Color(255, 255, 255));
         TextoAltaJugadorNombre1.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
-        TextoAltaJugadorNombre1.setForeground(new java.awt.Color(255, 255, 255));
+        TextoAltaJugadorNombre1.setForeground(new java.awt.Color(246, 144, 84));
         TextoAltaJugadorNombre1.setText("Nombre");
 
-        InputModificarJugadorNombre.setBackground(new java.awt.Color(169, 253, 172));
+        InputModificarJugadorNombre.setBackground(new java.awt.Color(218, 240, 234));
         InputModificarJugadorNombre.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
-        InputModificarJugadorNombre.setForeground(new java.awt.Color(204, 204, 204));
+        InputModificarJugadorNombre.setForeground(new java.awt.Color(107, 107, 107));
         InputModificarJugadorNombre.setText("Inserte el nombre...");
         InputModificarJugadorNombre.setBorder(null);
 
@@ -1977,12 +1976,12 @@ public class MainWindow extends javax.swing.JFrame {
 
         TextoAltaJugadorApellido1.setBackground(new java.awt.Color(255, 255, 255));
         TextoAltaJugadorApellido1.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
-        TextoAltaJugadorApellido1.setForeground(new java.awt.Color(255, 255, 255));
+        TextoAltaJugadorApellido1.setForeground(new java.awt.Color(246, 144, 84));
         TextoAltaJugadorApellido1.setText("Apellidos");
 
-        InputModificarJugadorApellido.setBackground(new java.awt.Color(169, 253, 172));
+        InputModificarJugadorApellido.setBackground(new java.awt.Color(218, 240, 234));
         InputModificarJugadorApellido.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
-        InputModificarJugadorApellido.setForeground(new java.awt.Color(204, 204, 204));
+        InputModificarJugadorApellido.setForeground(new java.awt.Color(107, 107, 107));
         InputModificarJugadorApellido.setText("Inserte el apellido...");
         InputModificarJugadorApellido.setBorder(null);
 
@@ -1991,12 +1990,12 @@ public class MainWindow extends javax.swing.JFrame {
 
         TextoAltaJugadorTelefono1.setBackground(new java.awt.Color(255, 255, 255));
         TextoAltaJugadorTelefono1.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
-        TextoAltaJugadorTelefono1.setForeground(new java.awt.Color(255, 255, 255));
+        TextoAltaJugadorTelefono1.setForeground(new java.awt.Color(246, 144, 84));
         TextoAltaJugadorTelefono1.setText("Teléfono");
 
-        InputModificarJugadorTelefono.setBackground(new java.awt.Color(169, 253, 172));
+        InputModificarJugadorTelefono.setBackground(new java.awt.Color(218, 240, 234));
         InputModificarJugadorTelefono.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
-        InputModificarJugadorTelefono.setForeground(new java.awt.Color(204, 204, 204));
+        InputModificarJugadorTelefono.setForeground(new java.awt.Color(107, 107, 107));
         InputModificarJugadorTelefono.setText("Inserte el teléfono...");
         InputModificarJugadorTelefono.setBorder(null);
 
@@ -2005,12 +2004,12 @@ public class MainWindow extends javax.swing.JFrame {
 
         TextoAltaJugadorEdad1.setBackground(new java.awt.Color(255, 255, 255));
         TextoAltaJugadorEdad1.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
-        TextoAltaJugadorEdad1.setForeground(new java.awt.Color(255, 255, 255));
+        TextoAltaJugadorEdad1.setForeground(new java.awt.Color(246, 144, 84));
         TextoAltaJugadorEdad1.setText("Edad");
 
-        InputModificarJugadorEdad.setBackground(new java.awt.Color(169, 253, 172));
+        InputModificarJugadorEdad.setBackground(new java.awt.Color(218, 240, 234));
         InputModificarJugadorEdad.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
-        InputModificarJugadorEdad.setForeground(new java.awt.Color(204, 204, 204));
+        InputModificarJugadorEdad.setForeground(new java.awt.Color(107, 107, 107));
         InputModificarJugadorEdad.setText("Inserte la edad...");
         InputModificarJugadorEdad.setBorder(null);
 
@@ -2019,12 +2018,12 @@ public class MainWindow extends javax.swing.JFrame {
 
         TextoAltaJugadorValor2.setBackground(new java.awt.Color(255, 255, 255));
         TextoAltaJugadorValor2.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
-        TextoAltaJugadorValor2.setForeground(new java.awt.Color(255, 255, 255));
+        TextoAltaJugadorValor2.setForeground(new java.awt.Color(246, 144, 84));
         TextoAltaJugadorValor2.setText("Valor de mercado");
 
-        InputModificarJugadorValor.setBackground(new java.awt.Color(169, 253, 172));
+        InputModificarJugadorValor.setBackground(new java.awt.Color(218, 240, 234));
         InputModificarJugadorValor.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
-        InputModificarJugadorValor.setForeground(new java.awt.Color(204, 204, 204));
+        InputModificarJugadorValor.setForeground(new java.awt.Color(107, 107, 107));
         InputModificarJugadorValor.setText("Inserte el valor de mercado...");
         InputModificarJugadorValor.setBorder(null);
 
@@ -2033,12 +2032,12 @@ public class MainWindow extends javax.swing.JFrame {
 
         TextoAltaJugadorDNI2.setBackground(new java.awt.Color(255, 255, 255));
         TextoAltaJugadorDNI2.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
-        TextoAltaJugadorDNI2.setForeground(new java.awt.Color(255, 255, 255));
+        TextoAltaJugadorDNI2.setForeground(new java.awt.Color(246, 144, 84));
         TextoAltaJugadorDNI2.setText("DNI");
 
-        InputModificarJugadorDNI.setBackground(new java.awt.Color(169, 253, 172));
+        InputModificarJugadorDNI.setBackground(new java.awt.Color(218, 240, 234));
         InputModificarJugadorDNI.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
-        InputModificarJugadorDNI.setForeground(new java.awt.Color(204, 204, 204));
+        InputModificarJugadorDNI.setForeground(new java.awt.Color(107, 107, 107));
         InputModificarJugadorDNI.setText("Inserte el DNI...");
         InputModificarJugadorDNI.setBorder(null);
         InputModificarJugadorDNI.setEnabled(false);
@@ -2046,23 +2045,26 @@ public class MainWindow extends javax.swing.JFrame {
         jSeparator27.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator27.setForeground(new java.awt.Color(255, 255, 255));
 
-        BtnModificarJugador.setBackground(new java.awt.Color(59, 185, 122));
-        BtnModificarJugador.setFont(new java.awt.Font("Poppins", 1, 24)); // NOI18N
+        BtnModificarJugador.setBackground(new java.awt.Color(29, 78, 138));
+        BtnModificarJugador.setFont(new java.awt.Font("Poppins SemiBold", 1, 24)); // NOI18N
         BtnModificarJugador.setForeground(new java.awt.Color(255, 255, 255));
         BtnModificarJugador.setText("Modificar jugador");
         BtnModificarJugador.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         TextoAltaJugadorDemarcacion1.setBackground(new java.awt.Color(255, 255, 255));
         TextoAltaJugadorDemarcacion1.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
-        TextoAltaJugadorDemarcacion1.setForeground(new java.awt.Color(255, 255, 255));
+        TextoAltaJugadorDemarcacion1.setForeground(new java.awt.Color(246, 144, 84));
         TextoAltaJugadorDemarcacion1.setText("Demarcacion");
 
         jSeparator28.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator28.setForeground(new java.awt.Color(255, 255, 255));
 
+        ComBoxModificarDemarcacion.setBackground(new java.awt.Color(255, 255, 255));
+        ComBoxModificarDemarcacion.setForeground(new java.awt.Color(107, 107, 107));
+
         TextoAltaJugadorEstadoFisico1.setBackground(new java.awt.Color(255, 255, 255));
         TextoAltaJugadorEstadoFisico1.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
-        TextoAltaJugadorEstadoFisico1.setForeground(new java.awt.Color(255, 255, 255));
+        TextoAltaJugadorEstadoFisico1.setForeground(new java.awt.Color(246, 144, 84));
         TextoAltaJugadorEstadoFisico1.setText("Estado fisico");
 
         jSeparator29.setBackground(new java.awt.Color(255, 255, 255));
@@ -2100,7 +2102,7 @@ public class MainWindow extends javax.swing.JFrame {
                         .addComponent(InputModificarJugadorEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(PanelModificarJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelModificarJugadorLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 406, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 436, Short.MAX_VALUE)
                         .addComponent(BtnModificarJugador, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(65, 65, 65))
                     .addGroup(PanelModificarJugadorLayout.createSequentialGroup()
@@ -2192,16 +2194,16 @@ public class MainWindow extends javax.swing.JFrame {
 
         TabbedModificar.addTab("Jugador", PanelModificarJugador);
 
-        PanelModificarTecnico.setBackground(new java.awt.Color(169, 253, 172));
+        PanelModificarTecnico.setBackground(new java.awt.Color(218, 240, 234));
 
         TextoAltaTecnicoNombre1.setBackground(new java.awt.Color(255, 255, 255));
         TextoAltaTecnicoNombre1.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
-        TextoAltaTecnicoNombre1.setForeground(new java.awt.Color(255, 255, 255));
+        TextoAltaTecnicoNombre1.setForeground(new java.awt.Color(246, 144, 84));
         TextoAltaTecnicoNombre1.setText("Nombre");
 
-        InputModificarTecnicoNombre.setBackground(new java.awt.Color(169, 253, 172));
+        InputModificarTecnicoNombre.setBackground(new java.awt.Color(218, 240, 234));
         InputModificarTecnicoNombre.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
-        InputModificarTecnicoNombre.setForeground(new java.awt.Color(204, 204, 204));
+        InputModificarTecnicoNombre.setForeground(new java.awt.Color(107, 107, 107));
         InputModificarTecnicoNombre.setText("Inserte el nombre...");
         InputModificarTecnicoNombre.setBorder(null);
 
@@ -2210,12 +2212,12 @@ public class MainWindow extends javax.swing.JFrame {
 
         TextoAltaTecnicoApellido1.setBackground(new java.awt.Color(255, 255, 255));
         TextoAltaTecnicoApellido1.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
-        TextoAltaTecnicoApellido1.setForeground(new java.awt.Color(255, 255, 255));
+        TextoAltaTecnicoApellido1.setForeground(new java.awt.Color(246, 144, 84));
         TextoAltaTecnicoApellido1.setText("Apellidos");
 
-        InputModificarTecnicoApellido.setBackground(new java.awt.Color(169, 253, 172));
+        InputModificarTecnicoApellido.setBackground(new java.awt.Color(218, 240, 234));
         InputModificarTecnicoApellido.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
-        InputModificarTecnicoApellido.setForeground(new java.awt.Color(204, 204, 204));
+        InputModificarTecnicoApellido.setForeground(new java.awt.Color(107, 107, 107));
         InputModificarTecnicoApellido.setText("Inserte el apellido...");
         InputModificarTecnicoApellido.setBorder(null);
 
@@ -2224,12 +2226,12 @@ public class MainWindow extends javax.swing.JFrame {
 
         TextoAltaTecnicoTelefono1.setBackground(new java.awt.Color(255, 255, 255));
         TextoAltaTecnicoTelefono1.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
-        TextoAltaTecnicoTelefono1.setForeground(new java.awt.Color(255, 255, 255));
+        TextoAltaTecnicoTelefono1.setForeground(new java.awt.Color(246, 144, 84));
         TextoAltaTecnicoTelefono1.setText("Teléfono");
 
-        InputModificarTecnicoTelefono.setBackground(new java.awt.Color(169, 253, 172));
+        InputModificarTecnicoTelefono.setBackground(new java.awt.Color(218, 240, 234));
         InputModificarTecnicoTelefono.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
-        InputModificarTecnicoTelefono.setForeground(new java.awt.Color(204, 204, 204));
+        InputModificarTecnicoTelefono.setForeground(new java.awt.Color(107, 107, 107));
         InputModificarTecnicoTelefono.setText("Inserte el teléfono...");
         InputModificarTecnicoTelefono.setBorder(null);
 
@@ -2238,12 +2240,12 @@ public class MainWindow extends javax.swing.JFrame {
 
         TextoAltaTecnicoDNI1.setBackground(new java.awt.Color(255, 255, 255));
         TextoAltaTecnicoDNI1.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
-        TextoAltaTecnicoDNI1.setForeground(new java.awt.Color(255, 255, 255));
+        TextoAltaTecnicoDNI1.setForeground(new java.awt.Color(246, 144, 84));
         TextoAltaTecnicoDNI1.setText("DNI");
 
-        InputModificarTecnicoDNI.setBackground(new java.awt.Color(169, 253, 172));
+        InputModificarTecnicoDNI.setBackground(new java.awt.Color(218, 240, 234));
         InputModificarTecnicoDNI.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
-        InputModificarTecnicoDNI.setForeground(new java.awt.Color(204, 204, 204));
+        InputModificarTecnicoDNI.setForeground(new java.awt.Color(107, 107, 107));
         InputModificarTecnicoDNI.setText("Inserte el DNI...");
         InputModificarTecnicoDNI.setBorder(null);
         InputModificarTecnicoDNI.setEnabled(false);
@@ -2253,7 +2255,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         TextoAltaJugadorValor3.setBackground(new java.awt.Color(255, 255, 255));
         TextoAltaJugadorValor3.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
-        TextoAltaJugadorValor3.setForeground(new java.awt.Color(255, 255, 255));
+        TextoAltaJugadorValor3.setForeground(new java.awt.Color(246, 144, 84));
         TextoAltaJugadorValor3.setText("Puesto");
 
         jSeparator34.setBackground(new java.awt.Color(255, 255, 255));
@@ -2261,17 +2263,23 @@ public class MainWindow extends javax.swing.JFrame {
 
         TextoAltaJugadorDNI3.setBackground(new java.awt.Color(255, 255, 255));
         TextoAltaJugadorDNI3.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
-        TextoAltaJugadorDNI3.setForeground(new java.awt.Color(255, 255, 255));
+        TextoAltaJugadorDNI3.setForeground(new java.awt.Color(246, 144, 84));
         TextoAltaJugadorDNI3.setText("Especialidad");
 
         jSeparator35.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator35.setForeground(new java.awt.Color(255, 255, 255));
 
-        BtnModificarTécnico.setBackground(new java.awt.Color(59, 185, 122));
-        BtnModificarTécnico.setFont(new java.awt.Font("Poppins", 1, 24)); // NOI18N
+        BtnModificarTécnico.setBackground(new java.awt.Color(29, 78, 138));
+        BtnModificarTécnico.setFont(new java.awt.Font("Poppins SemiBold", 1, 24)); // NOI18N
         BtnModificarTécnico.setForeground(new java.awt.Color(255, 255, 255));
         BtnModificarTécnico.setText("Modificar técnico");
         BtnModificarTécnico.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        ComboBoxModificarTecnicoEspecialidad.setBackground(new java.awt.Color(255, 255, 255));
+        ComboBoxModificarTecnicoEspecialidad.setForeground(new java.awt.Color(107, 107, 107));
+
+        ComboBoxModificarTecnicoPuesto.setBackground(new java.awt.Color(255, 255, 255));
+        ComboBoxModificarTecnicoPuesto.setForeground(new java.awt.Color(107, 107, 107));
 
         javax.swing.GroupLayout PanelModificarTecnicoLayout = new javax.swing.GroupLayout(PanelModificarTecnico);
         PanelModificarTecnico.setLayout(PanelModificarTecnicoLayout);
@@ -2310,7 +2318,7 @@ public class MainWindow extends javax.swing.JFrame {
                             .addComponent(TextoAltaTecnicoDNI1)
                             .addComponent(jSeparator33)
                             .addComponent(InputModificarTecnicoDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 401, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 431, Short.MAX_VALUE)
                         .addComponent(BtnModificarTécnico, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(70, 70, 70))))
         );
@@ -2324,7 +2332,8 @@ public class MainWindow extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(InputModificarTecnicoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator30, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jSeparator30, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12))
                     .addGroup(PanelModificarTecnicoLayout.createSequentialGroup()
                         .addComponent(TextoAltaJugadorValor3)
                         .addGap(9, 9, 9)
@@ -2365,16 +2374,16 @@ public class MainWindow extends javax.swing.JFrame {
 
         TabbedModificar.addTab("Técnico", PanelModificarTecnico);
 
-        PanelModificarDirectivo.setBackground(new java.awt.Color(169, 253, 172));
+        PanelModificarDirectivo.setBackground(new java.awt.Color(218, 240, 234));
 
         TextoAltaDirectivoNombre1.setBackground(new java.awt.Color(255, 255, 255));
         TextoAltaDirectivoNombre1.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
-        TextoAltaDirectivoNombre1.setForeground(new java.awt.Color(255, 255, 255));
+        TextoAltaDirectivoNombre1.setForeground(new java.awt.Color(246, 144, 84));
         TextoAltaDirectivoNombre1.setText("Nombre");
 
-        InputModificarDirectivoCargo.setBackground(new java.awt.Color(169, 253, 172));
+        InputModificarDirectivoCargo.setBackground(new java.awt.Color(218, 240, 234));
         InputModificarDirectivoCargo.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
-        InputModificarDirectivoCargo.setForeground(new java.awt.Color(204, 204, 204));
+        InputModificarDirectivoCargo.setForeground(new java.awt.Color(107, 107, 107));
         InputModificarDirectivoCargo.setText("Inserte el cargo...");
         InputModificarDirectivoCargo.setBorder(null);
 
@@ -2383,12 +2392,12 @@ public class MainWindow extends javax.swing.JFrame {
 
         TextoAltaDirectivoApellido1.setBackground(new java.awt.Color(255, 255, 255));
         TextoAltaDirectivoApellido1.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
-        TextoAltaDirectivoApellido1.setForeground(new java.awt.Color(255, 255, 255));
+        TextoAltaDirectivoApellido1.setForeground(new java.awt.Color(246, 144, 84));
         TextoAltaDirectivoApellido1.setText("Apellidos");
 
-        InputModificarDirectivoApellido.setBackground(new java.awt.Color(169, 253, 172));
+        InputModificarDirectivoApellido.setBackground(new java.awt.Color(218, 240, 234));
         InputModificarDirectivoApellido.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
-        InputModificarDirectivoApellido.setForeground(new java.awt.Color(204, 204, 204));
+        InputModificarDirectivoApellido.setForeground(new java.awt.Color(107, 107, 107));
         InputModificarDirectivoApellido.setText("Inserte el apellido...");
         InputModificarDirectivoApellido.setBorder(null);
 
@@ -2397,12 +2406,12 @@ public class MainWindow extends javax.swing.JFrame {
 
         TextoAltaDirectivoTelefono1.setBackground(new java.awt.Color(255, 255, 255));
         TextoAltaDirectivoTelefono1.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
-        TextoAltaDirectivoTelefono1.setForeground(new java.awt.Color(255, 255, 255));
+        TextoAltaDirectivoTelefono1.setForeground(new java.awt.Color(246, 144, 84));
         TextoAltaDirectivoTelefono1.setText("Teléfono");
 
-        InputModificarDirectivoTelefono.setBackground(new java.awt.Color(169, 253, 172));
+        InputModificarDirectivoTelefono.setBackground(new java.awt.Color(218, 240, 234));
         InputModificarDirectivoTelefono.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
-        InputModificarDirectivoTelefono.setForeground(new java.awt.Color(204, 204, 204));
+        InputModificarDirectivoTelefono.setForeground(new java.awt.Color(107, 107, 107));
         InputModificarDirectivoTelefono.setText("Inserte el teléfono...");
         InputModificarDirectivoTelefono.setBorder(null);
 
@@ -2411,12 +2420,12 @@ public class MainWindow extends javax.swing.JFrame {
 
         TextoAltaDirectivoDNI1.setBackground(new java.awt.Color(255, 255, 255));
         TextoAltaDirectivoDNI1.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
-        TextoAltaDirectivoDNI1.setForeground(new java.awt.Color(255, 255, 255));
+        TextoAltaDirectivoDNI1.setForeground(new java.awt.Color(246, 144, 84));
         TextoAltaDirectivoDNI1.setText("DNI");
 
-        InputModificarDirectivoDNI.setBackground(new java.awt.Color(169, 253, 172));
+        InputModificarDirectivoDNI.setBackground(new java.awt.Color(218, 240, 234));
         InputModificarDirectivoDNI.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
-        InputModificarDirectivoDNI.setForeground(new java.awt.Color(204, 204, 204));
+        InputModificarDirectivoDNI.setForeground(new java.awt.Color(107, 107, 107));
         InputModificarDirectivoDNI.setText("Inserte el DNI...");
         InputModificarDirectivoDNI.setBorder(null);
         InputModificarDirectivoDNI.setEnabled(false);
@@ -2424,23 +2433,23 @@ public class MainWindow extends javax.swing.JFrame {
         jSeparator39.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator39.setForeground(new java.awt.Color(255, 255, 255));
 
-        BtnModificarDirectivo.setBackground(new java.awt.Color(59, 185, 122));
-        BtnModificarDirectivo.setFont(new java.awt.Font("Poppins", 1, 24)); // NOI18N
+        BtnModificarDirectivo.setBackground(new java.awt.Color(29, 78, 138));
+        BtnModificarDirectivo.setFont(new java.awt.Font("Poppins SemiBold", 1, 24)); // NOI18N
         BtnModificarDirectivo.setForeground(new java.awt.Color(255, 255, 255));
         BtnModificarDirectivo.setText("Modificar directivo");
         BtnModificarDirectivo.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         TextoAltaDirectivoCargo1.setBackground(new java.awt.Color(255, 255, 255));
         TextoAltaDirectivoCargo1.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
-        TextoAltaDirectivoCargo1.setForeground(new java.awt.Color(255, 255, 255));
+        TextoAltaDirectivoCargo1.setForeground(new java.awt.Color(246, 144, 84));
         TextoAltaDirectivoCargo1.setText("Cargo");
 
         jSeparator40.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator40.setForeground(new java.awt.Color(255, 255, 255));
 
-        InputModificarDirectivoNombre.setBackground(new java.awt.Color(169, 253, 172));
+        InputModificarDirectivoNombre.setBackground(new java.awt.Color(218, 240, 234));
         InputModificarDirectivoNombre.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
-        InputModificarDirectivoNombre.setForeground(new java.awt.Color(204, 204, 204));
+        InputModificarDirectivoNombre.setForeground(new java.awt.Color(107, 107, 107));
         InputModificarDirectivoNombre.setText("Inserte el nombre...");
         InputModificarDirectivoNombre.setBorder(null);
 
@@ -2450,45 +2459,36 @@ public class MainWindow extends javax.swing.JFrame {
             PanelModificarDirectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelModificarDirectivoLayout.createSequentialGroup()
                 .addGap(81, 81, 81)
+                .addGroup(PanelModificarDirectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(PanelModificarDirectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(PanelModificarDirectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(TextoAltaDirectivoDNI1)
+                            .addComponent(jSeparator39)
+                            .addComponent(InputModificarDirectivoDNI, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE))
+                        .addGroup(PanelModificarDirectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(TextoAltaDirectivoTelefono1)
+                            .addComponent(jSeparator38)
+                            .addComponent(InputModificarDirectivoTelefono, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)))
+                    .addGroup(PanelModificarDirectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(PanelModificarDirectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(TextoAltaDirectivoApellido1)
+                            .addComponent(jSeparator37)
+                            .addComponent(InputModificarDirectivoApellido, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE))
+                        .addGroup(PanelModificarDirectivoLayout.createSequentialGroup()
+                            .addComponent(TextoAltaDirectivoNombre1)
+                            .addGap(143, 143, 143)))
+                    .addComponent(InputModificarDirectivoNombre)
+                    .addComponent(jSeparator36))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 132, Short.MAX_VALUE)
                 .addGroup(PanelModificarDirectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PanelModificarDirectivoLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(BtnModificarDirectivo, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(70, 70, 70))
-                    .addGroup(PanelModificarDirectivoLayout.createSequentialGroup()
-                        .addGroup(PanelModificarDirectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(PanelModificarDirectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(PanelModificarDirectivoLayout.createSequentialGroup()
-                                    .addComponent(InputModificarDirectivoNombre)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                                .addGroup(PanelModificarDirectivoLayout.createSequentialGroup()
-                                    .addComponent(jSeparator36, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(131, 131, 131)))
-                            .addGroup(PanelModificarDirectivoLayout.createSequentialGroup()
-                                .addGroup(PanelModificarDirectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(PanelModificarDirectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addGroup(PanelModificarDirectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(TextoAltaDirectivoDNI1)
-                                            .addComponent(jSeparator39)
-                                            .addComponent(InputModificarDirectivoDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(PanelModificarDirectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(TextoAltaDirectivoTelefono1)
-                                            .addComponent(jSeparator38)
-                                            .addComponent(InputModificarDirectivoTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(PanelModificarDirectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addGroup(PanelModificarDirectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(TextoAltaDirectivoApellido1)
-                                            .addComponent(jSeparator37)
-                                            .addComponent(InputModificarDirectivoApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(PanelModificarDirectivoLayout.createSequentialGroup()
-                                            .addComponent(TextoAltaDirectivoNombre1)
-                                            .addGap(143, 143, 143))))
-                                .addGap(131, 131, 131)))
-                        .addGroup(PanelModificarDirectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(TextoAltaDirectivoCargo1)
-                            .addComponent(jSeparator40, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(InputModificarDirectivoCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(384, Short.MAX_VALUE))))
+                    .addComponent(TextoAltaDirectivoCargo1)
+                    .addComponent(jSeparator40, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(InputModificarDirectivoCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(413, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelModificarDirectivoLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(BtnModificarDirectivo, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(53, 53, 53))
         );
         PanelModificarDirectivoLayout.setVerticalGroup(
             PanelModificarDirectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2535,12 +2535,27 @@ public class MainWindow extends javax.swing.JFrame {
 
         TabbedModificar.addTab("Directivo", PanelModificarDirectivo);
 
-        ModificarPersonaWindow.add(TabbedModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 1000, 480));
+        ModificarPersonaWindow.add(TabbedModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 1030, 480));
 
-        BtnDarDeAltaAtrasModificar.setBackground(new java.awt.Color(59, 185, 122));
+        BtnDarDeAltaAtrasModificar.setBackground(new java.awt.Color(246, 144, 84));
         BtnDarDeAltaAtrasModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Media/arrow.png"))); // NOI18N
         BtnDarDeAltaAtrasModificar.setBorder(null);
         ModificarPersonaWindow.add(BtnDarDeAltaAtrasModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 60, 60));
+
+        jPanel11.setBackground(new java.awt.Color(246, 144, 84));
+
+        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
+        jPanel11.setLayout(jPanel11Layout);
+        jPanel11Layout.setHorizontalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1030, Short.MAX_VALUE)
+        );
+        jPanel11Layout.setVerticalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 170, Short.MAX_VALUE)
+        );
+
+        ModificarPersonaWindow.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 170));
 
         PanelRaiz.add(ModificarPersonaWindow, "card4");
 
@@ -2818,7 +2833,7 @@ public class MainWindow extends javax.swing.JFrame {
     }
 
     private void stylishButtonEnter(JButton boton, Icon icon) {
-        boton.setForeground(Color.white);
+        boton.setForeground(new Color(246,144,84));
         boton.setIcon(icon);
     }
 
@@ -2831,7 +2846,7 @@ public class MainWindow extends javax.swing.JFrame {
         //Chequea que el campo estaba vacio o es igual al placeholder (texto inicial)
         if (textInput.getText().equals(textoInicial)) {
             textInput.setText("");
-            textInput.setForeground(Color.white);
+            textInput.setForeground(Color.black);
         }
 
     }
@@ -2839,14 +2854,13 @@ public class MainWindow extends javax.swing.JFrame {
     public void LostFocusStylishTextInput(JTextField textInput, String placeholderText) {
         if (textInput.getText().isEmpty()) {
             textInput.setText(placeholderText);
-            textInput.setForeground(new Color(204, 204, 204));
+            textInput.setForeground(new Color(107,107,107));
         }
 
     }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel BarraTop;
     private javax.swing.JButton BtnCrearDirectivo;
     private javax.swing.JButton BtnCrearFactura;
     private javax.swing.JButton BtnCrearJugador;
@@ -2899,6 +2913,8 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JPanel DarDeAltaWindow;
     private javax.swing.JPanel FacturaWindow;
     private javax.swing.JPanel GastosWindow;
+    private javax.swing.JLabel GestionLabel;
+    private javax.swing.JLabel GestionLabel1;
     private javax.swing.JPanel GestionWindow;
     private javax.swing.JLabel GolesLocalLabel;
     private javax.swing.JLabel GolesVisitanteLabel;
@@ -2964,20 +2980,17 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JPanel PanelModificarTecnico;
     private javax.swing.JScrollPane PanelPlantilla;
     private javax.swing.JPanel PanelRaiz;
-    private javax.swing.JPanel Panel_RightSide;
     private javax.swing.JLabel PartidoLabel;
     private javax.swing.JRadioButton RadioBtnVisitante;
-    private javax.swing.JSeparator Separador;
-    private javax.swing.JSeparator Separador1;
     private javax.swing.JTabbedPane TabbedDarDeAlta;
     private javax.swing.JTabbedPane TabbedModificar;
     private javax.swing.JTable TablaConceptosNomina;
     private javax.swing.JTable TablaContenidoPlantilla;
     private javax.swing.JTable TablaGastosPersonas;
     private javax.swing.JTable TablaGestionPersonas;
-    private javax.swing.JLabel Text_DarDeAlta;
     private javax.swing.JLabel Text_DarDeAlta1;
     private javax.swing.JLabel Text_PlantillaActual;
+    private javax.swing.JLabel Text_PlantillaActual1;
     private javax.swing.JLabel Text_Titulo;
     private javax.swing.JLabel TextoAltaDirectivoApellido;
     private javax.swing.JLabel TextoAltaDirectivoApellido1;
@@ -3034,9 +3047,11 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel TextoCrearNominaMes1;
     private javax.swing.JLabel TextoNombreEquipoRival;
     private javax.swing.JLabel TituloCrearFactura;
+    private javax.swing.JLabel TituloCrearFactura1;
     private javax.swing.JLabel TituloCrearNomina;
     private javax.swing.JLabel TituloCrearNomina1;
     private javax.swing.JLabel TituloImprimir;
+    private javax.swing.JLabel TituloImprimir1;
     private javax.swing.JLabel TituloModificarConceptos;
     private javax.swing.JToggleButton ToggleEstadoFisico;
     private javax.swing.JToggleButton ToggleModificarEstadoFisico;
@@ -3047,6 +3062,17 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator11;
@@ -3086,7 +3112,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator42;
     private javax.swing.JSeparator jSeparator43;
     private javax.swing.JSeparator jSeparator44;
-    private javax.swing.JSeparator jSeparator45;
     private javax.swing.JSeparator jSeparator46;
     private javax.swing.JSeparator jSeparator47;
     private javax.swing.JSeparator jSeparator48;
@@ -3098,10 +3123,8 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator53;
     private javax.swing.JSeparator jSeparator54;
     private javax.swing.JSeparator jSeparator55;
-    private javax.swing.JSeparator jSeparator56;
     private javax.swing.JSeparator jSeparator57;
     private javax.swing.JSeparator jSeparator58;
-    private javax.swing.JSeparator jSeparator59;
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator60;
     private javax.swing.JSeparator jSeparator61;

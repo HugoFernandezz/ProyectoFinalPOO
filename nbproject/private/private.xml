@@ -3,7 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/hugaz/Documents/Repositorios/ProyectoFinalPOO/48848727Q/src/Controlador/ControladorPrincipal.java</file>
+            <file>file:/C:/Users/hugaz/Documents/Repositorios/ProyectoFinalPOO/48848727Q/src/Controlador/ControladorGestion.java</file>
+            <file>file:/C:/Users/hugaz/Documents/Repositorios/ProyectoFinalPOO/48848727Q/src/Controlador/ControladorGestorPersonas.java</file>
+            <file>file:/C:/Users/hugaz/Documents/Repositorios/ProyectoFinalPOO/48848727Q/src/Controlador/ControladorModificarPersona.java</file>
+            <file>file:/C:/Users/hugaz/Documents/Repositorios/ProyectoFinalPOO/48848727Q/src/Vista/MainWindow.java</file>
+            <file>file:/C:/Users/hugaz/Documents/Repositorios/ProyectoFinalPOO/48848727Q/src/Controlador/ControladorCrearPersona.java</file>
         </group>
     </open-files>
 </project-private>

@@ -257,31 +257,31 @@ public class ControladorModificarPersona extends ControladorGestorPersonas {
 
     private void rellenarDatoJugador(Jugador jugador) {
         mainWindow.getInputModificarJugadorApellido().setText(jugador.getApellido());
-        mainWindow.getInputModificarJugadorApellido().setForeground(Color.WHITE);
+        mainWindow.getInputModificarJugadorApellido().setForeground(Color.black);
         mainWindow.getInputModificarJugadorDNI().setText(jugador.getDni());
         mainWindow.getInputModificarJugadorDNI().setEnabled(false);
-        mainWindow.getInputModificarJugadorDNI().setForeground(Color.WHITE);
+        mainWindow.getInputModificarJugadorDNI().setForeground(Color.black);
         mainWindow.getInputModificarJugadorEdad().setText(String.valueOf(jugador.getEdad()));
-        mainWindow.getInputModificarJugadorEdad().setForeground(Color.WHITE);
+        mainWindow.getInputModificarJugadorEdad().setForeground(Color.black);
         mainWindow.getInputModificarJugadorNombre().setText(jugador.getNombre());
-        mainWindow.getInputModificarJugadorNombre().setForeground(Color.WHITE);
+        mainWindow.getInputModificarJugadorNombre().setForeground(Color.black);
         mainWindow.getInputModificarJugadorTelefono().setText(String.valueOf(jugador.getTelefono()));
-        mainWindow.getInputModificarJugadorTelefono().setForeground(Color.WHITE);
+        mainWindow.getInputModificarJugadorTelefono().setForeground(Color.black);
         mainWindow.getInputModificarJugadorValor().setText(String.valueOf(jugador.getValorMercado()));
-        mainWindow.getInputModificarJugadorValor().setForeground(Color.WHITE);
+        mainWindow.getInputModificarJugadorValor().setForeground(Color.black);
         mainWindow.getComBoxModificarDemarcacion().setSelectedItem(jugador.getDemarcacion());
     }
 
     private void rellenarDatoTecnico(Tecnico tecnico) {
         mainWindow.getInputModificarTecnicoApellido().setText(tecnico.getApellido());
-        mainWindow.getInputModificarTecnicoApellido().setForeground(Color.WHITE);
+        mainWindow.getInputModificarTecnicoApellido().setForeground(Color.black);
         mainWindow.getInputModificarTecnicoDNI().setText(tecnico.getDni());
         mainWindow.getInputModificarTecnicoDNI().setEnabled(false);
-        mainWindow.getInputModificarTecnicoDNI().setForeground(Color.WHITE);
+        mainWindow.getInputModificarTecnicoDNI().setForeground(Color.black);
         mainWindow.getInputModificarTecnicoNombre().setText(tecnico.getNombre());
-        mainWindow.getInputModificarTecnicoNombre().setForeground(Color.WHITE);
+        mainWindow.getInputModificarTecnicoNombre().setForeground(Color.black);
         mainWindow.getInputModificarTecnicoTelefono().setText(String.valueOf(tecnico.getTelefono()));
-        mainWindow.getInputModificarTecnicoTelefono().setForeground(Color.WHITE);
+        mainWindow.getInputModificarTecnicoTelefono().setForeground(Color.black);
         mainWindow.getComboBoxModificarTecnicoPuesto().setSelectedItem(tecnico.getPuesto());
         mainWindow.getComboBoxModificarTecnicoEspecialidad().setSelectedItem(tecnico.getEspecialidad());
 
@@ -289,16 +289,16 @@ public class ControladorModificarPersona extends ControladorGestorPersonas {
 
     private void rellenarDatoDirectivo(Directivo directivo) {
         mainWindow.getInputModificarDirectivoApellido().setText(directivo.getApellido());
-        mainWindow.getInputModificarDirectivoApellido().setForeground(Color.WHITE);
+        mainWindow.getInputModificarDirectivoApellido().setForeground(Color.black);
         mainWindow.getInputModificarDirectivoCargo().setText(directivo.getCargo());
-        mainWindow.getInputModificarDirectivoCargo().setForeground(Color.WHITE);
+        mainWindow.getInputModificarDirectivoCargo().setForeground(Color.black);
         mainWindow.getInputModificarDirectivoDNI().setText(directivo.getDni());
         mainWindow.getInputModificarDirectivoDNI().setEnabled(false);
-        mainWindow.getInputModificarDirectivoDNI().setForeground(Color.WHITE);
+        mainWindow.getInputModificarDirectivoDNI().setForeground(Color.black);
         mainWindow.getInputModificarDirectivoNombre().setText(directivo.getNombre());
-        mainWindow.getInputModificarDirectivoNombre().setForeground(Color.WHITE);
+        mainWindow.getInputModificarDirectivoNombre().setForeground(Color.black);
         mainWindow.getInputModificarDirectivoTelefono().setText(String.valueOf(directivo.getTelefono()));
-        mainWindow.getInputModificarDirectivoTelefono().setForeground(Color.WHITE);
+        mainWindow.getInputModificarDirectivoTelefono().setForeground(Color.black);
 
     }
     
