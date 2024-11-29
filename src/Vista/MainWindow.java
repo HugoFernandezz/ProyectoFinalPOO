@@ -45,7 +45,7 @@ import javax.swing.table.DefaultTableModel;
 public class MainWindow extends javax.swing.JFrame {
 
     Color colorTexto = new Color(0, 0, 0);
-    Icon icon = new ImageIcon(getClass().getResource("/Media/IconBall.png"));
+    Icon icon = new ImageIcon(getClass().getResource("/Resources/Media/IconBall.png"));
 
     List<JTextField> camposAltaInputsYModificar;
     List<JTextField> camposNumericos;
@@ -2737,7 +2737,7 @@ public class MainWindow extends javax.swing.JFrame {
         TabbedModificar.addTab("Modificar directivo", PanelModificarDirectivo);
         
          // Cargar la fuente personalizada
-        Font customFont = cargarFuente("/Media/Fuente/Poppins-SemiBold.ttf", 16f);
+        Font customFont = cargarFuente("/Resources/Fuente/Poppins-SemiBold.ttf", 16f);
         
         if (customFont != null) {
             System.out.println("Fuente cargada correctamente: " + customFont.getName());
@@ -2761,6 +2761,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         //Comportamiento compartidos de los campos normales (Enseñan un texto predefinido y si clickas se borra)
         for (JTextField field : camposAltaInputsYModificar) {
+            field.setFont(customFont);
             field.addFocusListener(new FocusAdapter() {
                 String textoInicial = field.getText();
 
@@ -2778,6 +2779,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         //Comportamiento comportidos de los botones del Home (pequeño :onhover que muestra un icono de un balon)
         for (JButton boton : botonesHomeEstilizar) {
+            boton.setFont(customFont);
             boton.addMouseListener(new MouseListener() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
