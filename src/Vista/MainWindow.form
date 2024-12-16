@@ -553,7 +553,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="606" y="253" width="128" height="-1"/>
+                  <AbsoluteConstraints x="606" y="253" width="150" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -572,7 +572,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="327" y="254" width="89" height="-1"/>
+                  <AbsoluteConstraints x="327" y="254" width="140" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -610,7 +610,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="380" y="413" width="191" height="-1"/>
+                  <AbsoluteConstraints x="380" y="413" width="240" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -632,7 +632,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="380" y="441" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="380" y="441" width="270" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -666,7 +666,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="400" y="150" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="400" y="150" width="240" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -1103,7 +1103,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Empleados eliminados"/>
+                <Property name="text" type="java.lang.String" value="Nominas generadas"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -1232,7 +1232,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Empleados eliminados"/>
+                <Property name="text" type="java.lang.String" value="Nominas generadas"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -3227,7 +3227,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="370" y="390" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="370" y="390" width="170" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -4130,13 +4130,13 @@
                                           <Component id="jSeparator28" alignment="0" min="-2" pref="202" max="-2" attributes="0"/>
                                           <Component id="TextoAltaJugadorValor2" alignment="0" min="-2" pref="162" max="-2" attributes="0"/>
                                           <Component id="TextoAltaJugadorDNI2" alignment="0" min="-2" pref="91" max="-2" attributes="0"/>
-                                          <Component id="TextoAltaJugadorDemarcacion1" alignment="0" min="-2" pref="143" max="-2" attributes="0"/>
+                                          <Component id="TextoAltaJugadorDemarcacion1" alignment="0" min="-2" pref="169" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="32767" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="jSeparator29" alignment="0" min="-2" pref="202" max="-2" attributes="0"/>
                                           <Component id="ToggleModificarEstadoFisico" alignment="0" min="-2" pref="91" max="-2" attributes="0"/>
-                                          <Component id="TextoAltaJugadorEstadoFisico1" alignment="0" min="-2" pref="124" max="-2" attributes="0"/>
+                                          <Component id="TextoAltaJugadorEstadoFisico1" alignment="0" min="-2" pref="143" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
                                   </Group>
@@ -4209,7 +4209,7 @@
                                               <EmptySpace max="32767" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="1" attributes="0">
-                                              <EmptySpace pref="25" max="32767" attributes="0"/>
+                                              <EmptySpace max="32767" attributes="0"/>
                                               <Component id="BtnModificarJugador" min="-2" pref="78" max="-2" attributes="0"/>
                                               <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
                                           </Group>

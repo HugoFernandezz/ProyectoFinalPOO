@@ -73,7 +73,7 @@ public class Concepto {
      * 
      * @param importe el importe a establecer
      */
-    public void setImporte(int importe) {
+    public void setImporte(float importe) {
         this.importe = importe;
     }
 

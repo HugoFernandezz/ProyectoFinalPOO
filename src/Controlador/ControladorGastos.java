@@ -38,7 +38,7 @@ public class ControladorGastos extends ControladorEscenas {
     public ControladorGastos(MainWindow mainWindow) {
 
         super(mainWindow);
-        
+
         inicializarVariables();
 
         inicializarEventos();
@@ -46,6 +46,8 @@ public class ControladorGastos extends ControladorEscenas {
     }
 
     private void inicializarVariables() {
+        
+        mainWindow.getComBoxMesNominaModificar().setModel(new DefaultComboBoxModel<>(Meses.values()));
 
         //Inicializo el comboBox de los meses
         mainWindow.getComBoxMesNomina().setModel(new DefaultComboBoxModel<>(Meses.values()));
@@ -63,7 +65,7 @@ public class ControladorGastos extends ControladorEscenas {
         mainWindow.getBtnHomeCrearFactura().addActionListener(e -> cambiarEscena(CARD_GASTOS));
         mainWindow.getBtnHomeCrearNomina().addActionListener(e -> cambiarEscena(CARD_GASTOS));
         mainWindow.getBtnHomeModificarNomina().addActionListener(e -> cambiarEscena(CARD_GASTOS));
-        
+
         modeloConceptos = new DefaultTableModel(columnasConceptos, 0) {
             //Le sobreescribo el metodo para que el usuario no pueda editar las celdas de las tablas
             @Override
@@ -108,7 +110,7 @@ public class ControladorGastos extends ControladorEscenas {
 
         if (personasSeleccionadasGastos.size() == 1) {
 
-            if (personasSeleccionadasGastos.get(0).getNomina() == null) {
+            if (Gestor.getInstancia().tieneNomina(personasSeleccionadasGastos.get(0)) == false) {
                 JOptionPane.showMessageDialog(null, "Parece que " + personasSeleccionadasGastos.get(0).getNombre() + " todavía no tiene ninguna nómina creada. ¿Por qué no pruebas a creale una?");
             } else {
 
@@ -130,7 +132,7 @@ public class ControladorGastos extends ControladorEscenas {
 
         //Y lo vuelvo a llenar
         List<Concepto> listaConceptos = new ArrayList<>();
-        listaConceptos.addAll(p.getNomina().getConceptos());
+        listaConceptos.addAll(p.getTodosConceptos());
 
         //Relleno el modeloConceptos con las los conceptos de la nomina de la persona que se le pasa por parametro
         for (Concepto concepto : listaConceptos) {
@@ -169,8 +171,8 @@ public class ControladorGastos extends ControladorEscenas {
         }
 
     }
-    
-     private void crearNomina(List<Persona> personasSeleccionadasGastos) {
+
+    private void crearNomina(List<Persona> personasSeleccionadasGastos) {
 
         int importe = Integer.parseInt(mainWindow.getInputCrearNominaImporte().getText());
         String descripcion = mainWindow.getInputCrearNominaDescripcion().getText();
@@ -185,13 +187,14 @@ public class ControladorGastos extends ControladorEscenas {
 
             Concepto concepto = new Concepto(id, descripcion, importe);
 
-            if (p.getNomina() == null) {
+            if (p.nominaMes(mes) == null) {
 
-                new Nomina(mes, ano, concepto, p);
+                //Si no tenia nómina en ese mes se la creo
+                p.setNomina(new Nomina(mes, ano, concepto, p));
 
             } else {
-
-                p.getNomina().setConcepto(concepto);
+                //Si la nomina ya la tenia creada, se lo meto como concepto de su nómina
+                p.nominaMes(mes).setConcepto(concepto);
 
             }
 
@@ -211,12 +214,16 @@ public class ControladorGastos extends ControladorEscenas {
 
     private void recuperarConcepto(JTable tabla) {
         filaSeleccionada = tabla.getSelectedRow();
-        System.out.println("Se devolvio el concepto con id: " + Gestor.getInstancia().recuperarConceptoPorIndice(filaSeleccionada, personasSeleccionadasGastos.get(0)).getCodigo());
-        conceptoActual = Gestor.getInstancia().recuperarConceptoPorIndice(filaSeleccionada, personasSeleccionadasGastos.get(0));
-        cambiarEscenaDatosRellenosConcepto(conceptoActual);
+        if (filaSeleccionada < 0) {
+            JOptionPane.showMessageDialog(null, "Debe selecciona la nomina que quiera modificar.");
+        } else {
+            System.out.println("Se devolvio el concepto con id: " + Gestor.getInstancia().recuperarConceptoPorIndice(filaSeleccionada, personasSeleccionadasGastos.get(0)).getCodigo());
+            conceptoActual = Gestor.getInstancia().recuperarConceptoPorIndice(filaSeleccionada, personasSeleccionadasGastos.get(0));
+            cambiarEscenaDatosRellenosConcepto(conceptoActual);
+        }
 
     }
-    
+
     private void intentarCrearFactura() {
 
         //Creo la lista de campos que tiene que rellenar
@@ -243,7 +250,7 @@ public class ControladorGastos extends ControladorEscenas {
         String fecha = mainWindow.getInputCrearFacturaFecha().getText();
 
         Cliente cliente = new Cliente(CIF, nombre);
-        Factura factura = new Factura(ID, cantidad, fecha, cliente);
+        new Factura(ID, cantidad, fecha, cliente);
 
         JOptionPane.showMessageDialog(null, "¡Factura creada con éxito!");
 
@@ -252,14 +259,19 @@ public class ControladorGastos extends ControladorEscenas {
 
     private void eliminarConcepto() {
         filaSeleccionada = mainWindow.getTablaConceptosNomina().getSelectedRow();
-        String ID = mainWindow.getTablaConceptosNomina().getModel().getValueAt(filaSeleccionada, 2).toString();
-        System.out.println(ID);
-        Gestor.getInstancia().removeConceptoPorID(ID, personasSeleccionadasGastos.get(0));
-        JOptionPane.showMessageDialog(null, "¡Concepto con id: " + ID + " eliminada con éxito!");
-        rellenarModeloTablaConceptos();
-    }
+        if (filaSeleccionada < 0) {
+            JOptionPane.showMessageDialog(null, "Debes seleccionar el concepto que quieras eliminar");
+        } else {
+            //Recupero el ID del concepto
+            String ID = mainWindow.getTablaConceptosNomina().getModel().getValueAt(filaSeleccionada, 2).toString();
+            System.out.println(ID);
+            Gestor.getInstancia().removeConceptoPorID(ID, personasSeleccionadasGastos.get(0));
+            JOptionPane.showMessageDialog(null, "¡Concepto con id: " + ID + " eliminada con éxito!");
+            rellenarModeloTablaConceptos();
+            cambiarEscena(CARD_GASTOS);
+        }
 
-    
+    }
 
     private void cambiarEscenaDatosRellenosConcepto(Concepto concepto) {
 
@@ -271,9 +283,9 @@ public class ControladorGastos extends ControladorEscenas {
         mainWindow.getInputModificarNominaDescripcion().setForeground(Color.WHITE);
         mainWindow.getInputModificarNominaImporte().setText(String.valueOf(concepto.getImporte()));
         mainWindow.getInputModificarNominaImporte().setForeground(Color.WHITE);
+        mainWindow.getComBoxMesNominaModificar().setSelectedItem(Gestor.getInstancia().buscarNominaPorConceptoID(concepto.getCodigo()).getMes());
 
         mainWindow.getInputCrearNominaAno().setEnabled(false);
-        mainWindow.getComBoxMesNomina().setEnabled(false);
 
     }
 
@@ -307,7 +319,7 @@ public class ControladorGastos extends ControladorEscenas {
 
         concepto.setCodigo(mainWindow.getInputModificarNominaID().getText());
         concepto.setDescripcion(mainWindow.getInputModificarNominaDescripcion().getText());
-        concepto.setImporte(Integer.parseInt(mainWindow.getInputModificarNominaImporte().getText()));
+        concepto.setImporte(Float.parseFloat(mainWindow.getInputModificarNominaImporte().getText()));
 
         JOptionPane.showMessageDialog(null, "¡Concepto con id: " + concepto.getCodigo() + " modificada con éxito!");
 

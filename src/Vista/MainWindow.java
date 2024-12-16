@@ -579,13 +579,13 @@ public class MainWindow extends javax.swing.JFrame {
         GolesLocalLabel.setFont(new java.awt.Font("Poppins SemiBold", 0, 18)); // NOI18N
         GolesLocalLabel.setForeground(new java.awt.Color(246, 144, 84));
         GolesLocalLabel.setText("Goles rivales");
-        JugarPartidoWindow.add(GolesLocalLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(606, 253, 128, -1));
+        JugarPartidoWindow.add(GolesLocalLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(606, 253, 150, -1));
 
         GolesVisitanteLabel.setBackground(new java.awt.Color(246, 144, 84));
         GolesVisitanteLabel.setFont(new java.awt.Font("Poppins SemiBold", 0, 18)); // NOI18N
         GolesVisitanteLabel.setForeground(new java.awt.Color(246, 144, 84));
         GolesVisitanteLabel.setText("Tus goles");
-        JugarPartidoWindow.add(GolesVisitanteLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(327, 254, 89, -1));
+        JugarPartidoWindow.add(GolesVisitanteLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(327, 254, 140, -1));
 
         BtnTerminarPartido.setBackground(new java.awt.Color(29, 78, 138));
         BtnTerminarPartido.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
@@ -597,14 +597,14 @@ public class MainWindow extends javax.swing.JFrame {
         TextoNombreEquipoRival.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
         TextoNombreEquipoRival.setForeground(new java.awt.Color(246, 144, 84));
         TextoNombreEquipoRival.setText("Nombre del equipo rival");
-        JugarPartidoWindow.add(TextoNombreEquipoRival, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 413, 191, -1));
+        JugarPartidoWindow.add(TextoNombreEquipoRival, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 413, 240, -1));
 
         InputNombreRival.setBackground(new java.awt.Color(218, 240, 234));
         InputNombreRival.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
         InputNombreRival.setForeground(new java.awt.Color(107, 107, 107));
         InputNombreRival.setText("Inserte el nombre del equipo rival...");
         InputNombreRival.setBorder(null);
-        JugarPartidoWindow.add(InputNombreRival, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 441, -1, -1));
+        JugarPartidoWindow.add(InputNombreRival, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 441, 270, -1));
 
         jSeparator41.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator41.setForeground(new java.awt.Color(255, 255, 255));
@@ -614,7 +614,7 @@ public class MainWindow extends javax.swing.JFrame {
         RadioBtnVisitante.setFont(new java.awt.Font("Poppins SemiBold", 0, 18)); // NOI18N
         RadioBtnVisitante.setForeground(new java.awt.Color(246, 144, 84));
         RadioBtnVisitante.setText("¿Eres visitante?");
-        JugarPartidoWindow.add(RadioBtnVisitante, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 150, -1, -1));
+        JugarPartidoWindow.add(RadioBtnVisitante, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 150, 240, -1));
 
         jPanel3.setBackground(new java.awt.Color(246, 144, 84));
 
@@ -788,7 +788,7 @@ public class MainWindow extends javax.swing.JFrame {
         BtnImprimirTXTNominas.setBackground(new java.awt.Color(29, 78, 138));
         BtnImprimirTXTNominas.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
         BtnImprimirTXTNominas.setForeground(new java.awt.Color(255, 255, 255));
-        BtnImprimirTXTNominas.setText("Empleados eliminados");
+        BtnImprimirTXTNominas.setText("Nominas generadas");
         ImprimirWindow.add(BtnImprimirTXTNominas, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 520, 220, 53));
 
         jSeparator60.setForeground(new java.awt.Color(246, 144, 84));
@@ -827,7 +827,7 @@ public class MainWindow extends javax.swing.JFrame {
         BtnImprimirPDFNominas.setBackground(new java.awt.Color(29, 78, 138));
         BtnImprimirPDFNominas.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
         BtnImprimirPDFNominas.setForeground(new java.awt.Color(255, 255, 255));
-        BtnImprimirPDFNominas.setText("Empleados eliminados");
+        BtnImprimirPDFNominas.setText("Nominas generadas");
         ImprimirWindow.add(BtnImprimirPDFNominas, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 520, 220, 53));
 
         jPanel5.setBackground(new java.awt.Color(246, 144, 84));
@@ -1699,7 +1699,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Formato: DD/MM/YYYY");
-        FacturaWindow.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 390, -1, -1));
+        FacturaWindow.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 390, 170, -1));
 
         PanelRaiz.add(FacturaWindow, "card9");
 
@@ -2139,12 +2139,12 @@ public class MainWindow extends javax.swing.JFrame {
                             .addComponent(jSeparator28, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(TextoAltaJugadorValor2, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(TextoAltaJugadorDNI2, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TextoAltaJugadorDemarcacion1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(TextoAltaJugadorDemarcacion1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(PanelModificarJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jSeparator29, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(ToggleModificarEstadoFisico, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TextoAltaJugadorEstadoFisico1, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(TextoAltaJugadorEstadoFisico1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(93, 93, 93))))
         );
         PanelModificarJugadorLayout.setVerticalGroup(
@@ -2203,7 +2203,7 @@ public class MainWindow extends javax.swing.JFrame {
                                 .addComponent(jSeparator25, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelModificarJugadorLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(BtnModificarJugador, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(60, 60, 60))))
                     .addGroup(PanelModificarJugadorLayout.createSequentialGroup()
@@ -3812,7 +3812,13 @@ public class MainWindow extends javax.swing.JFrame {
         return BtnImprimirTXTSortedNombre;
     }
     
+    public JComboBox<Meses> getComBoxMesNominaModificar() {
+        return ComBoxMesNominaModificar;
+    }
+    
     // </editor-fold>
+
+    
     
     
     

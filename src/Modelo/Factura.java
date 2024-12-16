@@ -18,7 +18,6 @@ public class Factura {
     private float cantidad;
     private String fechaPago;
     private Cliente cliente;
-    private List<Factura> facturas = new ArrayList<Factura>();
 
     /**
      * Constructor que inicializa una factura con los datos proporcionados.
@@ -33,7 +32,6 @@ public class Factura {
         this.cantidad = cantidad;
         this.fechaPago = fechaPago;
         this.cliente = cliente;
-        facturas.add(this);
     }
 
     /**
@@ -108,30 +106,5 @@ public class Factura {
         this.cliente = cliente;
     }
 
-    /**
-     * Obtiene la lista de facturas.
-     * 
-     * @return la lista de facturas
-     */
-    public List<Factura> getFacturas() {
-        return facturas;
-    }
 
-    /**
-     * Establece la lista de facturas.
-     * 
-     * @param facturas la lista de facturas a establecer
-     */
-    public void setFacturas(List<Factura> facturas) {
-        this.facturas = facturas;
-    }
-
-    /**
-     * Agrega una factura a la lista de facturas.
-     * 
-     * @param factura la factura a agregar
-     */
-    public void setFacturas(Factura factura) {
-        facturas.add(factura);
-    }
 }

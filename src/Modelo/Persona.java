@@ -1,6 +1,8 @@
 package Modelo;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Clase abstracta que representa una persona, base para otros tipos de personas
@@ -37,13 +39,12 @@ public abstract class Persona {
     /**
      * La fecha en la que la persona fue despedida, si aplica
      */
-    private Nomina nomina;
+    private List<Nomina> listaNominas = new ArrayList<>();
+
 
     /**
      * La nómina asociada a la persona
      */
-
-
     /**
      * Constructor de la clase Persona. Inicializa los datos básicos de la
      * persona, como el DNI, nombre, apellido, teléfono, y la agrega al gestor
@@ -152,8 +153,12 @@ public abstract class Persona {
      *
      * @return La nómina de la persona
      */
-    public Nomina getNomina() {
-        return nomina;
+    public Nomina getNominaIndex(int i) {
+        return listaNominas.get(i);
+    }
+    
+    public List<Nomina> getNomina() {
+        return listaNominas;
     }
 
     /**
@@ -161,8 +166,51 @@ public abstract class Persona {
      *
      * @param nomina La nómina a asignar
      */
-    public void setNomina(Nomina nomina) {
-        this.nomina = nomina;
+    public void setNomina(Nomina n) {
+        listaNominas.add(n);
+    }
+
+    public List<Nomina> getListaNominas() {
+        return listaNominas;
+    }
+
+    public void setListaNominas(List<Nomina> listaNominas) {
+        this.listaNominas = listaNominas;
+    }
+
+    public Nomina nominaMes(Meses mes) {
+
+        if (!listaNominas.isEmpty()) {
+            for (Nomina n : listaNominas) {
+                if (n.getMes() == mes) {
+                    return n;
+                }
+            }
+        }
+        return null;
+        
+    }
+    
+    
+
+    public List<Concepto> getTodosConceptos() {
+        List<Concepto> conceptos = new ArrayList<>();
+        for (Nomina n : listaNominas) {
+            for (Concepto c : n.getConceptos()) {
+                conceptos.add(c);
+            }
+        }
+        return conceptos;
+    }
+
+    public Concepto getConceptosIndice(int index) {
+        List<Concepto> conceptos = new ArrayList<>();
+        for (Nomina n : listaNominas) {
+            for (Concepto c : n.getConceptos()) {
+                conceptos.add(c);
+            }
+        }
+        return conceptos.get(index);
     }
 
     /**
@@ -187,6 +235,5 @@ public abstract class Persona {
     public String toString() {
         return nombre + " " + apellido + ". Rol: " + this.getClass().getSimpleName();
     }
-    
-    
+
 }

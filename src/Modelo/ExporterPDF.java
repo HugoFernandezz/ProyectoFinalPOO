@@ -160,30 +160,42 @@ public class ExporterPDF {
                 System.out.println("[*]La lista que está intentando utilizar está vacía.");
             } else {
                 int indice = 0;
-                for (Nomina nomina : Gestor.getInstancia().getListaNominas()) {
-                    Paragraph paragraph = new Paragraph();
-                    indice++;
 
-                    documento.add(new Paragraph("----------------------------------------------------------------------------"));
-                    documento.add(paragraph);
-                    documento.add(new Paragraph("Nómina número: " + indice));
-                    documento.add(paragraph);
-                    documento.add(new Paragraph("Nombre y apellidos: " + nomina.getPersona().getNombre() + " " + nomina.getPersona().getApellido()));
-                    documento.add(paragraph);
-                    documento.add(new Paragraph("DNI: " + nomina.getPersona().getDni()));
-                    documento.add(paragraph);
+                for (Persona p : Gestor.getInstancia().ListaPersonasDentroDelClub()) {
+                    if (Gestor.getInstancia().tieneNomina(p) == true) {
+                        for (Nomina n : p.getListaNominas()) {
 
-                    for (Concepto concepto : nomina.getConceptos()) {
-                        documento.add(new Paragraph("+++++++++++++++++++++++++++++++++++++++++++++++++++++"));
-                        documento.add(paragraph);
-                        documento.add(new Paragraph("Descripción del concepto: " + concepto.getDescripcion()));
-                        documento.add(paragraph);
-                        documento.add(new Paragraph("Importe: " + concepto.getImporte() + " euros"));
-                        documento.add(paragraph);
-                        documento.add(new Paragraph("Código único del concepto: " + concepto.getCodigo()));
-                        documento.add(paragraph);
+                            Paragraph paragraph = new Paragraph();
+
+                            documento.add(new Paragraph("----------------------------------------------------------------------------"));
+                            documento.add(paragraph);
+                            documento.add(new Paragraph("Nómina número: " + (indice+1)));
+                            documento.add(paragraph);
+                            documento.add(new Paragraph("Mes de la nómina: " + n.getMes()));
+                            documento.add(paragraph);
+                            documento.add(new Paragraph("Nombre y apellidos: " + p.getNombre() + " " + p.getApellido()));
+                            documento.add(paragraph);
+                            documento.add(new Paragraph("DNI: " + p.getDni()));
+                            documento.add(paragraph);
+
+                            for (Concepto concepto : p.getNominaIndex(indice).getConceptos()) {
+                                documento.add(new Paragraph("+++++++++++++++++++++++++++++++++++++++++++++++++++++"));
+                                documento.add(paragraph);
+                                documento.add(new Paragraph("Descripción del concepto: " + concepto.getDescripcion()));
+                                documento.add(paragraph);
+                                documento.add(new Paragraph("Importe: " + concepto.getImporte() + " euros"));
+                                documento.add(paragraph);
+                                documento.add(new Paragraph("Código único del concepto: " + concepto.getCodigo()));
+                                documento.add(paragraph);
+                            }
+
+                            indice++;
+
+                        }
                     }
+
                 }
+
             }
 
         } catch (DocumentException | IOException e) {

@@ -26,11 +26,7 @@ public class Nomina {
     /**
      * Lista de los conceptos asociados a la nómina
      */
-    private Persona persona;
-
-    /**
-     * La persona a la que corresponde la nómina
-     */
+    
     /**
      * Constructor de la clase Nomina. Crea una nueva nómina con un mes, año y
      * concepto inicial, y asigna la persona asociada a la nómina.
@@ -42,8 +38,6 @@ public class Nomina {
      */
     public Nomina(Meses mes, int ano, Concepto concepto, Persona persona) {
         this(mes, ano, concepto); // Delegación al constructor más básico
-        this.persona = persona;
-        persona.setNomina(this);
     }
 
     /**
@@ -57,7 +51,7 @@ public class Nomina {
     public Nomina(Meses mes, int ano, Concepto concepto) {
         this.mes = mes;
         this.ano = ano;
-        conceptos.add(concepto);
+        this.setConcepto(concepto);
         Gestor.getInstancia().agregarNomina(this);
     }
 
@@ -71,7 +65,6 @@ public class Nomina {
         this.mes = otra.mes;
         this.ano = otra.ano;
         conceptos.addAll(otra.getConceptos());
-        this.persona = otra.persona;
     }
 
     /**
@@ -110,23 +103,7 @@ public class Nomina {
         this.ano = ano;
     }
 
-    /**
-     * Obtiene la persona asociada a la nómina.
-     *
-     * @return La persona asociada a la nómina
-     */
-    public Persona getPersona() {
-        return persona;
-    }
 
-    /**
-     * Establece la persona asociada a la nómina.
-     *
-     * @param persona La persona a asignar a la nómina
-     */
-    public void setPersona(Persona persona) {
-        this.persona = persona;
-    }
 
     /**
      * Obtiene la lista de conceptos de la nómina.

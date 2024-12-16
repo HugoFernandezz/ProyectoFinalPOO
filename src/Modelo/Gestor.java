@@ -4,7 +4,6 @@
  */
 package Modelo;
 
-
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -143,13 +142,13 @@ public class Gestor {
         }
         return listaPersonasDentroClub;
     }
-    
+
     public List<Jugador> ListaJugadoresActivos() {
         List<Jugador> ListaJugadoresActivos = new ArrayList<>();;
         for (Persona persona : getListaPersonas()) {
             if (persona.isIsOnClub() && persona instanceof Jugador) {
-                Jugador j = (Jugador)persona;
-               ListaJugadoresActivos.add(j);
+                Jugador j = (Jugador) persona;
+                ListaJugadoresActivos.add(j);
             }
 
         }
@@ -171,42 +170,51 @@ public class Gestor {
     }
 
     public Concepto recuperarConceptoPorID(String id) {
-
+        int index = 0;
         for (Persona p : getListaPersonas()) {
 
-            for (Concepto concepto : p.getNomina().getConceptos()) {
+            for (Concepto concepto : p.getNominaIndex(index).getConceptos()) {
                 if (concepto != null) {
                     if (concepto.getCodigo() == id) {
                         return concepto;
                     }
                 }
             }
-
+            index++;
         }
 
         return null;
 
     }
-    
-    public void removeConceptoPorID(String id, Persona p){
- 
-        p.getNomina().deleteConcepto(id);
-        
+
+    public void removeConceptoPorID(String id, Persona p) {
+
+        for (Nomina nomina : p.getListaNominas()) {
+            nomina.deleteConcepto(id);
+        }
+
     }
 
     public Concepto recuperarConceptoPorIndice(int index, Persona p) {
 
-        if (p.getNomina() == null) {
+        if (!Gestor.getInstancia().tieneNomina(p)) {
             return null;
         }
 
-        return p.getNomina().getConcepto(index);
+        return p.getConceptosIndice(index);
 
+    }
+
+    public Concepto recuperarConceptoPorIndice(int index, Persona p, Meses mes) {
+        if (Gestor.getInstancia().tieneNomina(p)) {
+            p.nominaMes(mes).getConcepto(index);
+        }
+        return null;
     }
 
     public void borrarConceptoPorIndice(int index, Persona p) {
 
-        p.getNomina().deleteConcepto(index);
+        p.getNominaIndex(index).deleteConcepto(index);
 
     }
 
@@ -356,6 +364,30 @@ public class Gestor {
         this.listaNominas = listaNominas;
     }
 
+    public boolean tieneNomina(Persona p) {
+
+        if (p.getTodosConceptos().isEmpty() == true) {
+            return false;
+        } else {
+            return true;
+        }
+
+    }
+
+    public Nomina buscarNominaPorConceptoID(String id) {
+        for (Persona p : ListaJugadoresActivos()) {
+            for (Nomina n : p.getNomina()) {
+                for (Concepto c : n.getConceptos()) {
+                    if (c.getCodigo().equals(id)) {
+                        return n;
+                    }
+                }
+            }
+        }
+        return null;
+
+    }
+
     // <editor-fold defaultstate="collapsed" desc="Metodos generadores de archivos texto">
     /**
      * Crea un archivo si no existe.
@@ -469,26 +501,30 @@ public class Gestor {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(listadoNominas, false))) {
             int indice = 0;
 
-            for (Nomina nomina : getListaNominas()) {
-                indice++;
-                writer.write("----------------------------------------------------------------------------");
-                writer.newLine(); // Para hacer un salto de línea
-                writer.write("Nomina numero: " + indice);
-                writer.newLine(); // Para hacer un salto de línea
-                writer.write("Nombre y apellidos: " + nomina.getPersona().getNombre() + " " + nomina.getPersona().getApellido());
-                writer.newLine(); // Para hacer un salto de línea
-                writer.write("DNI: " + nomina.getPersona().getDni());
-                writer.newLine(); // Para hacer un salto de línea
+            for (Persona p : Gestor.getInstancia().ListaPersonasDentroDelClub()) {
+                if (Gestor.getInstancia().tieneNomina(p) == true) {
 
-                for (Concepto concepto : nomina.getConceptos()) {
-                    writer.write("+++++++++++++++++++++++++++++++++++++++++++++++++++++");
+                    indice++;
+                    writer.write("----------------------------------------------------------------------------");
                     writer.newLine(); // Para hacer un salto de línea
-                    writer.write("Descripcion del concepto: " + concepto.getDescripcion());
+                    writer.write("Nomina numero: " + indice);
                     writer.newLine(); // Para hacer un salto de línea
-                    writer.write("Importe: " + concepto.getImporte() + " euros");
+                    writer.write("Nombre y apellidos: " + p.getNombre() + " " + p.getApellido());
                     writer.newLine(); // Para hacer un salto de línea
-                    writer.write("Codigo unico del concepto: " + concepto.getCodigo());
+                    writer.write("DNI: " + p.getDni());
                     writer.newLine(); // Para hacer un salto de línea
+
+                    for (Concepto concepto : p.getNominaIndex(indice).getConceptos()) {
+                        writer.write("+++++++++++++++++++++++++++++++++++++++++++++++++++++");
+                        writer.newLine(); // Para hacer un salto de línea
+                        writer.write("Descripcion del concepto: " + concepto.getDescripcion());
+                        writer.newLine(); // Para hacer un salto de línea
+                        writer.write("Importe: " + concepto.getImporte() + " euros");
+                        writer.newLine(); // Para hacer un salto de línea
+                        writer.write("Codigo unico del concepto: " + concepto.getCodigo());
+                        writer.newLine(); // Para hacer un salto de línea
+                    }
+
                 }
 
             }
