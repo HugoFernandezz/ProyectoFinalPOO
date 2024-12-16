@@ -8,7 +8,7 @@ public class Concepto {
 
     private String codigo;
     private String descripcion;
-    private int importe;
+    private float importe;
 
     /**
      * Constructor de la clase Concepto.
@@ -17,7 +17,7 @@ public class Concepto {
      * @param descripcion Descripción del concepto
      * @param importe Importe asociado al concepto
      */
-    public Concepto(String codigo, String descripcion, int importe) {
+    public Concepto(String codigo, String descripcion, float importe) {
         this.codigo = codigo;
         this.descripcion = descripcion;
         this.importe = importe;
@@ -64,7 +64,7 @@ public class Concepto {
      * 
      * @return el importe del concepto
      */
-    public int getImporte() {
+    public float getImporte() {
         return importe;
     }
 
