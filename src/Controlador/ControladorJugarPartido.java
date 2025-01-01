@@ -9,11 +9,25 @@ import Vista.MainWindow;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author HugoFDZ
+ * Controlador encargado de gestionar la lógica relacionada con jugar un partido.
+ * Permite configurar los goles, identificar si el usuario juega en casa o
+ * fuera de ella y, finalmente, registrar y mostrar el resultado del partido.
+ * <p>
+ * Hereda de {@link ControladorEscenas} para facilitar la navegación
+ * entre ventanas (escenas).
+ * </p>
+ * 
+ * <p><b>Autor:</b> HugoFDZ</p>
  */
 public class ControladorJugarPartido extends ControladorEscenas {
 
+    /**
+     * Constructor que recibe la ventana principal ({@link MainWindow})
+     * y llama al constructor de la superclase. Posteriormente, inicializa
+     * los eventos necesarios para la configuración del partido.
+     *
+     * @param mainWindow Instancia de la ventana principal de la aplicación.
+     */
     public ControladorJugarPartido(MainWindow mainWindow) {
 
         super(mainWindow);
@@ -21,7 +35,15 @@ public class ControladorJugarPartido extends ControladorEscenas {
         inicializarEventos();
 
     }
-
+    
+    /**
+     * Inicializa los eventos asociados a la pantalla de jugar partido. 
+     * <ul>
+     *   <li>Botón para regresar a la escena principal (Home).</li>
+     *   <li>Botón para confirmar y finalizar el partido, llamando a 
+     *       {@link #intentarJugarPartido()}.</li>
+     * </ul>
+     */
     private void inicializarEventos() {
 
         mainWindow.getBtnHomePartido().addActionListener(e -> cambiarEscena(CARD_HOME));
@@ -30,6 +52,11 @@ public class ControladorJugarPartido extends ControladorEscenas {
 
     }
 
+    /**
+     * Verifica que se haya introducido el nombre del equipo rival antes 
+     * de crear y terminar el partido. En caso de que no se haya especificado
+     * (placeholder presente), muestra un mensaje de error.
+     */
     private void intentarJugarPartido() {
 
         if (mainWindow.getInputNombreRival().getText().contains("Inserte el nombre del equipo rival...")) {
@@ -40,6 +67,12 @@ public class ControladorJugarPartido extends ControladorEscenas {
 
     }
 
+    /**
+     * Registra un nuevo partido en el {@link Gestor}, tomando la información
+     * introducida por el usuario: goles de local y visitante, nombre del rival
+     * y si el usuario juega como local o visitante. Posteriormente,
+     * muestra el resultado final.
+     */
     private void jugarPartido() {
         int local = (Integer) mainWindow.getLocalGolesSpinner().getValue();
         int visitante = (Integer) mainWindow.getVisitanteGolesSpinner().getValue();

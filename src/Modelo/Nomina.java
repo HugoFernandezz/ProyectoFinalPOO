@@ -165,6 +165,14 @@ public class Nomina {
         return conceptos.remove(indice);
     }
 
+    /**
+    * Elimina un objeto {@link Concepto} de la lista, basándose en el ID
+    * proporcionado. Para evitar problemas de concurrencia al eliminar elementos 
+    * mientras se recorre la lista, se crea una copia de la misma.
+    *
+    * @param id El identificador único ({@code String}) del {@link Concepto} que
+    *           se desea eliminar.
+    */
     public void deleteConcepto(String id) {
         //Tengo que recorrer una copia de la lista porque si borro un item de la lista que estoy recorriendo
         //me puede saltar una excepcion "java.util.ConcurrentModificationException"

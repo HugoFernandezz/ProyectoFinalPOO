@@ -15,12 +15,24 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
- *
- * @author HugoFDZ
+ * Controlador encargado de la gestión principal de personas en la aplicación,
+ * como la eliminación o el alta de nuevos integrantes. Extiende de 
+ * {@link ControladorGestorPersonas} para heredar las funcionalidades básicas.
+ * <p>
+ * En esta clase se inicializan los combo boxes con los enumerados correspondientes
+ * y se gestionan los eventos para dar de alta o eliminar personas.
+ * </p>
+ * 
+ * <p><b>Autor:</b> HugoFDZ</p>
  */
 public class ControladorGestion extends ControladorGestorPersonas {
     
-    
+    /**
+     * Constructor que recibe la ventana principal y llama al constructor 
+     * de la superclase. Luego, inicializa variables y eventos.
+     *
+     * @param mainWindow Instancia de la ventana principal {@link MainWindow}.
+     */
     public ControladorGestion(MainWindow mainWindow) {
         
         super(mainWindow);
@@ -31,6 +43,11 @@ public class ControladorGestion extends ControladorGestorPersonas {
         
     }
     
+    /**
+     * Inicializa y configura los componentes de la interfaz relacionados
+     * con la gestión de personas. Configura los modelos de enumerados en
+     * los distintos {@code JComboBox}.
+     */
     private void inicializarVariables() {
         
         tablaGestion = mainWindow.getTablaGestionPersonas();
@@ -48,6 +65,10 @@ public class ControladorGestion extends ControladorGestorPersonas {
         
     }
     
+    /**
+     * Establece los eventos para la ventana de gestión de personas, incluyendo
+     * la acción para dar de alta y para eliminar a la persona seleccionada.
+     */
     private void inicializarEventos() {
         
         mainWindow.getBtnDarDeAltaPersona().addActionListener(e -> cambiarEscena(CARD_DARDEALTA));
@@ -57,6 +78,13 @@ public class ControladorGestion extends ControladorGestorPersonas {
         
     }
     
+    /**
+     * Elimina la persona seleccionada de la lista general de la aplicación.
+     * Muestra un cuadro de confirmación para el usuario y, en caso afirmativo,
+     * remueve la fila correspondiente del modelo de la tabla.
+     *
+     * @param persona La persona a eliminar. Si es {@code null}, no se realiza ninguna acción.
+     */
     private void eliminarPersona(Persona persona) {
         Gestor.getInstancia().eliminarPersona(persona);
         DefaultTableModel model = (DefaultTableModel) tablaGestion.getModel();
@@ -70,18 +98,4 @@ public class ControladorGestion extends ControladorGestorPersonas {
         
     }
 
-
-    
-    
-    
-    
-    
-
-    
-    
-    
-    
-    
- 
-    
 }

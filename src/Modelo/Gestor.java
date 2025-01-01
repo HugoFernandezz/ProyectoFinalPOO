@@ -169,6 +169,15 @@ public class Gestor {
         return listaPersonas.get(indice - 1);
     }
 
+    /**
+     * Recupera un concepto a partir de su ID. Para cada persona existente, 
+     * se obtiene la nómina según un índice y luego se recorren sus conceptos 
+     * hasta encontrar aquel que coincida con el ID proporcionado.
+     *
+     * @param id Identificador único del {@link Concepto}.
+     * @return El objeto {@link Concepto} que coincide con el ID, o {@code null}
+     *         si no se encuentra.
+     */
     public Concepto recuperarConceptoPorID(String id) {
         int index = 0;
         for (Persona p : getListaPersonas()) {
@@ -187,6 +196,14 @@ public class Gestor {
 
     }
 
+    /**
+     * Elimina un concepto de todas las nóminas de la persona dada, 
+     * buscando el concepto por su ID.
+     *
+     * @param id Identificador del concepto a eliminar.
+     * @param p  La {@link Persona} de la que se eliminará el concepto
+     *           en cada una de sus nóminas.
+     */
     public void removeConceptoPorID(String id, Persona p) {
 
         for (Nomina nomina : p.getListaNominas()) {
@@ -195,6 +212,15 @@ public class Gestor {
 
     }
 
+    /**
+     * Recupera un concepto según un índice específico, dentro de la
+     * lista de conceptos de la persona dada.
+     *
+     * @param index Índice del concepto que se desea recuperar.
+     * @param p     La {@link Persona} que contiene las nóminas y los conceptos.
+     * @return El {@link Concepto} ubicado en la posición indicada, o 
+     *         {@code null} si la persona no tiene nóminas.
+     */
     public Concepto recuperarConceptoPorIndice(int index, Persona p) {
 
         if (!Gestor.getInstancia().tieneNomina(p)) {
@@ -205,6 +231,17 @@ public class Gestor {
 
     }
 
+    /**
+     * Recupera un concepto según un índice y un mes específico, si la
+     * persona tiene al menos una nómina. Retorna {@code null} si no existe
+     * nómina o concepto en ese índice.
+     *
+     * @param index Índice del concepto dentro de la nómina del mes indicado.
+     * @param p     La {@link Persona} que contiene las nóminas.
+     * @param mes   El mes de la nómina a consultar.
+     * @return El {@link Concepto} correspondiente al índice y mes, 
+     *         o {@code null} si no se encuentra.
+     */
     public Concepto recuperarConceptoPorIndice(int index, Persona p, Meses mes) {
         if (Gestor.getInstancia().tieneNomina(p)) {
             p.nominaMes(mes).getConcepto(index);
@@ -212,6 +249,14 @@ public class Gestor {
         return null;
     }
 
+    /**
+     * Borra un concepto de una persona según el índice proporcionado,
+     * obteniendo primero la nómina asociada a dicho índice y llamando
+     * luego a la eliminación del concepto dentro de esa nómina.
+     *
+     * @param index Índice del concepto que se desea eliminar.
+     * @param p     La {@link Persona} de la que se eliminará el concepto.
+     */
     public void borrarConceptoPorIndice(int index, Persona p) {
 
         p.getNominaIndex(index).deleteConcepto(index);
@@ -364,6 +409,14 @@ public class Gestor {
         this.listaNominas = listaNominas;
     }
 
+    /**
+     * Verifica si una persona posee al menos una nómina con conceptos.
+     *
+     * @param p La {@link Persona} de la que se desea comprobar la existencia
+     *          de una nómina.
+     * @return {@code true} si la persona tiene al menos un concepto en alguna
+     *         de sus nóminas, {@code false} en caso contrario.
+     */
     public boolean tieneNomina(Persona p) {
 
         if (p.getTodosConceptos().isEmpty() == true) {
@@ -374,6 +427,15 @@ public class Gestor {
 
     }
 
+    /**
+     * Busca la nómina que contenga un concepto con el ID especificado,
+     * revisando entre todas las personas activas. Si la encuentra,
+     * retorna esa nómina; de lo contrario, retorna {@code null}.
+     *
+     * @param id Identificador del concepto que se quiere localizar.
+     * @return La {@link Nomina} que contiene el concepto buscado, o
+     *         {@code null} si no se encuentra.
+     */
     public Nomina buscarNominaPorConceptoID(String id) {
         for (Persona p : ListaJugadoresActivos()) {
             for (Nomina n : p.getNomina()) {

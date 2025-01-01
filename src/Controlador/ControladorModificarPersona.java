@@ -22,11 +22,22 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 
 /**
- *
- * @author HugoFDZ
+ * Controlador encargado de gestionar la modificación de datos de un jugador,
+ * técnico o directivo. Extiende de {@link ControladorGestorPersonas} para 
+ * aprovechar la capacidad de cambiar entre escenas y la manipulación de 
+ * la tabla de personas.
+ * 
+ * <p><b>Autor:</b> HugoFDZ</p>
  */
 public class ControladorModificarPersona extends ControladorGestorPersonas {
 
+    /**
+     * Constructor que recibe la ventana principal y llama al constructor
+     * de la superclase {@link ControladorGestorPersonas}. Posteriormente,
+     * inicializa variables y eventos necesarios para la modificación de personas.
+     *
+     * @param mainWindow Instancia de la ventana principal de la aplicación.
+     */
     public ControladorModificarPersona(MainWindow mainWindow) {
 
         super(mainWindow);
@@ -36,6 +47,11 @@ public class ControladorModificarPersona extends ControladorGestorPersonas {
         inicializarEventos();
     }
     
+    /**
+     * Inicializa y configura etiquetas (names) para ciertos paneles y 
+     * campos de la interfaz, de modo que sean reconocibles a la hora
+     * de identificar el tipo de persona (Jugador, Técnico, Directivo).
+     */
     private void inicializarVariables(){
     
         //"Tags"
@@ -48,6 +64,18 @@ public class ControladorModificarPersona extends ControladorGestorPersonas {
     
     }
 
+    /**
+     * Configura los eventos para:
+     * <ul>
+     *   <li>Modificar datos de jugador, técnico o directivo.</li>
+     *   <li>Asignar los modelos de los {@link JComboBox} para puestos, 
+     *       especialidades y demarcaciones.</li>
+     *   <li>Regresar a la escena de gestión y limpiar datos si se cancela 
+     *       la operación.</li>
+     *   <li>Llamar al proceso de modificación según la persona seleccionada 
+     *       en la tabla ({@link #cambiarEscenaModificacion(JTable)}).</li>
+     * </ul>
+     */
     private void inicializarEventos() {
 
         //Botones de modificar Personas
@@ -69,6 +97,10 @@ public class ControladorModificarPersona extends ControladorGestorPersonas {
 
     }
 
+    /**
+     * habilita todos los campos y botones de la interfaz relacionados
+     * con la modificación de personas, preparándolos para un nuevo uso.
+     */
     private void limpiarDatosPersona() {
         //Habilita todos los campos
         for (JTextField campo : mainWindow.getCamposModificarInputs()) {
@@ -88,6 +120,12 @@ public class ControladorModificarPersona extends ControladorGestorPersonas {
         }
     }
 
+    /**
+     * Lógica para modificar los datos de un {@link Jugador}. Recupera el DNI 
+     * para encontrar al jugador en el {@link Gestor}, y actualiza sus 
+     * propiedades (apellido, nombre, teléfono, valor de mercado, demarcación).
+     * Luego, refresca la tabla y notifica al usuario.
+     */
     private void modificarJugador() {
 
         String dni = mainWindow.getInputModificarJugadorDNI().getText();
@@ -117,6 +155,12 @@ public class ControladorModificarPersona extends ControladorGestorPersonas {
 
     }
 
+    /**
+     * Lógica para modificar los datos de un {@link Tecnico}. Recupera el DNI 
+     * para encontrar al técnico en el {@link Gestor}, y actualiza sus 
+     * propiedades (apellido, nombre, teléfono, especialidad, puesto).
+     * Luego, refresca la tabla y notifica al usuario.
+     */
     private void modificarTecnico() {
 
         String dni = mainWindow.getInputModificarTecnicoDNI().getText();
@@ -146,6 +190,12 @@ public class ControladorModificarPersona extends ControladorGestorPersonas {
 
     }
 
+    /**
+     * Lógica para modificar los datos de un {@link Directivo}. Recupera el DNI 
+     * para encontrar al directivo en el {@link Gestor}, y actualiza sus 
+     * propiedades (apellido, nombre, teléfono, cargo).
+     * Luego, refresca la tabla y notifica al usuario.
+     */
     private void modificarDirectivo() {
 
         String dni = mainWindow.getInputModificarDirectivoDNI().getText();
@@ -172,7 +222,15 @@ public class ControladorModificarPersona extends ControladorGestorPersonas {
 
     }
 
-    //Método para cambiar a la escena de modificar jugador (Requiere seleccionar un jugador)
+    /**
+     * Cambia a la escena de modificación según la persona seleccionada en la tabla.
+     * Si no hay ninguna persona seleccionada, muestra un mensaje de advertencia.
+     * De lo contrario, determina el tipo de persona y cambia al panel 
+     * correspondiente, limitando y rellenando los campos (ver 
+     * {@link #LimitarDatosModificacion(Persona)} y {@link #rellenarDatos(Persona)}).
+     *
+     * @param tabla La {@link JTable} donde se selecciona la persona.
+     */
     private void cambiarEscenaModificacion(JTable tabla) {
         if (isPersonaSeleccionada(tabla)) {
 
@@ -188,6 +246,13 @@ public class ControladorModificarPersona extends ControladorGestorPersonas {
         }
     }
     
+    /**
+     * Verifica si se ha seleccionado alguna fila en la tabla. 
+     * En caso de no existir una selección, muestra un mensaje y retorna false.
+     *
+     * @param tabla La {@link JTable} a verificar.
+     * @return <code>true</code> si se seleccionó una fila, <code>false</code> de lo contrario.
+     */
     private boolean isPersonaSeleccionada(JTable tabla) {
         if (tabla.getSelectedRow() == -1) {
             JOptionPane.showMessageDialog(null, "¡Debes seleccionar a la persona que quieres modificar!");
@@ -196,6 +261,15 @@ public class ControladorModificarPersona extends ControladorGestorPersonas {
         return true;
     }
     
+    /**
+     * Inhabilita (desactiva) todos aquellos campos y botones que no estén
+     * relacionados con la clase concreta de la persona seleccionada
+     * (Jugador, Técnico o Directivo). Los campos inhabilitados muestran
+     * el texto "No debe rellenar este campo".
+     *
+     * @param persona La persona seleccionada, para determinar qué campos 
+     *                y botones se deben deshabilitar.
+     */
     private void LimitarDatosModificacion(Persona persona) {
         //Inhabilita todos los campos que no sean del tipo de persona seleccionado
         for (JTextField campo : mainWindow.getCamposModificarInputs()) {
@@ -223,6 +297,14 @@ public class ControladorModificarPersona extends ControladorGestorPersonas {
         
     }
 
+    /**
+     * Determina el índice del {@code JTabbedPane} y, por tanto, la vista de 
+     * modificación que debe mostrarse, en función del tipo de la persona seleccionada 
+     * (Jugador, Técnico o Directivo). Retorna la escena de modificación (CARD_MODIFICAR).
+     *
+     * @param persona La persona que se desea modificar.
+     * @return La cadena que representa la escena de modificación.
+     */
     private String obtenerPanelModificacionDestino(Persona persona) {
 
         if (persona.getClass().getSimpleName().contains("Jugador")) {
@@ -236,6 +318,17 @@ public class ControladorModificarPersona extends ControladorGestorPersonas {
         return CARD_MODIFICAR;
     }
 
+    /**
+     * Dependiendo del tipo específico de persona, llama a métodos de relleno
+     * distintos:
+     * <ul>
+     *   <li>Jugador -> {@link #rellenarDatoJugador(Jugador)}</li>
+     *   <li>Técnico -> {@link #rellenarDatoTecnico(Tecnico)}</li>
+     *   <li>Directivo -> {@link #rellenarDatoDirectivo(Directivo)}</li>
+     * </ul>
+     *
+     * @param persona Instancia de {@link Persona} que se desea editar.
+     */
     private void rellenarDatos(Persona persona) {
 
         if (persona instanceof Jugador) {
@@ -255,6 +348,13 @@ public class ControladorModificarPersona extends ControladorGestorPersonas {
 
     }
 
+    /**
+     * Rellena los campos del panel de modificación de jugador con la 
+     * información específica de la instancia {@link Jugador} recibida.
+     * Desactiva la edición del DNI para evitar inconsistencias.
+     *
+     * @param jugador Instancia de Jugador con los datos actuales.
+     */
     private void rellenarDatoJugador(Jugador jugador) {
         mainWindow.getInputModificarJugadorApellido().setText(jugador.getApellido());
         mainWindow.getInputModificarJugadorApellido().setForeground(Color.black);
@@ -272,6 +372,13 @@ public class ControladorModificarPersona extends ControladorGestorPersonas {
         mainWindow.getComBoxModificarDemarcacion().setSelectedItem(jugador.getDemarcacion());
     }
 
+    /**
+     * Rellena los campos del panel de modificación de técnico con la 
+     * información específica de la instancia {@link Tecnico} recibida.
+     * Desactiva la edición del DNI para evitar inconsistencias.
+     *
+     * @param tecnico Instancia de Tecnico con los datos actuales.
+     */
     private void rellenarDatoTecnico(Tecnico tecnico) {
         mainWindow.getInputModificarTecnicoApellido().setText(tecnico.getApellido());
         mainWindow.getInputModificarTecnicoApellido().setForeground(Color.black);
@@ -286,7 +393,14 @@ public class ControladorModificarPersona extends ControladorGestorPersonas {
         mainWindow.getComboBoxModificarTecnicoEspecialidad().setSelectedItem(tecnico.getEspecialidad());
 
     }
-
+    
+    /**
+     * Rellena los campos del panel de modificación de directivo con la 
+     * información específica de la instancia {@link Directivo} recibida.
+     * Desactiva la edición del DNI para evitar inconsistencias.
+     *
+     * @param directivo Instancia de Directivo con los datos actuales.
+     */
     private void rellenarDatoDirectivo(Directivo directivo) {
         mainWindow.getInputModificarDirectivoApellido().setText(directivo.getApellido());
         mainWindow.getInputModificarDirectivoApellido().setForeground(Color.black);
@@ -302,6 +416,13 @@ public class ControladorModificarPersona extends ControladorGestorPersonas {
 
     }
     
+    /**
+     * Recupera la persona seleccionada en la {@link JTable} especificada,
+     * consultando al {@link Gestor} con el índice de la fila seleccionada.
+     *
+     * @param tabla Tabla que muestra la lista de personas.
+     * @return Instancia de {@link Persona} correspondiente a la fila seleccionada.
+     */
     private Persona recuperarPersonaDeTabla(JTable tabla) {
         filaSeleccionada = tabla.getSelectedRow();
         System.out.println("Se devolvio a " + Gestor.getInstancia().recuperarPersona(filaSeleccionada + 1).getNombre());

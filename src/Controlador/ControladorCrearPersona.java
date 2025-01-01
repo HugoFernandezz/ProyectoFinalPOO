@@ -17,11 +17,22 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 /**
+ * Controlador para crear distintas personas (jugador, técnico, directivo).
+ * Extiende la funcionalidad de ControladorGestorPersonas y gestiona 
+ * los eventos relacionados con la creación de personas en la interfaz.
  *
  * @author HugoFDZ
  */
 public class ControladorCrearPersona extends ControladorGestorPersonas {
 
+    
+    /**
+     * Constructor que recibe la ventana principal y llama al constructor 
+     * de la clase padre. Posteriormente, inicializa los eventos asociados 
+     * a la creación de personas.
+     *
+     * @param mainWindow Instancia de la ventana principal de la aplicación.
+     */
     public ControladorCrearPersona(MainWindow mainWindow) {
 
         super(mainWindow);
@@ -30,6 +41,11 @@ public class ControladorCrearPersona extends ControladorGestorPersonas {
 
     }
 
+    
+    /**
+     * Inicializa los eventos para la creación de jugadores, técnicos 
+     * y directivos. Asocia cada acción a un método correspondiente.
+     */
     private void inicializarEventos() {
 
         mainWindow.getBtnCrearJugador().addActionListener(e -> intentarCrearJugador());
@@ -39,6 +55,12 @@ public class ControladorCrearPersona extends ControladorGestorPersonas {
 
     }
 
+    
+    /**
+     * Verifica si los campos para la creación de un jugador están completos.
+     * Si no están vacíos, procede a crear el jugador llamando a {@link #crearJugador()}.
+     * De lo contrario, muestra un mensaje de error.
+     */
     private void intentarCrearJugador() {
 
         //Creo la lista de campos que tiene que rellenar
@@ -58,6 +80,12 @@ public class ControladorCrearPersona extends ControladorGestorPersonas {
 
     }
 
+    
+     /**
+     * Crea un objeto de tipo {@link Jugador} con la información 
+     * ingresada en el formulario. Actualiza el modelo de la tabla de personas 
+     * y muestra un mensaje de confirmación.
+     */
     private void crearJugador() {
 
         String nombre = mainWindow.getInputAltaJugadorNombre().getText();
@@ -80,6 +108,12 @@ public class ControladorCrearPersona extends ControladorGestorPersonas {
         cambiarEscena(CARD_GESTION);
     }
 
+    
+    /**
+     * Verifica si los campos para la creación de un técnico están completos.
+     * Si no están vacíos, procede a crear el técnico llamando a {@link #crearTecnico()}.
+     * De lo contrario, muestra un mensaje de error.
+     */
     private void intentarCrearTecnico() {
 
         //Creo la lista de campos que tiene que rellenar
@@ -97,6 +131,12 @@ public class ControladorCrearPersona extends ControladorGestorPersonas {
 
     }
 
+    
+    /**
+     * Crea un objeto de tipo {@link Tecnico} con la información 
+     * ingresada en el formulario. Actualiza el modelo de la tabla de personas 
+     * y muestra un mensaje de confirmación.
+     */
     private void crearTecnico() {
         String nombre = mainWindow.getInputAltaTecnicoNombre().getText();
         String apellido = mainWindow.getInputAltaTecnicoApellido().getText();
@@ -114,6 +154,12 @@ public class ControladorCrearPersona extends ControladorGestorPersonas {
         cambiarEscena(CARD_GESTION);
     }
 
+    
+    /**
+     * Verifica si los campos para la creación de un directivo están completos.
+     * Si no están vacíos, procede a crear el directivo llamando a {@link #crearDirectivo()}.
+     * De lo contrario, muestra un mensaje de error.
+     */
     private void intentarCrearDirectivo() {
 
         //Creo la lista de campos que tiene que rellenar
@@ -131,6 +177,12 @@ public class ControladorCrearPersona extends ControladorGestorPersonas {
 
     }
 
+    
+    /**
+     * Crea un objeto de tipo {@link Directivo} con la información 
+     * ingresada en el formulario. Actualiza el modelo de la tabla de personas 
+     * y muestra un mensaje de confirmación.
+     */
     private void crearDirectivo() {
         String nombre = mainWindow.getInputAltaDirectivoNombre().getText();
         String apellido = mainWindow.getInputAltaDirectivoApellido().getText();

@@ -7,8 +7,16 @@ package Controlador;
 import Vista.MainWindow;
 
 /**
- *
- * @author HugoFDZ
+ * Clase que centraliza la creación de la ventana principal {@link MainWindow}
+ * y la inicialización de todos los demás controladores de la aplicación.
+ * <p>
+ * Su principal labor es instanciar la ventana principal y cada uno de los
+ * controladores requeridos (imprimir, home, gestión, partidos, gastos, 
+ * creación y modificación de personas), para luego mostrar la interfaz
+ * al usuario.
+ * </p>
+ * 
+ * <p><b>Autor:</b> HugoFDZ</p>
  */
 public class ControladorPrincipal {
 
@@ -21,6 +29,14 @@ public class ControladorPrincipal {
     private final ControladorCrearPersona controladorCrearPersona;
     private final ControladorModificarPersona controladorModificarPersona;
 
+    /**
+     * Constructor por defecto. Se encarga de:
+     * <ul>
+     *   <li>Instanciar la {@link MainWindow}.</li>
+     *   <li>Crear todos los controladores asociados a la aplicación.</li>
+     *   <li>Configurar la ventana principal y mostrarla en pantalla.</li>
+     * </ul>
+     */
     public ControladorPrincipal() {
         // Instancia única de la ventana principal
         mainWindow = new MainWindow();

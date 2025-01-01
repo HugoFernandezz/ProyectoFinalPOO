@@ -69,7 +69,8 @@ public class App {
         Directivo Juan = new Directivo("Juan", "Lopez", "67890123V", 612345604, "Responsable de Marketing");
 
         // </editor-fold>
-        
+        /** Se crea la instancia principal que inicializa la ventana (MainWindow) 
+        y todos los controladores de la aplicación, quedando lista para su uso.*/ 
         ControladorPrincipal controladorPrincipal = new ControladorPrincipal();
 
     }

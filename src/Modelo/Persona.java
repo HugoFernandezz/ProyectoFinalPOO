@@ -170,14 +170,30 @@ public abstract class Persona {
         listaNominas.add(n);
     }
 
+    /**
+     * Obtiene la lista de nóminas asociadas a la persona.
+     *
+     * @return Lista de {@link Nomina} pertenecientes a la persona.
+     */
     public List<Nomina> getListaNominas() {
         return listaNominas;
     }
 
+    /**
+     * Establece la lista de nóminas para la persona.
+     *
+     * @param listaNominas Lista de nóminas a asignar.
+     */
     public void setListaNominas(List<Nomina> listaNominas) {
         this.listaNominas = listaNominas;
     }
 
+    /**
+     * Obtiene la nómina correspondiente a un mes específico.
+     * 
+     * @param mes Mes del que se desea obtener la nómina.
+     * @return La nómina del mes indicado, o {@code null} si no existe para ese mes.
+     */
     public Nomina nominaMes(Meses mes) {
 
         if (!listaNominas.isEmpty()) {
@@ -191,8 +207,12 @@ public abstract class Persona {
         
     }
     
-    
-
+    /**
+     * Retorna una lista con todos los conceptos de todas las nóminas.
+     * 
+     * @return Lista que contiene todos los {@link Concepto} encontrados 
+     *         en cada una de las nóminas.
+     */
     public List<Concepto> getTodosConceptos() {
         List<Concepto> conceptos = new ArrayList<>();
         for (Nomina n : listaNominas) {
@@ -203,6 +223,14 @@ public abstract class Persona {
         return conceptos;
     }
 
+    /**
+     * Retorna un concepto específico según el índice proporcionado,
+     * recorriendo todas las nóminas y agrupando sus conceptos.
+     * 
+     * @param index Índice del concepto que se desea obtener.
+     * @return El {@link Concepto} que se encuentra en la posición
+     *         especificada de la lista global de conceptos.
+     */
     public Concepto getConceptosIndice(int index) {
         List<Concepto> conceptos = new ArrayList<>();
         for (Nomina n : listaNominas) {
